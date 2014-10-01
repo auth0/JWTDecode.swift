@@ -24,6 +24,15 @@
 
 @interface A0JWTDecoder : NSObject
 
+/**
+ *  Decode and parse the JWT token and returns a `NSDate` with the expiration date of the JSON WebToken.
+ *  If there is an error when parsing the JWT, the parameter `error` will have the failure reason.
+ *
+ *  @param jwt   a JWT Token
+ *  @param error NSError if the decode fails
+ *
+ *  @return the expire date or nil if an error ocurrs.
+ */
 + (NSDate *)expireDateOfJWT:(NSString *)jwt error:(NSError **)error;
 
 @end

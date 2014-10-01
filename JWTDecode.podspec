@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version          = "0.1.0"
   s.summary          = "A JSON Web Token decoder for iOS"
   s.description      = <<-DESC
-                        A JSON Web Token decoder for iOS
+                        A Simple JSON Web Token decoder for iOS.
                         DESC
   s.homepage         = "https://github.com/auth0/JWTDecode.iOS"
   s.license          = 'MIT'
