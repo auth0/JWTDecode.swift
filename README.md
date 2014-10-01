@@ -20,7 +20,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-Hernan Zalazar, hernanzalazar@gmail.com
+Auth0
 
 ## License
 
