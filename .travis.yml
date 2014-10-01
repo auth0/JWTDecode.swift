@@ -6,14 +6,14 @@ cache:
   - bundler
   - cocoapods
 
-podfile: Examples/Podfile
+podfile: Example/Podfile
 
 before_install:
   - gem install cocoapods --no-ri --no-rdoc
   - gem install xcpretty --no-ri --no-rdoc
 
 script:
-  - xcodebuild -workspace Examples/JWTDecode.xcworkspace -scheme JWTDecode -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO test | xcpretty -c ; exit ${PIPESTATUS[0]}
+  - xcodebuild -workspace Example/JWTDecode.xcworkspace -scheme JWTDecode -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO test | xcpretty -c ; exit ${PIPESTATUS[0]}
 
 branches:
   only:
