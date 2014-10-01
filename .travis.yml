@@ -1,6 +1,20 @@
-# reference: http://www.objc.io/issue-6/travis-ci.html
+reference: http://www.objc.io/issue-6/travis-ci.html
 
 language: objective-c
-# before_install: cd Example && pod install && cd -
+
+cache:
+  - bundler
+  - cocoapods
+
+podfile: Examples/Podfile
+
+before_install:
+  - gem install cocoapods --no-ri --no-rdoc
+  - gem install xcpretty --no-ri --no-rdoc
+
 script:
-- xctool test -workspace Example/JWTDecode.xcworkspace -scheme JWTDecode -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xcodebuild -workspace Examples/JWTDecode.xcworkspace -scheme JWTDecode -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO test | xcpretty -c ; exit ${PIPESTATUS[0]}
+
+branches:
+  only:
+    - master
