@@ -32,8 +32,27 @@ NSError *ErrorWithDescription(NSString *description) {
 
 @implementation A0JWTDecoder
 
-+ (NSDate *)expireDateOfJWT:(NSString *)jwt error:(NSError **)error {
++ (NSDate *)expireDateOfJWT:(NSString *)jwt error:(NSError *__autoreleasing *)error {
     NSDate *expiresAt = nil;
+    NSError *decodeError;
+    NSDictionary *claimsJSON = [self payloadOfJWT:jwt error:&decodeError];
+    if (!decodeError && claimsJSON[@"exp"] && [claimsJSON[@"exp"] isKindOfClass:NSNumber.class]) {
+        NSNumber *expireFromEpoch = claimsJSON[@"exp"];
+        expiresAt = [NSDate dateWithTimeIntervalSince1970:expireFromEpoch.doubleValue];
+    }
+    if (error) {
+        *error = decodeError;
+    }
+    return expiresAt;
+}
+
++ (BOOL)isJWTExpired:(NSString *)jwt {
+    NSDate *expireDate = [self expireDateOfJWT:jwt error:nil];
+    return !expireDate || [expireDate compare:[NSDate date]] == NSOrderedAscending;
+}
+
++ (NSDictionary *)payloadOfJWT:(NSString *)jwt error:(NSError *__autoreleasing *)error {
+    NSDictionary *payload;
     NSError *decodeError;
     NSArray *parts = [jwt componentsSeparatedByString:@"."];
     if (parts.count == 3) {
@@ -50,15 +69,8 @@ NSError *ErrorWithDescription(NSString *description) {
         }
 
         NSData *claimsData = [[NSData alloc] initWithBase64EncodedString:claimsBase64 options:NSDataBase64DecodingIgnoreUnknownCharacters];
-        NSError *JSONError;
         if (claimsData) {
-            NSDictionary *claimsJSON = [NSJSONSerialization JSONObjectWithData:claimsData options:0 error:&JSONError];
-            if (!JSONError && claimsJSON[@"exp"] && [claimsJSON[@"exp"] isKindOfClass:NSNumber.class]) {
-                NSNumber *expireFromEpoch = claimsJSON[@"exp"];
-                expiresAt = [NSDate dateWithTimeIntervalSince1970:expireFromEpoch.doubleValue];
-            } else {
-                decodeError = ErrorWithDescription(@"Invalid id_token claims part. Not valid json or missing exp attr");
-            }
+            payload = [NSJSONSerialization JSONObjectWithData:claimsData options:0 error:&decodeError];
         } else {
             decodeError = ErrorWithDescription(@"Invalid id_token claims part. Failed to decode base64");
         }
@@ -68,6 +80,7 @@ NSError *ErrorWithDescription(NSString *description) {
     if (error) {
         *error = decodeError;
     }
-    return expiresAt;
+    return payload;
 }
+
 @end

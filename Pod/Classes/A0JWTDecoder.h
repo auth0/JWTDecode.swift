@@ -22,6 +22,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  `A0JWTDecoder` provides convenience methods to parse a JWT token and extract it's values. It only decodes the JWT token which is in Base64, it doesn't validate the signature of the token.
+ */
 @interface A0JWTDecoder : NSObject
 
 /**
@@ -34,5 +37,24 @@
  *  @return the expire date or nil if an error ocurrs.
  */
 + (NSDate *)expireDateOfJWT:(NSString *)jwt error:(NSError **)error;
+
+/**
+ *  Check if the token is expired using the device local time
+ *
+ *  @param jwt token to check expiration
+ *
+ *  @return if the token is expired or invalid it will return YES. Otherwise NO.
+ */
++ (BOOL)isJWTExpired:(NSString *)jwt;
+
+/**
+ *  Parse the token and returns it's values as a NSDictionary.
+ *
+ *  @param jwt   token to parse
+ *  @param error if the token has an invalid value it will be non-nil.
+ *
+ *  @return token payload as NSDictionary or nil if the token is invalid.
+ */
++ (NSDictionary *)payloadOfJWT:(NSString *)jwt error:(NSError **)error;
 
 @end
