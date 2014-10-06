@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/JWTDecode.svg?style=flat)](http://cocoadocs.org/docsets/JWTDecode)
 [![Platform](https://img.shields.io/cocoapods/p/JWTDecode.svg?style=flat)](http://cocoadocs.org/docsets/JWTDecode)
 
+This library will help you work with [JWTs](http://jwt.io/).
+
 > This library doesn't validate the token, any well formed JWT can be decoded from Base64.
 
 ## Usage
