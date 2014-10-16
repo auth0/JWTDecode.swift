@@ -1,20 +1,17 @@
 reference: http://www.objc.io/issue-6/travis-ci.html
-
 language: objective-c
-
 cache:
-  - bundler
-  - cocoapods
-
+- bundler
+- cocoapods
 podfile: Example/Podfile
-
 before_install:
   - gem install cocoapods --no-ri --no-rdoc
   - gem install xcpretty --no-ri --no-rdoc
-
 script:
   - xcodebuild -workspace Example/JWTDecode.xcworkspace -scheme JWTDecode -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO test | xcpretty -c ; exit ${PIPESTATUS[0]}
-
 branches:
   only:
-    - master
+  - master
+notifications:
+  slack:
+    secure: UIG9+o5gRYZGpRRBIB/9nFBoXvSOI3Ll63KuUMd/u/CvFpByLY0MSX5LY18v6hYqA3UNjEhOO9x1j91H7JOjbI0NYtq/7+qehUDWORaQc+NSUozKLmkIGm1M6RYayUw61J9fYpyt8AjpbGIb78i7T8ckz7dYkyhEJcGz7L+30pw=
