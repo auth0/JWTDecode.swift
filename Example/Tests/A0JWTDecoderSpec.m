@@ -23,6 +23,7 @@
 #import "Specta.h"
 #import "A0JWTDecoder.h"
 
+#define kJWTWithSpecialChars @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1M2VjNjdkODI1NDIyMzE3MDAzNGYxNzciLCJlbWFpbCI6Im15ZW1haWxAZ21haWwuY29tIiwicHJvZmlsZV9waWN0dXJlIjoiaHR0cDovL2Nkbi51YnVidWJ0ZXN0ZXIuaW8vN2Q4MjU0MjIzMTcwMDM0ZjE3Ny5wbmc_dD0xNDEzNDQyMTI4OTAwIiwiaWF0IjoxNDEzNDcyNzUyfQ.WEELiFZqavfxPcnZ7vz44gbPMbEc0xeCaaS53btTYXY"
 
 NSString *A0TokenJWTCreate(NSDate *expireDate) {
     NSString *claims = [NSString stringWithFormat:@"{\"exp\": %f}", expireDate.timeIntervalSince1970];
@@ -136,6 +137,21 @@ describe(@"A0JWTDecoder", ^{
             });
         });
 
+        context(@"valid id_token with special chars", ^{
+
+            beforeEach(^{
+                payload = [A0JWTDecoder payloadOfJWT:kJWTWithSpecialChars error:&error];
+            });
+
+            specify(@"payload", ^{
+                expect(payload).notTo.beEmpty();
+            });
+
+            specify(@"no error", ^{
+                expect(error).to.beNil();
+            });
+        });
+
         sharedExamplesFor(@"invalid id_token", ^(NSDictionary *data) {
 
             beforeEach(^{
@@ -150,9 +166,9 @@ describe(@"A0JWTDecoder", ^{
             specify(@"an error", ^{
                 expect(error).toNot.beNil();
             });
-
+            
         });
-
+        
         itShouldBehaveLike(@"invalid id_token", @{ @"id_token": @"NOPARTS" });
         itShouldBehaveLike(@"invalid id_token", @{ @"id_token": @"NOTENOUGH.PARTS" });
         itShouldBehaveLike(@"invalid id_token", @{ @"id_token": @"HEADER.INVALIDCLAIM.SIGNATURE" });
