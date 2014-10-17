@@ -61,6 +61,9 @@ NSError *ErrorWithDescription(NSString *description) {
         NSInteger requiredLength = (4 * ceil((double)claimsLength / 4.0));
         NSInteger paddingCount = requiredLength - claimsLength;
 
+        claimsBase64 = [claimsBase64 stringByReplacingOccurrencesOfString:@"-" withString:@"+"];
+        claimsBase64 = [claimsBase64 stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
+
         if (paddingCount > 0) {
             NSString *padding =
             [[NSString string] stringByPaddingToLength:paddingCount
