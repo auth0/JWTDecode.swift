@@ -71,15 +71,6 @@ let jwt = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NhbXBsZXMu
 let expired = A0JWTDecoder.isJWTExpired(jwt)
 ```
 
-## Issue Reporting
-
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
-
-## Author
-
-[Auth0](auth0.com)
-
-
 ## What is Auth0?
 
 Auth0 helps you to:
@@ -91,12 +82,19 @@ Auth0 helps you to:
 * Analytics of how, when and where users are logging in.
 * Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.auth0.com/rules).
 
-## Create a free account in Auth0
+## Create a free Auth0 Account
 
 1. Go to [Auth0](https://auth0.com) and click Sign Up.
 2. Use Google, GitHub or Microsoft Account to login.
 
+## Issue Reporting
+
+If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+
+## Author
+
+[Auth0](auth0.com)
+
 ## License
 
-JWTDecode is available under the MIT license. See the [LICENSE file](https://github.com/auth0/JWTDecode.iOS/blob/master/LICENSE) for more info.
-
+This project is licensed under the MIT license. See the [LICENSE](LICENSE.txt) file for more info.
