@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5F0068E11B3B46240048928E"
-               BuildableName = "JWTDecode-iOS.framework"
+               BuildableName = "JWTDecode.framework"
                BlueprintName = "JWTDecode-iOS"
                ReferencedContainer = "container:JWTDecode.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F0068E11B3B46240048928E"
-            BuildableName = "JWTDecode-iOS.framework"
+            BuildableName = "JWTDecode.framework"
             BlueprintName = "JWTDecode-iOS"
             ReferencedContainer = "container:JWTDecode.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F0068E11B3B46240048928E"
-            BuildableName = "JWTDecode-iOS.framework"
+            BuildableName = "JWTDecode.framework"
             BlueprintName = "JWTDecode-iOS"
             ReferencedContainer = "container:JWTDecode.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F0068E11B3B46240048928E"
-            BuildableName = "JWTDecode-iOS.framework"
+            BuildableName = "JWTDecode.framework"
             BlueprintName = "JWTDecode-iOS"
             ReferencedContainer = "container:JWTDecode.xcodeproj">
          </BuildableReference>
