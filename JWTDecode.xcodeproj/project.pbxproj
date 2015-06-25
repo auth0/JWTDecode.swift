@@ -15,12 +15,12 @@
 		5F0069141B3B532E0048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069091B3B532E0048928E /* JWTDecode.framework */; };
 		5F0069231B3C4A7F0048928E /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */; };
 		5F0069241B3C4A860048928E /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */; };
-		5F0069281B3C52210048928E /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F0068FE1B3B50EA0048928E /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5F0069291B3C52210048928E /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F0068FF1B3B50EA0048928E /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5F0069281B3C52210048928E /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F0068FE1B3B50EA0048928E /* Nimble.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5F0069291B3C52210048928E /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F0068FF1B3B50EA0048928E /* Quick.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5F0069391B3C790D0048928E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069371B3C790D0048928E /* Nimble.framework */; };
 		5F00693A1B3C790D0048928E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069381B3C790D0048928E /* Quick.framework */; };
-		5F00693B1B3C79560048928E /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F0069371B3C790D0048928E /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5F00693C1B3C79560048928E /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F0069381B3C790D0048928E /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5F00693B1B3C79560048928E /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F0069371B3C790D0048928E /* Nimble.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5F00693C1B3C79560048928E /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F0069381B3C790D0048928E /* Quick.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5F00693D1B3C7B630048928E /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0068E71B3B46240048928E /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F00693E1B3C7B930048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		5F0069411B3C828F0048928E /* A0JWTDecodeSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */; };
@@ -711,6 +711,7 @@
 				5F00691E1B3B532E0048928E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5F00691F1B3B532E0048928E /* Build configuration list for PBXNativeTarget "JWTDecode-OSXTests" */ = {
 			isa = XCConfigurationList;
@@ -719,6 +720,7 @@
 				5F0069211B3B532E0048928E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
