@@ -1,8 +1,16 @@
 # Change Log
 
-## [Unreleased](https://github.com/auth0/JWTDecode.swift/tree/HEAD)
+## [0.3.0](https://github.com/auth0/JWTDecode.swift/tree/0.3.0) (2015-06-26)
 
-[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/0.2.1...HEAD)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/0.2.2...0.3.0)
+
+**Merged pull requests:**
+
+- Migrate to Swift [\#5](https://github.com/auth0/JWTDecode.swift/pull/5) ([hzalaz](https://github.com/hzalaz))
+
+## [0.2.2](https://github.com/auth0/JWTDecode.swift/tree/0.2.2) (2015-06-26)
+
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/0.2.1...0.2.2)
 
 **Closed issues:**
 

@@ -4,7 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/JWTDecode.svg?style=flat-square)](http://cocoadocs.org/docsets/JWTDecode)
 [![License](https://img.shields.io/cocoapods/l/JWTDecode.svg?style=flat-square)](http://cocoadocs.org/docsets/JWTDecode)
 [![Platform](https://img.shields.io/cocoapods/p/JWTDecode.svg?style=flat-square)](http://cocoadocs.org/docsets/JWTDecode)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 
 This library will help you check [JWT](http://jwt.io/) payload
 
