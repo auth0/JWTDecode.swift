@@ -1,0 +1,4 @@
+#Quick & Nimble
+
+github "Quick/Quick" ~> 0.3
+github "Quick/Nimble" ~> 0.4

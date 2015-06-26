@@ -23,3 +23,5 @@ DerivedData
 .bundle
 
 Pods/
+Carthage/
+!Carthage/Build

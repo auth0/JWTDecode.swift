@@ -1,9 +1,0 @@
-source "https://github.com/CocoaPods/Specs.git"
-
-target "JWTDecode", :exclusive => true do
-
-  pod "JWTDecode", :path => "../"
-
-  pod "Specta", "~> 0.2.1", :inhibit_warnings => true
-  pod "Expecta"
-end
