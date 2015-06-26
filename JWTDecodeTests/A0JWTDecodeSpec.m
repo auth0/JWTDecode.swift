@@ -50,7 +50,7 @@ describe(@"Objc support", ^{
     });
 
     it(@"should return exp date", ^{
-        expect(decoder.expiredDate).to(beNil());
+        expect(decoder.expireDate).to(beNil());
     });
 });
 

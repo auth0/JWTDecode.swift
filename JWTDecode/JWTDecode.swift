@@ -52,8 +52,8 @@ Returns the value of the `exp` claim
 
 :returns: date that the JWT will expire or nil
 */
-public func expiredDate(#jwt: String) -> NSDate? {
-    return JWTDecoder(jwt: jwt).expiredDate
+public func expireDate(#jwt: String) -> NSDate? {
+    return JWTDecoder(jwt: jwt).expireDate
 }
 
 private func errorWithDescription(description: String) -> NSError {
@@ -116,14 +116,14 @@ public class JWTDecoder: NSObject {
 
     /// If the JWT is expired or not
     public var expired: Bool {
-        if let date = self.expiredDate {
+        if let date = self.expireDate {
             return date.compare(NSDate()) == .OrderedAscending
         }
         return true
     }
 
     /// Date when the JWT will expire
-    public var expiredDate: NSDate? {
+    public var expireDate: NSDate? {
         if let payload = self.payloadWithError(nil), let exp = payload["exp"] as? Double {
             return NSDate(timeIntervalSince1970: exp)
         }

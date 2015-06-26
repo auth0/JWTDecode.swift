@@ -68,7 +68,7 @@ class JWTDecodeSpec: QuickSpec {
             }
 
             it("should return expire date") {
-                expect(JWTDecode.expiredDate(jwt: expiredJWT)).toNot(beNil())
+                expect(JWTDecode.expireDate(jwt: expiredJWT)).toNot(beNil())
             }
 
             it("should return nil payload for invalid jwt") {
@@ -89,7 +89,7 @@ class JWTDecodeSpec: QuickSpec {
             }
 
             it("should return exp date") {
-                expect(decoder.expiredDate).toNot(beNil())
+                expect(decoder.expireDate).toNot(beNil())
             }
 
             context("invalid JWT") {
@@ -106,7 +106,7 @@ class JWTDecodeSpec: QuickSpec {
                 }
 
                 it("should return exp date") {
-                    expect(decoder.expiredDate).to(beNil())
+                    expect(decoder.expireDate).to(beNil())
                 }
             }
         }
