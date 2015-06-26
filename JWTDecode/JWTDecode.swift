@@ -22,31 +22,70 @@
 
 import Foundation
 
-func errorWithDescription(description: String) -> NSError {
-    return NSError(domain: "com.auth0.JWTDecode", code: 0, userInfo: [NSLocalizedDescriptionKey: description])
-}
+/**
+Decodes the JWT and return it's payload
 
+:param: jwt to be decoded
+
+:returns: the JWT payload or nil when it can be decoded
+*/
 public func payload(#jwt: String) -> [String: AnyObject]? {
     return JWTDecoder(jwt: jwt).payloadWithError(nil)
 }
 
+/**
+Check if the JWT is expired using the `exp` claim.
+If the `exp` claim is missing or the jwt can't be decoded it will return true
+
+:param: jwt that will be checked for expiration
+
+:returns: if the JWT is expired or not
+*/
 public func expired(#jwt: String) -> Bool {
     return JWTDecoder(jwt: jwt).expired
 }
 
+/**
+Returns the value of the `exp` claim
+
+:param: jwt to be decoded
+
+:returns: date that the JWT will expire or nil
+*/
 public func expiredDate(#jwt: String) -> NSDate? {
     return JWTDecoder(jwt: jwt).expiredDate
 }
 
+private func errorWithDescription(description: String) -> NSError {
+    return NSError(domain: "com.auth0.JWTDecode", code: 0, userInfo: [NSLocalizedDescriptionKey: description])
+}
+
+/**
+Class that decodes a JWT payload from Base64
+*/
 @objc(A0JWTDecoder)
 public class JWTDecoder: NSObject {
 
     let jwt: String
 
+    /**
+    Create a new instance of JWTDecoder
+
+    :param: jwt to decode
+
+    :returns: a new instance
+    */
     public init(jwt: String) {
         self.jwt = jwt
     }
 
+    /**
+    Returns the payload of the JWT
+
+    :param: error if the JWT can't be decoded
+
+    :returns: dictionary with JWT payload
+    */
     public func payloadWithError(error: NSErrorPointer) -> [String: AnyObject]? {
         let parts = jwt.componentsSeparatedByString(".")
         if parts.count != 3 {
@@ -75,6 +114,7 @@ public class JWTDecoder: NSObject {
         return nil
     }
 
+    /// If the JWT is expired or not
     public var expired: Bool {
         if let date = self.expiredDate {
             return date.compare(NSDate()) == .OrderedAscending
@@ -82,6 +122,7 @@ public class JWTDecoder: NSObject {
         return true
     }
 
+    /// Date when the JWT will expire
     public var expiredDate: NSDate? {
         if let payload = self.payloadWithError(nil), let exp = payload["exp"] as? Double {
             return NSDate(timeIntervalSince1970: exp)
