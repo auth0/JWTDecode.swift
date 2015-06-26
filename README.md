@@ -1,6 +1,6 @@
 # JWTDecode
 
-[![CI Status](http://img.shields.io/travis/auth0/JWTDecode.iOS.svg?style=flat-square)](https://travis-ci.org/auth0/JWTDecode.iOS)
+[![CI Status](http://img.shields.io/travis/auth0/JWTDecode.swift.svg?style=flat-square)](https://travis-ci.org/auth0/JWTDecode.swift)
 [![Version](https://img.shields.io/cocoapods/v/JWTDecode.svg?style=flat-square)](http://cocoadocs.org/docsets/JWTDecode)
 [![License](https://img.shields.io/cocoapods/l/JWTDecode.svg?style=flat-square)](http://cocoadocs.org/docsets/JWTDecode)
 [![Platform](https://img.shields.io/cocoapods/p/JWTDecode.svg?style=flat-square)](http://cocoadocs.org/docsets/JWTDecode)
