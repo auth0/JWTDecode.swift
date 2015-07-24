@@ -24,6 +24,10 @@
 		5F00693D1B3C7B630048928E /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0068E71B3B46240048928E /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F00693E1B3C7B930048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		5F0069411B3C828F0048928E /* A0JWTDecodeSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */; };
+		5F05AF7F1B62E9C200C4A9E6 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F05AF7D1B62E9C200C4A9E6 /* Nimble.framework */; };
+		5F05AF801B62E9C200C4A9E6 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F05AF7D1B62E9C200C4A9E6 /* Nimble.framework */; };
+		5F05AF811B62E9C200C4A9E6 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F05AF7E1B62E9C200C4A9E6 /* Quick.framework */; };
+		5F05AF821B62E9C200C4A9E6 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F05AF7E1B62E9C200C4A9E6 /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +88,8 @@
 		5F0069381B3C790D0048928E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		5F00693F1B3C828E0048928E /* JWTDecode-iOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-iOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0JWTDecodeSpec.m; sourceTree = "<group>"; };
+		5F05AF7D1B62E9C200C4A9E6 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F05AF7E1B62E9C200C4A9E6 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,8 @@
 				5F0068EE1B3B46240048928E /* JWTDecode.framework in Frameworks */,
 				5F0069001B3B50EA0048928E /* Nimble.framework in Frameworks */,
 				5F0069011B3B50EA0048928E /* Quick.framework in Frameworks */,
+				5F05AF811B62E9C200C4A9E6 /* Quick.framework in Frameworks */,
+				5F05AF7F1B62E9C200C4A9E6 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +126,8 @@
 				5F0069141B3B532E0048928E /* JWTDecode.framework in Frameworks */,
 				5F0069391B3C790D0048928E /* Nimble.framework in Frameworks */,
 				5F00693A1B3C790D0048928E /* Quick.framework in Frameworks */,
+				5F05AF821B62E9C200C4A9E6 /* Quick.framework in Frameworks */,
+				5F05AF801B62E9C200C4A9E6 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +187,8 @@
 		5F0068F21B3B46240048928E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F05AF7D1B62E9C200C4A9E6 /* Nimble.framework */,
+				5F05AF7E1B62E9C200C4A9E6 /* Quick.framework */,
 				5F0068F31B3B46240048928E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -560,7 +572,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -581,7 +592,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -643,7 +653,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -664,7 +673,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
