@@ -1,12 +1,11 @@
 reference: http://www.objc.io/issue-6/travis-ci.html
 language: objective-c
-osx_image: beta-xcode6.3
-cache:
-  - bundler
-before_install:
-  - gem install xcpretty --no-ri --no-rdoc
-script:
-  - xcodebuild -project JWTDecode.xcodeproj -scheme JWTDecode-iOS -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6" ONLY_ACTIVE_ARCH=NO test | xcpretty -c ; exit ${PIPESTATUS[0]}
+osx_image: xcode6.4
+before_install: true
+install: true
+git:
+  submodules: false
+script: script/cibuild
 branches:
   only:
   - master
