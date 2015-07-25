@@ -15,15 +15,15 @@
 		5F0069141B3B532E0048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069091B3B532E0048928E /* JWTDecode.framework */; };
 		5F0069231B3C4A7F0048928E /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */; };
 		5F0069241B3C4A860048928E /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */; };
-		5F0069281B3C52210048928E /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F0068FE1B3B50EA0048928E /* Nimble.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5F0069291B3C52210048928E /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F0068FF1B3B50EA0048928E /* Quick.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5F0069391B3C790D0048928E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069371B3C790D0048928E /* Nimble.framework */; };
 		5F00693A1B3C790D0048928E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069381B3C790D0048928E /* Quick.framework */; };
-		5F00693B1B3C79560048928E /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F0069371B3C790D0048928E /* Nimble.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5F00693C1B3C79560048928E /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F0069381B3C790D0048928E /* Quick.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5F00693D1B3C7B630048928E /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0068E71B3B46240048928E /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F00693E1B3C7B930048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		5F0069411B3C828F0048928E /* A0JWTDecodeSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */; };
+		5F05AF7F1B62E9C200C4A9E6 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F05AF7D1B62E9C200C4A9E6 /* Nimble.framework */; };
+		5F05AF801B62E9C200C4A9E6 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F05AF7D1B62E9C200C4A9E6 /* Nimble.framework */; };
+		5F05AF811B62E9C200C4A9E6 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F05AF7E1B62E9C200C4A9E6 /* Quick.framework */; };
+		5F05AF821B62E9C200C4A9E6 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F05AF7E1B62E9C200C4A9E6 /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,31 +43,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		5F0069271B3C520A0048928E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5F0069281B3C52210048928E /* Nimble.framework in CopyFiles */,
-				5F0069291B3C52210048928E /* Quick.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5F00692A1B3C52290048928E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5F00693B1B3C79560048928E /* Nimble.framework in CopyFiles */,
-				5F00693C1B3C79560048928E /* Quick.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		5F0068E21B3B46240048928E /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0068E61B3B46240048928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +59,8 @@
 		5F0069381B3C790D0048928E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		5F00693F1B3C828E0048928E /* JWTDecode-iOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-iOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0JWTDecodeSpec.m; sourceTree = "<group>"; };
+		5F05AF7D1B62E9C200C4A9E6 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F05AF7E1B62E9C200C4A9E6 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +78,8 @@
 				5F0068EE1B3B46240048928E /* JWTDecode.framework in Frameworks */,
 				5F0069001B3B50EA0048928E /* Nimble.framework in Frameworks */,
 				5F0069011B3B50EA0048928E /* Quick.framework in Frameworks */,
+				5F05AF811B62E9C200C4A9E6 /* Quick.framework in Frameworks */,
+				5F05AF7F1B62E9C200C4A9E6 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +97,8 @@
 				5F0069141B3B532E0048928E /* JWTDecode.framework in Frameworks */,
 				5F0069391B3C790D0048928E /* Nimble.framework in Frameworks */,
 				5F00693A1B3C790D0048928E /* Quick.framework in Frameworks */,
+				5F05AF821B62E9C200C4A9E6 /* Quick.framework in Frameworks */,
+				5F05AF801B62E9C200C4A9E6 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +158,8 @@
 		5F0068F21B3B46240048928E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F05AF7D1B62E9C200C4A9E6 /* Nimble.framework */,
+				5F05AF7E1B62E9C200C4A9E6 /* Quick.framework */,
 				5F0068F31B3B46240048928E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -256,7 +239,6 @@
 				5F0068E91B3B46240048928E /* Sources */,
 				5F0068EA1B3B46240048928E /* Frameworks */,
 				5F0068EB1B3B46240048928E /* Resources */,
-				5F0069271B3C520A0048928E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -293,7 +275,6 @@
 				5F00690F1B3B532E0048928E /* Sources */,
 				5F0069101B3B532E0048928E /* Frameworks */,
 				5F0069111B3B532E0048928E /* Resources */,
-				5F00692A1B3C52290048928E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -560,7 +541,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -581,7 +561,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -643,7 +622,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -664,7 +642,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
