@@ -1,5 +1,19 @@
 # Change Log
 
+## [0.3.1](https://github.com/auth0/JWTDecode.swift/tree/0.3.1) (2015-07-25)
+
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/0.3.0...0.3.1)
+
+**Closed issues:**
+
+- Failing to install via carthage [\#6](https://github.com/auth0/JWTDecode.swift/issues/6)
+
+**Merged pull requests:**
+
+- Carthage with submodules [\#8](https://github.com/auth0/JWTDecode.swift/pull/8) ([hzalaz](https://github.com/hzalaz))
+
+- Build test only when running tests [\#7](https://github.com/auth0/JWTDecode.swift/pull/7) ([hzalaz](https://github.com/hzalaz))
+
 ## [0.3.0](https://github.com/auth0/JWTDecode.swift/tree/0.3.0) (2015-06-26)
 
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/0.2.2...0.3.0)
