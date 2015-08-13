@@ -9,14 +9,10 @@
 /* Begin PBXBuildFile section */
 		5F0068E81B3B46240048928E /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0068E71B3B46240048928E /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0068EE1B3B46240048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0068E21B3B46240048928E /* JWTDecode.framework */; };
-		5F0069001B3B50EA0048928E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0068FE1B3B50EA0048928E /* Nimble.framework */; };
-		5F0069011B3B50EA0048928E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0068FF1B3B50EA0048928E /* Quick.framework */; };
 		5F0069031B3B511F0048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		5F0069141B3B532E0048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069091B3B532E0048928E /* JWTDecode.framework */; };
 		5F0069231B3C4A7F0048928E /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */; };
 		5F0069241B3C4A860048928E /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */; };
-		5F0069391B3C790D0048928E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069371B3C790D0048928E /* Nimble.framework */; };
-		5F00693A1B3C790D0048928E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069381B3C790D0048928E /* Quick.framework */; };
 		5F00693D1B3C7B630048928E /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0068E71B3B46240048928E /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F00693E1B3C7B930048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		5F0069411B3C828F0048928E /* A0JWTDecodeSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */; };
@@ -49,14 +45,10 @@
 		5F0068E71B3B46240048928E /* JWTDecode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JWTDecode.h; sourceTree = "<group>"; };
 		5F0068ED1B3B46240048928E /* JWTDecode-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0068F31B3B46240048928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F0068FE1B3B50EA0048928E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		5F0068FF1B3B50EA0048928E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		5F0069021B3B511F0048928E /* JWTDecode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTDecode.swift; sourceTree = "<group>"; };
 		5F0069091B3B532E0048928E /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0069131B3B532E0048928E /* JWTDecode-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTDecodeSpec.swift; sourceTree = "<group>"; };
-		5F0069371B3C790D0048928E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
-		5F0069381B3C790D0048928E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		5F00693F1B3C828E0048928E /* JWTDecode-iOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-iOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0JWTDecodeSpec.m; sourceTree = "<group>"; };
 		5F05AF7D1B62E9C200C4A9E6 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,8 +68,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F0068EE1B3B46240048928E /* JWTDecode.framework in Frameworks */,
-				5F0069001B3B50EA0048928E /* Nimble.framework in Frameworks */,
-				5F0069011B3B50EA0048928E /* Quick.framework in Frameworks */,
 				5F05AF811B62E9C200C4A9E6 /* Quick.framework in Frameworks */,
 				5F05AF7F1B62E9C200C4A9E6 /* Nimble.framework in Frameworks */,
 			);
@@ -95,8 +85,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F0069141B3B532E0048928E /* JWTDecode.framework in Frameworks */,
-				5F0069391B3C790D0048928E /* Nimble.framework in Frameworks */,
-				5F00693A1B3C790D0048928E /* Quick.framework in Frameworks */,
 				5F05AF821B62E9C200C4A9E6 /* Quick.framework in Frameworks */,
 				5F05AF801B62E9C200C4A9E6 /* Nimble.framework in Frameworks */,
 			);
@@ -110,7 +98,6 @@
 			children = (
 				5F0068E41B3B46240048928E /* JWTDecode */,
 				5F0068F11B3B46240048928E /* JWTDecodeTests */,
-				5F00692E1B3C78000048928E /* Frameworks */,
 				5F0068E31B3B46240048928E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -163,33 +150,6 @@
 				5F0068F31B3B46240048928E /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5F00692E1B3C78000048928E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5F0069301B3C78240048928E /* OSX */,
-				5F00692F1B3C78070048928E /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5F00692F1B3C78070048928E /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				5F0068FE1B3B50EA0048928E /* Nimble.framework */,
-				5F0068FF1B3B50EA0048928E /* Quick.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		5F0069301B3C78240048928E /* OSX */ = {
-			isa = PBXGroup;
-			children = (
-				5F0069371B3C790D0048928E /* Nimble.framework */,
-				5F0069381B3C790D0048928E /* Quick.framework */,
-			);
-			name = OSX;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
