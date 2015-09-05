@@ -29,7 +29,7 @@ Decodes the JWT and return it's payload
 
 :returns: the JWT payload or nil when it can be decoded
 */
-public func payload(#jwt: String) -> [String: AnyObject]? {
+public func payload(jwt jwt: String) -> [String: AnyObject]? {
     return JWTDecoder(jwt: jwt).payloadWithError(nil)
 }
 
@@ -41,7 +41,7 @@ If the `exp` claim is missing or the jwt can't be decoded it will return true
 
 :returns: if the JWT is expired or not
 */
-public func expired(#jwt: String) -> Bool {
+public func expired(jwt jwt: String) -> Bool {
     return JWTDecoder(jwt: jwt).expired
 }
 
@@ -52,7 +52,7 @@ Returns the value of the `exp` claim
 
 :returns: date that the JWT will expire or nil
 */
-public func expireDate(#jwt: String) -> NSDate? {
+public func expireDate(jwt jwt: String) -> NSDate? {
     return JWTDecoder(jwt: jwt).expireDate
 }
 
@@ -105,7 +105,15 @@ public class JWTDecoder: NSObject {
             base64 = base64.stringByAppendingString(padding)
         }
         if let data = NSData(base64EncodedString: base64, options: .IgnoreUnknownCharacters) {
-            return NSJSONSerialization.JSONObjectWithData(data, options: .allZeros, error: error) as? [String: AnyObject]
+            do {
+                let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions())
+                return json as? [String: AnyObject]
+            }
+            catch let jsonError as NSError {
+                if error != nil {
+                    error.memory = jsonError
+                }
+            }
         } else {
             if error != nil {
                 error.memory = errorWithDescription(NSLocalizedString("malformed jwt token \(jwt). failed to decode base64 payload", comment: "Invalid base64"))

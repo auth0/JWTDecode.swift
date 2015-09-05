@@ -53,6 +53,7 @@
 		5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0JWTDecodeSpec.m; sourceTree = "<group>"; };
 		5F05AF7D1B62E9C200C4A9E6 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F05AF7E1B62E9C200C4A9E6 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F0A5E291B9A6D4A005289CF /* JWTDecode.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = JWTDecode.playground; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +117,7 @@
 		5F0068E41B3B46240048928E /* JWTDecode */ = {
 			isa = PBXGroup;
 			children = (
+				5F0A5E291B9A6D4A005289CF /* JWTDecode.playground */,
 				5F0068E71B3B46240048928E /* JWTDecode.h */,
 				5F0068E51B3B46240048928E /* Supporting Files */,
 				5F0069021B3B511F0048928E /* JWTDecode.swift */,
@@ -252,6 +254,7 @@
 		5F0068D91B3B46240048928E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Auth0;
 				TargetAttributes = {

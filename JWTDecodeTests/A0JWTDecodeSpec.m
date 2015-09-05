@@ -23,20 +23,19 @@
 
 #define QUICK_DISABLE_SHORT_SYNTAX 1
 
-#import <Quick/Quick.h>
-#import <Nimble/Nimble.h>
-
+@import Quick;
+@import Nimble;
 @import JWTDecode;
 
 QuickSpecBegin(A0JWTDecodeSpec)
 
-__block JWTDecoder *decoder;
+__block A0JWTDecoder *decoder;
 __block NSError *error;
 
 describe(@"Objc support", ^{
 
     beforeEach(^{
-        decoder = [[JWTDecoder alloc] initWithJwt:@"INVALID"];
+        decoder = [[A0JWTDecoder alloc] initWithJwt:@"INVALID"];
         error = nil;
     });
 

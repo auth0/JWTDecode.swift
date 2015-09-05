@@ -1,4 +1,4 @@
 #Quick & Nimble
 
-github "Quick/Quick" ~> 0.3
-github "Quick/Nimble" ~> 0.4
+github "Quick/Quick" ~> 0.6
+github "Quick/Nimble" "v2.0.0-rc.3"
