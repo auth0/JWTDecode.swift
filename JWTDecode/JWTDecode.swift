@@ -26,28 +26,6 @@ public func decode(jwt: String) throws -> JWT {
     return try DecodedJWT(jwt: jwt)
 }
 
-public protocol JWT {
-    var header: [String: AnyObject] { get }
-    var body: [String: AnyObject] { get }
-    var signature: String? { get }
-
-    var expiresAt: NSDate? { get }
-    var issuer: String? { get }
-    var subject: String? { get }
-    var audience: [String]? { get }
-    var issuedAt: NSDate? { get }
-    var notBefore: NSDate? { get }
-    var identifier: String? { get }
-
-    var expired: Bool { get }
-}
-
-public extension JWT {
-    public func claim<T>(name: String) -> T? {
-        return self.body[name] as? T
-    }
-}
-
 struct DecodedJWT: JWT {
 
     let header: [String: AnyObject]
@@ -57,7 +35,7 @@ struct DecodedJWT: JWT {
     init(jwt: String) throws {
         let parts = jwt.componentsSeparatedByString(".")
         guard parts.count == 3 else {
-            throw errorWithDescription(NSLocalizedString("Malformed jwt token \(jwt) only has \(parts.count) parts (3 parts are required)", comment: "Not enough jwt parts"))
+            throw invalidPartCountInJWT(jwt, parts: parts.count)
         }
 
         self.header = try decodeJWTPart(parts[0])
@@ -110,15 +88,15 @@ private func base64UrlDecode(value: String) -> NSData? {
 
 private func decodeJWTPart(value: String) throws -> [String: AnyObject] {
     guard let bodyData = base64UrlDecode(value) else {
-        throw errorWithDescription(NSLocalizedString("Malformed jwt token, failed to decode base64Url value \(value)", comment: "Invalid JWT token base64Url value"))
+        throw invalidBase64UrlValue(value)
     }
 
-    guard let json = try NSJSONSerialization.JSONObjectWithData(bodyData, options: NSJSONReadingOptions()) as? [String: AnyObject] else {
-        throw errorWithDescription(NSLocalizedString("Malformed jwt token, failed to parse JSON value from base64Url \(value)", comment: "Invalid JSON value inside base64Url"))
+    do {
+        guard let json = try NSJSONSerialization.JSONObjectWithData(bodyData, options: NSJSONReadingOptions()) as? [String: AnyObject] else {
+            throw invalidJSONValue(value)
+        }
+        return json
+    } catch {
+        throw invalidJSONValue(value)
     }
-    return json
-}
-
-private func errorWithDescription(description: String) -> NSError {
-    return NSError(domain: "com.auth0.JWTDecode", code: 0, userInfo: [NSLocalizedDescriptionKey: description])
 }

@@ -56,12 +56,18 @@ class JWTDecodeSpec: QuickSpec {
                 expect(try! decode(jwt)).toNot(beNil())
             }
 
-            it("should raise exception with invalid jwt") {
-                expect { try decode("HEADER.BODY.SIGNATURE") }.to(throwError())
+            it("should raise exception with invalid json in jwt") {
+                expect { try decode("HEADER.BODY.SIGNATURE") }
+                    .to(throwError { (error: ErrorType) in
+                        expect(error).to(beDecodeErrorWithCode(.InvalidJSONValue))
+                    })
             }
 
             it("should raise exception with missing parts") {
-                expect { try decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ") }.to(throwError())
+                expect { try decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ") }
+                    .to(throwError { (error: ErrorType) in
+                        expect(error).to(beDecodeErrorWithCode(.InvalidPartCount))
+                    })
             }
 
         }
@@ -164,5 +170,15 @@ class JWTDecodeSpec: QuickSpec {
                 }
             }
         }
+    }
+}
+
+public func beDecodeErrorWithCode(code: DecodeErrorCode) -> NonNilMatcherFunc<ErrorType> {
+    return NonNilMatcherFunc { (actualExpression, failureMessage) throws in
+        failureMessage.postfixMessage = "be decode error with code <\(code)>"
+        guard let actual = try actualExpression.evaluate() else {
+            return false
+        }
+        return actual._domain == "com.auth0.JWTDecode" && actual._code == code.rawValue
     }
 }
