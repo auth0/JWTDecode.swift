@@ -22,77 +22,35 @@
 
 import Foundation
 
-/**
-Decodes the JWT and return it's payload
-
-:param: jwt to be decoded
-
-:returns: the JWT payload or nil when it can be decoded
-*/
-public func payload(jwt jwt: String) -> [String: AnyObject]? {
-    return JWTDecoder(jwt: jwt).payloadWithError(nil)
+public func decode(jwt: String) throws -> JWT {
+    return try DecodedJWT(jwt: jwt)
 }
 
-/**
-Check if the JWT is expired using the `exp` claim.
-If the `exp` claim is missing or the jwt can't be decoded it will return true
+public protocol JWT {
+    var header: [String: AnyObject] { get }
+    var body: [String: AnyObject] { get }
+    var signature: String? { get }
 
-:param: jwt that will be checked for expiration
-
-:returns: if the JWT is expired or not
-*/
-public func expired(jwt jwt: String) -> Bool {
-    return JWTDecoder(jwt: jwt).expired
+    var expiresAt: NSDate? { get }
+    var expired: Bool { get }
 }
 
-/**
-Returns the value of the `exp` claim
-
-:param: jwt to be decoded
-
-:returns: date that the JWT will expire or nil
-*/
-public func expireDate(jwt jwt: String) -> NSDate? {
-    return JWTDecoder(jwt: jwt).expireDate
-}
-
-private func errorWithDescription(description: String) -> NSError {
-    return NSError(domain: "com.auth0.JWTDecode", code: 0, userInfo: [NSLocalizedDescriptionKey: description])
-}
-
-/**
-Class that decodes a JWT payload from Base64
-*/
-@objc(A0JWTDecoder)
-public class JWTDecoder: NSObject {
-
-    let jwt: String
-
-    /**
-    Create a new instance of JWTDecoder
-
-    :param: jwt to decode
-
-    :returns: a new instance
-    */
-    public init(jwt: String) {
-        self.jwt = jwt
+public extension JWT {
+    public func claim<T>(name: String) -> T? {
+        return self.body[name] as? T
     }
+}
 
-    /**
-    Returns the payload of the JWT
+struct DecodedJWT: JWT {
 
-    :param: error if the JWT can't be decoded
+    let header: [String: AnyObject]
+    let body: [String: AnyObject]
+    let signature: String?
 
-    :returns: dictionary with JWT payload
-    */
-    public func payloadWithError(error: NSErrorPointer) -> [String: AnyObject]? {
+    init(jwt: String) throws {
         let parts = jwt.componentsSeparatedByString(".")
-        if parts.count != 3 {
-            if error != nil {
-                error.memory = errorWithDescription(NSLocalizedString("malformed jwt token \(jwt) only has \(parts.count) parts (3 parts are required)", comment: "Not enough jwt parts"))
-            }
-            return nil
+        guard parts.count == 3 else {
+            throw errorWithDescription(NSLocalizedString("malformed jwt token \(jwt) only has \(parts.count) parts (3 parts are required)", comment: "Not enough jwt parts"))
         }
         var base64 = parts[1]
             .stringByReplacingOccurrencesOfString("-", withString: "+")
@@ -104,38 +62,33 @@ public class JWTDecoder: NSObject {
             let padding = "".stringByPaddingToLength(Int(paddingLength), withString: "=", startingAtIndex: 0)
             base64 = base64.stringByAppendingString(padding)
         }
-        if let data = NSData(base64EncodedString: base64, options: .IgnoreUnknownCharacters) {
-            do {
-                let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions())
-                return json as? [String: AnyObject]
-            }
-            catch let jsonError as NSError {
-                if error != nil {
-                    error.memory = jsonError
-                }
-            }
-        } else {
-            if error != nil {
-                error.memory = errorWithDescription(NSLocalizedString("malformed jwt token \(jwt). failed to decode base64 payload", comment: "Invalid base64"))
-            }
+        guard let data = NSData(base64EncodedString: base64, options: .IgnoreUnknownCharacters) else {
+            throw errorWithDescription(NSLocalizedString("malformed jwt token \(jwt). failed to decode base64 payload", comment: "Invalid base64"))
         }
-        return nil
+        guard let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) as? [String: AnyObject] else {
+            throw errorWithDescription(NSLocalizedString("malformed jwt token \(jwt). failed to decode base64 payload", comment: "Invalid base64"))
+        }
+        self.header = [:]
+        self.body = json
+        self.signature = parts[2]
     }
 
-    /// If the JWT is expired or not
-    public var expired: Bool {
-        if let date = self.expireDate {
-            return date.compare(NSDate()) == .OrderedAscending
-        }
-        return true
-    }
-
-    /// Date when the JWT will expire
-    public var expireDate: NSDate? {
-        if let payload = self.payloadWithError(nil), let exp = payload["exp"] as? Double {
+    var expiresAt: NSDate? {
+        if let exp:Double = claim("exp") {
             return NSDate(timeIntervalSince1970: exp)
+        } else {
+            return nil
         }
-        return nil
     }
 
+    var expired: Bool {
+        guard let date = self.expiresAt else {
+            return false
+        }
+        return date.compare(NSDate()) != NSComparisonResult.OrderedDescending
+    }
+}
+
+private func errorWithDescription(description: String) -> NSError {
+    return NSError(domain: "com.auth0.JWTDecode", code: 0, userInfo: [NSLocalizedDescriptionKey: description])
 }

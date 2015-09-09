@@ -24,91 +24,122 @@ import Quick
 import Nimble
 import JWTDecode
 
-let twoHoursAgo = NSDate(timeIntervalSinceNow: -2 * 60 * 60)
-let inTwoHours = NSDate(timeIntervalSinceNow: 2 * 60 * 60)
-
-func jwtWithPayload(payload: [String: AnyObject]) -> String {
-    var jwt: String = ""
-    do {
-        let data = try NSJSONSerialization.dataWithJSONObject(payload, options: NSJSONWritingOptions())
-        let base64 = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions())
-            .stringByReplacingOccurrencesOfString("+", withString: "-")
-            .stringByReplacingOccurrencesOfString("/", withString: "_")
-            .stringByReplacingOccurrencesOfString("=", withString: "")
-        jwt = "HEADER.\(base64).SIGNATURE"
-    } catch _ {
-        NSException(name: NSInvalidArgumentException, reason: "Failed to build jwt", userInfo: nil).raise()
-    }
-    return jwt
-}
-
-func jwtThatExpiresAt(date: NSDate) -> String {
-    return jwtWithPayload(["exp": date.timeIntervalSince1970])
-}
-
 class JWTDecodeSpec: QuickSpec {
 
     override func spec() {
-        describe("Module functions") {
-
-            let nonExpiredJWT = jwtThatExpiresAt(inTwoHours)
-            let expiredJWT = jwtThatExpiresAt(twoHoursAgo)
+        describe("decode") {
 
             it("should tell a jwt is expired") {
-                expect(JWTDecode.expired(jwt: expiredJWT)).to(beTruthy())
+                expect(expiredJWT().expired).to(beTruthy())
             }
 
             it("should tell a jwt is not expired") {
-                expect(JWTDecode.expired(jwt: nonExpiredJWT)).to(beFalsy())
+                expect(nonExpiredJWT().expired).to(beFalsy())
+            }
+
+            it("should tell a jwt is expired with a close enough timestamp") {
+                expect(jwtThatExpiresAt(NSDate()).expired).to(beTruthy())
             }
 
             it("should obtain payload") {
-                let jwt = jwtWithPayload(["sub": "myid", "name": "Shawarma Monk"])
-                let payload = JWTDecode.payload(jwt: jwt) as! [String: String]
+                let jwt = jwtWithBody(["sub": "myid", "name": "Shawarma Monk"])
+                let payload = jwt.body as! [String: String]
                 expect(payload).to(equal(["sub": "myid", "name": "Shawarma Monk"]))
             }
 
             it("should return expire date") {
-                expect(JWTDecode.expireDate(jwt: expiredJWT)).toNot(beNil())
+                expect(expiredJWT().expiresAt).toNot(beNil())
             }
 
-            it("should return nil payload for invalid jwt") {
-                expect(JWTDecode.payload(jwt: "INVALID")).to(beNil())
+            it("should decode valid jwt") {
+                let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjb20uc29td2hlcmUuZmFyLmJleW9uZDphcGkiLCJpc3MiOiJhdXRoMCIsInVzZXJfcm9sZSI6ImFkbWluIn0.sS84motSLj9HNTgrCPcAjgZIQ99jXNN7_W9fEIIfxz0"
+                expect(try! decode(jwt)).toNot(beNil())
+            }
+
+            it("should raise exception with invalid jwt") {
+                expect { try decode("HEADER.BODY.SIGNATURE") }.to(throwError())
+            }
+
+            it("should raise exception with missing parts") {
+                expect { try decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ") }.to(throwError())
+            }
+
+        }
+
+        describe("jwt parts") {
+            let jwt = try! decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ.xXcD7WOvUDHJ94E6aVHYgXdsJHLl2oW7ZXm4QpVvXnY")
+
+            pending("should return header") {
+                expect(jwt.header as? [String: String]).to(equal(["alg": "HS256", "typ": "JWT"]))
+            }
+
+            it("should return body") {
+                expect(jwt.body as? [String: String]).to(equal(["sub": "sub"]))
+            }
+
+            it("should return signature") {
+                expect(jwt.signature).to(equal("xXcD7WOvUDHJ94E6aVHYgXdsJHLl2oW7ZXm4QpVvXnY"))
+            }
+        }
+
+        describe("claims") {
+            var jwt: JWT!
+
+            describe("expiresAt claim") {
+
+                it("should handle expired jwt") {
+                    jwt = expiredJWT()
+                    expect(jwt.expiresAt).toNot(beNil())
+                    expect(jwt.expired).to(beTruthy())
+                }
+
+                it("should handle non-expired jwt") {
+                    jwt = nonExpiredJWT()
+                    expect(jwt.expiresAt).toNot(beNil())
+                    expect(jwt.expired).to(beFalsy())
+                }
+
+                it("should handle jwt without expiresAt claim") {
+                    jwt = jwtWithBody(["sub": NSUUID().UUIDString])
+                    expect(jwt.expiresAt).to(beNil())
+                    expect(jwt.expired).to(beFalsy())
+                }
+            }
+
+            describe("custom claim") {
+
+                beforeEach {
+                    jwt = jwtWithBody(["sub": NSUUID().UUIDString, "custom_claim": "Shawarma Friday!", "custom_integer_claim": 10])
+                }
+
+                it("should return custom claims") {
+                    let stringValue: String? = jwt.claim("custom_claim")
+                    expect(stringValue).to(equal("Shawarma Friday!"))
+                    let integerValue: Int? = jwt.claim("custom_integer_claim")
+                    expect(integerValue).to(equal(10))
+                }
+
+                it("should return nil when claim is not present") {
+                    let unknownClaim: String? = jwt.claim("missing_claim")
+                    expect(unknownClaim).to(beNil())
+                }
             }
         }
 
         describe("JWTDecoder") {
 
-            let decoder = JWTDecoder(jwt: jwtThatExpiresAt(inTwoHours))
+            let decoder = nonExpiredJWT()
 
             it("should check is not expired") {
                 expect(decoder.expired).to(beFalsy())
             }
 
             it("should return the payload") {
-                expect(decoder.payloadWithError(nil)).toNot(beNil())
+                expect(decoder.body).toNot(raiseException())
             }
 
             it("should return exp date") {
-                expect(decoder.expireDate).toNot(beNil())
-            }
-
-            context("invalid JWT") {
-                let decoder = JWTDecoder(jwt: "INVALID")
-
-                it("should return an error for invalid jwt") {
-                    var error: NSError?
-                    expect(decoder.payloadWithError(&error)).to(beNil())
-                    expect(error).toNot(beNil())
-                }
-
-                it("should return is expired") {
-                    expect(decoder.expired).to(beTruthy())
-                }
-
-                it("should return exp date") {
-                    expect(decoder.expireDate).to(beNil())
-                }
+                expect(decoder.expiresAt).toNot(beNil())
             }
         }
     }
