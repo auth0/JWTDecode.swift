@@ -111,6 +111,7 @@
 			children = (
 				5F0068E41B3B46240048928E /* JWTDecode */,
 				5F0068F11B3B46240048928E /* JWTDecodeTests */,
+				5F0A5E291B9A6D4A005289CF /* JWTDecode.playground */,
 				5F0068E31B3B46240048928E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,13 +130,12 @@
 		5F0068E41B3B46240048928E /* JWTDecode */ = {
 			isa = PBXGroup;
 			children = (
-				5F0A5E291B9A6D4A005289CF /* JWTDecode.playground */,
 				5F0068E71B3B46240048928E /* JWTDecode.h */,
-				5F0068E51B3B46240048928E /* Supporting Files */,
 				5F8B43681B9F99B400A0D5AE /* A0JWT.swift */,
 				5F0069021B3B511F0048928E /* JWTDecode.swift */,
 				5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */,
 				5FE49DCF1BA0D66F00DE57D3 /* Errors.swift */,
+				5F0068E51B3B46240048928E /* Supporting Files */,
 			);
 			path = JWTDecode;
 			sourceTree = "<group>";

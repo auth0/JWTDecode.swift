@@ -57,11 +57,10 @@ struct DecodedJWT: JWT {
     var identifier: String? { return claim("jti") }
 
     private func claim(name: String) -> NSDate? {
-        if let timestamp:Double = claim(name) {
-            return NSDate(timeIntervalSince1970: timestamp)
-        } else {
+        guard let timestamp:Double = claim(name) else {
             return nil
         }
+        return NSDate(timeIntervalSince1970: timestamp)
     }
 
     var expired: Bool {
