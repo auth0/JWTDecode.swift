@@ -106,6 +106,45 @@ class JWTDecodeSpec: QuickSpec {
                 }
             }
 
+            describe("registered claims") {
+
+                let jwt = try! decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NhbXBsZXMuYXV0aDAuY29tIiwic3ViIjoiYXV0aDB8MTAxMDEwMTAxMCIsImF1ZCI6Imh0dHBzOi8vc2FtcGxlcy5hdXRoMC5jb20iLCJleHAiOjEzNzI2NzQzMzYsImlhdCI6MTM3MjYzODMzNiwianRpIjoicXdlcnR5MTIzNDU2IiwibmJmIjoxMzcyNjM4MzM2fQ.LvF9wSheCB5xarpydmurWgi9NOZkdES5AbNb_UWk9Ew")
+
+
+                it("should return issuer") {
+                    expect(jwt.issuer).to(equal("https://samples.auth0.com"))
+                }
+
+                it("should return subject") {
+                    expect(jwt.subject).to(equal("auth0|1010101010"))
+                }
+
+                it("should return single audience") {
+                    expect(jwt.audience).to(equal(["https://samples.auth0.com"]))
+                }
+
+                context("multiple audiences") {
+
+                    let jwt = try! decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiaHR0cHM6Ly9zYW1wbGVzLmF1dGgwLmNvbSIsImh0dHBzOi8vYXBpLnNhbXBsZXMuYXV0aDAuY29tIl19.cfWFPuJbQ7NToa-BjHgHD1tHn3P2tOP5wTQaZc1qg6M")
+
+                    it("should return all audiences") {
+                        expect(jwt.audience).to(equal(["https://samples.auth0.com", "https://api.samples.auth0.com"]))
+                    }
+                }
+
+                it("should return issued at") {
+                    expect(jwt.issuedAt).to(equal(NSDate(timeIntervalSince1970: 1372638336)))
+                }
+
+                it("should return not before") {
+                    expect(jwt.notBefore).to(equal(NSDate(timeIntervalSince1970: 1372638336)))
+                }
+
+                it("should return jwt id") {
+                    expect(jwt.identifier).to(equal("qwerty123456"))
+                }
+            }
+
             describe("custom claim") {
 
                 beforeEach {
@@ -123,23 +162,6 @@ class JWTDecodeSpec: QuickSpec {
                     let unknownClaim: String? = jwt.claim("missing_claim")
                     expect(unknownClaim).to(beNil())
                 }
-            }
-        }
-
-        describe("JWTDecoder") {
-
-            let decoder = nonExpiredJWT()
-
-            it("should check is not expired") {
-                expect(decoder.expired).to(beFalsy())
-            }
-
-            it("should return the payload") {
-                expect(decoder.body).toNot(raiseException())
-            }
-
-            it("should return exp date") {
-                expect(decoder.expiresAt).toNot(beNil())
             }
         }
     }
