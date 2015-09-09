@@ -41,6 +41,31 @@ public extension JWT {
     }
 }
 
+func base64UrlDecode(value: String) -> NSData? {
+    var base64 = value
+        .stringByReplacingOccurrencesOfString("-", withString: "+")
+        .stringByReplacingOccurrencesOfString("_", withString: "/")
+    let length = Double(base64.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+    let requiredLength = 4 * ceil(length / 4.0)
+    let paddingLength = requiredLength - length
+    if paddingLength > 0 {
+        let padding = "".stringByPaddingToLength(Int(paddingLength), withString: "=", startingAtIndex: 0)
+        base64 = base64.stringByAppendingString(padding)
+    }
+    return NSData(base64EncodedString: base64, options: .IgnoreUnknownCharacters)
+}
+
+func decodeJWTPart(value: String) throws -> [String: AnyObject] {
+    guard let bodyData = base64UrlDecode(value) else {
+        throw errorWithDescription(NSLocalizedString("Malformed jwt token, failed to decode base64Url value \(value)", comment: "Invalid JWT token base64Url value"))
+    }
+
+    guard let json = try NSJSONSerialization.JSONObjectWithData(bodyData, options: NSJSONReadingOptions()) as? [String: AnyObject] else {
+        throw errorWithDescription(NSLocalizedString("Malformed jwt token, failed to parse JSON value from base64Url \(value)", comment: "Invalid JSON value inside base64Url"))
+    }
+    return json
+}
+
 struct DecodedJWT: JWT {
 
     let header: [String: AnyObject]
@@ -50,26 +75,11 @@ struct DecodedJWT: JWT {
     init(jwt: String) throws {
         let parts = jwt.componentsSeparatedByString(".")
         guard parts.count == 3 else {
-            throw errorWithDescription(NSLocalizedString("malformed jwt token \(jwt) only has \(parts.count) parts (3 parts are required)", comment: "Not enough jwt parts"))
+            throw errorWithDescription(NSLocalizedString("Malformed jwt token \(jwt) only has \(parts.count) parts (3 parts are required)", comment: "Not enough jwt parts"))
         }
-        var base64 = parts[1]
-            .stringByReplacingOccurrencesOfString("-", withString: "+")
-            .stringByReplacingOccurrencesOfString("_", withString: "/")
-        let length = Double(base64.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
-        let requiredLength = 4 * ceil(length / 4.0)
-        let paddingLength = requiredLength - length
-        if paddingLength > 0 {
-            let padding = "".stringByPaddingToLength(Int(paddingLength), withString: "=", startingAtIndex: 0)
-            base64 = base64.stringByAppendingString(padding)
-        }
-        guard let data = NSData(base64EncodedString: base64, options: .IgnoreUnknownCharacters) else {
-            throw errorWithDescription(NSLocalizedString("malformed jwt token \(jwt). failed to decode base64 payload", comment: "Invalid base64"))
-        }
-        guard let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) as? [String: AnyObject] else {
-            throw errorWithDescription(NSLocalizedString("malformed jwt token \(jwt). failed to decode base64 payload", comment: "Invalid base64"))
-        }
-        self.header = [:]
-        self.body = json
+
+        self.header = try decodeJWTPart(parts[0])
+        self.body = try decodeJWTPart(parts[1])
         self.signature = parts[2]
     }
 

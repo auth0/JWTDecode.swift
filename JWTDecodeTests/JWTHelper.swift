@@ -31,7 +31,7 @@ func jwtWithBody(body: [String: AnyObject]) -> JWT {
             .stringByReplacingOccurrencesOfString("+", withString: "-")
             .stringByReplacingOccurrencesOfString("/", withString: "_")
             .stringByReplacingOccurrencesOfString("=", withString: "")
-        jwt = "HEADER.\(base64).SIGNATURE"
+        jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.\(base64).SIGNATURE"
     } catch _ {
         NSException(name: NSInvalidArgumentException, reason: "Failed to build jwt", userInfo: nil).raise()
     }

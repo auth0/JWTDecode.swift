@@ -69,7 +69,7 @@ class JWTDecodeSpec: QuickSpec {
         describe("jwt parts") {
             let jwt = try! decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ.xXcD7WOvUDHJ94E6aVHYgXdsJHLl2oW7ZXm4QpVvXnY")
 
-            pending("should return header") {
+            it("should return header") {
                 expect(jwt.header as? [String: String]).to(equal(["alg": "HS256", "typ": "JWT"]))
             }
 
