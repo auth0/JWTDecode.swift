@@ -22,6 +22,14 @@
 
 import Foundation
 
+/**
+Decodes a JWT token into an object that holds the decoded body (along with token header and signature parts).
+If the token cannot be decoded a `NSError` will be thrown.
+
+:param: jwt string value to decode
+
+:returns: a decoded token as an instance of JWT
+*/
 public func decode(jwt: String) throws -> JWT {
     return try DecodedJWT(jwt: jwt)
 }

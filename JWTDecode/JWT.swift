@@ -22,23 +22,44 @@
 
 import Foundation
 
+/**
+*  Protocol that defines what a decoded JWT token should be.
+*/
 public protocol JWT {
+    /// token header part contents
     var header: [String: AnyObject] { get }
+    /// token body part values or token claims
     var body: [String: AnyObject] { get }
+    /// token signature part
     var signature: String? { get }
 
+    /// value of `exp` claim if available
     var expiresAt: NSDate? { get }
+    /// value of `iss` claim if available
     var issuer: String? { get }
+    /// value of `sub` claim if available
     var subject: String? { get }
+    /// value of `aud` claim if available
     var audience: [String]? { get }
+    /// value of `iat` claim if available
     var issuedAt: NSDate? { get }
+    /// value of `nbf` claim if available
     var notBefore: NSDate? { get }
+    /// value of `jti` claim if available
     var identifier: String? { get }
 
+    /// Checks if the token is currently expired using the `exp` claim. If there is no claim present it will deem the token not expired
     var expired: Bool { get }
 }
 
 public extension JWT {
+    /**
+    Returns a specific claim by its name whose value if of type `T`.
+
+    :param: name of the claim to return
+
+    :returns: the value of the claim as the generic type `T` if available
+    */
     public func claim<T>(name: String) -> T? {
         return self.body[name] as? T
     }

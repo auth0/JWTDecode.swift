@@ -22,6 +22,13 @@
 
 import Foundation
 
+/**
+JWT decode error codes
+
+- InvalidBase64UrlValue: when either the header or body parts cannot be base64 decoded
+- InvalidJSONValue:      when either the header or body decoded values is not a valid JSON object
+- InvalidPartCount:      when the token doesnt have the required amount of parts (header, body and signature)
+*/
 public enum DecodeErrorCode: Int {
     case InvalidBase64UrlValue
     case InvalidJSONValue
