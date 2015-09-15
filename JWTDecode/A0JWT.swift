@@ -1,4 +1,4 @@
-// A0JWTDecodeSpec.m
+// A0JWT.swift
 //
 // Copyright (c) 2015 Auth0 (http://auth0.com)
 //
@@ -20,28 +20,46 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+import Foundation
 
-#define QUICK_DISABLE_SHORT_SYNTAX 1
+/// Class to allow Objective-C code to decode a JWT
+public class A0JWT: NSObject {
 
-@import Quick;
-@import Nimble;
-@import JWTDecode;
+    var jwt: JWT
 
-QuickSpecBegin(A0JWTDecodeSpec)
+    init(jwt: JWT) {
+        self.jwt = jwt
+    }
 
-__block NSError *error;
+    /// token header part
+    public var header: [String: AnyObject] {
+        return self.jwt.header
+    }
 
-describe(@"Objective-C support", ^{
+    /// token body part or claims
+    public var body: [String: AnyObject] {
+        return self.jwt.body
+    }
 
-    beforeEach(^{
-        error = nil;
-    });
+    /// token signature part
+    public var signature: String? {
+        return self.jwt.signature
+    }
 
-    it(@"should return nil jwt and an error", ^{
-        expect([A0JWT decode:@"INVALID" error:&error]).to(beNil());
-        expect(error).toNot(beNil());
-    });
+    /// value of the `exp` claim
+    public var expiresAt: NSDate? {
+        return self.jwt.expiresAt
+    }
 
-});
+    /**
+    Creates a new instance of `A0JWT` and decodes the given jwt token.
 
-QuickSpecEnd
+    :param: jwtValue of the token to decode
+
+    :returns: a new instance of `A0JWT` that holds the decode token
+    */
+    public class func decode(jwtValue: String) throws -> A0JWT {
+        let jwt = try DecodedJWT(jwt: jwtValue)
+        return A0JWT(jwt: jwt)
+    }
+}
