@@ -1,0 +1,59 @@
+#!/bin/bash
+
+set -e
+
+build_using_carthage ()
+{
+  carthage_cmd="carthage build --no-skip-current --platform ios"
+  if [ "$USE_SSH" == "true" ]
+  then
+    carthage_cmd="$carthage_cmd --use-ssh"
+  fi
+  eval $carthage_cmd
+}
+
+build_using_xcodebuild ()
+{
+  build_command="set -o pipefail && xcodebuild -scheme $1"
+  if [ -z "$XCODE_WORKSPACE" ]
+  then
+    build_command="$build_command -project $XCODE_PROJECT"
+  else
+    build_command="$build_command -workspace $XCODE_WORKSPACE"
+  fi
+  build_command="$build_command build"
+
+  if type bundle > /dev/null && bundle show xcpretty > /dev/null
+  then
+    build_command="$build_command | xcpretty -c"
+  fi
+
+  echo ""
+  echo " → Building scheme '$1'"
+  echo ""
+  eval $build_command
+}
+
+schemes ()
+{
+  xcodebuild -list | awk '{if(found) print} /Schemes/{found=1}' | awk '{$1=$1};1'
+}
+
+if [ ! -f $XCODE_WORKSPACE ] && [ -f Cartfile ] && type carthage > /dev/null
+then
+  build_using_carthage
+else
+  source script/.env
+
+  if [ -z "$current_schemes" ]
+  then
+    echo ""
+    echo "ERROR: There are no schemes. Probably you forgot to share your schemes"
+    exit 1
+  fi
+
+  for scheme in $current_schemes
+  do
+    build_using_xcodebuild $scheme
+  done
+fi
