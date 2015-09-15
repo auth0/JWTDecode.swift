@@ -6,7 +6,6 @@ install: true
 git:
   submodules: false
 script: 
-  - brew upgrade xctool --HEAD
   - script/cibuild
 branches:
   only:
