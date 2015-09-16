@@ -1,12 +1,16 @@
 # Change Log
 
-## [Unreleased](https://github.com/auth0/JWTDecode.swift/tree/HEAD)
+## [1.0.0](https://github.com/auth0/JWTDecode.swift/tree/1.0.0) (2015-09-16)
 
-[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/0.3.2...HEAD)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/0.3.2...1.0.0)
 
 **Fixed bugs:**
 
 - Can this target 8.0 instead of 8.3? [\#10](https://github.com/auth0/JWTDecode.swift/issues/10)
+
+**Merged pull requests:**
+
+- Swift 2.0 [\#12](https://github.com/auth0/JWTDecode.swift/pull/12) ([hzalaz](https://github.com/hzalaz))
 
 ## [0.3.2](https://github.com/auth0/JWTDecode.swift/tree/0.3.2) (2015-08-21)
 
