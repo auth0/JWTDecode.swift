@@ -1,4 +1,4 @@
-# JWTDecode
+# JWTDecode.swift
 
 [![CI Status](http://img.shields.io/travis/auth0/JWTDecode.swift.svg?style=flat-square)](https://travis-ci.org/auth0/JWTDecode.swift)
 [![Version](https://img.shields.io/cocoapods/v/JWTDecode.svg?style=flat-square)](http://cocoadocs.org/docsets/JWTDecode)
@@ -8,11 +8,11 @@
 
 This library will help you check [JWT](http://jwt.io/) payload
 
-> This library doesn't validate the token, any well formed JWT can be decoded from Base64.
+> This library doesn't validate the token, any well formed JWT can be decoded from Base64Url.
 
 ## Requirements
 
-iOS 8+
+iOS 8+ and at least Xcode 7 (for Swift 2.0).
 
 ## Installation
 
@@ -22,7 +22,7 @@ JWTDecode is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "JWTDecode", '~> 0.3'
+pod "JWTDecode", '~> 1.0'
 ```
 
 ###Carthage
@@ -35,63 +35,84 @@ github "auth0/JWTDecode.swift"
 
 ###Manual installation
 
-Download and add `JWTDecode.swift` to your project in Xcode.
+Download `JWTDecode.framework` from [Releases](/releases) and add it to your project in Xcode.
 
-##JWTDecoder
 
-###Decoding JWT token
+##Usage
 
-```objc
-@import JWTDecode;
-
-NSString *jwt = ...; //Your JWT to decode
-NSError *error;
-JWTDecoder *decoder = [[JWTDecoder alloc] initWithJwt:jwt];
-NSDictionary *payload = [decoder payloadWithError:&error]];
-NSLog(@"JWT payload is %@", payload);
-```
+Just import the framework
 
 ```swift
 import JWTDecode
-
-let jwt = ... //Your JWT to decode
-let payload = A0JWTDecode.payload(jwt: jwt)
-println("JWT payload is \(payload)")
 ```
 
-###Get JWT token expiration date
-
-```objc
-@import JWTDecode;
-
-NSString *jwt = ...; //Your JWT to decode
-JWTDecoder *decoder = [[JWTDecoder alloc] initWithJwt:jwt];
-NSLog(@"JWT expire date is %@", decoder.expireDate);
-```
+and decode the token
 
 ```swift
-import JWTDecode
-
-let jwt = ... //Your JWT to decode
-let expireDate = JWTDecode.expireDate(jwt: jwt)
-println("JWT expire date is \(expireDate)")
+let jwt = try decode(token)    
 ```
 
-###Check if JWT token is expired
+### JWT parts
 
-```objc
-@import JWTDecode;
-
-NSString *jwt = ...; //Your JWT to decode
-JWTDecoder *decoder = [[JWTDecoder alloc] initWithJwt:jwt];
-BOOL expired = decoder.expired;
+####Header dictionary
+```swift
+jwt.header
 ```
+
+####Claims in token body
+```swift
+jwt.body
+```
+
+####Token signature
+```swift
+jwt.signature
+```
+
+### Registered Claims
+
+* "aud" (Audience)
+```swift
+jwt.audience
+```
+* "sub" (Subject)
+```swift
+jwt.subject
+```
+* "jti" (JWT ID)
+```swift
+jwt.identifier
+```
+* "iss" (Issuer)
+```swift
+jwt.issuer
+```
+* "nbf" (Not Before)
+```swift
+jwt.notBefore
+```
+* "iat" (Issued At)
+```swift
+jwt.issuedAt
+```
+* "exp" (Expiration Time)
+```swift
+jwt.expiresAt
+```
+
+### Custom Claims
+If we also have our custom claims we can retrive them calling `claim<T>(name: String) -> T?` where `T` is the value type of the claim, e.g.: a `String`
 
 ```swift
-import JWTDecode
+let custom: String? = jwt.claim("email")
+```
 
-let jwt = ... //Your JWT to decode
-let expired = A0JWTDecode.expired(jwt: jwt)
+### Error Handling
+If the token is invalid an `NSError` will be thrown from the `decode(token)` function.
+```swift
+catch let error as NSError {
+    error.localizedDescription
+}
 ```
 
 ## What is Auth0?
