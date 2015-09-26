@@ -9,6 +9,10 @@ build_using_carthage ()
   then
     carthage_cmd="$carthage_cmd --use-ssh"
   fi
+  if [ ! -z "$VERBOSE" ]
+  then
+    echo $carthage_cmd
+  fi
   eval $carthage_cmd
 }
 
@@ -21,7 +25,7 @@ build_using_xcodebuild ()
   else
     build_command="$build_command -workspace $XCODE_WORKSPACE"
   fi
-  build_command="$build_command build"
+  build_command="$build_command -sdk iphonesimulator build -configuration Debug"
 
   if type bundle > /dev/null && bundle show xcpretty > /dev/null
   then
@@ -31,12 +35,11 @@ build_using_xcodebuild ()
   echo ""
   echo " → Building scheme '$1'"
   echo ""
+  if [ ! -z "$VERBOSE" ]
+  then
+    echo $build_command
+  fi
   eval $build_command
-}
-
-schemes ()
-{
-  xcodebuild -list | awk '{if(found) print} /Schemes/{found=1}' | awk '{$1=$1};1'
 }
 
 if [ ! -f $XCODE_WORKSPACE ] && [ -f Cartfile ] && type carthage > /dev/null
@@ -44,7 +47,9 @@ then
   build_using_carthage
 else
   source script/.env
+  source script/script_hooks/schemes
 
+  current_schemes=$(schemes)
   if [ -z "$current_schemes" ]
   then
     echo ""

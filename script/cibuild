@@ -35,11 +35,11 @@ main ()
       echo ""
       echo "####### Build & Test Phase #######"
       echo ""
-      script/test | tee /tmp/build.test-output.txt
+      set -o pipefail && script/test 2>&1 | tee /tmp/build.test-output.txt
       status=$?
       if [ ! $status -eq 0 ]
       then
-        log_file_path=`cat /tmp/build.test-output.txt | perl -l -ne '/(\/var\/folders.*\/com\.apple\.dt\.XCTest-status.*)\)/ && print $1'`
+        log_file_path=`cat /tmp/build.test-output.txt | tail -n 100 | perl -l -ne '/(\/var\/folders.*\/com\.apple\.dt\.XCTest-status.*)\)/ && print $1'`
         if [ ! -z "$log_file_path" ]
         then
           echo ""

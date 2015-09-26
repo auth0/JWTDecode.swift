@@ -3,33 +3,23 @@
 set -e
 
 source script/.env
-
-schemes ()
-{
-  xcodebuild -list | awk '{if(found) print} /Schemes/{found=1}' | awk '{$1=$1};1'
-}
+source script/script_hooks/schemes
+source script/script_hooks/destinations
 
 run_tests ()
 {
   test_command="set -o pipefail && xcodebuild -scheme $1"
+
   if [ -z "$XCODE_WORKSPACE" ]
   then
     test_command="$test_command -project $XCODE_PROJECT"
   else
     test_command="$test_command -workspace $XCODE_WORKSPACE"
   fi
-  test_command="$test_command test"
 
-  shopt -s nocasematch
+  destination=$(scheme_destination $1)
+  test_command="$test_command -destination $destination clean build test -configuration Debug"
 
-  case "$1" in
-
-  *iOS) test_command="$test_command -destination 'platform=iOS Simulator,name=iPhone 6'"
-  ;;
-  *OSX) test_command="$test_command -destination 'platform=OS X'"
-  ;;
-
-esac
   if [ ! -z "$CIRCLE_ARTIFACTS" ]
   then
     test_command="$test_command | tee $CIRCLE_ARTIFACTS/xcode_raw.log"
@@ -46,6 +36,10 @@ esac
   echo ""
   echo " → Running tests for scheme '$1'"
   echo ""
+  if [ ! -z "$VERBOSE" ]
+  then
+    echo $test_command
+  fi
   eval $test_command
 }
 
