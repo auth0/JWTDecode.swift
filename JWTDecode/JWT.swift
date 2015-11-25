@@ -32,6 +32,9 @@ public protocol JWT {
     var body: [String: AnyObject] { get }
     /// token signature part
     var signature: String? { get }
+    /// jwt string value
+    var stringValue: String { get }
+
 
     /// value of `exp` claim if available
     var expiresAt: NSDate? { get }

@@ -3,10 +3,12 @@
 set -e
 
 source script/.env
+source script/common/carthage
 
-if [ -f Cartfile ] && type carthage > /dev/null
+if [ -f Cartfile.resolved ] && type carthage > /dev/null
 then
-  carthage_cmd="carthage update --platform ios"
+  check_carthage_version
+  carthage_cmd="carthage update --platform $CARTHAGE_BUILD_PLATFORM"
   if [ "$USE_SSH" == "true" ]
   then
     carthage_cmd="$carthage_cmd --use-ssh"
@@ -14,6 +16,18 @@ then
   if [ "$USE_SUBMODULES" == "true" ]
   then
     carthage_cmd="$carthage_cmd --use-submodules --no-build"
+  fi
+  if [ "$CARTHAGE_NO_USE_BINARIES" == "true" ]
+  then
+    carthage_cmd="$carthage_cmd --no-use-binaries"
+  fi
+  if [ -z $DISABLE_CARTHAGE_CACHE ] && type bundle > /dev/null && bundle show carthage_cache > /dev/null && [ -f .carthage_cache.yml ]
+  then
+    carthage_cmd="$carthage_cmd && bundle exec carthage_cache publish"
+  fi
+  if [ ! -z "$VERBOSE" ]
+  then
+    echo $carthage_cmd
   fi
   eval $carthage_cmd
 elif [ -f Podfile ]

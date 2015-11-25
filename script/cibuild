@@ -15,7 +15,7 @@ KEYCHAIN=ios-build.keychain
 
 main ()
 {
-    if [ -f Cartfile ]
+    if [ -f Cartfile.resolved ] && [ -f "$SCRIPT_DIR/certificates/cibot.p12" ]
     then
       echo ""
       echo "####### Importing Developer Certificates #######"
@@ -26,7 +26,7 @@ main ()
     echo ""
     echo "####### Bootstrap Phase #######"
     echo ""
-    script/bootstrap
+    DISABLE_CARTHAGE_CACHE_CONFIG=true NO_CARTHAGE_UPDATE=true script/bootstrap
     local status=$?
 
     if [ $status -eq 0 ]
@@ -50,7 +50,10 @@ main ()
       fi
     fi
 
-    delete_keychain
+    if [ -f Cartfile.resolved ] && [ -f "$SCRIPT_DIR/certificates/cibot.p12" ]
+    then
+      delete_keychain
+    fi
     exit $status
 }
 
