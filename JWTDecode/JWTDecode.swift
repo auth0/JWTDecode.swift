@@ -68,6 +68,9 @@ struct DecodedJWT: JWT {
 
     private func claim(name: String) -> NSDate? {
         guard let timestamp:Double = claim(name) else {
+            if let timestamp:String = claim(name) {
+                return NSDate(timeIntervalSince1970: Double(timestamp)!)
+            }
             return nil
         }
         return NSDate(timeIntervalSince1970: timestamp)
