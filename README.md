@@ -35,7 +35,7 @@ github "auth0/JWTDecode.swift"
 
 ###Manual installation
 
-Download `JWTDecode.framework` from [Releases](/releases) and add it to your project in Xcode.
+Download `JWTDecode.framework` from Releases and add it to your project in Xcode.
 
 
 ##Usage
