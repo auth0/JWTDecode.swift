@@ -51,6 +51,11 @@ public class A0JWT: NSObject {
         return self.jwt.expiresAt
     }
 
+    /// value of the `expired` field
+    public var expired: Bool {
+        return self.jwt.expired
+    }
+
     /**
     Creates a new instance of `A0JWT` and decodes the given jwt token.
 
