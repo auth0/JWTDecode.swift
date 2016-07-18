@@ -42,32 +42,32 @@ struct DecodedJWT: JWT {
     let stringValue: String
 
     init(jwt: String) throws {
-        let parts = jwt.componentsSeparatedByString(".")
+        let parts = jwt.components(separatedBy: ".")
         guard parts.count == 3 else {
-            throw invalidPartCountInJWT(jwt, parts: parts.count)
+            throw invalidPartCountInJWT(jwt: jwt, parts: parts.count)
         }
 
-        self.header = try decodeJWTPart(parts[0])
-        self.body = try decodeJWTPart(parts[1])
+        self.header = try decodeJWTPart(value: parts[0])
+        self.body = try decodeJWTPart(value: parts[1])
         self.signature = parts[2]
         self.stringValue = jwt
     }
 
-    var expiresAt: NSDate? { return claim("exp") }
-    var issuer: String? { return claim("iss") }
-    var subject: String? { return claim("sub") }
+    var expiresAt: NSDate? { return claim(name: "exp") }
+    var issuer: String? { return claim(name: "iss") }
+    var subject: String? { return claim(name: "sub") }
     var audience: [String]? {
-        guard let aud: String = claim("aud") else {
-            return claim("aud")
+        guard let aud: String = claim(name: "aud") else {
+            return claim(name: "aud")
         }
         return [aud]
     }
-    var issuedAt: NSDate? { return claim("iat") }
-    var notBefore: NSDate? { return claim("nbf") }
-    var identifier: String? { return claim("jti") }
+    var issuedAt: NSDate? { return claim(name: "iat") }
+    var notBefore: NSDate? { return claim(name: "nbf") }
+    var identifier: String? { return claim(name: "jti") }
 
     private func claim(name: String) -> NSDate? {
-        guard let timestamp:Double = claim(name) else {
+        guard let timestamp:Double = claim(name: name) else {
             return nil
         }
         return NSDate(timeIntervalSince1970: timestamp)
@@ -77,35 +77,35 @@ struct DecodedJWT: JWT {
         guard let date = self.expiresAt else {
             return false
         }
-        return date.compare(NSDate()) != NSComparisonResult.OrderedDescending
+        return date.compare(Date()) != ComparisonResult.orderedDescending
     }
 }
 
-private func base64UrlDecode(value: String) -> NSData? {
+private func base64UrlDecode(value: String) -> Data? {
     var base64 = value
-        .stringByReplacingOccurrencesOfString("-", withString: "+")
-        .stringByReplacingOccurrencesOfString("_", withString: "/")
-    let length = Double(base64.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        .replacingOccurrences(of: "-", with: "+")
+        .replacingOccurrences(of: "_", with: "/")
+    let length = Double(base64.lengthOfBytes(using: String.Encoding.utf8))
     let requiredLength = 4 * ceil(length / 4.0)
     let paddingLength = requiredLength - length
     if paddingLength > 0 {
-        let padding = "".stringByPaddingToLength(Int(paddingLength), withString: "=", startingAtIndex: 0)
-        base64 = base64.stringByAppendingString(padding)
+        let padding = "".padding(toLength: Int(paddingLength), withPad: "=", startingAt: 0)
+        base64 = base64.appending(padding)
     }
-    return NSData(base64EncodedString: base64, options: .IgnoreUnknownCharacters)
+    return Data(base64Encoded: base64)
 }
 
 private func decodeJWTPart(value: String) throws -> [String: AnyObject] {
-    guard let bodyData = base64UrlDecode(value) else {
-        throw invalidBase64UrlValue(value)
+    guard let bodyData = base64UrlDecode(value: value) else {
+        throw invalidBase64UrlValue(value: value)
     }
 
     do {
-        guard let json = try NSJSONSerialization.JSONObjectWithData(bodyData, options: NSJSONReadingOptions()) as? [String: AnyObject] else {
-            throw invalidJSONValue(value)
+        guard let json = try JSONSerialization.jsonObject(with: bodyData, options: JSONSerialization.ReadingOptions()) as? [String: AnyObject] else {
+            throw invalidJSONValue(value: value)
         }
         return json
     } catch {
-        throw invalidJSONValue(value)
+        throw invalidJSONValue(value: value)
     }
 }
