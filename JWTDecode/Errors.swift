@@ -41,14 +41,14 @@ private func errorWithCode(code: DecodeErrorCode, description: String) -> NSErro
     return NSError(domain: ErrorDomain, code: code.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
 }
 
-func invalidPartCountInJWT(jwt: String, parts: Int) -> ErrorType {
-    return errorWithCode(.InvalidPartCount, description: NSLocalizedString("Malformed jwt token \(jwt) has \(parts) parts when it should have 3 parts", comment: "Invalid amount of jwt parts"))
+func invalidPartCountInJWT(jwt: String, parts: Int) -> Error {
+    return errorWithCode(code: .InvalidPartCount, description: NSLocalizedString("Malformed jwt token \(jwt) has \(parts) parts when it should have 3 parts", comment: "Invalid amount of jwt parts"))
 }
 
-func invalidBase64UrlValue(value: String) -> ErrorType {
-    return errorWithCode(.InvalidBase64UrlValue, description: NSLocalizedString("Malformed jwt token, failed to decode base64Url value \(value)", comment: "Invalid JWT token base64Url value"))
+func invalidBase64UrlValue(value: String) -> Error {
+    return errorWithCode(code: .InvalidBase64UrlValue, description: NSLocalizedString("Malformed jwt token, failed to decode base64Url value \(value)", comment: "Invalid JWT token base64Url value"))
 }
 
-func invalidJSONValue(value: String) -> ErrorType {
-    return errorWithCode(.InvalidJSONValue, description: NSLocalizedString("Malformed jwt token, failed to parse JSON value from base64Url \(value)", comment: "Invalid JSON value inside base64Url"))
+func invalidJSONValue(value: String) -> Error {
+    return errorWithCode(code: .InvalidJSONValue, description: NSLocalizedString("Malformed jwt token, failed to parse JSON value from base64Url \(value)", comment: "Invalid JSON value inside base64Url"))
 }
