@@ -6,15 +6,15 @@
 
 **Changed:**
 
-- Rework how claims are decoded [\#35](https://github.com/auth0/JWTDecode.swift/pull/35) ([hzalaz](https://github.com/hzalaz)
-- Add expired method to A0JWT [\#25](https://github.com/auth0/JWTDecode.swift/pull/25) ([wkoszek](https://github.com/wkoszek)
-- Require only App Extension Safe API (in iOS) [\#20](https://github.com/auth0/JWTDecode.swift/pull/20) ([hzalaz](https://github.com/hzalaz)
+- Rework how claims are decoded [\#35](https://github.com/auth0/JWTDecode.swift/pull/35) ([hzalaz](https://github.com/hzalaz))
+- Add expired method to A0JWT [\#25](https://github.com/auth0/JWTDecode.swift/pull/25) ([wkoszek](https://github.com/wkoszek))
+- Require only App Extension Safe API (in iOS) [\#20](https://github.com/auth0/JWTDecode.swift/pull/20) ([hzalaz](https://github.com/hzalaz))
 
 **Added:**
 
-- Swift 2.3 [\#34](https://github.com/auth0/JWTDecode.swift/pull/34) ([hzalaz](https://github.com/hzalaz)
-- Return JWT string representation [\#19](https://github.com/auth0/JWTDecode.swift/pull/19) ([hzalaz](https://github.com/hzalaz)
-- Add tvOS Support [\#33](https://github.com/auth0/JWTDecode.swift/pull/33) ([adolfo](https://github.com/adolfo)
+- Swift 2.3 [\#34](https://github.com/auth0/JWTDecode.swift/pull/34) ([hzalaz](https://github.com/hzalaz))
+- Return JWT string representation [\#19](https://github.com/auth0/JWTDecode.swift/pull/19) ([hzalaz](https://github.com/hzalaz))
+- Add tvOS Support [\#33](https://github.com/auth0/JWTDecode.swift/pull/33) ([adolfo](https://github.com/adolfo))
 
 **Deprecated:**
 
