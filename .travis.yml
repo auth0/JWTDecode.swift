@@ -22,3 +22,5 @@ env:
     - SCHEME="JWTDecode-OSX" CARTHAGE_BUILD_PLATFORM="Mac"
   global:
   - secure: hHc0uhSg57mTBfFUX7ZwZe85IlLMS+mMgOx192fnVyeD81S2AFxaO4nWRpXHktkR68HwDsYJ4emVeoaLxZb8tkkej+nf1L3NIY3FFEJpIEAmrYMv9AoFb0ZtT1IwGOt92bll0DqzZotOVOrPVZeS8MspwZAFqXHAgBszfJut/2w=
+after_success:
+- bash <(curl -s https://codecov.io/bash) -J 'JWTDecode'

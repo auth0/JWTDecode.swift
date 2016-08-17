@@ -130,6 +130,7 @@
 		5F2496AA1D64A91300A1C6E2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5F2496AB1D64A91300A1C6E2 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		5F2496AC1D64A91300A1C6E2 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		5F2496AD1D64B88900A1C6E2 /* codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = codecov.yml; sourceTree = "<group>"; };
 		5F2614CD1C05FDDE0068DE71 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 		5F2614CE1C05FDDE0068DE71 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		5F2614D41C05FE720068DE71 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = SOURCE_ROOT; };
@@ -268,6 +269,7 @@
 		5F2496A11D64A8EE00A1C6E2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F2496AD1D64B88900A1C6E2 /* codecov.yml */,
 				5F2496A21D64A91300A1C6E2 /* .travis.yml */,
 				5F2496A31D64A91300A1C6E2 /* Cartfile.resolved */,
 				5F2496A41D64A91300A1C6E2 /* JWTDecode.podspec */,
