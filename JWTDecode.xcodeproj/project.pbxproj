@@ -119,6 +119,17 @@
 		5F00693F1B3C828E0048928E /* JWTDecode-iOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-iOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0JWTDecodeSpec.m; sourceTree = "<group>"; };
 		5F0A5E291B9A6D4A005289CF /* JWTDecode.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = JWTDecode.playground; sourceTree = SOURCE_ROOT; };
+		5F2496A21D64A91300A1C6E2 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		5F2496A31D64A91300A1C6E2 /* Cartfile.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
+		5F2496A41D64A91300A1C6E2 /* JWTDecode.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = JWTDecode.podspec; sourceTree = "<group>"; };
+		5F2496A51D64A91300A1C6E2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		5F2496A61D64A91300A1C6E2 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
+		5F2496A71D64A91300A1C6E2 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		5F2496A81D64A91300A1C6E2 /* Gemfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
+		5F2496A91D64A91300A1C6E2 /* .carthage_cache.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .carthage_cache.yml; sourceTree = "<group>"; };
+		5F2496AA1D64A91300A1C6E2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5F2496AB1D64A91300A1C6E2 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		5F2496AC1D64A91300A1C6E2 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		5F2614CD1C05FDDE0068DE71 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 		5F2614CE1C05FDDE0068DE71 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		5F2614D41C05FE720068DE71 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = SOURCE_ROOT; };
@@ -195,6 +206,7 @@
 				5F0068F11B3B46240048928E /* JWTDecodeTests */,
 				5F0A5E291B9A6D4A005289CF /* JWTDecode.playground */,
 				5F0068E31B3B46240048928E /* Products */,
+				5F2496A11D64A8EE00A1C6E2 /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,6 +261,24 @@
 			children = (
 				5F2614D11C05FE0A0068DE71 /* Frameworks */,
 				5F0068F31B3B46240048928E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5F2496A11D64A8EE00A1C6E2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5F2496A21D64A91300A1C6E2 /* .travis.yml */,
+				5F2496A31D64A91300A1C6E2 /* Cartfile.resolved */,
+				5F2496A41D64A91300A1C6E2 /* JWTDecode.podspec */,
+				5F2496A51D64A91300A1C6E2 /* .gitignore */,
+				5F2496A61D64A91300A1C6E2 /* Cartfile.private */,
+				5F2496A71D64A91300A1C6E2 /* Gemfile */,
+				5F2496A81D64A91300A1C6E2 /* Gemfile.lock */,
+				5F2496A91D64A91300A1C6E2 /* .carthage_cache.yml */,
+				5F2496AA1D64A91300A1C6E2 /* README.md */,
+				5F2496AB1D64A91300A1C6E2 /* CHANGELOG.md */,
+				5F2496AC1D64A91300A1C6E2 /* LICENSE.txt */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -949,10 +979,10 @@
 				);
 				INFOPLIST_FILE = JWTDecode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.JWTDecode-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
 			name = Release;
