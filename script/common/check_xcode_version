@@ -1,0 +1,13 @@
+check_xcode_version ()
+{
+  if [ -z "$DISABLE_XCODE_CHECK" ]
+  then
+    installed_xcode_version=`xcodebuild -version | head -n 1 | ruby -e 'puts STDIN.read.match(/Xcode ((\d+\.)?\d+\.\d+)/)[1]'`
+    if [ "$installed_xcode_version" != "$REQUIRED_XCODE_VERSION" ]
+    then
+      printf "\033[1;31mError: xcodebuild version '$installed_xcode_version' is not equal to '$REQUIRED_XCODE_VERSION'"
+      printf "\033[0m"
+      exit 1
+    fi
+  fi
+}

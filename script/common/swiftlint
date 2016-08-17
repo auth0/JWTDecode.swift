@@ -1,0 +1,74 @@
+force_install_swiftlint ()
+{
+  echo ""
+  echo " → Installing swiftlint '$REQUIRED_SWIFTLINT_VERSION'"
+  echo ""
+  curl -s -L -O https://github.com/realm/SwiftLint/releases/download/$REQUIRED_SWIFTLINT_VERSION/SwiftLint.pkg > /dev/null
+  sudo installer -pkg SwiftLint.pkg -target / > /dev/null
+  rm SwiftLint.pkg
+  echo "    ✔ swiftlint '$REQUIRED_SWIFTLINT_VERSION' successfully installed"
+  echo ""
+}
+
+uninstall_swiftlint ()
+{
+  echo ""
+  echo " → Uninstalling swiftlint"
+  echo ""
+  local swiftlint_installed_version=`swiftlint version`
+  if type brew > /dev/null && [ ! -z "$(brew list --versions swiftlint)" ]
+  then
+    brew uninstall swiftlint > /dev/null
+  else
+    sudo rm -frd /Library/Frameworks/SwiftLintFramework.framework
+    sudo rm /usr/local/bin/swiftlint
+  fi
+  echo "    ✔ swiftlint '$swiftlint_installed_version' successfully uninstalled"
+}
+
+check_swiftlint_version ()
+{
+  local swiftlint_installed_version=`swiftlint version`
+
+  local patch_number=`echo $REQUIRED_SWIFTLINT_VERSION | cut -d "." -f 3`
+  if [ -z $patch_number ]
+  then
+    COMPARE_SWIFTLINT_VERSION="$REQUIRED_SWIFTLINT_VERSION.0"
+  else
+    COMPARE_SWIFTLINT_VERSION="$REQUIRED_SWIFTLINT_VERSION"
+  fi
+
+  local patch_number=`echo $swiftlint_installed_version | cut -d "." -f 3`
+  if [ -z $patch_number ]
+  then
+    COMPARE_SWIFTLINT_VERSION="$swiftlint_installed_version.0"
+  fi
+
+  if [ "$swiftlint_installed_version" != "$COMPARE_SWIFTLINT_VERSION" ]
+  then
+    printf "\033[1;31mError: swiftlint version '$swiftlint_installed_version' is not equal to '$COMPARE_SWIFTLINT_VERSION'"
+    printf "\033[0m"
+    if [ ! -z "$NO_SWIFTLINT_UPDATE" ]
+    then
+      exit 1
+    else
+      if [ ! -z "$FORCE_SWIFTLINT_VERSION" ]
+      then
+        uninstall_swiftlint
+        force_install_swiftlint
+      else
+        echo ""
+        echo ""
+        echo "Would you like to update swiftlint to version '$REQUIRED_SWIFTLINT_VERSION'? [N/y]"
+        read update_swiftlint
+        if [ "$update_swiftlint" == "y" ]
+        then
+          uninstall_swiftlint
+          force_install_swiftlint
+        else
+          exit 1
+        fi
+      fi
+    fi
+  fi
+}

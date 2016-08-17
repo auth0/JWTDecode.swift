@@ -6,6 +6,8 @@ source script/.env
 source script/script_hooks/schemes
 source script/script_hooks/destinations
 source script/common/carthage
+source script/common/swiftlint
+source script/common/check_xcode_version
 
 run_tests ()
 {
@@ -19,21 +21,18 @@ run_tests ()
   fi
 
   destination=$(scheme_destination $1)
-  test_command="$test_command -destination $destination clean build test -configuration Debug"
-
-  if [ ! -z "$CIRCLE_ARTIFACTS" ]
-  then
-    test_command="$test_command | tee $CIRCLE_ARTIFACTS/xcode_raw.log"
-  fi
+  test_command="$test_command -destination $destination clean test -configuration Debug"
   if type bundle > /dev/null && bundle show xcpretty > /dev/null
   then
     test_command="$test_command | bundle exec xcpretty -c"
-    if [ ! -z "$CIRCLE_TEST_REPORTS" ]
+    if type bundle > /dev/null && bundle show xcpretty-travis-formatter > /dev/null && [ "$TRAVIS" == "true" ]
     then
-      test_command="$test_command --report junit --output $CIRCLE_TEST_REPORTS/xcode/results.xml"
+      formatter_class=`bundle exec xcpretty-travis-formatter`
+      test_command="$test_command -f '$formatter_class'"
     fi
   fi
 
+  test_command="open -b com.apple.iphonesimulator && $test_command"
   echo ""
   echo " → Running tests for scheme '$1'"
   echo ""
@@ -44,9 +43,32 @@ run_tests ()
   eval $test_command
 }
 
+check_xcode_version
+
 if [ -f Cartfile.resolved ]
 then
   check_carthage_version
+fi
+
+if [ -f .swiftlint.yml ] && [ -z $DISABLE_SWIFTLINT ]
+then
+  echo ""
+  echo " → Running swiftlint"
+  echo ""
+  check_swiftlint_version
+  if [ ! -z "$RUNNING_ON_CI" ] && type bundle > /dev/null && bundle show linterbot > /dev/null && [ "$PULL_REQUEST" != "false" ]
+  then
+    echo ""
+    echo " → Running linterbot"
+    echo ""
+    # || true avoid a the script to fail if the linter
+    # does not returns successfully, which could happen
+    # in case of severe lint errors
+    swiftlint lint --reporter json > .swiftlint-report.json || true
+    bundle exec linterbot $REPO_SLUG $PULL_REQUEST --trace < .swiftlint-report.json
+  else
+    swiftlint
+  fi
 fi
 
 current_schemes=$(schemes)
@@ -62,16 +84,26 @@ do
   run_tests $scheme
 done
 
-if [ -f "$PROJECT_NAME.podspec" ]
+if [ -f "$PROJECT_NAME.podspec" ] && [ "$LINT_PODSPEC" == "yes" ]
 then
   echo ""
   echo " → Linting $PROJECT_NAME.podspec"
   echo ""
   if type bundle > /dev/null && bundle show pod > /dev/null
   then
-    bundle exec pod lib lint
+    bundle exec pod lib lint $LINT_PODSPEC_PARAMETERS
   elif type pod > /dev/null
   then
-    pod lib lint
+    pod lib lint $LINT_PODSPEC_PARAMETERS
   fi
+fi
+
+if [ -z "$RUNNING_ON_CI" ] && [ -f .slather.yml ]
+then
+  slather_command="bundle exec slather coverage -s"
+  if [ ! -z "$VERBOSE" ]
+  then
+    slather_command="$slather_command --verbose"
+  fi
+  eval $slather_command
 fi

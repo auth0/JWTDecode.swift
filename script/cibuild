@@ -12,9 +12,24 @@ KEYCHAIN=ios-build.keychain
 ##
 ## Build Process
 ##
+check_if_pr_only_adds_markdown_files()
+{
+  if [ "$PULL_REQUEST" == "false" ]
+  then
+    echo "false"
+  else
+    echo `curl -v -H "Authorization: token $GITHUB_ACCESS_TOKEN" "https://api.github.com/repos/$REPO_SLUG/pulls/$PULL_REQUEST/files" | ruby -e "require 'json'; puts JSON.parse(STDIN.read).all? { |file| file['filename'].end_with?('.md') }"`
+  fi
+}
 
 main ()
 {
+    if [ "$(check_if_pr_only_adds_markdown_files)" == "true" ]
+    then
+      echo "Skipping build because this pull request only adds / modifies markdown files."
+      exit 0
+    fi
+
     if [ -f Cartfile.resolved ] && [ -f "$SCRIPT_DIR/certificates/cibot.p12" ]
     then
       echo ""
@@ -26,7 +41,7 @@ main ()
     echo ""
     echo "####### Bootstrap Phase #######"
     echo ""
-    DISABLE_CARTHAGE_CACHE_CONFIG=true NO_CARTHAGE_UPDATE=true script/bootstrap
+    RUNNING_ON_CI=1 DISABLE_CARTHAGE_CACHE_CONFIG=true script/bootstrap
     local status=$?
 
     if [ $status -eq 0 ]
@@ -35,7 +50,7 @@ main ()
       echo ""
       echo "####### Build & Test Phase #######"
       echo ""
-      set -o pipefail && script/test 2>&1 | tee /tmp/build.test-output.txt
+      set -o pipefail && RUNNING_ON_CI=1 script/test 2>&1 | tee /tmp/build.test-output.txt
       status=$?
       if [ ! $status -eq 0 ]
       then

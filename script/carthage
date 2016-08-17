@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+source script/.env
+source script/common/carthage
+
+check_carthage_version
+call_carthage $@

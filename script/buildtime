@@ -1,0 +1,47 @@
+#!/bin/bash
+
+set -e
+
+source script/.env
+source script/script_hooks/schemes
+source script/script_hooks/destinations
+source script/common/check_xcode_version
+
+run_build ()
+{
+  build_command="xcodebuild -scheme $1"
+
+  if [ -z "$XCODE_WORKSPACE" ]
+  then
+    build_command="$build_command -project $XCODE_PROJECT"
+  else
+    build_command="$build_command -workspace $XCODE_WORKSPACE"
+  fi
+
+  destination=$(scheme_destination $1)
+  build_command="$build_command -destination $destination clean build test -configuration Debug"
+  build_command="$build_command OTHER_SWIFT_FLAGS='-Xfrontend -debug-time-function-bodies' | grep '[0-9]*[0-9][0-9].[0-9]ms'"
+  build_command="$build_command | script/common/sort"
+
+  echo ""
+  echo " → Running build with time details for scheme '$1'"
+  echo ""
+  if [ ! -z "$VERBOSE" ]
+  then
+    echo $build_command
+  fi
+  eval $build_command
+}
+
+current_schemes=$(schemes)
+if [ -z "$current_schemes" ]
+then
+  echo ""
+  echo "ERROR: There are no schemes. Probably you forgot to share your schemes"
+  exit 1
+fi
+
+for scheme in $current_schemes
+do
+  run_build $scheme
+done
