@@ -160,19 +160,52 @@ class JWTDecodeSpec: QuickSpec {
             describe("custom claim") {
 
                 beforeEach {
-                    jwt = jwtWithBody(["sub": NSUUID().UUIDString, "custom_claim": "Shawarma Friday!", "custom_integer_claim": 10])
+                    jwt = jwtWithBody(["sub": NSUUID().UUIDString, "custom_claim": "Shawarma Friday!", "custom_integer_claim": 10, "custom_double_claim": 3.4, "custom_double_string_claim": "1.3"])
                 }
 
-                it("should return custom claims") {
-                    let stringValue: String? = jwt.claim("custom_claim")
-                    expect(stringValue).to(equal("Shawarma Friday!"))
-                    let integerValue: Int? = jwt.claim("custom_integer_claim")
-                    expect(integerValue).to(equal(10))
+                it("should return string claim") {
+                    let claim = jwt.claim(name: "custom_claim")
+                    expect(claim.string) == "Shawarma Friday!"
+                    expect(claim.array) == ["Shawarma Friday!"]
+                    expect(claim.integer).to(beNil())
+                    expect(claim.date).to(beNil())
+                    expect(claim.double).to(beNil())
                 }
 
-                it("should return nil when claim is not present") {
-                    let unknownClaim: String? = jwt.claim("missing_claim")
-                    expect(unknownClaim).to(beNil())
+                it("should return integer claim") {
+                    let claim = jwt.claim(name: "custom_integer_claim")
+                    expect(claim.string).to(beNil())
+                    expect(claim.array) == []
+                    expect(claim.integer) == 10
+                    expect(claim.double) == 10.0
+                    expect(claim.date) == NSDate(timeIntervalSince1970: 10)
+                }
+
+                it("should return double claim") {
+                    let claim = jwt.claim(name: "custom_double_claim")
+                    expect(claim.string).to(beNil())
+                    expect(claim.array) == []
+                    expect(claim.integer) == 3
+                    expect(claim.double) == 3.4
+                    expect(claim.date) == NSDate(timeIntervalSince1970: 3.4)
+                }
+
+                it("should return double as string claim") {
+                    let claim = jwt.claim(name: "custom_double_string_claim")
+                    expect(claim.string) == "1.3"
+                    expect(claim.array) == ["1.3"]
+                    expect(claim.integer).to(beNil())
+                    expect(claim.double) == 1.3
+                    expect(claim.date) == NSDate(timeIntervalSince1970: 1.3)
+                }
+
+                it("should return no value when clain is not present") {
+                    let unknownClaim = jwt.claim(name: "missing_claim")
+                    expect(unknownClaim.array) == []
+                    expect(unknownClaim.string).to(beNil())
+                    expect(unknownClaim.integer).to(beNil())
+                    expect(unknownClaim.double).to(beNil())
+                    expect(unknownClaim.date).to(beNil())
                 }
             }
         }
