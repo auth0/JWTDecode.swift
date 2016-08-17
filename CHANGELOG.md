@@ -1,5 +1,53 @@
 # Change Log
 
+## [1.1.0](https://github.com/auth0/JWTDecode.swift/tree/1.1.0) (2016-08-17)
+
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/1.0.0...1.1.0)
+
+**Changed:**
+
+- Rework how claims are decoded [\#35](https://github.com/auth0/JWTDecode.swift/pull/35) ([hzalaz](https://github.com/hzalaz)
+- Add expired method to A0JWT [\#25](https://github.com/auth0/JWTDecode.swift/pull/25) ([wkoszek](https://github.com/wkoszek)
+- Require only App Extension Safe API (in iOS) [\#20](https://github.com/auth0/JWTDecode.swift/pull/20) ([hzalaz](https://github.com/hzalaz)
+
+**Added:**
+
+- Swift 2.3 [\#34](https://github.com/auth0/JWTDecode.swift/pull/34) ([hzalaz](https://github.com/hzalaz)
+- Return JWT string representation [\#19](https://github.com/auth0/JWTDecode.swift/pull/19) ([hzalaz](https://github.com/hzalaz)
+- Add tvOS Support [\#33](https://github.com/auth0/JWTDecode.swift/pull/33) ([adolfo](https://github.com/adolfo)
+
+**Deprecated:**
+
+To provide a better experience while dealing with claims and converting their values to Swift types, we deprecated the following method to retrive JWT claims
+
+```swift
+public func claim<T>(name: String) -> T?
+```
+
+In favor of the following method to retrieve the claim
+
+```swift
+let claim = jwt.claim(name: "claim_name")
+```
+
+and then you can try converting it's value to the proper type like
+
+```swift
+if let email = claim.string {
+    print("JWT had email \(email)")
+}
+```
+
+The supported conversions are:
+
+```swift
+var string: String?
+var integer: Int?
+var double: Double?
+var date: NSDate?
+var array: [String]?
+```
+
 ## [1.0.0](https://github.com/auth0/JWTDecode.swift/tree/1.0.0) (2015-09-16)
 
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/0.3.2...1.0.0)

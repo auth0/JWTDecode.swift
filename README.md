@@ -22,7 +22,7 @@ JWTDecode is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "JWTDecode", '~> 1.0'
+pod "JWTDecode"
 ```
 
 ###Carthage
@@ -101,10 +101,23 @@ jwt.expiresAt
 ```
 
 ### Custom Claims
-If we also have our custom claims we can retrive them calling `claim<T>(name: String) -> T?` where `T` is the value type of the claim, e.g.: a `String`
+If we also have our custom claims we can retrive them calling `claim(name: String) -> Claim` then you can try converting the value like
 
 ```swift
-let custom: String? = jwt.claim("email")
+let claim = jwt.claim(name: "email")
+if let email = claim.string {
+    print("Email in jwt was \(email)")
+}
+```
+
+The supported conversions are:
+
+```swift
+var string: String?
+var integer: Int?
+var double: Double?
+var date: NSDate?
+var array: [String]?
 ```
 
 ### Error Handling
