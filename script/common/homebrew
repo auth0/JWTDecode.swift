@@ -1,0 +1,55 @@
+install_homebrew ()
+{
+  if [ -z $GITHUB_ACCESS_TOKEN ]
+  then
+    export HOMEBREW_GITHUB_API_TOKEN=$GITHUB_ACCESS_TOKEN
+  fi
+
+  if type brew > /dev/null
+  then
+    echo "    ✔ brew is already installed"
+
+    if [ -z "$SKIP_BREW_FORMULAS_UPDATE" ]
+    then
+      echo ""
+      echo " → Updating homebrew formulas"
+      brew update > /dev/null || brew update > /dev/null
+      echo "    ✔ formulas updated"
+    fi
+  else
+    command -v ruby >/dev/null 2>&1 || { echo >&2 "Error: Some ruby of version is required to install homebrew. Aborting"; exit 1; }
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+}
+
+# param $1 formula name
+# param $2 [optional] tap path
+brew_install ()
+{
+  formula_version=`brew list --versions $1`
+  if [ -z "$formula_version" ]
+  then
+    if [ -z $2 ]
+    then
+      formula_name=$1
+    else
+      formula_name="$2/$1"
+    fi
+    echo ""
+    echo " → Installing brew formula $formula_name"
+    brew install -v $formula_name > /dev/null 2>&1
+
+    # Extract version
+    regexp="^.*([0-9]\.[0-9]\.[0-9]).*$"
+    installed_version=""
+    eval "output=\"$(brew info $1)\""
+    if [[ $output =~ $regexp ]]
+    then
+      installed_version=${BASH_REMATCH[1]}
+    fi
+
+    echo "    ✔ $formula_name $installed_version has been installed"
+  else
+    echo "    ✔ $1 is already installed"
+  fi
+}

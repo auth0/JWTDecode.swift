@@ -1,0 +1,9 @@
+#!/bin/bash
+source script/common/swiftlint
+
+if [ -z $REQUIRED_SWIFTLINT_VERSION ]
+then
+  echo "Enter the version of SwiftLint you want to install:"
+  read REQUIRED_SWIFTLINT_VERSION
+fi
+force_install_swiftlint

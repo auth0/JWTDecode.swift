@@ -1,10 +1,34 @@
+GIT
+  remote: https://github.com/guidomb/carthage_cache
+  revision: 8dfc82f7b0e8bcc486b95833456663f8fc019c64
+  branch: master
+  specs:
+    carthage_cache (0.4.1)
+      aws-sdk (~> 2.2.3)
+      commander (~> 4.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    xcpretty (0.1.12)
+    aws-sdk (2.2.37)
+      aws-sdk-resources (= 2.2.37)
+    aws-sdk-core (2.2.37)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.2.37)
+      aws-sdk-core (= 2.2.37)
+    commander (4.4.0)
+      highline (~> 1.7.2)
+    highline (1.7.8)
+    jmespath (1.3.1)
+    rouge (1.11.1)
+    xcpretty (0.2.2)
+      rouge (~> 1.8)
+    xcpretty-travis-formatter (0.0.4)
+      xcpretty (~> 0.2, >= 0.0.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  xcpretty
+  carthage_cache!
+  xcpretty-travis-formatter

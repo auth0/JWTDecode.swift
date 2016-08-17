@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+require 'yaml'
+
+def encrypt(key, value)
+  `bundle exec travis encrypt #{key}=#{value} --add env.global`
+  unless $?.success?
+    STDERR.puts "Unable to encrypt '#{key}'"
+    exit 1
+  end
+end
+
+unless File.exist?(".carthage_cache.yml")
+  STDERR.puts ".carthage_cache.yml file does not exist"
+  exit 1
+end
+
+`bundle exec travis whoami`
+unless $?.success?
+  github_access_token = ARGV[0]
+  unless github_access_token
+    STDERR.puts "You need to provide your personal GitHub access token in order to be able to login into TravisCI."
+    exit 1
+  end
+
+  puts "Loging into TravisCI pro account ..."
+  `bundle exec travis login --pro --github-token #{github_access_token}`
+  unless $?.success?
+    STDERR.puts "Unable to login into TravisCI pro account."
+    exit 1
+  end
+
+  puts "Loging into TravisCI org account ..."
+  `bundle exec travis login --org --github-token #{github_access_token}`
+  unless $?.success?
+    STDERR.puts "Unable to login into TravisCI org account."
+    exit 1
+  end
+end
+
+config = YAML.load(File.read(".carthage_cache.yml"))
+puts "Adding carthage_cache config encrypted env variables to .travis.yml ..."
+encrypt("AWS_REGION", config[:aws_s3_client_options][:region])
+encrypt("AWS_ACCESS_KEY_ID", config[:aws_s3_client_options][:access_key_id])
+encrypt("AWS_SECRET_ACCESS_KEY", config[:aws_s3_client_options][:secret_access_key])
+encrypt("CARTHAGE_CACHE_BUCKET_NAME", config[:bucket_name])
+puts ".travis.yml successfully updated!"
