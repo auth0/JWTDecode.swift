@@ -113,14 +113,14 @@ public struct Claim {
     }
 
         /// value of the claim as `[String]`
-    public var array: [String] {
+    public var array: [String]? {
         if let array = value as? [String] {
             return array
         }
         if let value = self.string {
             return [value]
         }
-        return []
+        return nil
     }
 }
 

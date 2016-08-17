@@ -175,7 +175,7 @@ class JWTDecodeSpec: QuickSpec {
                 it("should return integer claim") {
                     let claim = jwt.claim(name: "custom_integer_claim")
                     expect(claim.string).to(beNil())
-                    expect(claim.array) == []
+                    expect(claim.array).to(beNil())
                     expect(claim.integer) == 10
                     expect(claim.double) == 10.0
                     expect(claim.date) == NSDate(timeIntervalSince1970: 10)
@@ -184,7 +184,7 @@ class JWTDecodeSpec: QuickSpec {
                 it("should return double claim") {
                     let claim = jwt.claim(name: "custom_double_claim")
                     expect(claim.string).to(beNil())
-                    expect(claim.array) == []
+                    expect(claim.array).to(beNil())
                     expect(claim.integer) == 3
                     expect(claim.double) == 3.4
                     expect(claim.date) == NSDate(timeIntervalSince1970: 3.4)
@@ -201,7 +201,7 @@ class JWTDecodeSpec: QuickSpec {
 
                 it("should return no value when clain is not present") {
                     let unknownClaim = jwt.claim(name: "missing_claim")
-                    expect(unknownClaim.array) == []
+                    expect(unknownClaim.array).to(beNil())
                     expect(unknownClaim.string).to(beNil())
                     expect(unknownClaim.integer).to(beNil())
                     expect(unknownClaim.double).to(beNil())
