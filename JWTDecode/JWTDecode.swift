@@ -23,13 +23,15 @@
 import Foundation
 
 /**
-Decodes a JWT token into an object that holds the decoded body (along with token header and signature parts).
-If the token cannot be decoded a `NSError` will be thrown.
+ Decodes a JWT token into an object that holds the decoded body (along with token header and signature parts).
+ If the token cannot be decoded a `NSError` will be thrown.
 
-:param: jwt string value to decode
+ - parameter jwt: jwt string value to decode
 
-:returns: a decoded token as an instance of JWT
-*/
+ - throws: an error if the JWT cannot be decoded
+
+ - returns: a decoded token as an instance of JWT
+ */
 public func decode(jwt: String) throws -> JWT {
     return try DecodedJWT(jwt: jwt)
 }
@@ -53,31 +55,72 @@ struct DecodedJWT: JWT {
         self.stringValue = jwt
     }
 
-    var expiresAt: NSDate? { return claim("exp") }
-    var issuer: String? { return claim("iss") }
-    var subject: String? { return claim("sub") }
-    var audience: [String]? {
-        guard let aud: String = claim("aud") else {
-            return claim("aud")
-        }
-        return [aud]
-    }
-    var issuedAt: NSDate? { return claim("iat") }
-    var notBefore: NSDate? { return claim("nbf") }
-    var identifier: String? { return claim("jti") }
-
-    private func claim(name: String) -> NSDate? {
-        guard let timestamp:Double = claim(name) else {
-            return nil
-        }
-        return NSDate(timeIntervalSince1970: timestamp)
-    }
+    var expiresAt: NSDate? { return claim(name: "exp").date }
+    var issuer: String? { return claim(name: "iss").string }
+    var subject: String? { return claim(name: "sub").string }
+    var audience: [String]? { return claim(name: "aud").array }
+    var issuedAt: NSDate? { return claim(name: "iat").date }
+    var notBefore: NSDate? { return claim(name: "nbf").date }
+    var identifier: String? { return claim(name: "jti").string }
 
     var expired: Bool {
         guard let date = self.expiresAt else {
             return false
         }
         return date.compare(NSDate()) != NSComparisonResult.OrderedDescending
+    }
+}
+
+/**
+ *  JWT Claim
+ */
+public struct Claim {
+
+        /// raw value of the claim
+    let value: AnyObject?
+
+        /// value of the claim as `String`
+    public var string: String? {
+        return self.value as? String
+    }
+
+        /// value of the claim as `Double`
+    public var double: Double? {
+        let double: Double?
+        if let string = self.string {
+            double = Double(string)
+        } else {
+            double = self.value as? Double
+        }
+        return double
+    }
+
+        /// value of the claim as `Int`
+    public var integer: Int? {
+        let integer: Int?
+        if let string = self.string {
+            integer = Int(string)
+        } else {
+            integer = self.value as? Int
+        }
+        return integer
+    }
+
+        /// value of the claim as `NSDate`
+    public var date: NSDate? {
+        guard let timestamp:NSTimeInterval = self.double else { return nil }
+        return NSDate(timeIntervalSince1970: timestamp)
+    }
+
+        /// value of the claim as `[String]`
+    public var array: [String] {
+        if let array = value as? [String] {
+            return array
+        }
+        if let value = self.string {
+            return [value]
+        }
+        return []
     }
 }
 
@@ -100,12 +143,9 @@ private func decodeJWTPart(value: String) throws -> [String: AnyObject] {
         throw invalidBase64UrlValue(value)
     }
 
-    do {
-        guard let json = try NSJSONSerialization.JSONObjectWithData(bodyData, options: NSJSONReadingOptions()) as? [String: AnyObject] else {
-            throw invalidJSONValue(value)
-        }
-        return json
-    } catch {
+    guard let json = try? NSJSONSerialization.JSONObjectWithData(bodyData, options: []), let payload = json as? [String: AnyObject] else {
         throw invalidJSONValue(value)
     }
+
+    return payload
 }

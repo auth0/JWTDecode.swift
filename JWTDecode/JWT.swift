@@ -56,14 +56,29 @@ public protocol JWT {
 }
 
 public extension JWT {
+
     /**
-    Returns a specific claim by its name whose value if of type `T`.
+     Returns a specific claim by its name whose value if of type `T`.
 
-    :param: name of the claim to return
+     - parameter name: name of the claim to return
 
-    :returns: the value of the claim as the generic type `T` if available
-    */
+     - returns: the value of the claim as the generic type `T` if available
+     - warning: This method is deprecated in favor of `claim(name:)`
+     */
+    @available(*, deprecated, message="use claim(name:) -> Claim instead")
     public func claim<T>(name: String) -> T? {
         return self.body[name] as? T
+    }
+
+    /**
+     Return a claim by it's name
+
+     - parameter name: name of the claim in the JWT
+
+     - returns: a claim of the JWT
+     */
+    public func claim(name name: String) -> Claim {
+        let value = self.body[name]
+        return Claim(value: value)
     }
 }
