@@ -11,23 +11,10 @@
 		5F0068EE1B3B46240048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0068E21B3B46240048928E /* JWTDecode.framework */; };
 		5F0069031B3B511F0048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		5F0069141B3B532E0048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069091B3B532E0048928E /* JWTDecode.framework */; };
-		5F0069231B3C4A7F0048928E /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */; };
-		5F0069241B3C4A860048928E /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */; };
 		5F00693D1B3C7B630048928E /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0068E71B3B46240048928E /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F00693E1B3C7B930048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
-		5F0069411B3C828F0048928E /* A0JWTDecodeSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */; };
-		5F2614D81C05FE850068DE71 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614CD1C05FDDE0068DE71 /* Quick.framework */; };
-		5F2614D91C05FE850068DE71 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614CE1C05FDDE0068DE71 /* Nimble.framework */; };
-		5F2614DA1C05FE880068DE71 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614D41C05FE720068DE71 /* Quick.framework */; };
-		5F2614DB1C05FE880068DE71 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614D51C05FE720068DE71 /* Nimble.framework */; };
-		5F2614DD1C05FEB90068DE71 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F2614CD1C05FDDE0068DE71 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5F2614DE1C05FEB90068DE71 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F2614CE1C05FDDE0068DE71 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5F2614E01C05FEE20068DE71 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F2614D41C05FE720068DE71 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5F2614E11C05FEE20068DE71 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F2614D51C05FE720068DE71 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5F8B43691B9F99B400A0D5AE /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B43681B9F99B400A0D5AE /* A0JWT.swift */; };
 		5F8B436A1B9F99B400A0D5AE /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B43681B9F99B400A0D5AE /* A0JWT.swift */; };
-		5F8B436C1B9F9EDB00A0D5AE /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B436B1B9F9EDB00A0D5AE /* JWTHelper.swift */; };
-		5F8B436D1B9F9EDB00A0D5AE /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B436B1B9F9EDB00A0D5AE /* JWTHelper.swift */; };
 		5FE49DCD1BA0D5F700DE57D3 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 		5FE49DCE1BA0D5F700DE57D3 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 		5FE49DD01BA0D66F00DE57D3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* Errors.swift */; };
@@ -58,8 +45,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5F2614DD1C05FEB90068DE71 /* Quick.framework in CopyFiles */,
-				5F2614DE1C05FEB90068DE71 /* Nimble.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,8 +54,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5F2614E01C05FEE20068DE71 /* Quick.framework in CopyFiles */,
-				5F2614E11C05FEE20068DE71 /* Nimble.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,20 +64,11 @@
 		5F0068E61B3B46240048928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F0068E71B3B46240048928E /* JWTDecode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JWTDecode.h; sourceTree = "<group>"; };
 		5F0068ED1B3B46240048928E /* JWTDecode-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F0068F31B3B46240048928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F0069021B3B511F0048928E /* JWTDecode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTDecode.swift; sourceTree = "<group>"; };
 		5F0069091B3B532E0048928E /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0069131B3B532E0048928E /* JWTDecode-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTDecodeSpec.swift; sourceTree = "<group>"; };
-		5F00693F1B3C828E0048928E /* JWTDecode-iOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-iOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0JWTDecodeSpec.m; sourceTree = "<group>"; };
 		5F0A5E291B9A6D4A005289CF /* JWTDecode.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = JWTDecode.playground; sourceTree = SOURCE_ROOT; };
-		5F2614CD1C05FDDE0068DE71 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
-		5F2614CE1C05FDDE0068DE71 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
-		5F2614D41C05FE720068DE71 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = SOURCE_ROOT; };
-		5F2614D51C05FE720068DE71 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		5F8B43681B9F99B400A0D5AE /* A0JWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = A0JWT.swift; sourceTree = "<group>"; };
-		5F8B436B1B9F9EDB00A0D5AE /* JWTHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTHelper.swift; sourceTree = "<group>"; };
 		5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
 		5FE49DCF1BA0D66F00DE57D3 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,8 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F2614D91C05FE850068DE71 /* Nimble.framework in Frameworks */,
-				5F2614D81C05FE850068DE71 /* Quick.framework in Frameworks */,
 				5F0068EE1B3B46240048928E /* JWTDecode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,8 +100,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F2614DB1C05FE880068DE71 /* Nimble.framework in Frameworks */,
-				5F2614DA1C05FE880068DE71 /* Quick.framework in Frameworks */,
 				5F0069141B3B532E0048928E /* JWTDecode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				5F0068E41B3B46240048928E /* JWTDecode */,
-				5F0068F11B3B46240048928E /* JWTDecodeTests */,
 				5F0A5E291B9A6D4A005289CF /* JWTDecode.playground */,
 				5F0068E31B3B46240048928E /* Products */,
 			);
@@ -177,54 +146,6 @@
 				5F0068E61B3B46240048928E /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5F0068F11B3B46240048928E /* JWTDecodeTests */ = {
-			isa = PBXGroup;
-			children = (
-				5F0068F21B3B46240048928E /* Supporting Files */,
-				5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */,
-				5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */,
-				5F00693F1B3C828E0048928E /* JWTDecode-iOSTests-Bridging-Header.h */,
-				5F8B436B1B9F9EDB00A0D5AE /* JWTHelper.swift */,
-			);
-			path = JWTDecodeTests;
-			sourceTree = "<group>";
-		};
-		5F0068F21B3B46240048928E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5F2614D11C05FE0A0068DE71 /* Frameworks */,
-				5F0068F31B3B46240048928E /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5F2614D11C05FE0A0068DE71 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5F2614D31C05FE1B0068DE71 /* OSX */,
-				5F2614D21C05FE160068DE71 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5F2614D21C05FE160068DE71 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				5F2614CD1C05FDDE0068DE71 /* Quick.framework */,
-				5F2614CE1C05FDDE0068DE71 /* Nimble.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		5F2614D31C05FE1B0068DE71 /* OSX */ = {
-			isa = PBXGroup;
-			children = (
-				5F2614D41C05FE720068DE71 /* Quick.framework */,
-				5F2614D51C05FE720068DE71 /* Nimble.framework */,
-			);
-			name = OSX;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,9 +337,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F8B436C1B9F9EDB00A0D5AE /* JWTHelper.swift in Sources */,
-				5F0069231B3C4A7F0048928E /* JWTDecodeSpec.swift in Sources */,
-				5F0069411B3C828F0048928E /* A0JWTDecodeSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,8 +355,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F0069241B3C4A860048928E /* JWTDecodeSpec.swift in Sources */,
-				5F8B436D1B9F9EDB00A0D5AE /* JWTHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,8 +387,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -520,8 +438,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -553,6 +473,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -576,6 +497,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
