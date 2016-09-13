@@ -38,7 +38,7 @@ describe(@"Objective-C support", ^{
     });
 
     it(@"should return nil jwt and an error", ^{
-        expect([A0JWT decode:@"INVALID" error:&error]).to(beNil());
+        expect([A0JWT decodeWithJwt:@"INVALID" error:&error]).to(beNil());
         expect(error).toNot(beNil());
     });
 

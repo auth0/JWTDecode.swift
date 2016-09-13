@@ -17,7 +17,7 @@ let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NhbXBsZX
 Then here we try to decode it calling `decode(token: String) -> JWT` that will return an object with all the decoded values
 */
 do {
-    let jwt = try decode(token)
+    let jwt = try decode(jwt: token)
 
 //: ### JWT parts
 

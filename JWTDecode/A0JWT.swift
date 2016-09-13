@@ -24,7 +24,7 @@ import Foundation
 
 /// Decodes a JWT
 @objc(A0JWT)
-public class _JWT: NSObject {
+open class _JWT: NSObject {
 
     var jwt: JWT
 
@@ -33,27 +33,27 @@ public class _JWT: NSObject {
     }
 
     /// token header part
-    public var header: [String: AnyObject] {
+    open var header: [String: Any] {
         return self.jwt.header
     }
 
     /// token body part or claims
-    public var body: [String: AnyObject] {
+    open var body: [String: Any] {
         return self.jwt.body
     }
 
     /// token signature part
-    public var signature: String? {
+    open var signature: String? {
         return self.jwt.signature
     }
 
     /// value of the `exp` claim
-    public var expiresAt: NSDate? {
-        return self.jwt.expiresAt
+    open var expiresAt: Date? {
+        return self.jwt.expiresAt as Date?
     }
 
     /// value of the `expired` field
-    public var expired: Bool {
+    open var expired: Bool {
         return self.jwt.expired
     }
 
@@ -64,7 +64,7 @@ public class _JWT: NSObject {
 
     :returns: a new instance of `A0JWT` that holds the decode token
     */
-    public class func decode(jwtValue: String) throws -> _JWT {
+    open class func decode(jwt jwtValue: String) throws -> _JWT {
         let jwt = try DecodedJWT(jwt: jwtValue)
         return _JWT(jwt: jwt)
     }

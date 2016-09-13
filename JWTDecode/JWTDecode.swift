@@ -38,15 +38,15 @@ public func decode(jwt: String) throws -> JWT {
 
 struct DecodedJWT: JWT {
 
-    let header: [String: AnyObject]
-    let body: [String: AnyObject]
+    let header: [String: Any]
+    let body: [String: Any]
     let signature: String?
     let stringValue: String
 
     init(jwt: String) throws {
-        let parts = jwt.componentsSeparatedByString(".")
+        let parts = jwt.components(separatedBy: ".")
         guard parts.count == 3 else {
-            throw invalidPartCountInJWT(jwt, parts: parts.count)
+            throw invalidPartCount(inJWT: jwt, parts: parts.count)
         }
 
         self.header = try decodeJWTPart(parts[0])
@@ -55,19 +55,19 @@ struct DecodedJWT: JWT {
         self.stringValue = jwt
     }
 
-    var expiresAt: NSDate? { return claim(name: "exp").date }
+    var expiresAt: Date? { return claim(name: "exp").date }
     var issuer: String? { return claim(name: "iss").string }
     var subject: String? { return claim(name: "sub").string }
     var audience: [String]? { return claim(name: "aud").array }
-    var issuedAt: NSDate? { return claim(name: "iat").date }
-    var notBefore: NSDate? { return claim(name: "nbf").date }
+    var issuedAt: Date? { return claim(name: "iat").date }
+    var notBefore: Date? { return claim(name: "nbf").date }
     var identifier: String? { return claim(name: "jti").string }
 
     var expired: Bool {
         guard let date = self.expiresAt else {
             return false
         }
-        return date.compare(NSDate()) != NSComparisonResult.OrderedDescending
+        return date.compare(Date()) != ComparisonResult.orderedDescending
     }
 }
 
@@ -77,7 +77,7 @@ struct DecodedJWT: JWT {
 public struct Claim {
 
         /// raw value of the claim
-    let value: AnyObject?
+    let value: Any?
 
         /// value of the claim as `String`
     public var string: String? {
@@ -107,9 +107,9 @@ public struct Claim {
     }
 
         /// value of the claim as `NSDate`
-    public var date: NSDate? {
-        guard let timestamp:NSTimeInterval = self.double else { return nil }
-        return NSDate(timeIntervalSince1970: timestamp)
+    public var date: Date? {
+        guard let timestamp:TimeInterval = self.double else { return nil }
+        return Date(timeIntervalSince1970: timestamp)
     }
 
         /// value of the claim as `[String]`
@@ -124,27 +124,27 @@ public struct Claim {
     }
 }
 
-private func base64UrlDecode(value: String) -> NSData? {
+private func base64UrlDecode(_ value: String) -> Data? {
     var base64 = value
-        .stringByReplacingOccurrencesOfString("-", withString: "+")
-        .stringByReplacingOccurrencesOfString("_", withString: "/")
-    let length = Double(base64.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        .replacingOccurrences(of: "-", with: "+")
+        .replacingOccurrences(of: "_", with: "/")
+    let length = Double(base64.lengthOfBytes(using: String.Encoding.utf8))
     let requiredLength = 4 * ceil(length / 4.0)
     let paddingLength = requiredLength - length
     if paddingLength > 0 {
-        let padding = "".stringByPaddingToLength(Int(paddingLength), withString: "=", startingAtIndex: 0)
-        base64 = base64.stringByAppendingString(padding)
+        let padding = "".padding(toLength: Int(paddingLength), withPad: "=", startingAt: 0)
+        base64 = base64 + padding
     }
-    return NSData(base64EncodedString: base64, options: .IgnoreUnknownCharacters)
+    return Data(base64Encoded: base64, options: .ignoreUnknownCharacters)
 }
 
-private func decodeJWTPart(value: String) throws -> [String: AnyObject] {
+private func decodeJWTPart(_ value: String) throws -> [String: Any] {
     guard let bodyData = base64UrlDecode(value) else {
-        throw invalidBase64UrlValue(value)
+        throw invalidBase64Url(value: value)
     }
 
-    guard let json = try? NSJSONSerialization.JSONObjectWithData(bodyData, options: []), let payload = json as? [String: AnyObject] else {
-        throw invalidJSONValue(value)
+    guard let json = try? JSONSerialization.jsonObject(with: bodyData, options: []), let payload = json as? [String: Any] else {
+        throw invalidJSON(value: value)
     }
 
     return payload

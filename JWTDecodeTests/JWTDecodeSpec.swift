@@ -38,18 +38,18 @@ class JWTDecodeSpec: QuickSpec {
             }
 
             it("should tell a jwt is expired with a close enough timestamp") {
-                expect(jwtThatExpiresAt(NSDate()).expired).to(beTruthy())
+                expect(jwtThatExpiresAt(date: Date()).expired).to(beTruthy())
             }
 
             it("should obtain payload") {
-                let jwt = jwtWithBody(["sub": "myid", "name": "Shawarma Monk"])
-                let payload = jwt.body as! [String: String]
+                let token = jwt(withBody: ["sub": "myid", "name": "Shawarma Monk"])
+                let payload = token.body as! [String: String]
                 expect(payload).to(equal(["sub": "myid", "name": "Shawarma Monk"]))
             }
 
             it("should return original jwt string representation") {
                 let jwtString = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjb20uc29td2hlcmUuZmFyLmJleW9uZDphcGkiLCJpc3MiOiJhdXRoMCIsInVzZXJfcm9sZSI6ImFkbWluIn0.sS84motSLj9HNTgrCPcAjgZIQ99jXNN7_W9fEIIfxz0"
-                let jwt = try! decode(jwtString)
+                let jwt = try! decode(jwt: jwtString)
                 expect(jwt.stringValue).to(equal(jwtString))
             }
 
@@ -59,27 +59,27 @@ class JWTDecodeSpec: QuickSpec {
 
             it("should decode valid jwt") {
                 let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjb20uc29td2hlcmUuZmFyLmJleW9uZDphcGkiLCJpc3MiOiJhdXRoMCIsInVzZXJfcm9sZSI6ImFkbWluIn0.sS84motSLj9HNTgrCPcAjgZIQ99jXNN7_W9fEIIfxz0"
-                expect(try! decode(jwt)).toNot(beNil())
+                expect(try! decode(jwt: jwt)).toNot(beNil())
             }
 
             it("should raise exception with invalid json in jwt") {
-                expect { try decode("HEADER.BODY.SIGNATURE") }
-                    .to(throwError { (error: ErrorType) in
-                        expect(error).to(beDecodeErrorWithCode(.InvalidJSONValue))
+                expect { try decode(jwt: "HEADER.BODY.SIGNATURE") }
+                    .to(throwError { (error: Error) in
+                        expect(error).to(beDecodeErrorWithCode(.invalidJSONValue))
                     })
             }
 
             it("should raise exception with missing parts") {
-                expect { try decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ") }
-                    .to(throwError { (error: ErrorType) in
-                        expect(error).to(beDecodeErrorWithCode(.InvalidPartCount))
+                expect { try decode(jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ") }
+                    .to(throwError { (error: Error) in
+                        expect(error).to(beDecodeErrorWithCode(.invalidPartCount))
                     })
             }
 
         }
 
         describe("jwt parts") {
-            let jwt = try! decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ.xXcD7WOvUDHJ94E6aVHYgXdsJHLl2oW7ZXm4QpVvXnY")
+            let jwt = try! decode(jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ.xXcD7WOvUDHJ94E6aVHYgXdsJHLl2oW7ZXm4QpVvXnY")
 
             it("should return header") {
                 expect(jwt.header as? [String: String]).to(equal(["alg": "HS256", "typ": "JWT"]))
@@ -95,32 +95,32 @@ class JWTDecodeSpec: QuickSpec {
         }
 
         describe("claims") {
-            var jwt: JWT!
+            var token: JWT!
 
             describe("expiresAt claim") {
 
                 it("should handle expired jwt") {
-                    jwt = expiredJWT()
-                    expect(jwt.expiresAt).toNot(beNil())
-                    expect(jwt.expired).to(beTruthy())
+                    token = expiredJWT()
+                    expect(token.expiresAt).toNot(beNil())
+                    expect(token.expired).to(beTruthy())
                 }
 
                 it("should handle non-expired jwt") {
-                    jwt = nonExpiredJWT()
-                    expect(jwt.expiresAt).toNot(beNil())
-                    expect(jwt.expired).to(beFalsy())
+                    token = nonExpiredJWT()
+                    expect(token.expiresAt).toNot(beNil())
+                    expect(token.expired).to(beFalsy())
                 }
 
                 it("should handle jwt without expiresAt claim") {
-                    jwt = jwtWithBody(["sub": NSUUID().UUIDString])
-                    expect(jwt.expiresAt).to(beNil())
-                    expect(jwt.expired).to(beFalsy())
+                    token = jwt(withBody: ["sub": UUID().uuidString])
+                    expect(token.expiresAt).to(beNil())
+                    expect(token.expired).to(beFalsy())
                 }
             }
 
             describe("registered claims") {
 
-                let jwt = try! decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NhbXBsZXMuYXV0aDAuY29tIiwic3ViIjoiYXV0aDB8MTAxMDEwMTAxMCIsImF1ZCI6Imh0dHBzOi8vc2FtcGxlcy5hdXRoMC5jb20iLCJleHAiOjEzNzI2NzQzMzYsImlhdCI6MTM3MjYzODMzNiwianRpIjoicXdlcnR5MTIzNDU2IiwibmJmIjoxMzcyNjM4MzM2fQ.LvF9wSheCB5xarpydmurWgi9NOZkdES5AbNb_UWk9Ew")
+                let jwt = try! decode(jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NhbXBsZXMuYXV0aDAuY29tIiwic3ViIjoiYXV0aDB8MTAxMDEwMTAxMCIsImF1ZCI6Imh0dHBzOi8vc2FtcGxlcy5hdXRoMC5jb20iLCJleHAiOjEzNzI2NzQzMzYsImlhdCI6MTM3MjYzODMzNiwianRpIjoicXdlcnR5MTIzNDU2IiwibmJmIjoxMzcyNjM4MzM2fQ.LvF9wSheCB5xarpydmurWgi9NOZkdES5AbNb_UWk9Ew")
 
 
                 it("should return issuer") {
@@ -137,7 +137,7 @@ class JWTDecodeSpec: QuickSpec {
 
                 context("multiple audiences") {
 
-                    let jwt = try! decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiaHR0cHM6Ly9zYW1wbGVzLmF1dGgwLmNvbSIsImh0dHBzOi8vYXBpLnNhbXBsZXMuYXV0aDAuY29tIl19.cfWFPuJbQ7NToa-BjHgHD1tHn3P2tOP5wTQaZc1qg6M")
+                    let jwt = try! decode(jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiaHR0cHM6Ly9zYW1wbGVzLmF1dGgwLmNvbSIsImh0dHBzOi8vYXBpLnNhbXBsZXMuYXV0aDAuY29tIl19.cfWFPuJbQ7NToa-BjHgHD1tHn3P2tOP5wTQaZc1qg6M")
 
                     it("should return all audiences") {
                         expect(jwt.audience).to(equal(["https://samples.auth0.com", "https://api.samples.auth0.com"]))
@@ -145,11 +145,11 @@ class JWTDecodeSpec: QuickSpec {
                 }
 
                 it("should return issued at") {
-                    expect(jwt.issuedAt).to(equal(NSDate(timeIntervalSince1970: 1372638336)))
+                    expect(jwt.issuedAt).to(equal(Date(timeIntervalSince1970: 1372638336)))
                 }
 
                 it("should return not before") {
-                    expect(jwt.notBefore).to(equal(NSDate(timeIntervalSince1970: 1372638336)))
+                    expect(jwt.notBefore).to(equal(Date(timeIntervalSince1970: 1372638336)))
                 }
 
                 it("should return jwt id") {
@@ -160,11 +160,11 @@ class JWTDecodeSpec: QuickSpec {
             describe("custom claim") {
 
                 beforeEach {
-                    jwt = jwtWithBody(["sub": NSUUID().UUIDString, "custom_claim": "Shawarma Friday!", "custom_integer_claim": 10, "custom_double_claim": 3.4, "custom_double_string_claim": "1.3"])
+                    token = jwt(withBody: ["sub": UUID().uuidString, "custom_claim": "Shawarma Friday!", "custom_integer_claim": 10, "custom_double_claim": 3.4, "custom_double_string_claim": "1.3"])
                 }
 
                 it("should return string claim") {
-                    let claim = jwt.claim(name: "custom_claim")
+                    let claim = token.claim(name: "custom_claim")
                     expect(claim.string) == "Shawarma Friday!"
                     expect(claim.array) == ["Shawarma Friday!"]
                     expect(claim.integer).to(beNil())
@@ -173,34 +173,34 @@ class JWTDecodeSpec: QuickSpec {
                 }
 
                 it("should return integer claim") {
-                    let claim = jwt.claim(name: "custom_integer_claim")
+                    let claim = token.claim(name: "custom_integer_claim")
                     expect(claim.string).to(beNil())
                     expect(claim.array).to(beNil())
                     expect(claim.integer) == 10
                     expect(claim.double) == 10.0
-                    expect(claim.date) == NSDate(timeIntervalSince1970: 10)
+                    expect(claim.date) == Date(timeIntervalSince1970: 10)
                 }
 
                 it("should return double claim") {
-                    let claim = jwt.claim(name: "custom_double_claim")
+                    let claim = token.claim(name: "custom_double_claim")
                     expect(claim.string).to(beNil())
                     expect(claim.array).to(beNil())
                     expect(claim.integer) == 3
                     expect(claim.double) == 3.4
-                    expect(claim.date) == NSDate(timeIntervalSince1970: 3.4)
+                    expect(claim.date) == Date(timeIntervalSince1970: 3.4)
                 }
 
                 it("should return double as string claim") {
-                    let claim = jwt.claim(name: "custom_double_string_claim")
+                    let claim = token.claim(name: "custom_double_string_claim")
                     expect(claim.string) == "1.3"
                     expect(claim.array) == ["1.3"]
                     expect(claim.integer).to(beNil())
                     expect(claim.double) == 1.3
-                    expect(claim.date) == NSDate(timeIntervalSince1970: 1.3)
+                    expect(claim.date) == Date(timeIntervalSince1970: 1.3)
                 }
 
                 it("should return no value when clain is not present") {
-                    let unknownClaim = jwt.claim(name: "missing_claim")
+                    let unknownClaim = token.claim(name: "missing_claim")
                     expect(unknownClaim.array).to(beNil())
                     expect(unknownClaim.string).to(beNil())
                     expect(unknownClaim.integer).to(beNil())
@@ -212,7 +212,7 @@ class JWTDecodeSpec: QuickSpec {
     }
 }
 
-public func beDecodeErrorWithCode(code: DecodeErrorCode) -> NonNilMatcherFunc<ErrorType> {
+public func beDecodeErrorWithCode(_ code: DecodeErrorCode) -> NonNilMatcherFunc<Error> {
     return NonNilMatcherFunc { (actualExpression, failureMessage) throws in
         failureMessage.postfixMessage = "be decode error with code <\(code)>"
         guard let actual = try actualExpression.evaluate() else {
