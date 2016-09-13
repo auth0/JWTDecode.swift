@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/guidomb/carthage_cache
-  revision: 8dfc82f7b0e8bcc486b95833456663f8fc019c64
+  revision: 19babb174423ca6ae16713ff89ecbd5dbf26f770
   branch: master
   specs:
     carthage_cache (0.4.1)
