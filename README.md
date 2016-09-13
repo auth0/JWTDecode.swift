@@ -6,6 +6,7 @@
 [![License](https://img.shields.io/cocoapods/l/JWTDecode.svg?style=flat-square)](http://cocoadocs.org/docsets/JWTDecode)
 [![Platform](https://img.shields.io/cocoapods/p/JWTDecode.svg?style=flat-square)](http://cocoadocs.org/docsets/JWTDecode)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
+![Swift 3.0.x](https://img.shields.io/badge/Swift-3.0.x-orange.svg)
 
 This library will help you check [JWT](http://jwt.io/) payload
 
@@ -13,7 +14,7 @@ This library will help you check [JWT](http://jwt.io/) payload
 
 ## Requirements
 
-iOS 8+ and Xcode 8 (for Swift 2.3).
+iOS 8+ and Xcode 8 (for Swift 3.0).
 
 ## Installation
 
