@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.2.0](https://github.com/auth0/JWTDecode.swift/tree/1.2.0) (2016-09-13)
+
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/1.1.0...1.2.0)
+
+Support for Xcode 8 & Swift 2.3.
+
 ## [1.1.0](https://github.com/auth0/JWTDecode.swift/tree/1.1.0) (2016-08-17)
 
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/1.0.0...1.1.0)
