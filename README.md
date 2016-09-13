@@ -13,7 +13,7 @@ This library will help you check [JWT](http://jwt.io/) payload
 
 ## Requirements
 
-iOS 8+ and at least Xcode 7 (for Swift 2.0).
+iOS 8+ and Xcode 8 (for Swift 2.3).
 
 ## Installation
 
