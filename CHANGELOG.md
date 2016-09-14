@@ -1,5 +1,40 @@
 # Change Log
 
+## [2.0.0](https://github.com/auth0/JWTDecode.swift/tree/2.0.0) (2016-09-14)
+
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/1.2.0...2.0.0)
+
+Support for Xcode 8 & Swift 3.
+
+Following Swift API Guidelines, all functions and methods requires a parameter label. 
+
+So now to decode a token
+
+```swift
+try JWTDecode.decode(jwt: "token")
+```
+
+Also now JWTDecode errors conforms the protocol LocalizableError
+
+```
+public enum DecodeError: LocalizedError {
+    case invalidBase64Url(String)
+    case invalidJSON(String)
+    case invalidPartCount(String, Int)
+
+    public var localizedDescription: String {
+        switch self {
+        case .invalidJSON(let value):
+            return NSLocalizedString("Malformed jwt token, failed to parse JSON value from base64Url \(value)", comment: "Invalid JSON value inside base64Url")
+        case .invalidPartCount(let jwt, let parts):
+            return NSLocalizedString("Malformed jwt token \(jwt) has \(parts) parts when it should have 3 parts", comment: "Invalid amount of jwt parts")
+        case .invalidBase64Url(let value):
+            return NSLocalizedString("Malformed jwt token, failed to decode base64Url value \(value)", comment: "Invalid JWT token base64Url value")
+        }
+    }
+}
+```
+
 ## [1.2.0](https://github.com/auth0/JWTDecode.swift/tree/1.2.0) (2016-09-13)
 
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/1.1.0...1.2.0)
