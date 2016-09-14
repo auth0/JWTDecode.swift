@@ -63,16 +63,18 @@ class JWTDecodeSpec: QuickSpec {
             }
 
             it("should raise exception with invalid json in jwt") {
-                expect { try decode(jwt: "HEADER.BODY.SIGNATURE") }
+                let token = "HEADER.BODY.SIGNATURE"
+                expect { try decode(jwt: token) }
                     .to(throwError { (error: Error) in
-                        expect(error).to(beDecodeErrorWithCode(.invalidJSONValue))
+                        expect(error).to(beDecodeErrorWithCode(.invalidJSON("HEADER")))
                     })
             }
 
             it("should raise exception with missing parts") {
-                expect { try decode(jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ") }
+                let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ"
+                expect { try decode(jwt: token) }
                     .to(throwError { (error: Error) in
-                        expect(error).to(beDecodeErrorWithCode(.invalidPartCount))
+                        expect(error).to(beDecodeErrorWithCode(.invalidPartCount(token, 2)))
                     })
             }
 
@@ -212,12 +214,18 @@ class JWTDecodeSpec: QuickSpec {
     }
 }
 
-public func beDecodeErrorWithCode(_ code: DecodeErrorCode) -> NonNilMatcherFunc<Error> {
+public func beDecodeErrorWithCode(_ code: DecodeError) -> NonNilMatcherFunc<Error> {
     return NonNilMatcherFunc { (actualExpression, failureMessage) throws in
         failureMessage.postfixMessage = "be decode error with code <\(code)>"
-        guard let actual = try actualExpression.evaluate() else {
+        guard let actual = try actualExpression.evaluate() as? DecodeError else {
             return false
         }
-        return actual._domain == "com.auth0.JWTDecode" && actual._code == code.rawValue
+        return actual == code
     }
+}
+
+extension DecodeError: Equatable {}
+
+public func ==(lhs: DecodeError, rhs: DecodeError) -> Bool {
+    return lhs.localizedDescription == rhs.localizedDescription
 }

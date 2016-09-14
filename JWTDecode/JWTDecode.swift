@@ -46,7 +46,7 @@ struct DecodedJWT: JWT {
     init(jwt: String) throws {
         let parts = jwt.components(separatedBy: ".")
         guard parts.count == 3 else {
-            throw invalidPartCount(inJWT: jwt, parts: parts.count)
+            throw DecodeError.invalidPartCount(jwt, parts.count)
         }
 
         self.header = try decodeJWTPart(parts[0])
@@ -140,11 +140,11 @@ private func base64UrlDecode(_ value: String) -> Data? {
 
 private func decodeJWTPart(_ value: String) throws -> [String: Any] {
     guard let bodyData = base64UrlDecode(value) else {
-        throw invalidBase64Url(value: value)
+        throw DecodeError.invalidBase64Url(value)
     }
 
     guard let json = try? JSONSerialization.jsonObject(with: bodyData, options: []), let payload = json as? [String: Any] else {
-        throw invalidJSON(value: value)
+        throw DecodeError.invalidJSON(value)
     }
 
     return payload

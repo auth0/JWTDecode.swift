@@ -29,26 +29,19 @@ JWT decode error codes
 - InvalidJSONValue:      when either the header or body decoded values is not a valid JSON object
 - InvalidPartCount:      when the token doesnt have the required amount of parts (header, body and signature)
 */
-public enum DecodeErrorCode: Int {
-    case invalidBase64UrlValue
-    case invalidJSONValue
-    case invalidPartCount
-}
+public enum DecodeError: LocalizedError {
+    case invalidBase64Url(String)
+    case invalidJSON(String)
+    case invalidPartCount(String, Int)
 
-private let ErrorDomain = "com.auth0.JWTDecode"
-
-private func error(withCode code: DecodeErrorCode, description: String) -> NSError {
-    return NSError(domain: ErrorDomain, code: code.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
-}
-
-func invalidPartCount(inJWT jwt: String, parts: Int) -> Error {
-    return error(withCode: .invalidPartCount, description: NSLocalizedString("Malformed jwt token \(jwt) has \(parts) parts when it should have 3 parts", comment: "Invalid amount of jwt parts"))
-}
-
-func invalidBase64Url(value: String) -> Error {
-    return error(withCode: .invalidBase64UrlValue, description: NSLocalizedString("Malformed jwt token, failed to decode base64Url value \(value)", comment: "Invalid JWT token base64Url value"))
-}
-
-func invalidJSON(value: String) -> Error {
-    return error(withCode: .invalidJSONValue, description: NSLocalizedString("Malformed jwt token, failed to parse JSON value from base64Url \(value)", comment: "Invalid JSON value inside base64Url"))
+    public var localizedDescription: String {
+        switch self {
+        case .invalidJSON(let value):
+            return NSLocalizedString("Malformed jwt token, failed to parse JSON value from base64Url \(value)", comment: "Invalid JSON value inside base64Url")
+        case .invalidPartCount(let jwt, let parts):
+            return NSLocalizedString("Malformed jwt token \(jwt) has \(parts) parts when it should have 3 parts", comment: "Invalid amount of jwt parts")
+        case .invalidBase64Url(let value):
+            return NSLocalizedString("Malformed jwt token, failed to decode base64Url value \(value)", comment: "Invalid JWT token base64Url value")
+        }
+    }
 }
