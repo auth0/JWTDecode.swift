@@ -50,7 +50,7 @@ class JWTDecodeSpec: QuickSpec {
             it("should return original jwt string representation") {
                 let jwtString = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjb20uc29td2hlcmUuZmFyLmJleW9uZDphcGkiLCJpc3MiOiJhdXRoMCIsInVzZXJfcm9sZSI6ImFkbWluIn0.sS84motSLj9HNTgrCPcAjgZIQ99jXNN7_W9fEIIfxz0"
                 let jwt = try! decode(jwt: jwtString)
-                expect(jwt.stringValue).to(equal(jwtString))
+                expect(jwt.string).to(equal(jwtString))
             }
 
             it("should return expire date") {

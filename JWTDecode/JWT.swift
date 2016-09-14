@@ -33,7 +33,7 @@ public protocol JWT {
     /// token signature part
     var signature: String? { get }
     /// jwt string value
-    var stringValue: String { get }
+    var string: String { get }
 
 
     /// value of `exp` claim if available

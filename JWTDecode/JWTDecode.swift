@@ -41,7 +41,7 @@ struct DecodedJWT: JWT {
     let header: [String: Any]
     let body: [String: Any]
     let signature: String?
-    let stringValue: String
+    let string: String
 
     init(jwt: String) throws {
         let parts = jwt.components(separatedBy: ".")
@@ -52,7 +52,7 @@ struct DecodedJWT: JWT {
         self.header = try decodeJWTPart(parts[0])
         self.body = try decodeJWTPart(parts[1])
         self.signature = parts[2]
-        self.stringValue = jwt
+        self.string = jwt
     }
 
     var expiresAt: Date? { return claim(name: "exp").date }
