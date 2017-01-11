@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A0300A3B1E1D0172006661C4"
-               BuildableName = "JWTDecode-watchOSTests.xctest"
-               BlueprintName = "JWTDecode-watchOSTests"
-               ReferencedContainer = "container:JWTDecode.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A0300A331E1D0172006661C4"
-            BuildableName = "JWTDecode.framework"
-            BlueprintName = "JWTDecode-watchOS"
-            ReferencedContainer = "container:JWTDecode.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
