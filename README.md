@@ -122,6 +122,16 @@ var date: NSDate?
 var array: [String]?
 ```
 
+You can register a custom claim for convenience by adding a `JWT` extension:
+
+```swift
+extension JWT {
+    var myClaim: String? {
+        return claim(name: "my_claim").string
+    }
+}
+```
+
 ### Error Handling
 If the token is invalid an `NSError` will be thrown from the `decode(token)` function.
 ```swift
