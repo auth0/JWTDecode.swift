@@ -187,7 +187,7 @@ class JWTDecodeSpec: QuickSpec {
                     let claim = token.claim(name: "custom_double_claim")
                     expect(claim.string).to(beNil())
                     expect(claim.array).to(beNil())
-                    expect(claim.integer) == 3
+                    expect(claim.integer).to(beNil())
                     expect(claim.double) == 3.4
                     expect(claim.date) == Date(timeIntervalSince1970: 3.4)
                 }
@@ -214,13 +214,12 @@ class JWTDecodeSpec: QuickSpec {
     }
 }
 
-public func beDecodeErrorWithCode(_ code: DecodeError) -> NonNilMatcherFunc<Error> {
-    return NonNilMatcherFunc { (actualExpression, failureMessage) throws in
-        failureMessage.postfixMessage = "be decode error with code <\(code)>"
-        guard let actual = try actualExpression.evaluate() as? DecodeError else {
-            return false
+public func beDecodeErrorWithCode(_ code: DecodeError) -> Predicate<Error> {
+     return Predicate<Error>.define("be decode error with code <\(code)>") { expression, failureMessage -> PredicateResult in
+        guard let actual = try expression.evaluate() as? DecodeError else {
+            return PredicateResult(status: .doesNotMatch, message: failureMessage)
         }
-        return actual == code
+        return PredicateResult(bool: actual == code, message: failureMessage)
     }
 }
 
