@@ -1,4 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'xcpretty-travis-formatter'
-gem 'carthage_cache', :git => 'https://github.com/guidomb/carthage_cache', :branch => 'master'
+gem 'fastlane', '~> 2.5'
+gem 'semantic',  '~> 1.5'
+
+plugins_path = File.join(File.dirname(__FILE__), 'fastlane', 'Pluginfile')
+eval_gemfile(plugins_path) if File.exist?(plugins_path)
+
+gem "cocoapods", "~> 1.2"

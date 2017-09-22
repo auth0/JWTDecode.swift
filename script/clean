@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -e
-
-source script/.env
-
-rm -frd ~/Library/Developer/Xcode/DerivedData/"$PROJECT_NAME-*"

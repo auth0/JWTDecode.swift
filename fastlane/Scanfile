@@ -1,0 +1,6 @@
+scheme "JWTDecode-iOS"
+device "iPhone 7 (10.3)"
+
+clean true
+
+output_types "html"
