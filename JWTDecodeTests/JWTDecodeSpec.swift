@@ -187,7 +187,7 @@ class JWTDecodeSpec: QuickSpec {
                     let claim = token.claim(name: "custom_double_claim")
                     expect(claim.string).to(beNil())
                     expect(claim.array).to(beNil())
-                    expect(claim.integer).to(beNil())
+                    expect(claim.integer) == 3
                     expect(claim.double) == 3.4
                     expect(claim.date) == Date(timeIntervalSince1970: 3.4)
                 }
