@@ -1,0 +1,58 @@
+require('semantic')
+
+opt_out_usage
+
+fastlane_version "2.27.0"
+
+default_platform :ios
+
+platform :ios do
+
+  desc "Installs dependencies using Carthage"
+  lane :dependencies do |options|
+    action = options[:action]
+    carthage(use_binaries: false, command: action, cache_builds: true)
+  end
+
+  desc "Bootstrap the development environment"
+  lane :bootstrap do
+    dependencies
+  end
+
+  desc "Run code linter"
+  lane :lint do
+  	swiftlint(
+  		mode: :lint,
+   		config_file: '.swiftlint.yml',
+      reporter: 'emoji'
+  	)
+  end
+
+  desc "Runs all the tests"
+  lane :test do |options|
+    scheme = options[:scheme]
+    device = options[:device]
+    scan(
+      scheme: scheme,
+      device: device,
+      clean: true,
+      skip_build: true,
+      output_types: 'junit'
+      )
+  end
+
+  desc "Runs all the tests in a CI environment"
+  lane :ci do
+    # TODO: Run rest of platforms
+    #lint
+    test
+  end
+
+  desc "Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG"
+  desc "You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]"
+  lane :release do |options|
+    release_options = {repository: 'Auth0.swift', xcodeproj: 'Auth0.xcodeproj'}.merge(options)
+    prepare_release release_options
+    publish_release
+  end
+end
