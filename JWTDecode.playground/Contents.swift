@@ -48,7 +48,7 @@ do {
 //: ### Custom Claims
 //: If we also have our custom claims we can retrive them calling `claim<T>(name: String) -> T?` where `T` is the value type of the claim, e.g.: a `String`
 
-    let custom = jwt.claim(name: "email").string
+    _ = jwt.claim(name: "email").string
 //: ### Error Handling
 //: If the token is invalid an `NSError` will be thrown
 } catch let error as NSError {

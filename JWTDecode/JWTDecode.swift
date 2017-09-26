@@ -101,7 +101,11 @@ public struct Claim {
         if let string = self.string {
             integer = Int(string)
         } else {
-            integer = self.value as? Int
+            if let double = self.value as? Double {
+                integer = Int(double)
+            } else {
+                integer = self.value as? Int
+            }
         }
         return integer
     }

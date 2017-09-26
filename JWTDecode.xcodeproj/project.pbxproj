@@ -118,7 +118,7 @@
 		5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTDecodeSpec.swift; sourceTree = "<group>"; };
 		5F00693F1B3C828E0048928E /* JWTDecode-iOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-iOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0JWTDecodeSpec.m; sourceTree = "<group>"; };
-		5F0A5E291B9A6D4A005289CF /* JWTDecode.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = JWTDecode.playground; sourceTree = SOURCE_ROOT; };
+		5F0A5E291B9A6D4A005289CF /* JWTDecode.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = JWTDecode.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		5F2496A21D64A91300A1C6E2 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		5F2496A31D64A91300A1C6E2 /* Cartfile.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		5F2496A41D64A91300A1C6E2 /* JWTDecode.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = JWTDecode.podspec; sourceTree = "<group>"; };
