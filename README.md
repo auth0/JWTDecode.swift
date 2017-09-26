@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/cocoapods/l/JWTDecode.svg?style=flat-square)](http://cocoadocs.org/docsets/JWTDecode)
 [![Platform](https://img.shields.io/cocoapods/p/JWTDecode.svg?style=flat-square)](http://cocoadocs.org/docsets/JWTDecode)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
-![Swift 3.0.x](https://img.shields.io/badge/Swift-3.0.x-orange.svg)
+![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg?style=flat-square)
 
 This library will help you check [JWT](http://jwt.io/) payload
 
@@ -14,41 +14,46 @@ This library will help you check [JWT](http://jwt.io/) payload
 
 ## Requirements
 
-iOS 8+ and Xcode 8 (for Swift 3.0).
+- iOS 9 or later
+- Xcode 8.3 / 9.0
+- Swift 3.1+
 
 ## Installation
 
-###CocoaPods
+#### Carthage
 
-JWTDecode is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+If you are using Carthage, add the following lines to your `Cartfile`:
 
 ```ruby
-pod "JWTDecode"
+github "auth0/JWTDecode.swift" ~> 2.0
 ```
 
-###Carthage
+Then run `carthage bootstrap`.
 
-In your Cartfile add this line
+> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 
+#### Cocoapods
+
+If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `Podfile`:
+
+```ruby
+use_frameworks!
+pod 'JWTDecode', '~> 2.0'
 ```
-github "auth0/JWTDecode.swift"
-```
 
-###Manual installation
+Then, run `pod install`.
 
-Download `JWTDecode.framework` from Releases and add it to your project in Xcode.
+> For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
 
+## Usage
 
-##Usage
-
-Just import the framework
+Import the framework
 
 ```swift
 import JWTDecode
 ```
 
-and decode the token
+Decode the token
 
 ```swift
 let jwt = try decode(jwt: token)    
@@ -56,17 +61,19 @@ let jwt = try decode(jwt: token)
 
 ### JWT parts
 
-####Header dictionary
+#### Header dictionary
+
 ```swift
 jwt.header
 ```
 
-####Claims in token body
+#### Claims in token body
+
 ```swift
 jwt.body
 ```
 
-####Token signature
+#### Token signature
 ```swift
 jwt.signature
 ```
