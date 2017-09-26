@@ -360,6 +360,7 @@
 				5F0068DE1B3B46240048928E /* Frameworks */,
 				5F0068DF1B3B46240048928E /* Headers */,
 				5F0068E01B3B46240048928E /* Resources */,
+				5BFB989F1F7A9EC4001FE50D /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -397,6 +398,7 @@
 				5F0069051B3B532E0048928E /* Frameworks */,
 				5F0069061B3B532E0048928E /* Headers */,
 				5F0069071B3B532E0048928E /* Resources */,
+				5BFB98A01F7A9EEC001FE50D /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -434,6 +436,7 @@
 				918A8E571D63D2E1001F787B /* Frameworks */,
 				918A8E581D63D2E1001F787B /* Headers */,
 				918A8E591D63D2E1001F787B /* Resources */,
+				5BFB98A11F7A9EF5001FE50D /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -567,6 +570,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5BFB989F1F7A9EC4001FE50D /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi";
+		};
+		5BFB98A01F7A9EEC001FE50D /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi";
+		};
+		5BFB98A11F7A9EF5001FE50D /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5F0068DD1B3B46240048928E /* Sources */ = {
