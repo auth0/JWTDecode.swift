@@ -76,15 +76,15 @@ struct DecodedJWT: JWT {
  */
 public struct Claim {
 
-        /// raw value of the claim
+    /// raw value of the claim
     let value: Any?
 
-        /// value of the claim as `String`
+    /// value of the claim as `String`
     public var string: String? {
         return self.value as? String
     }
 
-        /// value of the claim as `Double`
+    /// value of the claim as `Double`
     public var double: Double? {
         let double: Double?
         if let string = self.string {
@@ -95,24 +95,26 @@ public struct Claim {
         return double
     }
 
-        /// value of the claim as `Int`
+    /// value of the claim as `Int`
     public var integer: Int? {
         let integer: Int?
         if let string = self.string {
             integer = Int(string)
+        } else if let double = self.value as? Double {
+            integer = Int(double)
         } else {
             integer = self.value as? Int
         }
         return integer
     }
 
-        /// value of the claim as `NSDate`
+    /// value of the claim as `NSDate`
     public var date: Date? {
-        guard let timestamp:TimeInterval = self.double else { return nil }
+        guard let timestamp: TimeInterval = self.double else { return nil }
         return Date(timeIntervalSince1970: timestamp)
     }
 
-        /// value of the claim as `[String]`
+    /// value of the claim as `[String]`
     public var array: [String]? {
         if let array = value as? [String] {
             return array
@@ -133,7 +135,7 @@ private func base64UrlDecode(_ value: String) -> Data? {
     let paddingLength = requiredLength - length
     if paddingLength > 0 {
         let padding = "".padding(toLength: Int(paddingLength), withPad: "=", startingAt: 0)
-        base64 = base64 + padding
+        base64 += padding
     }
     return Data(base64Encoded: base64, options: .ignoreUnknownCharacters)
 }
