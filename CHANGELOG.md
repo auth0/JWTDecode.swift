@@ -1,5 +1,11 @@
 # Change Log
 
+## [2.1.0](https://github.com/auth0/JWTDecode.swift/tree/2.1.0) (2017-09-27)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.0.0...2.1.0)
+
+**Added**
+- Added Xcode 9 / Swift 3.2 Support [\#50](https://github.com/auth0/JWTDecode.swift/pull/50) ([cocojoe](https://github.com/cocojoe))
+
 ## [2.0.0](https://github.com/auth0/JWTDecode.swift/tree/2.0.0) (2016-09-14)
 
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/1.2.0...2.0.0)
