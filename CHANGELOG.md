@@ -1,5 +1,11 @@
 # Change Log
 
+## [2.1.1](https://github.com/auth0/JWTDecode.swift/tree/2.1.1) (2017-10-03)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.1.0...2.1.1)
+
+**Added**
+- Added @objc attributes [\#54](https://github.com/auth0/JWTDecode.swift/pull/54) ([narlei](https://github.com/narlei))
+
 ## [2.1.0](https://github.com/auth0/JWTDecode.swift/tree/2.1.0) (2017-09-27)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.0.0...2.1.0)
 
