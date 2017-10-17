@@ -8,6 +8,7 @@ machine:
 
 dependencies:
   pre:
+    - brew update
     - brew install swiftlint
     - grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
   post:
