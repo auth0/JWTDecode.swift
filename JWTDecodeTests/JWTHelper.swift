@@ -35,7 +35,7 @@ func jwt(withBody body: [String: Any]) -> JWT {
     } catch _ {
         NSException(name: NSExceptionName.invalidArgumentException, reason: "Failed to build jwt", userInfo: nil).raise()
     }
-    return try! decode(jwt: jwt)
+    return try! JWT(jwt)
 }
 
 func jwtThatExpiresAt(date: Date) -> JWT {

@@ -65,7 +65,7 @@ public class _JWT: NSObject {
     :returns: a new instance of `A0JWT` that holds the decode token
     */
     @objc public class func decode(jwt jwtValue: String) throws -> _JWT {
-        let jwt = try DecodedJWT(jwt: jwtValue)
+        let jwt = try JWT(jwtValue)
         return _JWT(jwt: jwt)
     }
 }
