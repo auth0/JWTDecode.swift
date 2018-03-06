@@ -56,7 +56,7 @@ import JWTDecode
 Decode the token
 
 ```swift
-let jwt = try decode(jwt: token)    
+let jwt = try JWT(token)    
 ```
 
 ### JWT parts

@@ -22,6 +22,11 @@
 
 import Foundation
 
+@available(*, deprecated, message: "Will be removed in a future version", renamed: "JWT()")
+public func decode(jwt: String) throws -> JWT {
+    return try JWT(jwt)
+}
+
 public struct JWT: Decodable, CustomStringConvertible {
     /// token header part contents
     public let header: [String: Any]
