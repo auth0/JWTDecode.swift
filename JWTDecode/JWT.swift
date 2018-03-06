@@ -22,7 +22,7 @@
 
 import Foundation
 
-public struct JWT: Decodable {
+public struct JWT: Decodable, CustomStringConvertible {
     /// token header part contents
     public let header: [String: Any]
     /// token body part values or token claims
@@ -89,6 +89,10 @@ public struct JWT: Decodable {
     public func claim(name: String) -> Claim {
         let value = self.body[name]
         return Claim(value: value)
+    }
+
+    public var description: String {
+        return string
     }
 }
 

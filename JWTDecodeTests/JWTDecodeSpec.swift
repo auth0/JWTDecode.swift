@@ -79,6 +79,7 @@ class JWTDecodeSpec: QuickSpec {
             }
 
         }
+
         describe("decodable") {
             struct JWTTestDecodable: Decodable {
                 let jwt: JWT
@@ -89,6 +90,14 @@ class JWTDecodeSpec: QuickSpec {
                 let jsonDecoder = JSONDecoder()
                 expect { try jsonDecoder.decode(JWTTestDecodable.self, from: jsonData) }
                     .toNot(throwError())
+            }
+        }
+
+        describe("custom string convertible") {
+            it("should return original jwt string representation") {
+                let jwtString = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjb20uc29td2hlcmUuZmFyLmJleW9uZDphcGkiLCJpc3MiOiJhdXRoMCIsInVzZXJfcm9sZSI6ImFkbWluIn0.sS84motSLj9HNTgrCPcAjgZIQ99jXNN7_W9fEIIfxz0"
+                let jwt = try! JWT(jwtString)
+                expect(String(describing: jwt)).to(equal(jwtString))
             }
         }
 
