@@ -1,6 +1,6 @@
 machine:
   xcode:
-    version: 8.3
+    version: 9.2.0
   environment:
     SCHEME: "JWTDecode-iOS"
     DEVICE: "iPhone 7 (10.3)"
