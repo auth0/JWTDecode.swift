@@ -80,16 +80,24 @@ class JWTDecodeSpec: QuickSpec {
 
         }
 
-        describe("decodable") {
-            struct JWTTestDecodable: Decodable {
+        describe("codable") {
+            /// Codable wrapper object for tests
+            struct JWTTestCodable: Codable {
                 let jwt: JWT
             }
-            
+            let validToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjb20uc29td2hlcmUuZmFyLmJleW9uZDphcGkiLCJpc3MiOiJhdXRoMCIsInVzZXJfcm9sZSI6ImFkbWluIn0.sS84motSLj9HNTgrCPcAjgZIQ99jXNN7_W9fEIIfxz0"
+            let jsonData = "{\"jwt\":\"\(validToken)\"}".data(using: .utf8)!
             it("should parse a json string to jwt") {
-                let jsonData = "{\"jwt\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjb20uc29td2hlcmUuZmFyLmJleW9uZDphcGkiLCJpc3MiOiJhdXRoMCIsInVzZXJfcm9sZSI6ImFkbWluIn0.sS84motSLj9HNTgrCPcAjgZIQ99jXNN7_W9fEIIfxz0\"}".data(using: .utf8)!
                 let jsonDecoder = JSONDecoder()
-                expect { try jsonDecoder.decode(JWTTestDecodable.self, from: jsonData) }
+                expect { try jsonDecoder.decode(JWTTestCodable.self, from: jsonData) }
                     .toNot(throwError())
+            }
+
+            it("should encode the jwt token to string") {
+                let encodable = JWTTestCodable(jwt: try! JWT(validToken))
+                let jsonEncoder = JSONEncoder()
+                expect { try jsonEncoder.encode(encodable) }
+                .to(equal(jsonData))
             }
         }
 

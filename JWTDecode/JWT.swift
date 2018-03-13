@@ -27,7 +27,7 @@ public func decode(jwt: String) throws -> JWT {
     return try JWT(jwt)
 }
 
-public struct JWT: Decodable, CustomStringConvertible {
+public struct JWT: Codable, CustomStringConvertible {
     /// token header part contents
     public let header: [String: Any]
     /// token body part values or token claims
@@ -60,6 +60,11 @@ public struct JWT: Decodable, CustomStringConvertible {
         let container = try decoder.singleValueContainer()
         let jwt = try container.decode(String.self)
         try self.init(jwt)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(self.description)
     }
 
     /// value of `exp` claim if available
