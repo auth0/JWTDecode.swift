@@ -129,6 +129,16 @@ var date: NSDate?
 var array: [String]?
 ```
 
+You can easily add a convenience accessor for a custom claim by adding an extension:
+
+```swift
+extension JWT {
+    var myClaim: String? {
+        return claim(name: "my_claim").string
+    }
+}
+```
+
 ### Error Handling
 If the token is invalid an `NSError` will be thrown from the `decode(token)` function.
 ```swift
