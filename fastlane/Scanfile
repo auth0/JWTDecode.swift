@@ -1,5 +1,5 @@
 scheme "JWTDecode-iOS"
-device "iPhone 7 (10.3)"
+devices ["iPhone 8"]
 
 clean true
 

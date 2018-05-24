@@ -2,8 +2,6 @@ require('semantic')
 
 opt_out_usage
 
-fastlane_version "2.27.0"
-
 default_platform :ios
 
 platform :ios do
@@ -11,7 +9,7 @@ platform :ios do
   desc "Installs dependencies using Carthage"
   lane :dependencies do |options|
     action = options[:action]
-    carthage(use_binaries: false, command: action, cache_builds: true)
+    carthage(use_binaries: false, command: action, cache_builds: true, platform: 'iOS')
   end
 
   desc "Bootstrap the development environment"
@@ -41,10 +39,15 @@ platform :ios do
       )
   end
 
+  desc "Cocoapods library lint"
+  lane :pod_lint do
+    pod_lib_lint(verbose: false, allow_warnings: true)
+  end
+
   desc "Runs all the tests in a CI environment"
   lane :ci do
     # TODO: Run rest of platforms
-    #lint
+    lint
     test
   end
 
