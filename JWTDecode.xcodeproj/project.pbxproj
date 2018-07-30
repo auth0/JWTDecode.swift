@@ -6,7 +6,27 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		5BE5CFEC210B6F16001CC6EC /* CommonCryptoModuleMap */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 5BE5CFED210B6F16001CC6EC /* Build configuration list for PBXAggregateTarget "CommonCryptoModuleMap" */;
+			buildPhases = (
+				5BE5CFF0210B6F1D001CC6EC /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = CommonCryptoModuleMap;
+			productName = CommonCryptoModuleMap;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		5BE5CFE4210B5D0F001CC6EC /* JWTValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5CFE3210B5D0F001CC6EC /* JWTValidate.swift */; };
+		5BE5CFE5210B5D0F001CC6EC /* JWTValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5CFE3210B5D0F001CC6EC /* JWTValidate.swift */; };
+		5BE5CFE6210B5D0F001CC6EC /* JWTValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5CFE3210B5D0F001CC6EC /* JWTValidate.swift */; };
+		5BE5CFE8210B6E0C001CC6EC /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5CFE7210B6E0C001CC6EC /* Crypto.swift */; };
+		5BE5CFE9210B6E0C001CC6EC /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5CFE7210B6E0C001CC6EC /* Crypto.swift */; };
+		5BE5CFEA210B6E0C001CC6EC /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE5CFE7210B6E0C001CC6EC /* Crypto.swift */; };
 		5F0068E81B3B46240048928E /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0068E71B3B46240048928E /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0068EE1B3B46240048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0068E21B3B46240048928E /* JWTDecode.framework */; };
 		5F0069031B3B511F0048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
@@ -47,6 +67,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5B451805210F34E700F9BA97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F0068D91B3B46240048928E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BE5CFEC210B6F16001CC6EC;
+			remoteInfo = CommonCryptoModuleMap;
+		};
+		5B451807210F34F100F9BA97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F0068D91B3B46240048928E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BE5CFEC210B6F16001CC6EC;
+			remoteInfo = CommonCryptoModuleMap;
+		};
+		5BE5CFF1210B6F46001CC6EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F0068D91B3B46240048928E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BE5CFEC210B6F16001CC6EC;
+			remoteInfo = CommonCryptoModuleMap;
+		};
 		5F0068EF1B3B46240048928E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5F0068D91B3B46240048928E /* Project object */;
@@ -107,6 +148,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5BE5CFE3210B5D0F001CC6EC /* JWTValidate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTValidate.swift; sourceTree = "<group>"; };
+		5BE5CFE7210B6E0C001CC6EC /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		5F0068E21B3B46240048928E /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0068E61B3B46240048928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F0068E71B3B46240048928E /* JWTDecode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JWTDecode.h; sourceTree = "<group>"; };
@@ -198,6 +241,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BE5CFEB210B6E12001CC6EC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5BE5CFE7210B6E0C001CC6EC /* Crypto.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		5F0068D81B3B46240048928E = {
 			isa = PBXGroup;
 			children = (
@@ -225,12 +276,14 @@
 		5F0068E41B3B46240048928E /* JWTDecode */ = {
 			isa = PBXGroup;
 			children = (
+				5BE5CFE3210B5D0F001CC6EC /* JWTValidate.swift */,
 				5F0068E71B3B46240048928E /* JWTDecode.h */,
 				5F8B43681B9F99B400A0D5AE /* A0JWT.swift */,
 				5F0069021B3B511F0048928E /* JWTDecode.swift */,
 				5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */,
 				5FE49DCF1BA0D66F00DE57D3 /* Errors.swift */,
 				5F0068E51B3B46240048928E /* Supporting Files */,
+				5BE5CFEB210B6E12001CC6EC /* Utils */,
 			);
 			path = JWTDecode;
 			sourceTree = "<group>";
@@ -361,6 +414,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5BE5CFF2210B6F46001CC6EC /* PBXTargetDependency */,
 			);
 			name = "JWTDecode-iOS";
 			productName = JWTDecode;
@@ -399,6 +453,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5B451806210F34E700F9BA97 /* PBXTargetDependency */,
 			);
 			name = "JWTDecode-OSX";
 			productName = "JWTDecode-OSX";
@@ -437,6 +492,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5B451808210F34F100F9BA97 /* PBXTargetDependency */,
 			);
 			name = "JWTDecode-tvOS";
 			productName = "JWTDecode-tvOS";
@@ -472,6 +528,10 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Auth0;
 				TargetAttributes = {
+					5BE5CFEC210B6F16001CC6EC = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+					};
 					5F0068E11B3B46240048928E = {
 						CreatedOnToolsVersion = 6.3.2;
 						LastSwiftMigration = 0900;
@@ -518,6 +578,7 @@
 				5F0069121B3B532E0048928E /* JWTDecode-OSXTests */,
 				918A8E5A1D63D2E1001F787B /* JWTDecode-tvOS */,
 				918A8E6B1D63D4E5001F787B /* JWTDecode-tvOSTests */,
+				5BE5CFEC210B6F16001CC6EC /* CommonCryptoModuleMap */,
 			);
 		};
 /* End PBXProject section */
@@ -568,6 +629,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5BE5CFF0210B6F1D001CC6EC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "COMMON_CRYPTO_DIR=\"${SDKROOT}/usr/include/CommonCrypto\"\nif [ -f \"${COMMON_CRYPTO_DIR}/module.modulemap\" ]\nthen\n#Xcode 10\necho \"CommonCrypto already exists, skipping\"\nelse\nif [ -d \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap\" ]; then\necho \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap directory already exists, so skipping the rest of the script.\"\nexit 0\nfi\n\nmkdir -p \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap\"\ncat <<EOF > \"${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap/module.modulemap\"\nmodule CommonCrypto [system] {\n    header \"${SDKROOT}/usr/include/CommonCrypto/CommonCrypto.h\"\n    export *\n}\nEOF\nfi";
+		};
 		5BFB989F1F7A9EC4001FE50D /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -617,7 +691,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BE5CFE8210B6E0C001CC6EC /* Crypto.swift in Sources */,
 				5FE49DD01BA0D66F00DE57D3 /* Errors.swift in Sources */,
+				5BE5CFE4210B5D0F001CC6EC /* JWTValidate.swift in Sources */,
 				5F8B43691B9F99B400A0D5AE /* A0JWT.swift in Sources */,
 				5F0069031B3B511F0048928E /* JWTDecode.swift in Sources */,
 				5FE49DCD1BA0D5F700DE57D3 /* JWT.swift in Sources */,
@@ -638,7 +714,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BE5CFE9210B6E0C001CC6EC /* Crypto.swift in Sources */,
 				5FE49DD11BA0D66F00DE57D3 /* Errors.swift in Sources */,
+				5BE5CFE5210B5D0F001CC6EC /* JWTValidate.swift in Sources */,
 				5F8B436A1B9F99B400A0D5AE /* A0JWT.swift in Sources */,
 				5F00693E1B3C7B930048928E /* JWTDecode.swift in Sources */,
 				5FE49DCE1BA0D5F700DE57D3 /* JWT.swift in Sources */,
@@ -658,7 +736,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BE5CFEA210B6E0C001CC6EC /* Crypto.swift in Sources */,
 				918A8E671D63D2FE001F787B /* Errors.swift in Sources */,
+				5BE5CFE6210B5D0F001CC6EC /* JWTValidate.swift in Sources */,
 				918A8E641D63D2F4001F787B /* A0JWT.swift in Sources */,
 				918A8E651D63D2F7001F787B /* JWTDecode.swift in Sources */,
 				918A8E661D63D2FB001F787B /* JWT.swift in Sources */,
@@ -677,6 +757,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5B451806210F34E700F9BA97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BE5CFEC210B6F16001CC6EC /* CommonCryptoModuleMap */;
+			targetProxy = 5B451805210F34E700F9BA97 /* PBXContainerItemProxy */;
+		};
+		5B451808210F34F100F9BA97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BE5CFEC210B6F16001CC6EC /* CommonCryptoModuleMap */;
+			targetProxy = 5B451807210F34F100F9BA97 /* PBXContainerItemProxy */;
+		};
+		5BE5CFF2210B6F46001CC6EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BE5CFEC210B6F16001CC6EC /* CommonCryptoModuleMap */;
+			targetProxy = 5BE5CFF1210B6F46001CC6EC /* PBXContainerItemProxy */;
+		};
 		5F0068F01B3B46240048928E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5F0068E11B3B46240048928E /* JWTDecode-iOS */;
@@ -695,6 +790,26 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5BE5CFEE210B6F16001CC6EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos iphoneos iphonesimulator macosx";
+			};
+			name = Debug;
+		};
+		5BE5CFEF210B6F16001CC6EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos iphoneos iphonesimulator macosx";
+			};
+			name = Release;
+		};
 		5F0068F61B3B46240048928E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -825,6 +940,7 @@
 				PRODUCT_MODULE_NAME = JWTDecode;
 				PRODUCT_NAME = JWTDecode;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 3.0;
@@ -850,6 +966,7 @@
 				PRODUCT_MODULE_NAME = JWTDecode;
 				PRODUCT_NAME = JWTDecode;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 3.0;
@@ -928,6 +1045,7 @@
 				PRODUCT_NAME = JWTDecode;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 3.0;
 			};
@@ -952,6 +1070,7 @@
 				PRODUCT_NAME = JWTDecode;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 3.0;
@@ -1024,6 +1143,7 @@
 				PRODUCT_NAME = JWTDecode;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1049,6 +1169,7 @@
 				PRODUCT_NAME = JWTDecode;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${BUILT_PRODUCTS_DIR}/CommonCryptoModuleMap";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1103,6 +1224,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5BE5CFED210B6F16001CC6EC /* Build configuration list for PBXAggregateTarget "CommonCryptoModuleMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BE5CFEE210B6F16001CC6EC /* Debug */,
+				5BE5CFEF210B6F16001CC6EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5F0068DC1B3B46240048928E /* Build configuration list for PBXProject "JWTDecode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

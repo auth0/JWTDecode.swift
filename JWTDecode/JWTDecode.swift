@@ -126,7 +126,7 @@ public struct Claim {
     }
 }
 
-private func base64UrlDecode(_ value: String) -> Data? {
+func base64UrlDecode(_ value: String) -> Data? {
     var base64 = value
         .replacingOccurrences(of: "-", with: "+")
         .replacingOccurrences(of: "_", with: "/")
