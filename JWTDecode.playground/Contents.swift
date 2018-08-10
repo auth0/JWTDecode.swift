@@ -9,7 +9,7 @@ import JWTDecode
 /*: 
 Then paste here the token you wish to decode
 */
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NhbXBsZXMuYXV0aDAuY29tIiwic3ViIjoiYXV0aDB8MTAxMDEwMTAxMCIsImF1ZCI6Imh0dHBzOi8vc2FtcGxlcy5hdXRoMC5jb20iLCJleHAiOjEzNzI2NzQzMzYsImlhdCI6MTM3MjYzODMzNiwianRpIjoicXdlcnR5MTIzNDU2IiwibmJmIjoxMzcyNjM4MzM2fQ.LvF9wSheCB5xarpydmurWgi9NOZkdES5AbNb_UWk9Ew"
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NhbXBsZXMuYXV0aDAuY29tIiwic3ViIjoiYXV0aDB8MTAxMDEwMTAxMCIsImF1ZCI6Imh0dHBzOi8vc2FtcGxlcy5hdXRoMC5jb20iLCJleHAiOjEzNzI2NzQzMzYsImlhdCI6MTM3MjYzODMzNiwianRpIjoicXdlcnR5MTIzNDU2IiwibmJmIjoxMzcyNjM4MzM2LCJlbWFpbCI6InVzZXJAaG9zdC5jb20iLCJjdXN0b20iOlsxLDIsM119.JeMRyHLkcoiqGxd958B6PABKNvhOhIgw-kbjecmhR_E"
 //: You can generate a new token in [jwt.io](http://jwt.io)
 
 /*: 
@@ -44,11 +44,12 @@ do {
     jwt.issuedAt
 //: "exp" (Expiration Time)
     jwt.expiresAt
-
 //: ### Custom Claims
 //: If we also have our custom claims we can retrive them calling `claim<T>(name: String) -> T?` where `T` is the value type of the claim, e.g.: a `String`
 
     _ = jwt.claim(name: "email").string
+
+    _ = jwt.claim(name: "custom").rawValue as? [Int]
 //: ### Error Handling
 //: If the token is invalid an `NSError` will be thrown
 } catch let error as NSError {
