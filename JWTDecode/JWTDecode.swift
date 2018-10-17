@@ -79,6 +79,11 @@ public struct Claim {
     /// raw value of the claim
     let value: Any?
 
+    /// original claim value
+    public var rawValue: Any? {
+        return self.value
+    }
+
     /// value of the claim as `String`
     public var string: String? {
         return self.value as? String

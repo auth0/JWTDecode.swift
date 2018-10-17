@@ -209,6 +209,24 @@ class JWTDecodeSpec: QuickSpec {
                     expect(unknownClaim.double).to(beNil())
                     expect(unknownClaim.date).to(beNil())
                 }
+
+                context("raw claim") {
+
+                    var token: JWT!
+
+                    beforeEach {
+                        token = try! decode(jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NhbXBsZXMuYXV0aDAuY29tIiwic3ViIjoiYXV0aDB8MTAxMDEwMTAxMCIsImF1ZCI6Imh0dHBzOi8vc2FtcGxlcy5hdXRoMC5jb20iLCJleHAiOjEzNzI2NzQzMzYsImlhdCI6MTM3MjYzODMzNiwianRpIjoicXdlcnR5MTIzNDU2IiwibmJmIjoxMzcyNjM4MzM2LCJlbWFpbCI6InVzZXJAaG9zdC5jb20iLCJjdXN0b20iOlsxLDIsM119.JeMRyHLkcoiqGxd958B6PABKNvhOhIgw-kbjecmhR_E")
+                    }
+
+                    it("should return email") {
+                        expect(token.claim(name: "email").string) == "user@host.com"
+                    }
+
+                    it("should return array") {
+                        expect(token.claim(name: "custom").rawValue as? [Int]).toNot(beNil())
+                    }
+
+                }
             }
         }
     }
