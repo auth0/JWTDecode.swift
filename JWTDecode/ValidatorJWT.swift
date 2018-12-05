@@ -24,7 +24,7 @@
 
 import Foundation
 
-public protocol ValidatorJWT {
+protocol ValidatorJWT {
     var issuer: String { get }
     var audience: String { get }
 
