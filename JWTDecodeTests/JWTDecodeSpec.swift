@@ -36,11 +36,19 @@ class JWTDecodeSpec: QuickSpec {
             it("should tell a jwt is not expired") {
                 expect(nonExpiredJWT().expired).to(beFalsy())
             }
-
+            
             it("should tell a jwt is expired with a close enough timestamp") {
                 expect(jwtThatExpiresAt(date: Date()).expired).to(beTruthy())
             }
 
+            it("should tell a jwt is not expired at the time offset from now") {
+                expect(jwtThatExpiresAt(date: Date() + TimeInterval(120)).willBeExpired(in: TimeInterval(60))).to(beFalsy())
+            }
+            
+            it("should tell a jwt is expired at the time offset from now") {
+                expect(jwtThatExpiresAt(date: Date() + TimeInterval(60)).willBeExpired(in: TimeInterval(120))).to(beTruthy())
+            }
+            
             it("should obtain payload") {
                 let token = jwt(withBody: ["sub": "myid", "name": "Shawarma Monk"])
                 let payload = token.body as! [String: String]

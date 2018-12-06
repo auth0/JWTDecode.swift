@@ -69,6 +69,14 @@ struct DecodedJWT: JWT {
         }
         return date.compare(Date()) != ComparisonResult.orderedDescending
     }
+
+    func willBeExpired(in seconds: TimeInterval) -> Bool {
+        guard let date = self.expiresAt else {
+            return false
+        }
+
+        return date < Date().addingTimeInterval(seconds)
+    }
 }
 
 /**

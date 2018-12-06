@@ -52,6 +52,9 @@ public protocol JWT {
 
     /// Checks if the token is currently expired using the `exp` claim. If there is no claim present it will deem the token not expired
     var expired: Bool { get }
+
+    /// Check if the token will be expired at a given time offset (in seconds) from now.
+    func willBeExpired(in seconds: TimeInterval) -> Bool
 }
 
 public extension JWT {
