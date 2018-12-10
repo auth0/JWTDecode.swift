@@ -16,6 +16,9 @@
 		5B75B0DB21B7DCDF0065A681 /* TokenValidatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0D721B7DCB70065A681 /* TokenValidatorsSpec.swift */; };
 		5B75B0DC21B7DCE00065A681 /* TokenValidatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0D721B7DCB70065A681 /* TokenValidatorsSpec.swift */; };
 		5B75B0DD21B7DCE10065A681 /* TokenValidatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0D721B7DCB70065A681 /* TokenValidatorsSpec.swift */; };
+		5BB6950021BEB53B00280BA2 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB694FF21BEB53B00280BA2 /* ValidationError.swift */; };
+		5BB6950121BEB53B00280BA2 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB694FF21BEB53B00280BA2 /* ValidationError.swift */; };
+		5BB6950221BEB53B00280BA2 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB694FF21BEB53B00280BA2 /* ValidationError.swift */; };
 		5F0068E81B3B46240048928E /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0068E71B3B46240048928E /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0068EE1B3B46240048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0068E21B3B46240048928E /* JWTDecode.framework */; };
 		5F0069031B3B511F0048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
@@ -119,6 +122,7 @@
 		5B75B0CF21B6B1250065A681 /* TokenValidators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenValidators.swift; sourceTree = "<group>"; };
 		5B75B0D321B7DC4A0065A681 /* ValidatorJWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatorJWT.swift; sourceTree = "<group>"; };
 		5B75B0D721B7DCB70065A681 /* TokenValidatorsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenValidatorsSpec.swift; sourceTree = "<group>"; };
+		5BB694FF21BEB53B00280BA2 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		5F0068E21B3B46240048928E /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0068E61B3B46240048928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F0068E71B3B46240048928E /* JWTDecode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JWTDecode.h; sourceTree = "<group>"; };
@@ -237,11 +241,12 @@
 		5F0068E41B3B46240048928E /* JWTDecode */ = {
 			isa = PBXGroup;
 			children = (
-				5B75B0D321B7DC4A0065A681 /* ValidatorJWT.swift */,
 				5F0068E71B3B46240048928E /* JWTDecode.h */,
 				5F8B43681B9F99B400A0D5AE /* A0JWT.swift */,
 				5F0069021B3B511F0048928E /* JWTDecode.swift */,
 				5B75B0CF21B6B1250065A681 /* TokenValidators.swift */,
+				5BB694FF21BEB53B00280BA2 /* ValidationError.swift */,
+				5B75B0D321B7DC4A0065A681 /* ValidatorJWT.swift */,
 				5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */,
 				5FE49DCF1BA0D66F00DE57D3 /* Errors.swift */,
 				5F0068E51B3B46240048928E /* Supporting Files */,
@@ -634,6 +639,7 @@
 			files = (
 				5FE49DD01BA0D66F00DE57D3 /* Errors.swift in Sources */,
 				5B75B0D021B6B1250065A681 /* TokenValidators.swift in Sources */,
+				5BB6950021BEB53B00280BA2 /* ValidationError.swift in Sources */,
 				5B75B0D421B7DC4A0065A681 /* ValidatorJWT.swift in Sources */,
 				5F8B43691B9F99B400A0D5AE /* A0JWT.swift in Sources */,
 				5F0069031B3B511F0048928E /* JWTDecode.swift in Sources */,
@@ -658,6 +664,7 @@
 			files = (
 				5FE49DD11BA0D66F00DE57D3 /* Errors.swift in Sources */,
 				5B75B0D121B6B1250065A681 /* TokenValidators.swift in Sources */,
+				5BB6950121BEB53B00280BA2 /* ValidationError.swift in Sources */,
 				5B75B0D521B7DC4A0065A681 /* ValidatorJWT.swift in Sources */,
 				5F8B436A1B9F99B400A0D5AE /* A0JWT.swift in Sources */,
 				5F00693E1B3C7B930048928E /* JWTDecode.swift in Sources */,
@@ -681,6 +688,7 @@
 			files = (
 				918A8E671D63D2FE001F787B /* Errors.swift in Sources */,
 				5B75B0D221B6B1250065A681 /* TokenValidators.swift in Sources */,
+				5BB6950221BEB53B00280BA2 /* ValidationError.swift in Sources */,
 				5B75B0D621B7DC4A0065A681 /* ValidatorJWT.swift in Sources */,
 				918A8E641D63D2F4001F787B /* A0JWT.swift in Sources */,
 				918A8E651D63D2F7001F787B /* JWTDecode.swift in Sources */,

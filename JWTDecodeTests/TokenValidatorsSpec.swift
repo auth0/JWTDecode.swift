@@ -43,49 +43,49 @@ class TokenValidatorsSpec: QuickSpec {
         
         describe("validation") {
             
-            it("should return true for valid token") {
+            it("should return nil for valid token") {
                 let validator = IDTokenValidation(issuer: issuer, audience: audience)
                 let jwt = JWTHelper.newJWT(withIssuer: issuer, audience: audience, expiry: nonExpiredDate())
-                expect(validator.validate(jwt)).to(beTrue())
+                expect(validator.validate(jwt)).to(beNil())
             }
             
-            it("should fail for invalid issuer") {
+            it("should return invalid iss claim error for invalid issuer") {
                 let validator = IDTokenValidation(issuer: issuer, audience: audience)
                 let jwt = JWTHelper.newJWT(withIssuer: "invalid_issuer", audience: audience, expiry: nonExpiredDate())
-                expect(validator.validate(jwt)).to(beFalse())
+                expect(validator.validate(jwt)).to(matchError(ValidationError.invalidClaim("iss")))
             }
             
-            it("should fail for invalid audience") {
+            it("should return invalid aud claim error for invalid audience") {
                 let validator = IDTokenValidation(issuer: issuer, audience: audience)
                 let jwt = JWTHelper.newJWT(withIssuer: issuer, audience: "invalid_audience", expiry: nonExpiredDate())
-                expect(validator.validate(jwt)).to(beFalse())
+                expect(validator.validate(jwt)).to(matchError(ValidationError.invalidClaim("aud")))
             }
             
-            it("should fail for expired token") {
+            it("should return expired error for expired token") {
                 let validator = IDTokenValidation(issuer: issuer, audience: audience)
                 let jwt = JWTHelper.newJWT(withIssuer: issuer, audience: audience, expiry: expiredDate())
-                expect(validator.validate(jwt)).to(beFalse())
+                expect(validator.validate(jwt)).to(matchError(ValidationError.expired))
             }
             
             context("nonce") {
                 let nonce = "NONCE123"
                 
-                it("should check nonce if set") {
+                it("should return nil if nonce matches") {
                     let validator = IDTokenValidation(issuer: issuer, audience: audience)
                     let jwt = JWTHelper.newJWT(withIssuer: issuer, audience: audience, expiry: nonExpiredDate(), nonce: nonce)
-                    expect(validator.validate(jwt, nonce: nonce)).to(beTrue())
+                    expect(validator.validate(jwt, nonce: nonce)).to(beNil())
                 }
                 
-                it("should fail nonce if no match") {
+                it("should return nonce error if nonce miss match") {
                     let validator = IDTokenValidation(issuer: issuer, audience: audience)
                     let jwt = JWTHelper.newJWT(withIssuer: issuer, audience: audience, expiry: nonExpiredDate(), nonce: "nomatch")
-                    expect(validator.validate(jwt, nonce: nonce)).to(beFalse())
+                    expect(validator.validate(jwt, nonce: nonce)).to(matchError(ValidationError.nonce))
                 }
                 
-                it("should fail when JWT has nonce but validator doesn't") {
+                it("should return nonce error when JWT has nonce but validator nonce missing") {
                     let validator = IDTokenValidation(issuer: issuer, audience: audience)
                     let jwt = JWTHelper.newJWT(withIssuer: issuer, audience: audience, expiry: nonExpiredDate(), nonce: nonce)
-                    expect(validator.validate(jwt)).to(beFalse())
+                    expect(validator.validate(jwt)).to(matchError(ValidationError.nonce))
                 }
                 
             }

@@ -49,14 +49,14 @@ public struct IDTokenValidation: ValidatorJWT {
     ///   - jwt: The JWT to validate
     ///   - nonce: (Optional) nonce value
     /// - Returns: Success status
-    public func validate(_ jwt: JWT, nonce: String? = nil) -> Bool {
-        guard let jwtAudience = jwt.audience else { return false }
-        if issuer != jwt.issuer { return false }
-        if !jwtAudience.contains(audience) { return false }
-        if jwt.expired { return false }
+    public func validate(_ jwt: JWT, nonce: String? = nil) -> ValidationError? {
+        guard let jwtAudience = jwt.audience else { return .invalidClaim("aud") }
+        if issuer != jwt.issuer { return .invalidClaim("issd") }
+        if !jwtAudience.contains(audience) { return .invalidClaim("aud")  }
+        if jwt.expired { return .expired }
         if let jwtNonce = jwt.claim(name: "nonce").string {
-            guard let nonce = nonce, nonce == jwtNonce else { return false }
+            guard let nonce = nonce, nonce == jwtNonce else { return .nonce }
         }
-        return true
+        return nil
     }
 }
