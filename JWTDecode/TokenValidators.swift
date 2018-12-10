@@ -48,7 +48,7 @@ public struct IDTokenValidation: ValidatorJWT {
     /// - Parameters:
     ///   - jwt: The JWT to validate
     ///   - nonce: (Optional) nonce value
-    /// - Returns: Success status
+    /// - Returns: Outcome
     public func validate(_ jwt: JWT, nonce: String? = nil) -> ValidationError? {
         guard let jwtAudience = jwt.audience else { return .invalidClaim("aud") }
         if issuer != jwt.issuer { return .invalidClaim("issd") }
