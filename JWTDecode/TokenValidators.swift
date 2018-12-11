@@ -36,8 +36,8 @@ public struct IDTokenValidation: ValidatorJWT {
     /// Initialiser
     ///
     /// - Parameters:
-    ///   - issuer: Value to validate the `iss` claim against
-    ///   - audience: Value to validate the `aud` claim against
+    ///   - issuer: Expected `iss` claim value
+    ///   - audience: Expected `aud` claim value
     public init(issuer: String, audience: String) {
         self.issuer = issuer
         self.audience = audience
@@ -51,8 +51,8 @@ public struct IDTokenValidation: ValidatorJWT {
     /// - Returns: Outcome
     public func validate(_ jwt: JWT, nonce: String? = nil) -> ValidationError? {
         guard let jwtAudience = jwt.audience else { return .invalidClaim("aud") }
-        if issuer != jwt.issuer { return .invalidClaim("issd") }
         if !jwtAudience.contains(audience) { return .invalidClaim("aud")  }
+        if issuer != jwt.issuer { return .invalidClaim("iss") }
         if jwt.expired { return .expired }
         if let jwtNonce = jwt.claim(name: "nonce").string {
             guard let nonce = nonce, nonce == jwtNonce else { return .nonce }

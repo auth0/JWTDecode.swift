@@ -52,13 +52,21 @@ class TokenValidatorsSpec: QuickSpec {
             it("should return invalid iss claim error for invalid issuer") {
                 let validator = IDTokenValidation(issuer: issuer, audience: audience)
                 let jwt = JWTHelper.newJWT(withIssuer: "invalid_issuer", audience: audience, expiry: nonExpiredDate())
-                expect(validator.validate(jwt)).to(matchError(ValidationError.invalidClaim("iss")))
+                let result = validator.validate(jwt)
+                expect(result).to(matchError(ValidationError.invalidClaim("iss")))
+                expect(validator.validate(jwt)).to(beClaimContent { response in
+                    expect(response) === "iss"
+                })
             }
             
             it("should return invalid aud claim error for invalid audience") {
                 let validator = IDTokenValidation(issuer: issuer, audience: audience)
                 let jwt = JWTHelper.newJWT(withIssuer: issuer, audience: "invalid_audience", expiry: nonExpiredDate())
-                expect(validator.validate(jwt)).to(matchError(ValidationError.invalidClaim("aud")))
+                let result = validator.validate(jwt)
+                expect(result).to(matchError(ValidationError.invalidClaim("aud")))
+                expect(validator.validate(jwt)).to(beClaimContent { response in
+                    expect(response) === "aud"
+                })
             }
             
             it("should return expired error for expired token") {
@@ -90,5 +98,16 @@ class TokenValidatorsSpec: QuickSpec {
                 
             }
         }
+    }
+}
+
+private func beClaimContent(_ test: @escaping (String) -> Void = { _ in }) -> Predicate<ValidationError> {
+    return Predicate.define("be <content>") { expression, message in
+        if let actual = try expression.evaluate(),
+            case let .invalidClaim(response) = actual {
+            test(response)
+            return PredicateResult(status: .matches, message: message)
+        }
+        return PredicateResult(status: .fail, message: message)
     }
 }
