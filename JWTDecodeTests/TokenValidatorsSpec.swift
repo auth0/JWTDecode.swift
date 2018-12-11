@@ -54,8 +54,8 @@ class TokenValidatorsSpec: QuickSpec {
                 let jwt = JWTHelper.newJWT(withIssuer: "invalid_issuer", audience: audience, expiry: nonExpiredDate())
                 let result = validator.validate(jwt)
                 expect(result).to(matchError(ValidationError.invalidClaim("iss")))
-                expect(validator.validate(jwt)).to(beClaimContent { response in
-                    expect(response) === "iss"
+                expect(validator.validate(jwt)).to(beClaimContent { claim in
+                    expect(claim).to(equal("iss"))
                 })
             }
             
@@ -64,8 +64,8 @@ class TokenValidatorsSpec: QuickSpec {
                 let jwt = JWTHelper.newJWT(withIssuer: issuer, audience: "invalid_audience", expiry: nonExpiredDate())
                 let result = validator.validate(jwt)
                 expect(result).to(matchError(ValidationError.invalidClaim("aud")))
-                expect(validator.validate(jwt)).to(beClaimContent { response in
-                    expect(response) === "aud"
+                expect(validator.validate(jwt)).to(beClaimContent { claim in
+                    expect(claim).to(equal("aud"))
                 })
             }
             
