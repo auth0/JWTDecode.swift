@@ -58,4 +58,22 @@ platform :ios do
     prepare_release release_options
     publish_release
   end
+
+  desc "Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG"
+  desc "You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]"
+  lane :release_prepare do |options|
+    release_options = {repository: 'JWTDecode.swift', xcodeproj: 'JWTDecode.xcodeproj', target: 'JWTDecode-iOS'}.merge(options)
+    prepare_release release_options
+  end
+
+  desc "Performs the prepared release by creating a tag and pusing to remote"
+  lane :release_perform do
+    perform_release target: 'JWTDecode-iOS'
+  end
+
+  desc "Releases the library to CocoaPods trunk & Github Releases"
+  lane :release_publish do
+    publish_release repository: 'JWTDecode.swift'
+  end
 end
+
