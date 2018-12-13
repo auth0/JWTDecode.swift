@@ -46,13 +46,6 @@ Cocoapods library lint
 fastlane ios ci
 ```
 Runs all the tests in a CI environment
-### ios release
-```
-fastlane ios release
-```
-Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG
-
-You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]
 ### ios release_prepare
 ```
 fastlane ios release_prepare
