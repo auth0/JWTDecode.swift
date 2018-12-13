@@ -50,15 +50,7 @@ platform :ios do
     lint
     test
   end
-
-  desc "Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG"
-  desc "You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]"
-  lane :release do |options|
-    release_options = {repository: 'JWTDecode.swift', xcodeproj: 'JWTDecode.xcodeproj'}.merge(options)
-    prepare_release release_options
-    publish_release
-  end
-
+  
   desc "Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG"
   desc "You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]"
   lane :release_prepare do |options|
