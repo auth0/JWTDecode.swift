@@ -1,5 +1,17 @@
 # Change Log
 
+## [2.2.0](https://github.com/auth0/JWTDecode.swift/tree/2.2.0) (2018-12-17)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.1.1...2.2.0)
+
+**Added**
+- Added latest release management [\#80](https://github.com/auth0/JWTDecode.swift/pull/80) ([cocojoe](https://github.com/cocojoe))
+- Added ID Token Claims Validation  [\#78](https://github.com/auth0/JWTDecode.swift/pull/78) ([cocojoe](https://github.com/cocojoe))
+- Added Multi Swift Version CI [\#74](https://github.com/auth0/JWTDecode.swift/pull/74) ([cocojoe](https://github.com/cocojoe))
+- Added rawValue accessor for Claims [\#69](https://github.com/auth0/JWTDecode.swift/pull/69) ([cocojoe](https://github.com/cocojoe))
+
+**Changed**
+- Update Xcode 9.3, Added CI 2.0 [\#66](https://github.com/auth0/JWTDecode.swift/pull/66) ([cocojoe](https://github.com/cocojoe))
+
 ## [2.1.1](https://github.com/auth0/JWTDecode.swift/tree/2.1.1) (2017-10-03)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.1.0...2.1.1)
 

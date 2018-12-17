@@ -25,7 +25,7 @@ This library will help you check [JWT](http://jwt.io/) payload
 If you are using Carthage, add the following lines to your `Cartfile`:
 
 ```ruby
-github "auth0/JWTDecode.swift" ~> 2.1
+github "auth0/JWTDecode.swift" ~> 2.2
 ```
 
 Then run `carthage bootstrap`.
@@ -38,7 +38,7 @@ If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `P
 
 ```ruby
 use_frameworks!
-pod 'JWTDecode', '~> 2.1'
+pod 'JWTDecode', '~> 2.2'
 ```
 
 Then, run `pod install`.
