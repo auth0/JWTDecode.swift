@@ -54,6 +54,16 @@ func nonExpiredJWT() -> JWT {
     return jwtThatExpiresAt(date: date!)
 }
 
+func nonExpiredDate() -> Date {
+    let hours = Int(arc4random_uniform(200) + 1)
+    return (Calendar.current as NSCalendar).date(byAdding: .hour, value: hours, to: Date(), options: NSCalendar.Options())!
+}
+
+func expiredDate() -> Date {
+    let seconds = Int(arc4random_uniform(60) + 1) * -1
+    return (Calendar.current as NSCalendar).date(byAdding: .second, value: seconds, to: Date(), options: NSCalendar.Options())!
+}
+
 class JWTHelper: NSObject {
 
     class func newJWT(withBody body: [String: AnyObject]) -> JWT {
@@ -70,5 +80,17 @@ class JWTHelper: NSObject {
 
     class func newNonExpiredJWT() -> JWT {
         return nonExpiredJWT()
+    }
+    
+    class func newJWT(withIssuer issuer: String, audience: String, expiry: Date, nonce: String? = nil) -> JWT {
+        var body: [String: AnyObject] = ["iss" : issuer as AnyObject,
+                                         "aud" : audience as AnyObject,
+                                         "exp" : expiry.timeIntervalSince1970 as AnyObject]
+        
+        if let nonce = nonce {
+            body["nonce"] = nonce as AnyObject
+        }
+        
+        return newJWT(withBody: body)
     }
 }

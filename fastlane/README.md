@@ -36,18 +36,33 @@ Run code linter
 fastlane ios test
 ```
 Runs all the tests
+### ios pod_lint
+```
+fastlane ios pod_lint
+```
+Cocoapods library lint
 ### ios ci
 ```
 fastlane ios ci
 ```
 Runs all the tests in a CI environment
-### ios release
+### ios release_prepare
 ```
-fastlane ios release
+fastlane ios release_prepare
 ```
 Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG
 
 You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]
+### ios release_perform
+```
+fastlane ios release_perform
+```
+Performs the prepared release by creating a tag and pusing to remote
+### ios release_publish
+```
+fastlane ios release_publish
+```
+Releases the library to CocoaPods trunk & Github Releases
 
 ----
 

@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/cocoapods/l/JWTDecode.svg?style=flat-square)](http://cocoadocs.org/docsets/JWTDecode)
 [![Platform](https://img.shields.io/cocoapods/p/JWTDecode.svg?style=flat-square)](http://cocoadocs.org/docsets/JWTDecode)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
-![Swift 3.1](https://img.shields.io/badge/Swift-3.1-orange.svg?style=flat-square)
+![Swift 4.2](https://img.shields.io/badge/Swift-3.1-orange.svg?style=flat-square)
 
 This library will help you check [JWT](http://jwt.io/) payload
 
@@ -15,8 +15,8 @@ This library will help you check [JWT](http://jwt.io/) payload
 ## Requirements
 
 - iOS 9 or later
-- Xcode 8.3 / 9.0
-- Swift 3.1+
+- Xcode 9.0+
+- Swift 3.x/4.x
 
 ## Installation
 
@@ -25,7 +25,7 @@ This library will help you check [JWT](http://jwt.io/) payload
 If you are using Carthage, add the following lines to your `Cartfile`:
 
 ```ruby
-github "auth0/JWTDecode.swift" ~> 2.1
+github "auth0/JWTDecode.swift" ~> 2.2
 ```
 
 Then run `carthage bootstrap`.
@@ -38,7 +38,7 @@ If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `P
 
 ```ruby
 use_frameworks!
-pod 'JWTDecode', '~> 2.1'
+pod 'JWTDecode', '~> 2.2'
 ```
 
 Then, run `pod install`.
