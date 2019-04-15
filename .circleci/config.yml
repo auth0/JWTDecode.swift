@@ -53,10 +53,14 @@ jobs:
             SCHEME: JWTDecode-iOS
             DEVICE: iPhone 8
             FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
+      - run: |
+          bash <(curl -s https://codecov.io/bash) -J 'JWTDecode'
       - save_cache:
           key: dependency-cache
           paths:
             - Carthage/Build
+      - store_test_results:
+          path: fastlane/test_output
   build-macOS-Swift-5.0:
     macos:
       xcode: "10.2.0"
@@ -108,11 +112,12 @@ jobs:
           key: dependency-cache
           paths:
             - Carthage/Build
+
 workflows:
   version: 2
   build:
     jobs:
-      -  build-iOS-Swift-4.2
       -  build-iOS-Swift-5.0
+      -  build-iOS-Swift-4.2
       -  build-macOS-Swift-5.0
-      -  build-tvOS-Swift-5.0
+      - build-tvOS-Swift-5.0
