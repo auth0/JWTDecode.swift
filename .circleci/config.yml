@@ -162,7 +162,7 @@ jobs:
           key: dependency-cache
           paths:
             - Carthage/Build
-    build-tvOS-Swift-5.0:
+  build-tvOS-Swift-5.0:
     macos:
       xcode: "10.2.0"
     environment:
