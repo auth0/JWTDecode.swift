@@ -1,5 +1,11 @@
 # Change Log
 
+## [2.3.0](https://github.com/auth0/JWTDecode.swift/tree/2.3.0) (2019-05-06)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.2.0...2.3.0)
+
+**Added**
+- Added Swift 5 / Xcode 10.2 support [\#88](https://github.com/auth0/JWTDecode.swift/pull/88) ([cocojoe](https://github.com/cocojoe))
+
 ## [2.2.0](https://github.com/auth0/JWTDecode.swift/tree/2.2.0) (2018-12-17)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.1.1...2.2.0)
 
