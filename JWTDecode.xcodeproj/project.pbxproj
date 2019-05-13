@@ -19,13 +19,11 @@
 		5BB6950021BEB53B00280BA2 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB694FF21BEB53B00280BA2 /* ValidationError.swift */; };
 		5BB6950121BEB53B00280BA2 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB694FF21BEB53B00280BA2 /* ValidationError.swift */; };
 		5BB6950221BEB53B00280BA2 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB694FF21BEB53B00280BA2 /* ValidationError.swift */; };
-		5F0068E81B3B46240048928E /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0068E71B3B46240048928E /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F0068EE1B3B46240048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0068E21B3B46240048928E /* JWTDecode.framework */; };
 		5F0069031B3B511F0048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		5F0069141B3B532E0048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069091B3B532E0048928E /* JWTDecode.framework */; };
 		5F0069231B3C4A7F0048928E /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */; };
 		5F0069241B3C4A860048928E /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */; };
-		5F00693D1B3C7B630048928E /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0068E71B3B46240048928E /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F00693E1B3C7B930048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		5F0069411B3C828F0048928E /* A0JWTDecodeSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */; };
 		5F2614D81C05FE850068DE71 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614CD1C05FDDE0068DE71 /* Quick.framework */; };
@@ -44,7 +42,6 @@
 		5FE49DCE1BA0D5F700DE57D3 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 		5FE49DD01BA0D66F00DE57D3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* Errors.swift */; };
 		5FE49DD11BA0D66F00DE57D3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* Errors.swift */; };
-		918A8E631D63D2F0001F787B /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F0068E71B3B46240048928E /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		918A8E641D63D2F4001F787B /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B43681B9F99B400A0D5AE /* A0JWT.swift */; };
 		918A8E651D63D2F7001F787B /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		918A8E661D63D2FB001F787B /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
@@ -56,6 +53,17 @@
 		918A8E7F1D63D86E001F787B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A8E7B1D63D86E001F787B /* Quick.framework */; };
 		918A8E821D63DB42001F787B /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918A8E7B1D63D86E001F787B /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		918A8E831D63DB4D001F787B /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918A8E7A1D63D86E001F787B /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E390BAD32288E6AF00780D6C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* Errors.swift */; };
+		E390BAD42288E6AF00780D6C /* TokenValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0CF21B6B1250065A681 /* TokenValidators.swift */; };
+		E390BAD52288E6AF00780D6C /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB694FF21BEB53B00280BA2 /* ValidationError.swift */; };
+		E390BAD62288E6AF00780D6C /* ValidatorJWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0D321B7DC4A0065A681 /* ValidatorJWT.swift */; };
+		E390BAD72288E6AF00780D6C /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B43681B9F99B400A0D5AE /* A0JWT.swift */; };
+		E390BAD82288E6AF00780D6C /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
+		E390BAD92288E6AF00780D6C /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
+		E390BAE62288EBA600780D6C /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = E390BAE52288EBA600780D6C /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E390BAE72288EBA600780D6C /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = E390BAE52288EBA600780D6C /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E390BAE82288EBA600780D6C /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = E390BAE52288EBA600780D6C /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E390BAE92288EBA600780D6C /* JWTDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = E390BAE52288EBA600780D6C /* JWTDecode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,7 +133,6 @@
 		5BB694FF21BEB53B00280BA2 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		5F0068E21B3B46240048928E /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0068E61B3B46240048928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F0068E71B3B46240048928E /* JWTDecode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JWTDecode.h; sourceTree = "<group>"; };
 		5F0068ED1B3B46240048928E /* JWTDecode-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0068F31B3B46240048928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F0069021B3B511F0048928E /* JWTDecode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTDecode.swift; sourceTree = "<group>"; };
@@ -157,6 +164,8 @@
 		918A8E6C1D63D4E5001F787B /* JWTDecode-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		918A8E7A1D63D86E001F787B /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		918A8E7B1D63D86E001F787B /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = SOURCE_ROOT; };
+		E390BAE22288E6AF00780D6C /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E390BAE52288EBA600780D6C /* JWTDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWTDecode.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +220,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E390BADA2288E6AF00780D6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -234,6 +250,7 @@
 				5F0069131B3B532E0048928E /* JWTDecode-OSXTests.xctest */,
 				918A8E5B1D63D2E1001F787B /* JWTDecode.framework */,
 				918A8E6C1D63D4E5001F787B /* JWTDecode-tvOSTests.xctest */,
+				E390BAE22288E6AF00780D6C /* JWTDecode.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -241,7 +258,7 @@
 		5F0068E41B3B46240048928E /* JWTDecode */ = {
 			isa = PBXGroup;
 			children = (
-				5F0068E71B3B46240048928E /* JWTDecode.h */,
+				E390BAE52288EBA600780D6C /* JWTDecode.h */,
 				5F8B43681B9F99B400A0D5AE /* A0JWT.swift */,
 				5F0069021B3B511F0048928E /* JWTDecode.swift */,
 				5B75B0CF21B6B1250065A681 /* TokenValidators.swift */,
@@ -345,7 +362,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F0068E81B3B46240048928E /* JWTDecode.h in Headers */,
+				E390BAE62288EBA600780D6C /* JWTDecode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +370,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F00693D1B3C7B630048928E /* JWTDecode.h in Headers */,
+				E390BAE72288EBA600780D6C /* JWTDecode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +378,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				918A8E631D63D2F0001F787B /* JWTDecode.h in Headers */,
+				E390BAE82288EBA600780D6C /* JWTDecode.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E390BADB2288E6AF00780D6C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E390BAE92288EBA600780D6C /* JWTDecode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +507,25 @@
 			productReference = 918A8E6C1D63D4E5001F787B /* JWTDecode-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		E390BAD12288E6AF00780D6C /* JWTDecode-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E390BADF2288E6AF00780D6C /* Build configuration list for PBXNativeTarget "JWTDecode-watchOS" */;
+			buildPhases = (
+				E390BAD22288E6AF00780D6C /* Sources */,
+				E390BADA2288E6AF00780D6C /* Frameworks */,
+				E390BADB2288E6AF00780D6C /* Headers */,
+				E390BADD2288E6AF00780D6C /* Resources */,
+				E390BADE2288E6AF00780D6C /* SwiftLint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JWTDecode-watchOS";
+			productName = JWTDecode;
+			productReference = E390BAE22288E6AF00780D6C /* JWTDecode.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -539,6 +583,7 @@
 				5F0069121B3B532E0048928E /* JWTDecode-OSXTests */,
 				918A8E5A1D63D2E1001F787B /* JWTDecode-tvOS */,
 				918A8E6B1D63D4E5001F787B /* JWTDecode-tvOSTests */,
+				E390BAD12288E6AF00780D6C /* JWTDecode-watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -580,6 +625,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		918A8E6A1D63D4E5001F787B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E390BADD2288E6AF00780D6C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -630,6 +682,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi";
+		};
+		E390BADE2288E6AF00780D6C /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -704,6 +770,20 @@
 				918A8E771D63D59B001F787B /* JWTDecodeSpec.swift in Sources */,
 				5B75B0DB21B7DCDF0065A681 /* TokenValidatorsSpec.swift in Sources */,
 				918A8E781D63D5AF001F787B /* JWTHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E390BAD22288E6AF00780D6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E390BAD32288E6AF00780D6C /* Errors.swift in Sources */,
+				E390BAD42288E6AF00780D6C /* TokenValidators.swift in Sources */,
+				E390BAD52288E6AF00780D6C /* ValidationError.swift in Sources */,
+				E390BAD62288E6AF00780D6C /* ValidatorJWT.swift in Sources */,
+				E390BAD72288E6AF00780D6C /* A0JWT.swift in Sources */,
+				E390BAD82288E6AF00780D6C /* JWTDecode.swift in Sources */,
+				E390BAD92288E6AF00780D6C /* JWT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1137,6 +1217,63 @@
 			};
 			name = Release;
 		};
+		E390BAE02288E6AF00780D6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_CODE_COVERAGE = YES;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JWTDecode/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
+				PRODUCT_MODULE_NAME = JWTDecode;
+				PRODUCT_NAME = JWTDecode;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4;
+			};
+			name = Debug;
+		};
+		E390BAE12288E6AF00780D6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_CODE_COVERAGE = YES;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JWTDecode/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
+				PRODUCT_MODULE_NAME = JWTDecode;
+				PRODUCT_NAME = JWTDecode;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1199,6 +1336,15 @@
 			buildConfigurations = (
 				918A8E751D63D4E5001F787B /* Debug */,
 				918A8E761D63D4E5001F787B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E390BADF2288E6AF00780D6C /* Build configuration list for PBXNativeTarget "JWTDecode-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E390BAE02288E6AF00780D6C /* Debug */,
+				E390BAE12288E6AF00780D6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
