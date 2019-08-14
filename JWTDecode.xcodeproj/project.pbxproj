@@ -217,8 +217,8 @@
 		5F0068D81B3B46240048928E = {
 			isa = PBXGroup;
 			children = (
-				5F0068E41B3B46240048928E /* JWTDecode */,
-				5F0068F11B3B46240048928E /* JWTDecodeTests */,
+				704417F123049DF700DD3C5E /* Sources */,
+				704417F223049E4200DD3C5E /* Tests */,
 				5F0A5E291B9A6D4A005289CF /* JWTDecode.playground */,
 				5F0068E31B3B46240048928E /* Products */,
 				5F2496A11D64A8EE00A1C6E2 /* Supporting Files */,
@@ -268,8 +268,6 @@
 				5F0068F21B3B46240048928E /* Supporting Files */,
 				5B75B0D721B7DCB70065A681 /* TokenValidatorsSpec.swift */,
 				5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */,
-				5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */,
-				5F00693F1B3C828E0048928E /* JWTDecode-iOSTests-Bridging-Header.h */,
 				5F8B436B1B9F9EDB00A0D5AE /* JWTHelper.swift */,
 			);
 			path = JWTDecodeTests;
@@ -327,6 +325,32 @@
 				5F2614D51C05FE720068DE71 /* Nimble.framework */,
 			);
 			name = OSX;
+			sourceTree = "<group>";
+		};
+		704417F123049DF700DD3C5E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				5F0068E41B3B46240048928E /* JWTDecode */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		704417F223049E4200DD3C5E /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				704417F323049E9300DD3C5E /* JWTDecodeObjCTests */,
+				5F0068F11B3B46240048928E /* JWTDecodeTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		704417F323049E9300DD3C5E /* JWTDecodeObjCTests */ = {
+			isa = PBXGroup;
+			children = (
+				5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */,
+				5F00693F1B3C828E0048928E /* JWTDecode-iOSTests-Bridging-Header.h */,
+			);
+			path = JWTDecodeObjCTests;
 			sourceTree = "<group>";
 		};
 		918A8E791D63D84A001F787B /* tvOS */ = {
@@ -852,7 +876,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = JWTDecode/Info.plist;
+				INFOPLIST_FILE = Sources/JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -877,7 +901,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = JWTDecode/Info.plist;
+				INFOPLIST_FILE = Sources/JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -906,11 +930,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
+				INFOPLIST_FILE = Tests/JWTDecodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "JWTDecodeTests/JWTDecode-iOSTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/JWTDecodeObjCTests/JWTDecode-iOSTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -928,11 +952,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
+				INFOPLIST_FILE = Tests/JWTDecodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "JWTDecodeTests/JWTDecode-iOSTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/JWTDecodeObjCTests/JWTDecode-iOSTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -954,7 +978,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = JWTDecode/Info.plist;
+				INFOPLIST_FILE = Sources/JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -978,7 +1002,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = JWTDecode/Info.plist;
+				INFOPLIST_FILE = Sources/JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -1008,7 +1032,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
+				INFOPLIST_FILE = Tests/JWTDecodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1029,7 +1053,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
+				INFOPLIST_FILE = Tests/JWTDecodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1051,7 +1075,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = JWTDecode/Info.plist;
+				INFOPLIST_FILE = Sources/JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
@@ -1076,7 +1100,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = JWTDecode/Info.plist;
+				INFOPLIST_FILE = Sources/JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
@@ -1102,7 +1126,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
-				INFOPLIST_FILE = JWTDecode/Info.plist;
+				INFOPLIST_FILE = Tests/JWTDecodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.JWTDecode-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1124,7 +1148,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
-				INFOPLIST_FILE = JWTDecode/Info.plist;
+				INFOPLIST_FILE = Tests/JWTDecodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.JWTDecode-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
