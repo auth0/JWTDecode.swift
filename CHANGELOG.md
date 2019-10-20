@@ -1,5 +1,11 @@
 # Change Log
 
+## [2.3.1](https://github.com/auth0/JWTDecode.swift/tree/2.3.1) (2019-09-24)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.3.0...2.3.1)
+
+**Added**
+- Multiple Swift version support in CocoaPods [\#94](https://github.com/auth0/JWTDecode.swift/pull/94) ([ericbuehl](https://github.com/ericbuehl))
+
 ## [2.3.0](https://github.com/auth0/JWTDecode.swift/tree/2.3.0) (2019-05-06)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.2.0...2.3.0)
 
