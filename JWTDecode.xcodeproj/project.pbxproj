@@ -10,23 +10,22 @@
 		57EA5A05237EBBCB00264C01 /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA5A02237EBBCA00264C01 /* JWTDecodeSpec.swift */; };
 		57EA5A06237EBBCB00264C01 /* TokenValidatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA5A03237EBBCB00264C01 /* TokenValidatorsSpec.swift */; };
 		57EA5A07237EBBCB00264C01 /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA5A04237EBBCB00264C01 /* JWTHelper.swift */; };
+		57F02C0C237ED39800D45E14 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614CE1C05FDDE0068DE71 /* Nimble.framework */; };
+		57F02C0D237ED39800D45E14 /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614CE1C05FDDE0068DE71 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		57F02C0E237ED39800D45E14 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614CD1C05FDDE0068DE71 /* Quick.framework */; };
+		57F02C0F237ED39800D45E14 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614CD1C05FDDE0068DE71 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B75B0D021B6B1250065A681 /* TokenValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0CF21B6B1250065A681 /* TokenValidators.swift */; };
 		5B75B0D121B6B1250065A681 /* TokenValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0CF21B6B1250065A681 /* TokenValidators.swift */; };
 		5B75B0D221B6B1250065A681 /* TokenValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0CF21B6B1250065A681 /* TokenValidators.swift */; };
 		5B75B0D421B7DC4A0065A681 /* ValidatorJWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0D321B7DC4A0065A681 /* ValidatorJWT.swift */; };
 		5B75B0D521B7DC4A0065A681 /* ValidatorJWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0D321B7DC4A0065A681 /* ValidatorJWT.swift */; };
 		5B75B0D621B7DC4A0065A681 /* ValidatorJWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0D321B7DC4A0065A681 /* ValidatorJWT.swift */; };
-		5B75B0DB21B7DCDF0065A681 /* TokenValidatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0D721B7DCB70065A681 /* TokenValidatorsSpec.swift */; };
-		5B75B0DC21B7DCE00065A681 /* TokenValidatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0D721B7DCB70065A681 /* TokenValidatorsSpec.swift */; };
-		5B75B0DD21B7DCE10065A681 /* TokenValidatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0D721B7DCB70065A681 /* TokenValidatorsSpec.swift */; };
 		5BB6950021BEB53B00280BA2 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB694FF21BEB53B00280BA2 /* ValidationError.swift */; };
 		5BB6950121BEB53B00280BA2 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB694FF21BEB53B00280BA2 /* ValidationError.swift */; };
 		5BB6950221BEB53B00280BA2 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB694FF21BEB53B00280BA2 /* ValidationError.swift */; };
 		5F0068EE1B3B46240048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0068E21B3B46240048928E /* JWTDecode.framework */; };
 		5F0069031B3B511F0048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		5F0069141B3B532E0048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069091B3B532E0048928E /* JWTDecode.framework */; };
-		5F0069231B3C4A7F0048928E /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */; };
-		5F0069241B3C4A860048928E /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */; };
 		5F00693E1B3C7B930048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		5F0069411B3C828F0048928E /* A0JWTDecodeSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */; };
 		5F2614D81C05FE850068DE71 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614CD1C05FDDE0068DE71 /* Quick.framework */; };
@@ -39,8 +38,6 @@
 		5F2614E11C05FEE20068DE71 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F2614D51C05FE720068DE71 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5F8B43691B9F99B400A0D5AE /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B43681B9F99B400A0D5AE /* A0JWT.swift */; };
 		5F8B436A1B9F99B400A0D5AE /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B43681B9F99B400A0D5AE /* A0JWT.swift */; };
-		5F8B436C1B9F9EDB00A0D5AE /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B436B1B9F9EDB00A0D5AE /* JWTHelper.swift */; };
-		5F8B436D1B9F9EDB00A0D5AE /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B436B1B9F9EDB00A0D5AE /* JWTHelper.swift */; };
 		5FE49DCD1BA0D5F700DE57D3 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 		5FE49DCE1BA0D5F700DE57D3 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 		5FE49DD01BA0D66F00DE57D3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* Errors.swift */; };
@@ -50,8 +47,6 @@
 		918A8E661D63D2FB001F787B /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 		918A8E671D63D2FE001F787B /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* Errors.swift */; };
 		918A8E711D63D4E5001F787B /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A8E5B1D63D2E1001F787B /* JWTDecode.framework */; };
-		918A8E771D63D59B001F787B /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */; };
-		918A8E781D63D5AF001F787B /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B436B1B9F9EDB00A0D5AE /* JWTHelper.swift */; };
 		918A8E7D1D63D86E001F787B /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A8E7A1D63D86E001F787B /* Nimble.framework */; };
 		918A8E7F1D63D86E001F787B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A8E7B1D63D86E001F787B /* Quick.framework */; };
 		918A8E821D63DB42001F787B /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918A8E7B1D63D86E001F787B /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -94,6 +89,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		57F02C10237ED39800D45E14 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				57F02C0F237ED39800D45E14 /* Quick.framework in Embed Frameworks */,
+				57F02C0D237ED39800D45E14 /* Nimble.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F2614DC1C05FEAD0068DE71 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -135,7 +142,6 @@
 		57EA5A04237EBBCB00264C01 /* JWTHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JWTHelper.swift; path = Tests/JWTDecode.swiftTests/JWTHelper.swift; sourceTree = SOURCE_ROOT; };
 		5B75B0CF21B6B1250065A681 /* TokenValidators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenValidators.swift; sourceTree = "<group>"; };
 		5B75B0D321B7DC4A0065A681 /* ValidatorJWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatorJWT.swift; sourceTree = "<group>"; };
-		5B75B0D721B7DCB70065A681 /* TokenValidatorsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenValidatorsSpec.swift; sourceTree = "<group>"; };
 		5BB694FF21BEB53B00280BA2 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		5F0068E21B3B46240048928E /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0068E61B3B46240048928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,7 +150,6 @@
 		5F0069021B3B511F0048928E /* JWTDecode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTDecode.swift; sourceTree = "<group>"; };
 		5F0069091B3B532E0048928E /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0069131B3B532E0048928E /* JWTDecode-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTDecodeSpec.swift; sourceTree = "<group>"; };
 		5F00693F1B3C828E0048928E /* JWTDecode-iOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JWTDecode-iOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0JWTDecodeSpec.m; sourceTree = "<group>"; };
 		5F0A5E291B9A6D4A005289CF /* JWTDecode.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = JWTDecode.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -163,7 +168,6 @@
 		5F2614D41C05FE720068DE71 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = SOURCE_ROOT; };
 		5F2614D51C05FE720068DE71 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		5F8B43681B9F99B400A0D5AE /* A0JWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = A0JWT.swift; sourceTree = "<group>"; };
-		5F8B436B1B9F9EDB00A0D5AE /* JWTHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTHelper.swift; sourceTree = "<group>"; };
 		5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
 		5FE49DCF1BA0D66F00DE57D3 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		918A8E5B1D63D2E1001F787B /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +183,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F02C0E237ED39800D45E14 /* Quick.framework in Frameworks */,
+				57F02C0C237ED39800D45E14 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +242,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57F02C0B237ED39800D45E14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5F0068D81B3B46240048928E = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +257,7 @@
 				5F0A5E291B9A6D4A005289CF /* JWTDecode.playground */,
 				5F0068E31B3B46240048928E /* Products */,
 				5F2496A11D64A8EE00A1C6E2 /* Supporting Files */,
+				57F02C0B237ED39800D45E14 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -292,11 +306,8 @@
 				57EA5A04237EBBCB00264C01 /* JWTHelper.swift */,
 				57EA5A03237EBBCB00264C01 /* TokenValidatorsSpec.swift */,
 				5F0068F21B3B46240048928E /* Supporting Files */,
-				5B75B0D721B7DCB70065A681 /* TokenValidatorsSpec.swift */,
-				5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */,
 				5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */,
 				5F00693F1B3C828E0048928E /* JWTDecode-iOSTests-Bridging-Header.h */,
-				5F8B436B1B9F9EDB00A0D5AE /* JWTHelper.swift */,
 			);
 			path = JWTDecodeTests;
 			sourceTree = "<group>";
@@ -411,6 +422,7 @@
 				5F0068DF1B3B46240048928E /* Headers */,
 				5F0068E01B3B46240048928E /* Resources */,
 				5BFB989F1F7A9EC4001FE50D /* SwiftLint */,
+				57F02C10237ED39800D45E14 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -730,9 +742,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F8B436C1B9F9EDB00A0D5AE /* JWTHelper.swift in Sources */,
-				5B75B0DD21B7DCE10065A681 /* TokenValidatorsSpec.swift in Sources */,
-				5F0069231B3C4A7F0048928E /* JWTDecodeSpec.swift in Sources */,
 				5F0069411B3C828F0048928E /* A0JWTDecodeSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -755,9 +764,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F0069241B3C4A860048928E /* JWTDecodeSpec.swift in Sources */,
-				5B75B0DC21B7DCE00065A681 /* TokenValidatorsSpec.swift in Sources */,
-				5F8B436D1B9F9EDB00A0D5AE /* JWTHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,9 +785,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				918A8E771D63D59B001F787B /* JWTDecodeSpec.swift in Sources */,
-				5B75B0DB21B7DCDF0065A681 /* TokenValidatorsSpec.swift in Sources */,
-				918A8E781D63D5AF001F787B /* JWTHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,6 +947,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -969,6 +976,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
