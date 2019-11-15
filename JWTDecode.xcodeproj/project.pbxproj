@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57EA5A05237EBBCB00264C01 /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA5A02237EBBCA00264C01 /* JWTDecodeSpec.swift */; };
+		57EA5A06237EBBCB00264C01 /* TokenValidatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA5A03237EBBCB00264C01 /* TokenValidatorsSpec.swift */; };
+		57EA5A07237EBBCB00264C01 /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA5A04237EBBCB00264C01 /* JWTHelper.swift */; };
 		5B75B0D021B6B1250065A681 /* TokenValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0CF21B6B1250065A681 /* TokenValidators.swift */; };
 		5B75B0D121B6B1250065A681 /* TokenValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0CF21B6B1250065A681 /* TokenValidators.swift */; };
 		5B75B0D221B6B1250065A681 /* TokenValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0CF21B6B1250065A681 /* TokenValidators.swift */; };
@@ -127,6 +130,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		57EA5A02237EBBCA00264C01 /* JWTDecodeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JWTDecodeSpec.swift; path = Tests/JWTDecode.swiftTests/JWTDecodeSpec.swift; sourceTree = SOURCE_ROOT; };
+		57EA5A03237EBBCB00264C01 /* TokenValidatorsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenValidatorsSpec.swift; path = Tests/JWTDecode.swiftTests/TokenValidatorsSpec.swift; sourceTree = SOURCE_ROOT; };
+		57EA5A04237EBBCB00264C01 /* JWTHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JWTHelper.swift; path = Tests/JWTDecode.swiftTests/JWTHelper.swift; sourceTree = SOURCE_ROOT; };
 		5B75B0CF21B6B1250065A681 /* TokenValidators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenValidators.swift; sourceTree = "<group>"; };
 		5B75B0D321B7DC4A0065A681 /* ValidatorJWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatorJWT.swift; sourceTree = "<group>"; };
 		5B75B0D721B7DCB70065A681 /* TokenValidatorsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenValidatorsSpec.swift; sourceTree = "<group>"; };
@@ -282,6 +288,9 @@
 		5F0068F11B3B46240048928E /* JWTDecodeTests */ = {
 			isa = PBXGroup;
 			children = (
+				57EA5A02237EBBCA00264C01 /* JWTDecodeSpec.swift */,
+				57EA5A04237EBBCB00264C01 /* JWTHelper.swift */,
+				57EA5A03237EBBCB00264C01 /* TokenValidatorsSpec.swift */,
 				5F0068F21B3B46240048928E /* Supporting Files */,
 				5B75B0D721B7DCB70065A681 /* TokenValidatorsSpec.swift */,
 				5F0069221B3C4A7F0048928E /* JWTDecodeSpec.swift */,
@@ -706,9 +715,12 @@
 			files = (
 				5FE49DD01BA0D66F00DE57D3 /* Errors.swift in Sources */,
 				5B75B0D021B6B1250065A681 /* TokenValidators.swift in Sources */,
+				57EA5A05237EBBCB00264C01 /* JWTDecodeSpec.swift in Sources */,
 				5BB6950021BEB53B00280BA2 /* ValidationError.swift in Sources */,
 				5B75B0D421B7DC4A0065A681 /* ValidatorJWT.swift in Sources */,
+				57EA5A06237EBBCB00264C01 /* TokenValidatorsSpec.swift in Sources */,
 				5F8B43691B9F99B400A0D5AE /* A0JWT.swift in Sources */,
+				57EA5A07237EBBCB00264C01 /* JWTHelper.swift in Sources */,
 				5F0069031B3B511F0048928E /* JWTDecode.swift in Sources */,
 				5FE49DCD1BA0D5F700DE57D3 /* JWT.swift in Sources */,
 			);

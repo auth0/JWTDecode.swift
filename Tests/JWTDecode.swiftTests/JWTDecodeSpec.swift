@@ -23,6 +23,7 @@
 import Quick
 import Nimble
 import JWTDecode
+import Foundation
 
 class JWTDecodeSpec: QuickSpec {
 
