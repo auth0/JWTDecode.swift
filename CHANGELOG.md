@@ -1,5 +1,12 @@
 # Change Log
 
+## [2.4.1](https://github.com/auth0/JWTDecode.swift/tree/2.4.1) (2020-01-11)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.4.0...2.4.1)
+
+**Changed**
+- Lowered tvOS deployment target to 9.0 [\#100](https://github.com/auth0/JWTDecode.swift/pull/100) ([Widcket](https://github.com/Widcket))
+- Added SPM instructions to the README [\#99](https://github.com/auth0/JWTDecode.swift/pull/99) ([Widcket](https://github.com/Widcket))
+
 ## [2.4.0](https://github.com/auth0/JWTDecode.swift/tree/2.4.0) (2019-11-27)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.3.1...2.4.0)
 
