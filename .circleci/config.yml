@@ -28,6 +28,9 @@ jobs:
       - run:
           name: SwiftPM Test
           command: swift test
+      - run: 
+          name: Run pod lib lint
+          command: bundle exec fastlane ios pod_lint
       - run: |
           bash <(curl -s https://codecov.io/bash) -J 'JWTDecode'
       - save_cache:
