@@ -1,8 +1,8 @@
 version: 2
 jobs:
-  build-iOS-Swift-5.0:
+  build-iOS-Swift-5.1:
     macos:
-      xcode: "10.2.0"
+      xcode: "11.3.1"
     environment:
           LC_ALL: en_US.UTF-8
           LANG: en_US.UTF-8
@@ -23,14 +23,14 @@ jobs:
           command: bundle exec fastlane ios ci
           environment:
             SCHEME: JWTDecode-iOS
-            DEVICE: iPhone 8
+            DEVICE: iPhone 11
             FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
-      - run:
-          name: SwiftPM Test
-          command: swift test
       - run: 
           name: Run pod lib lint
           command: bundle exec fastlane ios pod_lint
+      - run: 
+          name: Run carthage build
+          command: carthage update --no-use-binaries && carthage build --no-skip-current
       - run: |
           bash <(curl -s https://codecov.io/bash) -J 'JWTDecode'
       - save_cache:
@@ -41,7 +41,7 @@ jobs:
           path: fastlane/test_output
   build-iOS-Swift-4.2:
     macos:
-      xcode: "10.2.0"
+      xcode: "11.3.1"
     environment:
           LC_ALL: en_US.UTF-8
           LANG: en_US.UTF-8
@@ -54,7 +54,7 @@ jobs:
           brew install swiftlint
           bundle install --without=development
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
-          sed -i "" 's/SWIFT_VERSION = 5.0/SWIFT_VERSION = 4.2/g' "JWTDecode.xcodeproj/project.pbxproj"
+          sed -i "" 's/SWIFT_VERSION = 5.1/SWIFT_VERSION = 4.2/g' "JWTDecode.xcodeproj/project.pbxproj"
       - run:
           name: Bootstrap
           command: bundle exec fastlane ios bootstrap
@@ -63,7 +63,7 @@ jobs:
           command: bundle exec fastlane ios ci
           environment:
             SCHEME: JWTDecode-iOS
-            DEVICE: iPhone 8
+            DEVICE: iPhone 11
             FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
       - run: |
           bash <(curl -s https://codecov.io/bash) -J 'JWTDecode'
@@ -75,7 +75,7 @@ jobs:
           path: fastlane/test_output
   build-iOS-Swift-4.0:
     macos:
-      xcode: "10.2.0"
+      xcode: "11.3.1"
     environment:
           LC_ALL: en_US.UTF-8
           LANG: en_US.UTF-8
@@ -88,7 +88,7 @@ jobs:
           brew install swiftlint
           bundle install --without=development
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
-          sed -i "" 's/SWIFT_VERSION = 5.0/SWIFT_VERSION = 4.0/g' "JWTDecode.xcodeproj/project.pbxproj"
+          sed -i "" 's/SWIFT_VERSION = 5.1/SWIFT_VERSION = 4.0/g' "JWTDecode.xcodeproj/project.pbxproj"
       - run:
           name: Bootstrap
           command: bundle exec fastlane ios bootstrap
@@ -97,15 +97,15 @@ jobs:
           command: bundle exec fastlane ios ci
           environment:
             SCHEME: JWTDecode-iOS
-            DEVICE: iPhone 8
+            DEVICE: iPhone 11
             FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
       - save_cache:
           key: dependency-cache
           paths:
             - Carthage/Build
-  build-macOS-Swift-5.0:
+  build-macOS-Swift-5.1:
     macos:
-      xcode: "10.2.0"
+      xcode: "11.3.1"
     environment:
           LC_ALL: en_US.UTF-8
           LANG: en_US.UTF-8
@@ -131,13 +131,16 @@ jobs:
       - run:
           name: Run test suite
           command: xcodebuild test -scheme JWTDecode-OSX -destination 'platform=macOS,arch=x86_64' | xcpretty
+      - run:
+          name: run SPM Test
+          command: swift test
       - save_cache:
           key: dependency-cache
           paths:
             - Carthage/Build
   build-macOS-Swift-4.2:
     macos:
-      xcode: "10.2.0"
+      xcode: "11.3.1"
     environment:
           LC_ALL: en_US.UTF-8
           LANG: en_US.UTF-8
@@ -150,7 +153,7 @@ jobs:
           brew install swiftlint
           bundle install --without=development
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
-          sed -i "" 's/SWIFT_VERSION = 5.0/SWIFT_VERSION = 4.2/g' "JWTDecode.xcodeproj/project.pbxproj"
+          sed -i "" 's/SWIFT_VERSION = 5.1/SWIFT_VERSION = 4.2/g' "JWTDecode.xcodeproj/project.pbxproj"
       - run:
           name: Bootstrap
           command: carthage bootstrap --platform mac
@@ -168,9 +171,9 @@ jobs:
           key: dependency-cache
           paths:
             - Carthage/Build
-  build-tvOS-Swift-5.0:
+  build-tvOS-Swift-5.1:
     macos:
-      xcode: "10.2.0"
+      xcode: "11.3.1"
     environment:
           LC_ALL: en_US.UTF-8
           LANG: en_US.UTF-8
@@ -195,7 +198,7 @@ jobs:
             - Carthage/Build
   build-tvOS-Swift-4.2:
     macos:
-      xcode: "10.2.0"
+      xcode: "11.3.1"
     environment:
           LC_ALL: en_US.UTF-8
           LANG: en_US.UTF-8
@@ -208,7 +211,7 @@ jobs:
           brew install swiftlint
           bundle install --without=development
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
-          sed -i "" 's/SWIFT_VERSION = 5.0/SWIFT_VERSION = 4.2/g' "JWTDecode.xcodeproj/project.pbxproj"
+          sed -i "" 's/SWIFT_VERSION = 5.1/SWIFT_VERSION = 4.2/g' "JWTDecode.xcodeproj/project.pbxproj"
       - run:
           name: Bootstrap
           command: carthage bootstrap --platform tvOS
@@ -224,10 +227,10 @@ workflows:
   version: 2
   build:
     jobs:
-      -  build-iOS-Swift-5.0
+      -  build-iOS-Swift-5.1
       -  build-iOS-Swift-4.2
       -  build-iOS-Swift-4.0
-      -  build-macOS-Swift-5.0
+      -  build-macOS-Swift-5.1
       -  build-macOS-Swift-4.2
-      -  build-tvOS-Swift-5.0
+      -  build-tvOS-Swift-5.1
       -  build-tvOS-Swift-4.2
