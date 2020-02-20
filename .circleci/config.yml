@@ -35,7 +35,7 @@ commands:
         default: "2.6.3"
     steps: 
       - run: |
-          echo "ruby-<< parameters.ruby >>"" > ~/.ruby-version
+          echo "ruby-<< parameters.ruby >>" > ~/.ruby-version
           brew install swiftlint
           bundle install --without=development
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
