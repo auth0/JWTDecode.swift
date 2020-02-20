@@ -29,8 +29,13 @@ commands:
     steps: 
       - run: sed -i "" 's/SWIFT_VERSION = 5.0/SWIFT_VERSION = << parameters.version >>/g' "JWTDecode.xcodeproj/project.pbxproj"
   prepare:
+    parameters:
+      ruby:
+        type: string
+        default: "2.6.3"
     steps: 
       - run: |
+          echo "ruby-<< parameters.ruby >>"" > ~/.ruby-version
           brew install swiftlint
           bundle install --without=development
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
@@ -67,7 +72,8 @@ jobs:
       xcode: 11.2.0
     steps:
       - checkout
-      - prepare
+      - prepare:
+          ruby: "2.6.5"
       - test-ios
       - build-package-ios
       - run: bash <(curl -s https://codecov.io/bash) -J 'JWTDecode'
@@ -127,7 +133,8 @@ jobs:
       xcode: 11.2.0
     steps:
       - checkout
-      - prepare
+      - prepare:
+          ruby: "2.6.5"
       - test-macos
       - save_cache:
           key: dependency-cache
