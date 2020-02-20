@@ -160,7 +160,8 @@ jobs:
       xcode: 11.2.0
     steps:
       - checkout
-      - prepare
+      - prepare:
+          ruby: "2.6.5"
       - test-tvos
       - save_cache:
           key: dependency-cache
