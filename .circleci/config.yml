@@ -39,16 +39,26 @@ commands:
           brew install swiftlint
           bundle install --without=development
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
-  test-ios:
-    steps: 
-      - run: |
-          bundle exec fastlane ios bootstrap
-          bundle exec fastlane ios ci
+  send-coverage-report:
+    steps:
+      - run: bash <(curl -s https://codecov.io/bash) -J 'JWTDecode'
+  save-carthage-cache:
+    steps:
+      - save_cache:
+          key: dependency-cache
+          paths:
+            - Carthage/Build
   build-package-ios:
     steps:
       - run: |
           bundle exec fastlane ios pod_lint
           carthage update --no-use-binaries && carthage build --no-skip-current
+  test-ios:
+    steps: 
+      - run: |
+          bundle exec fastlane ios bootstrap
+          bundle exec fastlane ios ci
+      - save-carthage-cache
   test-macos:
     steps: 
       - run: |
@@ -59,11 +69,13 @@ commands:
           security unlock-keychain -p circle "/Users/distiller/Library/Keychains/cikeychain-db"
           xcodebuild test -scheme JWTDecode-OSX -destination 'platform=macOS,arch=x86_64' | xcpretty
           swift test
+      - save-carthage-cache
   test-tvos:
     steps: 
       - run: |
           carthage bootstrap --platform tvOS
           xcodebuild test -scheme JWTDecode-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' | xcpretty
+      - save-carthage-cache
 
 jobs:
   build-iOS-Swift-5_1:
@@ -76,11 +88,7 @@ jobs:
           ruby: "2.6.5"
       - test-ios
       - build-package-ios
-      - run: bash <(curl -s https://codecov.io/bash) -J 'JWTDecode'
-      - save_cache:
-          key: dependency-cache
-          paths:
-            - Carthage/Build
+      - send-coverage-report
       - store_test_results:
           path: fastlane/test_output
   build-iOS-Swift-5_0:
@@ -91,12 +99,6 @@ jobs:
       - checkout
       - prepare
       - test-ios
-      - save_cache:
-          key: dependency-cache
-          paths:
-            - Carthage/Build
-      - store_test_results:
-          path: fastlane/test_output
   build-iOS-Swift-4_2:
     executor: job-environment-ios
     macos:
@@ -107,12 +109,6 @@ jobs:
           version: "4.2"
       - prepare
       - test-ios
-      - save_cache:
-          key: dependency-cache
-          paths:
-            - Carthage/Build
-      - store_test_results:
-          path: fastlane/test_output
   build-iOS-Swift-4_0:
     executor: job-environment-ios
     macos:
@@ -123,10 +119,6 @@ jobs:
           version: "4.0"
       - prepare
       - test-ios
-      - save_cache:
-          key: dependency-cache
-          paths:
-            - Carthage/Build
   build-macOS-Swift-5_1:
     executor: job-environment
     macos:
@@ -136,10 +128,6 @@ jobs:
       - prepare:
           ruby: "2.6.5"
       - test-macos
-      - save_cache:
-          key: dependency-cache
-          paths:
-            - Carthage/Build
   build-macOS-Swift-4_2:
     executor: job-environment
     macos:
@@ -150,10 +138,6 @@ jobs:
           version: "4.2"
       - prepare
       - test-macos
-      - save_cache:
-          key: dependency-cache
-          paths:
-            - Carthage/Build
   build-tvOS-Swift-5_1:
     executor: job-environment
     macos:
@@ -163,10 +147,6 @@ jobs:
       - prepare:
           ruby: "2.6.5"
       - test-tvos
-      - save_cache:
-          key: dependency-cache
-          paths:
-            - Carthage/Build
   build-tvOS-Swift-4_2:
     executor: job-environment
     macos:
@@ -177,10 +157,6 @@ jobs:
           version: "4.2"
       - prepare
       - test-tvos
-      - save_cache:
-          key: dependency-cache
-          paths:
-            - Carthage/Build
 
 workflows:
   build:
