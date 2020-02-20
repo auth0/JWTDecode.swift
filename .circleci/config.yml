@@ -65,8 +65,6 @@ jobs:
             SCHEME: JWTDecode-iOS
             DEVICE: iPhone 11
             FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
-      - run: |
-          bash <(curl -s https://codecov.io/bash) -J 'JWTDecode'
       - save_cache:
           key: dependency-cache
           paths:
