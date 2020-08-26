@@ -85,7 +85,7 @@ Decode the token
 let jwt = try decode(jwt: token)    
 ```
 
-### JWT parts
+### JWT Parts
 
 #### Header dictionary
 
