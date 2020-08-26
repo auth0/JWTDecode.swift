@@ -203,4 +203,4 @@ If you have found a bug or to request a feature, please [raise an issue](https:/
 
 ## License
 
-This project is licensed under the MIT license. See the [LICENSE](https://github.com/auth0/JWTDecode.swift/blob/master/LICENSE) file for more info.
+This project is licensed under the MIT license. See the [LICENSE](LICENSE.txt) file for more info.
