@@ -79,8 +79,6 @@ jobs:
   build-and-test-iOS-swift-5_2:
     executor: job-environment
     environment:
-      SCHEME: JWTDecode-iOS
-      DEVICE: iPhone 11
       FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
     macos:
       xcode: 11.7.0
