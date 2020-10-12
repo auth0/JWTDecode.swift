@@ -21,5 +21,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'JWTDecode/*.swift'
 
-  s.swift_versions = ['4.0', '4.1', '4.2', '5.0', '5.1']
+  s.swift_versions = ['4.0', '4.1', '4.2', '5.0', '5.1', '5.2', '5.3']
 end

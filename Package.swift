@@ -13,8 +13,8 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-         .package(url: "https://github.com/Quick/Quick", from: "2.1.0"),
-         .package(url: "https://github.com/Quick/Nimble", from: "8.0.0")
+         .package(url: "https://github.com/Quick/Quick", from: "3.0.0"),
+         .package(url: "https://github.com/Quick/Nimble", from: "9.0.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
