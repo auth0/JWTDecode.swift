@@ -56,12 +56,6 @@ commands:
   send-coverage-report:
     steps:
       - run: bash <(curl -s https://codecov.io/bash) -J 'JWTDecode'
-  store-results:
-    steps:
-      - store_test_results:
-          path: output/scan
-      - store_artifacts:
-          path: output
   test-macos:
     steps: 
       - run: |
@@ -88,7 +82,10 @@ jobs:
       - test-ios
       - send-coverage-report
       - pod-lint
-      - store-results
+      - store_test_results:
+          path: output/scan
+      - store_artifacts:
+          path: output
   build-and-test-macOS-swift-5_2:
     executor: job-environment
     macos:
@@ -97,7 +94,6 @@ jobs:
       - checkout
       - prepare
       - test-macos
-      - store-results
   build-and-test-tvOS-swift-5_2:
     executor: job-environment
     macos:
@@ -106,7 +102,6 @@ jobs:
       - checkout
       - prepare
       - test-tvos
-      - store-results
 
 workflows:
   build:
