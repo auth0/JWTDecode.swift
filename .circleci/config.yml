@@ -42,7 +42,7 @@ commands:
             - jwtdecode-swift-carthage-{ checksum "Cartfile.resolved" }}-<< parameters.xcode >>
             - jwtdecode-swift-carthage-{ checksum "Cartfile.resolved" }}
             - jwtdecode-swift-carthage-
-      - run: carthage bootstrap
+      - run: carthage bootstrap --no-use-binaries --cache-builds
       - save_cache:
           key: jwtdecode-swift-carthage-{ checksum "Cartfile.resolved" }}-<< parameters.xcode >>
           paths:
