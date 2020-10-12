@@ -13,6 +13,9 @@ This library will help you check [JWT](https://jwt.io/) payload
 
 > This library doesn't validate the token, any well formed JWT can be decoded from Base64Url.
 
+## Important Notices
+- [The latest majors of Quick and Nimble](https://github.com/auth0/JWTDecode.swift/pull/114) require that developers using Carthage **must** use Xcode 11.4+ only, starting from JWTDecode.swift [2.5.0](https://github.com/auth0/JWTDecode.swift/releases/tag/2.5.0).
+
 ## Table of Contents
 
 - [Requirements](#requirements)
