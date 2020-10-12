@@ -11,7 +11,7 @@ executors:
       HOMEBREW_LOGS: ~/homebrew-logs
       HOMEBREW_TEMP: ~/homebrew-temp
       HOMEBREW_NO_AUTO_UPDATE: 1
-      FL_OUTPUT_DIR: /tmp/output
+      FL_OUTPUT_DIR: output
 
 commands:
   prepare:
@@ -59,9 +59,9 @@ commands:
   store-results:
     steps:
       - store_test_results:
-          path: /tmp/output/scan
+          path: output/scan
       - store_artifacts:
-          path: /tmp/output
+          path: output
   test-macos:
     steps: 
       - run: |
