@@ -27,7 +27,7 @@ This library will help you check [JWT](https://jwt.io/) payload
 ## Requirements
 
 - iOS 9+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 11.4+
+- Xcode 11.4+ / 12.x
 - Swift 4.x/5.x
 
 ## Installation
