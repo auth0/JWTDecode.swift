@@ -1,5 +1,11 @@
 # Change Log
 
+## [2.5.0](https://github.com/auth0/JWTDecode.swift/tree/2.5.0) (2020-10-16)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.4.1...2.5.0)
+
+**Changed**
+- Updated Quick and Nimble [\#114](https://github.com/auth0/JWTDecode.swift/pull/114) ([Widcket](https://github.com/Widcket))
+
 ## [2.4.1](https://github.com/auth0/JWTDecode.swift/tree/2.4.1) (2020-01-11)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.4.0...2.4.1)
 
