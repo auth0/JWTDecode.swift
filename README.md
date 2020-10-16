@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/cocoapods/l/JWTDecode.svg?style=flat-square)](https://cocoadocs.org/docsets/JWTDecode)
 [![Platform](https://img.shields.io/cocoapods/p/JWTDecode.svg?style=flat-square)](https://cocoadocs.org/docsets/JWTDecode)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
-![Swift 5.1](https://img.shields.io/badge/Swift-5.1-orange.svg?style=flat-square)
+![Swift 5.3](https://img.shields.io/badge/Swift-5.3-orange.svg?style=flat-square)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fauth0%2FJWTDecode.swift.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fauth0%2FJWTDecode.swift?ref=badge_shield)
 
 This library will help you check [JWT](https://jwt.io/) payload
@@ -27,7 +27,7 @@ This library will help you check [JWT](https://jwt.io/) payload
 ## Requirements
 
 - iOS 9+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 10.x / 11.x
+- Xcode 11.4+
 - Swift 4.x/5.x
 
 ## Installation

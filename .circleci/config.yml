@@ -6,166 +6,108 @@ executors:
     environment:
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
+      BUNDLE_JOBS: 4
+      BUNDLE_RETRY: 3
+      BUNDLE_PATH: vendor/bundle
       HOMEBREW_LOGS: ~/homebrew-logs
       HOMEBREW_TEMP: ~/homebrew-temp
       HOMEBREW_NO_AUTO_UPDATE: 1
-  job-environment-ios:
-    shell: /bin/bash --login -eo pipefail
-    environment:
-      LC_ALL: en_US.UTF-8
-      LANG: en_US.UTF-8
-      HOMEBREW_LOGS: ~/homebrew-logs
-      HOMEBREW_TEMP: ~/homebrew-temp
-      HOMEBREW_NO_AUTO_UPDATE: 1
-      SCHEME: JWTDecode-iOS
-      DEVICE: iPhone 11
-      FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
+      HOMEBREW_NO_INSTALL_CLEANUP: 1
+      FL_OUTPUT_DIR: output
 
 commands:
-  use-swift:
-    parameters:
-      version: 
-        type: string
-    steps: 
-      - run: sed -i "" 's/SWIFT_VERSION = 5.0/SWIFT_VERSION = << parameters.version >>/g' "JWTDecode.xcodeproj/project.pbxproj"
   prepare:
     parameters:
       ruby:
         type: string
-        default: "2.6.3"
-    steps: 
+        default: "2.7.1p83"
+      xcode:
+        type: string
+        default: "11.7.0"
+    steps:
+      - restore_cache:
+          keys:
+          - jwtdecode-swift-gems-{{ checksum "Gemfile.lock" }}
+          - jwtdecode-swift-gems-
       - run: |
           echo "ruby-<< parameters.ruby >>" > ~/.ruby-version
+          bundle check || bundle install --without=development
+      - save_cache:
+          key: jwtdecode-swift-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run: |
           brew install swiftlint
-          bundle install --without=development
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
+      - restore_cache:
+          keys:
+            - jwtdecode-swift-carthage-{ checksum "Cartfile.resolved" }}-<< parameters.xcode >>
+            - jwtdecode-swift-carthage-{ checksum "Cartfile.resolved" }}
+            - jwtdecode-swift-carthage-
+      - run: carthage bootstrap --no-use-binaries --cache-builds
+      - save_cache:
+          key: jwtdecode-swift-carthage-{ checksum "Cartfile.resolved" }}-<< parameters.xcode >>
+          paths:
+            - Carthage/Build
+  test-ios:
+    steps: 
+      - run: bundle exec fastlane ios ci
+  pod-lint:
+    steps:
+      - run: bundle exec fastlane ios pod_lint
   send-coverage-report:
     steps:
       - run: bash <(curl -s https://codecov.io/bash) -J 'JWTDecode'
-  save-carthage-cache:
-    steps:
-      - save_cache:
-          key: dependency-cache
-          paths:
-            - Carthage/Build
-  build-package-ios:
-    steps:
-      - run: |
-          bundle exec fastlane ios pod_lint
-          carthage update --no-use-binaries && carthage build --no-skip-current
-  test-ios:
-    steps: 
-      - run: |
-          bundle exec fastlane ios bootstrap
-          bundle exec fastlane ios ci
-      - save-carthage-cache
   test-macos:
     steps: 
       - run: |
-          carthage bootstrap --platform mac
           security create-keychain -p circle cikeychain
           security list-keychains -d user -s "/Users/distiller/Library/Keychains/xcode.keychain-db" /Users/distiller/Library/Keychains/cikeychain-db
           security default-keychain -s /Users/distiller/Library/Keychains/cikeychain-db
           security unlock-keychain -p circle "/Users/distiller/Library/Keychains/cikeychain-db"
           xcodebuild test -scheme JWTDecode-OSX -destination 'platform=macOS,arch=x86_64' | xcpretty
           swift test
-      - save-carthage-cache
   test-tvos:
     steps: 
-      - run: |
-          carthage bootstrap --platform tvOS
-          xcodebuild test -scheme JWTDecode-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' | xcpretty
-      - save-carthage-cache
+      - run: xcodebuild test -scheme JWTDecode-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' | xcpretty
 
 jobs:
-  build-iOS-Swift-5_1:
-    executor: job-environment-ios
+  build-and-test-iOS-swift-5_2:
+    executor: job-environment
+    environment:
+      FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
     macos:
-      xcode: 11.2.0
+      xcode: 11.7.0
     steps:
       - checkout
-      - prepare:
-          ruby: "2.6.5"
+      - prepare
       - test-ios
-      - build-package-ios
       - send-coverage-report
+      - pod-lint
       - store_test_results:
-          path: fastlane/test_output
-  build-iOS-Swift-5_0:
-    executor: job-environment-ios
-    macos:
-      xcode: 10.3.0
-    steps:
-      - checkout
-      - prepare
-      - test-ios
-  build-iOS-Swift-4_2:
-    executor: job-environment-ios
-    macos:
-      xcode: 10.3.0
-    steps:
-      - checkout
-      - use-swift: 
-          version: "4.2"
-      - prepare
-      - test-ios
-  build-iOS-Swift-4_0:
-    executor: job-environment-ios
-    macos:
-      xcode: 10.3.0
-    steps:
-      - checkout
-      - use-swift: 
-          version: "4.0"
-      - prepare
-      - test-ios
-  build-macOS-Swift-5_1:
+          path: output/scan
+      - store_artifacts:
+          path: output
+  build-and-test-macOS-swift-5_2:
     executor: job-environment
     macos:
-      xcode: 11.2.0
+      xcode: 11.7.0
     steps:
       - checkout
-      - prepare:
-          ruby: "2.6.5"
-      - test-macos
-  build-macOS-Swift-4_2:
-    executor: job-environment
-    macos:
-      xcode: 10.3.0
-    steps:
-      - checkout
-      - use-swift: 
-          version: "4.2"
       - prepare
       - test-macos
-  build-tvOS-Swift-5_1:
+  build-and-test-tvOS-swift-5_2:
     executor: job-environment
     macos:
-      xcode: 11.2.0
+      xcode: 11.7.0
     steps:
       - checkout
-      - prepare:
-          ruby: "2.6.5"
-      - test-tvos
-  build-tvOS-Swift-4_2:
-    executor: job-environment
-    macos:
-      xcode: 10.3.0
-    steps:
-      - checkout
-      - use-swift: 
-          version: "4.2"
       - prepare
       - test-tvos
 
 workflows:
   build:
     jobs:
-      -  build-iOS-Swift-5_1
-      -  build-iOS-Swift-5_0
-      -  build-iOS-Swift-4_2
-      -  build-iOS-Swift-4_0
-      -  build-macOS-Swift-5_1
-      -  build-macOS-Swift-4_2
-      -  build-tvOS-Swift-5_1
-      -  build-tvOS-Swift-4_2
+      -  build-and-test-iOS-swift-5_2
+      -  build-and-test-macOS-swift-5_2
+      -  build-and-test-tvOS-swift-5_2
