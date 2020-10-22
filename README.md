@@ -6,7 +6,6 @@
 [![License](https://img.shields.io/cocoapods/l/JWTDecode.svg?style=flat-square)](https://cocoadocs.org/docsets/JWTDecode)
 [![Platform](https://img.shields.io/cocoapods/p/JWTDecode.svg?style=flat-square)](https://cocoadocs.org/docsets/JWTDecode)
 ![Swift 5.3](https://img.shields.io/badge/Swift-5.3-orange.svg?style=flat-square)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fauth0%2FJWTDecode.swift.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fauth0%2FJWTDecode.swift?ref=badge_shield)
 
 This library will help you check [JWT](https://jwt.io/) payload
 
@@ -26,8 +25,8 @@ This library will help you check [JWT](https://jwt.io/) payload
 ## Requirements
 
 - iOS 9+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 11.4+/12.x
-- Swift 4.x/5.x
+- Xcode 11.4+ / 12.x
+- Swift 4.x / 5.x
 
 ## Installation
 
@@ -55,7 +54,7 @@ Then run `carthage bootstrap`.
 
 > For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 
-#### SPM (Xcode 11.2+)
+#### SPM
 
 If you are using the Swift Package Manager, open the following menu item in Xcode:
 
@@ -204,6 +203,3 @@ If you have found a bug or to request a feature, please [raise an issue](https:/
 ## License
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE.txt) file for more info.
-
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fauth0%2FJWTDecode.swift.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fauth0%2FJWTDecode.swift?ref=badge_large)
