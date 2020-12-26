@@ -83,6 +83,10 @@ public struct Claim {
     public var rawValue: Any? {
         return self.value
     }
+    
+    public var bool: Bool? {
+        return value as? Bool
+    }
 
     /// value of the claim as `String`
     public var string: String? {
