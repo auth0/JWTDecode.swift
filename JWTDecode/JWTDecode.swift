@@ -88,6 +88,11 @@ public struct Claim {
     public var string: String? {
         return self.value as? String
     }
+ 
+     /// value of the claim as `Bool`
+    public var boolean: Bool? {
+        return value as? Bool
+    }
 
     /// value of the claim as `Double`
     public var double: Double? {
