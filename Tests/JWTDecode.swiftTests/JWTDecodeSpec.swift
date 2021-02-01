@@ -163,16 +163,17 @@ class JWTDecodeSpec: QuickSpec {
             describe("custom claim") {
 
                 beforeEach {
-                    token = jwt(withBody: ["sub": UUID().uuidString, "custom_claim": "Shawarma Friday!", "custom_integer_claim": 10, "custom_double_claim": 3.4, "custom_double_string_claim": "1.3"])
+                    token = jwt(withBody: ["sub": UUID().uuidString, "custom_string_claim": "Shawarma Friday!", "custom_integer_claim": 10, "custom_double_claim": 3.4, "custom_double_string_claim": "1.3", "custom_true_boolean_claim": true, "custom_false_boolean_claim": false])
                 }
 
                 it("should return string claim") {
-                    let claim = token.claim(name: "custom_claim")
+                    let claim = token.claim(name: "custom_string_claim")
                     expect(claim.string) == "Shawarma Friday!"
                     expect(claim.array) == ["Shawarma Friday!"]
                     expect(claim.integer).to(beNil())
-                    expect(claim.date).to(beNil())
                     expect(claim.double).to(beNil())
+                    expect(claim.date).to(beNil())
+                    expect(claim.boolean).to(beNil())
                 }
 
                 it("should return integer claim") {
@@ -182,6 +183,7 @@ class JWTDecodeSpec: QuickSpec {
                     expect(claim.integer) == 10
                     expect(claim.double) == 10.0
                     expect(claim.date) == Date(timeIntervalSince1970: 10)
+                    expect(claim.boolean).to(beNil())
                 }
 
                 it("should return double claim") {
@@ -191,6 +193,7 @@ class JWTDecodeSpec: QuickSpec {
                     expect(claim.integer) == 3
                     expect(claim.double) == 3.4
                     expect(claim.date) == Date(timeIntervalSince1970: 3.4)
+                    expect(claim.boolean).to(beNil())
                 }
 
                 it("should return double as string claim") {
@@ -200,15 +203,37 @@ class JWTDecodeSpec: QuickSpec {
                     expect(claim.integer).to(beNil())
                     expect(claim.double) == 1.3
                     expect(claim.date) == Date(timeIntervalSince1970: 1.3)
+                    expect(claim.boolean).to(beNil())
                 }
 
-                it("should return no value when clain is not present") {
+                it("should return true boolean claim") {
+                    let claim = token.claim(name: "custom_true_boolean_claim")
+                    expect(claim.string).to(beNil())
+                    expect(claim.array).to(beNil())
+                    expect(claim.integer).to(beNil())
+                    expect(claim.double).to(beNil())
+                    expect(claim.date).to(beNil())
+                    expect(claim.boolean) == true
+                }
+
+                it("should return false boolean claim") {
+                    let claim = token.claim(name: "custom_false_boolean_claim")
+                    expect(claim.string).to(beNil())
+                    expect(claim.array).to(beNil())
+                    expect(claim.integer).to(beNil())
+                    expect(claim.double).to(beNil())
+                    expect(claim.date).to(beNil())
+                    expect(claim.boolean) == false
+                }
+
+                it("should return no value when claim is not present") {
                     let unknownClaim = token.claim(name: "missing_claim")
                     expect(unknownClaim.array).to(beNil())
                     expect(unknownClaim.string).to(beNil())
                     expect(unknownClaim.integer).to(beNil())
                     expect(unknownClaim.double).to(beNil())
                     expect(unknownClaim.date).to(beNil())
+                    expect(unknownClaim.boolean).to(beNil())
                 }
 
                 context("raw claim") {
