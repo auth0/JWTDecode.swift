@@ -89,12 +89,17 @@ public struct Claim {
         return self.value as? String
     }
 
+     /// value of the claim as `Bool`
+    public var boolean: Bool? {
+        return self.value as? Bool
+    }
+
     /// value of the claim as `Double`
     public var double: Double? {
-        let double: Double?
+        var double: Double?
         if let string = self.string {
             double = Double(string)
-        } else {
+        } else if self.boolean == nil {
             double = self.value as? Double
         }
         return double
@@ -102,12 +107,12 @@ public struct Claim {
 
     /// value of the claim as `Int`
     public var integer: Int? {
-        let integer: Int?
+        var integer: Int?
         if let string = self.string {
             integer = Int(string)
-        } else if let double = self.value as? Double {
+        } else if let double = self.double {
             integer = Int(double)
-        } else {
+        } else if self.boolean == nil {
             integer = self.value as? Int
         }
         return integer
@@ -121,7 +126,7 @@ public struct Claim {
 
     /// value of the claim as `[String]`
     public var array: [String]? {
-        if let array = value as? [String] {
+        if let array = self.value as? [String] {
             return array
         }
         if let value = self.string {
