@@ -35,7 +35,7 @@ This library will help you check [JWT](https://jwt.io/) payload
 If you are using [Cocoapods](https://cocoapods.org), add this line to your `Podfile`:
 
 ```ruby
-pod 'JWTDecode', '~> 2.4'
+pod 'JWTDecode', '~> 2.6'
 ```
 
 Then run `pod install`.
@@ -47,7 +47,7 @@ Then run `pod install`.
 If you are using [Carthage](https://github.com/Carthage/Carthage), add the following line to your `Cartfile`:
 
 ```ruby
-github "auth0/JWTDecode.swift" ~> 2.4
+github "auth0/JWTDecode.swift" ~> 2.6
 ```
 
 Then run `carthage bootstrap`.
@@ -150,6 +150,7 @@ The supported conversions are:
 
 ```swift
 var string: String?
+var boolean: Bool?
 var integer: Int?
 var double: Double?
 var date: NSDate?
@@ -182,8 +183,8 @@ Auth0 helps you to:
 
 * Add authentication with [multiple sources](https://auth0.com/docs/identityproviders), either social identity providers such as **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce** (amongst others), or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS, or any SAML Identity Provider**.
 * Add authentication through more traditional **[username/password databases](https://auth0.com/docs/connections/database/custom-db)**.
-* Add support for **[linking different user accounts](https://auth0.com/docs/link-accounts)** with the same user.
-* Support for generating signed [JSON Web Tokens](https://auth0.com/docs/tokens/concepts/jwts) to call your APIs and **flow the user identity** securely.
+* Add support for **[linking different user accounts](https://auth0.com/docs/users/user-account-linking)** with the same user.
+* Support for generating signed [JSON Web Tokens](https://auth0.com/docs/tokens/json-web-tokens) to call your APIs and **flow the user identity** securely.
 * Analytics of how, when, and where users are logging in.
 * Pull data from other sources and add it to the user profile through [JavaScript rules](https://auth0.com/docs/rules).
 
