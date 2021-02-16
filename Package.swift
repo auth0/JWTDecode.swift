@@ -7,6 +7,7 @@ let package = Package(
     products: [
         .library(
             name: "JWTDecode",
+            type: .dynamic,
             targets: ["JWTDecode"])
     ],
     dependencies: [
