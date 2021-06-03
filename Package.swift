@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.2
 
 import PackageDescription
 
@@ -10,8 +10,8 @@ let package = Package(
             targets: ["JWTDecode"])
     ],
     dependencies: [
-         .package(url: "https://github.com/Quick/Quick.git", .upToNextMajor(from: "3.0.0")),
-         .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "9.0.0"))
+         .package(name: "Quick", url: "https://github.com/Quick/Quick.git", .upToNextMajor(from: "3.0.0")),
+         .package(name: "Nimble", url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "9.0.0"))
     ],
     targets: [
         .target(
