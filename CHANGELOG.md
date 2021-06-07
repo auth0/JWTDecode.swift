@@ -1,5 +1,11 @@
 # Change Log
 
+## [2.6.1](https://github.com/auth0/JWTDecode.swift/tree/2.6.1) (2021-06-07)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.6.0...2.6.1)
+
+**Changed**
+- Make test dependencies not resolve when installing with SPM [SDK-2599] [\#125](https://github.com/auth0/JWTDecode.swift/pull/125) ([Widcket](https://github.com/Widcket))
+
 ## [2.6.0](https://github.com/auth0/JWTDecode.swift/tree/2.6.0) (2021-02-02)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.5.0...2.6.0)
 
