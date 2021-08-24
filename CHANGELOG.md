@@ -1,5 +1,11 @@
 # Change Log
 
+## [2.6.2](https://github.com/auth0/JWTDecode.swift/tree/2.6.2) (2021-08-24)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.6.1...2.6.2)
+
+**Security**
+- Update Addressable to v2.8.0 [\#127](https://github.com/auth0/JWTDecode.swift/pull/127) ([Widcket](https://github.com/Widcket))
+
 ## [2.6.1](https://github.com/auth0/JWTDecode.swift/tree/2.6.1) (2021-06-07)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.6.0...2.6.1)
 
