@@ -46,13 +46,6 @@ Cocoapods library lint
 fastlane ios ci
 ```
 Runs all the tests in a CI environment
-### ios release_prepare
-```
-fastlane ios release_prepare
-```
-Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG
-
-You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]
 ### ios release_perform
 ```
 fastlane ios release_perform
@@ -66,6 +59,6 @@ Releases the library to CocoaPods trunk & Github Releases
 
 ----
 
-This README.md is auto-generated and will be re-generated every time [fastlane](https://fastlane.tools) is run.
+This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
 More information about fastlane can be found on [fastlane.tools](https://fastlane.tools).
 The documentation of fastlane can be found on [docs.fastlane.tools](https://docs.fastlane.tools).
