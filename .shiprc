@@ -1,6 +1,7 @@
 {
     "files": {
         "JWTDecode/Info.plist": [],
+        "JWTDecode.podspec": [],
         "README.md": ["~> {MAJOR}.{MINOR}"]
     },
     "postbump": "bundle update",

@@ -1,7 +1,6 @@
-version = `agvtool mvers -terse1`.strip
 Pod::Spec.new do |s|
   s.name             = "JWTDecode"
-  s.version          = version
+  s.version          = '2.6.2'
   s.summary          = "A JSON Web Token decoder for iOS, macOS, tvOS"
   s.description      = <<-DESC
                         Decode a JWT to retrieve it's payload and also check for its expiration. 
@@ -21,5 +20,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'JWTDecode/*.swift'
 
-  s.swift_versions = ['4.0', '4.1', '4.2', '5.0', '5.1', '5.2', '5.3']
+  s.swift_versions = ['4.0', '4.1', '4.2', '5.0', '5.1', '5.2', '5.3', '5.4']
 end
