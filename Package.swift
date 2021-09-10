@@ -5,8 +5,11 @@ import PackageDescription
 let package = Package(
     name: "JWTDecode",
     platforms: [
-        .iOS(.v9), .watchOS(.v2), .macOS(.v10_11), .tvOS(.v9)
-    ], 
+        .iOS(.v9),
+        .macOS(.v10_11),
+        .watchOS(.v2),
+        .tvOS(.v9)
+    ],
     products: [
         .library(
             name: "JWTDecode",
