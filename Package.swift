@@ -6,7 +6,8 @@ let package = Package(
     name: "JWTDecode",
     platforms: [
         .iOS(.v9), .watchOS(.v2), .macOS(.v10_11), .tvOS(.v9)
-    ], products: [
+    ], 
+    products: [
         .library(
             name: "JWTDecode",
             targets: ["JWTDecode"])
