@@ -8,23 +8,13 @@ platform :ios do
     setup_circle_ci
   end
 
-  desc "Installs dependencies using Carthage"
-  lane :dependencies do |options|
-    action = options[:action]
-    carthage(use_binaries: false, command: action, cache_builds: true, platform: 'iOS')
-  end
-
-  desc "Bootstrap the development environment"
-  lane :bootstrap do
-    dependencies
-  end
-
   desc "Run code linter"
   lane :lint do
   	swiftlint(
   		mode: :lint,
    		config_file: '.swiftlint.yml',
-      reporter: 'emoji'
+      reporter: 'emoji',
+      raise_if_swiftlint_error: true
   	)
   end
 

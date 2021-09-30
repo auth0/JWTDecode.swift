@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,18 +26,23 @@
 		5C1B5D8D238711B10076E46B /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA5A02237EBBCA00264C01 /* JWTDecodeSpec.swift */; };
 		5C1B5D8E238711B30076E46B /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA5A04237EBBCB00264C01 /* JWTHelper.swift */; };
 		5C1B5D8F238711B40076E46B /* TokenValidatorsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA5A03237EBBCB00264C01 /* TokenValidatorsSpec.swift */; };
-		5F0068EE1B3B46240048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0068E21B3B46240048928E /* JWTDecode.framework */; };
-		5F0069141B3B532E0048928E /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069091B3B532E0048928E /* JWTDecode.framework */; };
+		5CE9C9FB26FC1E8F005A75FA /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9C9F926FC1E8F005A75FA /* Nimble.xcframework */; };
+		5CE9C9FC26FC1E8F005A75FA /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9C9FA26FC1E8F005A75FA /* Quick.xcframework */; };
+		5CE9CA0126FC1ED3005A75FA /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9C9F926FC1E8F005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CE9CA0226FC1ED5005A75FA /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9C9FA26FC1E8F005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CE9CA0326FC1FF5005A75FA /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9C9F926FC1E8F005A75FA /* Nimble.xcframework */; };
+		5CE9CA0426FC1FF5005A75FA /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9C9FA26FC1E8F005A75FA /* Quick.xcframework */; };
+		5CE9CA0526FC1FFB005A75FA /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9C9F926FC1E8F005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CE9CA0626FC1FFB005A75FA /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9C9FA26FC1E8F005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CE9CA0726FC2009005A75FA /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9C9F926FC1E8F005A75FA /* Nimble.xcframework */; };
+		5CE9CA0826FC2009005A75FA /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9C9FA26FC1E8F005A75FA /* Quick.xcframework */; };
+		5CE9CA0926FC200D005A75FA /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9C9F926FC1E8F005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CE9CA0A26FC200D005A75FA /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9C9FA26FC1E8F005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CE9CA0C26FC22F8005A75FA /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0068E21B3B46240048928E /* JWTDecode.framework */; };
+		5CE9CA0D26FC23B1005A75FA /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0069091B3B532E0048928E /* JWTDecode.framework */; };
+		5CE9CA0E26FC23B8005A75FA /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A8E5B1D63D2E1001F787B /* JWTDecode.framework */; };
 		5F00693E1B3C7B930048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		5F0069411B3C828F0048928E /* A0JWTDecodeSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069401B3C828F0048928E /* A0JWTDecodeSpec.m */; };
-		5F2614D81C05FE850068DE71 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614CD1C05FDDE0068DE71 /* Quick.framework */; };
-		5F2614D91C05FE850068DE71 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614CE1C05FDDE0068DE71 /* Nimble.framework */; };
-		5F2614DA1C05FE880068DE71 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614D41C05FE720068DE71 /* Quick.framework */; };
-		5F2614DB1C05FE880068DE71 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2614D51C05FE720068DE71 /* Nimble.framework */; };
-		5F2614DD1C05FEB90068DE71 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F2614CD1C05FDDE0068DE71 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5F2614DE1C05FEB90068DE71 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F2614CE1C05FDDE0068DE71 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5F2614E01C05FEE20068DE71 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F2614D41C05FE720068DE71 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5F2614E11C05FEE20068DE71 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F2614D51C05FE720068DE71 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5F8B43691B9F99B400A0D5AE /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B43681B9F99B400A0D5AE /* A0JWT.swift */; };
 		5F8B436A1B9F99B400A0D5AE /* A0JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B43681B9F99B400A0D5AE /* A0JWT.swift */; };
 		5FE49DCD1BA0D5F700DE57D3 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
@@ -48,11 +53,6 @@
 		918A8E651D63D2F7001F787B /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		918A8E661D63D2FB001F787B /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 		918A8E671D63D2FE001F787B /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* Errors.swift */; };
-		918A8E711D63D4E5001F787B /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A8E5B1D63D2E1001F787B /* JWTDecode.framework */; };
-		918A8E7D1D63D86E001F787B /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A8E7A1D63D86E001F787B /* Nimble.framework */; };
-		918A8E7F1D63D86E001F787B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918A8E7B1D63D86E001F787B /* Quick.framework */; };
-		918A8E821D63DB42001F787B /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918A8E7B1D63D86E001F787B /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		918A8E831D63DB4D001F787B /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 918A8E7A1D63D86E001F787B /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E390BAD32288E6AF00780D6C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* Errors.swift */; };
 		E390BAD42288E6AF00780D6C /* TokenValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75B0CF21B6B1250065A681 /* TokenValidators.swift */; };
 		E390BAD52288E6AF00780D6C /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB694FF21BEB53B00280BA2 /* ValidationError.swift */; };
@@ -97,8 +97,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5F2614DD1C05FEB90068DE71 /* Quick.framework in CopyFiles */,
-				5F2614DE1C05FEB90068DE71 /* Nimble.framework in CopyFiles */,
+				5CE9CA0126FC1ED3005A75FA /* Nimble.xcframework in CopyFiles */,
+				5CE9CA0226FC1ED5005A75FA /* Quick.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,8 +108,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5F2614E01C05FEE20068DE71 /* Quick.framework in CopyFiles */,
-				5F2614E11C05FEE20068DE71 /* Nimble.framework in CopyFiles */,
+				5CE9CA0526FC1FFB005A75FA /* Nimble.xcframework in CopyFiles */,
+				5CE9CA0626FC1FFB005A75FA /* Quick.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,8 +119,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				918A8E821D63DB42001F787B /* Quick.framework in CopyFiles */,
-				918A8E831D63DB4D001F787B /* Nimble.framework in CopyFiles */,
+				5CE9CA0926FC200D005A75FA /* Nimble.xcframework in CopyFiles */,
+				5CE9CA0A26FC200D005A75FA /* Quick.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +133,8 @@
 		5B75B0CF21B6B1250065A681 /* TokenValidators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenValidators.swift; sourceTree = "<group>"; };
 		5B75B0D321B7DC4A0065A681 /* ValidatorJWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatorJWT.swift; sourceTree = "<group>"; };
 		5BB694FF21BEB53B00280BA2 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		5CE9C9F926FC1E8F005A75FA /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
+		5CE9C9FA26FC1E8F005A75FA /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
 		5F0068E21B3B46240048928E /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0068E61B3B46240048928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F0068ED1B3B46240048928E /* JWTDecode-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,9 +182,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F2614D91C05FE850068DE71 /* Nimble.framework in Frameworks */,
-				5F2614D81C05FE850068DE71 /* Quick.framework in Frameworks */,
-				5F0068EE1B3B46240048928E /* JWTDecode.framework in Frameworks */,
+				5CE9C9FB26FC1E8F005A75FA /* Nimble.xcframework in Frameworks */,
+				5CE9C9FC26FC1E8F005A75FA /* Quick.xcframework in Frameworks */,
+				5CE9CA0C26FC22F8005A75FA /* JWTDecode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,9 +199,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F2614DB1C05FE880068DE71 /* Nimble.framework in Frameworks */,
-				5F2614DA1C05FE880068DE71 /* Quick.framework in Frameworks */,
-				5F0069141B3B532E0048928E /* JWTDecode.framework in Frameworks */,
+				5CE9CA0326FC1FF5005A75FA /* Nimble.xcframework in Frameworks */,
+				5CE9CA0426FC1FF5005A75FA /* Quick.xcframework in Frameworks */,
+				5CE9CA0D26FC23B1005A75FA /* JWTDecode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,9 +216,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				918A8E7D1D63D86E001F787B /* Nimble.framework in Frameworks */,
-				918A8E7F1D63D86E001F787B /* Quick.framework in Frameworks */,
-				918A8E711D63D4E5001F787B /* JWTDecode.framework in Frameworks */,
+				5CE9CA0726FC2009005A75FA /* Nimble.xcframework in Frameworks */,
+				5CE9CA0826FC2009005A75FA /* Quick.xcframework in Frameworks */,
+				5CE9CA0E26FC23B8005A75FA /* JWTDecode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +235,8 @@
 		57F02C0B237ED39800D45E14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5CE9C9F926FC1E8F005A75FA /* Nimble.xcframework */,
+				5CE9C9FA26FC1E8F005A75FA /* Quick.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -920,7 +924,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -943,7 +948,11 @@
 				INFOPLIST_FILE = JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
 				PRODUCT_MODULE_NAME = JWTDecode;
 				PRODUCT_NAME = JWTDecode;
@@ -968,12 +977,17 @@
 				INFOPLIST_FILE = JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
 				PRODUCT_MODULE_NAME = JWTDecode;
 				PRODUCT_NAME = JWTDecode;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -986,16 +1000,16 @@
 				CLANG_ENABLE_CODE_COVERAGE = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "JWTDecodeTests/JWTDecode-iOSTests-Bridging-Header.h";
@@ -1012,16 +1026,17 @@
 				CLANG_ENABLE_CODE_COVERAGE = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "JWTDecodeTests/JWTDecode-iOSTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1044,7 +1059,11 @@
 				);
 				INFOPLIST_FILE = JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
 				PRODUCT_MODULE_NAME = JWTDecode;
@@ -1068,14 +1087,19 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
 				PRODUCT_MODULE_NAME = JWTDecode;
 				PRODUCT_NAME = JWTDecode;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1088,16 +1112,16 @@
 				CLANG_ENABLE_CODE_COVERAGE = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1113,12 +1137,12 @@
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_CODE_COVERAGE = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1141,7 +1165,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
 				PRODUCT_MODULE_NAME = JWTDecode;
 				PRODUCT_NAME = JWTDecode;
@@ -1166,7 +1194,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
 				PRODUCT_MODULE_NAME = JWTDecode;
 				PRODUCT_NAME = JWTDecode;
@@ -1186,12 +1218,12 @@
 				CLANG_ENABLE_CODE_COVERAGE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
 				INFOPLIST_FILE = JWTDecode/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.JWTDecode-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1208,16 +1240,17 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_CODE_COVERAGE = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
 				INFOPLIST_FILE = JWTDecode/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.JWTDecode-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
@@ -1240,7 +1273,11 @@
 				INFOPLIST_FILE = JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
 				PRODUCT_MODULE_NAME = JWTDecode;
 				PRODUCT_NAME = JWTDecode;
@@ -1268,13 +1305,18 @@
 				INFOPLIST_FILE = JWTDecode/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
 				PRODUCT_MODULE_NAME = JWTDecode;
 				PRODUCT_NAME = JWTDecode;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
