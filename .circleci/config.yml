@@ -91,7 +91,7 @@ commands:
           command: xcodebuild test -scheme << parameters.scheme >>-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' | xcpretty
 
 jobs:
-  build-and-test:
+  build-test:
     parameters:
       platform:
         type: string
@@ -128,7 +128,7 @@ jobs:
 workflows:
   build:
     jobs:
-      - build-and-test:
+      - build-test:
           scheme: "JWTDecode"
           matrix:
             parameters:
