@@ -1,5 +1,14 @@
 # Change Log
 
+## [2.6.3](https://github.com/auth0/JWTDecode.swift/tree/2.6.3) (2021-09-30)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.6.2...2.6.3)
+
+**Changed**
+- Updated dependencies [\#132](https://github.com/auth0/JWTDecode.swift/pull/132) ([Widcket](https://github.com/Widcket))
+
+**Fixed**
+- Add supported Platforms to Package.swift [\#131](https://github.com/auth0/JWTDecode.swift/pull/131) ([obrhoff](https://github.com/obrhoff))
+
 ## [2.6.2](https://github.com/auth0/JWTDecode.swift/tree/2.6.2) (2021-08-24)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.6.1...2.6.2)
 
