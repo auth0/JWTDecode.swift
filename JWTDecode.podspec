@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "JWTDecode"
-  s.version          = '2.6.2'
+  s.version          = '2.6.3'
   s.summary          = "A JSON Web Token decoder for iOS, macOS, tvOS"
   s.description      = <<-DESC
                         Decode a JWT to retrieve it's payload and also check for its expiration. 
