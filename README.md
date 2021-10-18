@@ -68,7 +68,7 @@ https://github.com/auth0/JWTDecode.swift.git
 
 Then select the dependency rule and press **Add Package**.
 
-> For further reference on SPM, check [its official documentation](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app).
+> For further reference on SPM, check [its official documentation](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app).
 
 ## Usage
 
