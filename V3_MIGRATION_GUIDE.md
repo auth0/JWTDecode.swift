@@ -4,7 +4,16 @@ As expected with a major release, JWTDecode.swift v3 contains breaking changes. 
 
 ## Table of Contents
 
+- [**Supported Languages**](#supported-languages)
+  + [Swift](#swift)
+- [**Supported Platform Versions**](#supported-platform-versions)
+- [**Types Removed**](#types-removed)
+
 ## Supported Languages
+
+### Swift
+
+The minimum supported Swift version is now **5.5**.
 
 ## Supported Platform Versions
 
