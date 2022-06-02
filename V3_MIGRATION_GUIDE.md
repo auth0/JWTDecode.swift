@@ -17,4 +17,11 @@ The minimum supported Swift version is now **5.5**.
 
 ## Supported Platform Versions
 
+The deployment targets for each platform were raised to:
+
+- iOS **12.0**
+- macOS **10.15**
+- tvOS **12.0**
+- watchOS **6.2**
+
 ## Types Removed
