@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.5
 
 import PackageDescription
 
@@ -23,7 +23,8 @@ let package = Package(
         .target(
             name: "JWTDecode",
             dependencies: [],
-            path: "JWTDecode"),
+            path: "JWTDecode",
+            exclude: ["Info.plist"]),
         .testTarget(
             name: "JWTDecode.swiftTests",
             dependencies: ["JWTDecode", "Quick", "Nimble"])
