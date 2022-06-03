@@ -25,3 +25,9 @@ The deployment targets for each platform were raised to:
 - watchOS **6.2**
 
 ## Types Removed
+
+The built-in ID token validator was removed:
+
+- `ValidatorJWT` protocol
+- `ValidationError` enum
+- `IDTokenValidation` struct
