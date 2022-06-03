@@ -41,6 +41,11 @@ class JWTDecodeSpec: QuickSpec {
                 expect(try! decode(jwt: jwtString)).toNot(beNil())
             }
 
+            it("should decode valid jwt with empty json body") {
+                let jwtString = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.Et9HFtf9R3GEMA0IICOfFMVXY7kkTX1wr4qCyhIf58U"
+                expect(try! decode(jwt: jwtString)).toNot(beNil())
+            }
+
             it("should raise exception with invalid base64 encoding") {
                 let invalidChar = "%"
                 let jwtString = "\(invalidChar).BODY.SIGNATURE"
