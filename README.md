@@ -1,4 +1,4 @@
-# JWTDecode.swift
+# JWTDecode.swift (First Availability)
 
 [![CircleCI](https://img.shields.io/circleci/build/github/auth0/JWTDecode.swift?style=flat-square)](https://circleci.com/gh/auth0/JWTDecode.swift)
 [![Coverage Status](https://img.shields.io/codecov/c/github/auth0/JWTDecode.swift/master.svg?style=flat-square)](https://codecov.io/github/auth0/JWTDecode.swift)
