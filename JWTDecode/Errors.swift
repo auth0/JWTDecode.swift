@@ -1,11 +1,11 @@
 import Foundation
 
 /**
-JWT decode error codes
+A JWT decoding error.
 
-- InvalidBase64UrlValue: when either the header or body parts cannot be base64 decoded
-- InvalidJSONValue:      when either the header or body decoded values is not a valid JSON object
-- InvalidPartCount:      when the token doesnt have the required amount of parts (header, body and signature)
+- invalidBase64UrlValue: when either the header or body parts cannot be base64-decoded.
+- invalidJSONValue:      when either the decoded header or body is not a valid JSON object.
+- invalidPartCount:      when the JWT doesn't have the required amount of parts (header, body, and signature).
 */
 public enum DecodeError: LocalizedError {
     case invalidBase64Url(String)
