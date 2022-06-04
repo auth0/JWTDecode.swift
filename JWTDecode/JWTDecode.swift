@@ -2,7 +2,7 @@ import Foundation
 
 /**
  Decodes a JWT token into an object that holds the decoded body (along with token header and signature parts).
- If the token cannot be decoded a `NSError` will be thrown.
+ If the token cannot be decoded a `DecodeError` will be thrown.
 
  - parameter jwt: jwt string value to decode
 
