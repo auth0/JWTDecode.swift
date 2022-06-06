@@ -28,6 +28,7 @@ Helps you decode a [JWT](https://jwt.io/) and access its payload.
   + [Registered Claims](#registered-claims)
   + [Custom Claims](#custom-claims)
   + [Error Handling](#error-handling)
+- [**Support Policy**](#support-policy)
 - [**Issue Reporting**](#issue-reporting)
 - [**What is Auth0?**](#what-is-auth0)
 - [**License**](#license)
@@ -37,6 +38,8 @@ Helps you decode a [JWT](https://jwt.io/) and access its payload.
 - iOS 12+ / macOS 10.15+ / tvOS 12.0+ / watchOS 6.2+
 - Xcode 13.x
 - Swift 5.5+
+
+> ⚠️ Check the [Support Policy](#support-policy) to learn when dropping Xcode, Swift, and platform versions will not be considered a **breaking change**.
 
 ## Installation
 
@@ -155,6 +158,32 @@ catch let error as DecodeError {
     error.localizedDescription
 }
 ```
+
+## Support Policy
+
+This Policy defines the extent of the support for Xcode, Swift, and platform (iOS, macOS, tvOS, and watchOS) versions in JWTDecode.swift.
+
+### Xcode
+
+The only supported versions of Xcode are those that can be currently used to submit apps to the App Store. Once a Xcode version becomes unsupported, dropping it from JWTDecode.swift **will not be considered a breaking change**, and will be done in a **minor** release.
+
+### Swift
+
+The minimum supported Swift minor version is the one released with the oldest-supported Xcode version. Once a Swift minor becomes unsupported, dropping it from JWTDecode.swift **will not be considered a breaking change**, and will be done in a **minor** release.
+
+### Platforms
+
+Only the last 4 major platform versions are supported, starting from:
+
+- iOS **12**
+- macOS **10.15**
+- Catalyst **13**
+- tvOS **12**
+- watchOS **6.2**
+
+Once a platform version becomes unsupported, dropping it from JWTDecode.swift **will not be considered a breaking change**, and will be done in a **minor** release. For example, iOS 12 will cease to be supported when iOS 16 gets released, and JWTDecode.swift will be able to drop it in a minor release.
+
+In the case of macOS, the yearly named releases are considered a major platform version for the purposes of this Policy, regardless of the actual version numbers.
 
 ## Issue Reporting
 
