@@ -6,6 +6,7 @@ As expected with a major release, JWTDecode.swift v3 contains breaking changes. 
 
 - [**Supported Languages**](#supported-languages)
   + [Swift](#swift)
+  + [Objective-C](#objective-c)
 - [**Supported Platform Versions**](#supported-platform-versions)
 - [**Types Removed**](#types-removed)
 
@@ -14,6 +15,10 @@ As expected with a major release, JWTDecode.swift v3 contains breaking changes. 
 ### Swift
 
 The minimum supported Swift version is now **5.5**.
+
+### Objective-C
+
+JWTDecode.swift no longer supports Objective-C.
 
 ## Supported Platform Versions
 
@@ -25,3 +30,9 @@ The deployment targets for each platform were raised to:
 - watchOS **6.2**
 
 ## Types Removed
+
+The built-in ID token validator was removed:
+
+- `ValidatorJWT` protocol
+- `ValidationError` enum
+- `IDTokenValidation` struct

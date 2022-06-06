@@ -1,26 +1,36 @@
-# JWTDecode.swift
+# JWTDecode.swift (First Availability)
 
 [![CircleCI](https://img.shields.io/circleci/build/github/auth0/JWTDecode.swift?style=flat-square)](https://circleci.com/gh/auth0/JWTDecode.swift)
 [![Coverage Status](https://img.shields.io/codecov/c/github/auth0/JWTDecode.swift/master.svg?style=flat-square)](https://codecov.io/github/auth0/JWTDecode.swift)
 [![Version](https://img.shields.io/cocoapods/v/JWTDecode.svg?style=flat-square)](https://cocoadocs.org/docsets/JWTDecode)
 [![License](https://img.shields.io/cocoapods/l/JWTDecode.svg?style=flat-square)](https://cocoadocs.org/docsets/JWTDecode)
 [![Platform](https://img.shields.io/cocoapods/p/JWTDecode.svg?style=flat-square)](https://cocoadocs.org/docsets/JWTDecode)
-![Swift 5.5](https://img.shields.io/badge/Swift-5.5-orange.svg?style=flat-square)
 
-This library will help you check [JWT](https://jwt.io/) payload
+Helps you decode a [JWT](https://jwt.io/) and access its payload.
 
-> This library doesn't validate the token, any well formed JWT can be decoded from Base64Url.
+> ⚠️ This library doesn't validate the JWT. Any well formed JWT can be decoded from Base64Url.
+
+> ⚠️ This library is currently in **First Availability**. We do not recommend using this library in production yet. As we move towards General Availability, please be aware that releases may contain breaking changes.
+
+**Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).**
+
+---
 
 ## Table of Contents
 
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [What is Auth0?](#what-is-auth0)
-- [Create a Free Auth0 Account](#create-a-free-auth0-account)
-- [Issue Reporting](#issue-reporting)
-- [Author](#author)
-- [License](#license)
+- [**Requirements**](#requirements)
+- [**Installation**](#installation)
+  + [Swift Package Manager](#swift-package-manager)
+  + [Cocoapods](#cocoapods)
+  + [Carthage](#carthage)
+- [**Usage**](#usage)
+  + [JWT Parts](#jwt-parts)
+  + [Registered Claims](#registered-claims)
+  + [Custom Claims](#custom-claims)
+  + [Error Handling](#error-handling)
+- [**Issue Reporting**](#issue-reporting)
+- [**What is Auth0?**](#what-is-auth0)
+- [**License**](#license)
 
 ## Requirements
 
@@ -30,55 +40,55 @@ This library will help you check [JWT](https://jwt.io/) payload
 
 ## Installation
 
-#### Cocoapods
+### Swift Package Manager
 
-If you are using [Cocoapods](https://cocoapods.org), add this line to your `Podfile`:
-
-```ruby
-pod 'JWTDecode', '~> 2.6'
-```
-
-Then run `pod install`.
-
-> For more information on Cocoapods, check [their official documentation](https://guides.cocoapods.org/using/getting-started.html).
-
-#### Carthage
-
-If you are using [Carthage](https://github.com/Carthage/Carthage), add the following line to your `Cartfile`:
-
-```ruby
-github "auth0/JWTDecode.swift" ~> 2.6
-```
-
-Then run `carthage bootstrap --use-xcframeworks`.
-
-> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
-
-#### SPM
-
-If you are using the Swift Package Manager, open the following menu item in Xcode:
+Open the following menu item in Xcode:
 
 **File > Add Packages...**
 
-In the **Search or Enter Package URL** search box enter this url: 
+In the **Search or Enter Package URL** search box enter this URL: 
 
+```text
+https://github.com/auth0/JWTDecode.swift
 ```
-https://github.com/auth0/JWTDecode.swift.git
+
+Then, select the dependency rule and press **Add Package**.
+
+> 💡 For further reference on SPM, check its [official documentation](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app).
+
+### Cocoapods
+
+Add the following line to your `Podfile`:
+
+```ruby
+pod 'JWTDecode', '~> 3.0'
 ```
 
-Then select the dependency rule and press **Add Package**.
+Then, run `pod install`.
 
-> For further reference on SPM, check [its official documentation](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app).
+> 💡 For further reference on Cocoapods, check their [official documentation](https://guides.cocoapods.org/using/getting-started.html).
+
+### Carthage
+
+Add the following line to your `Cartfile`:
+
+```text
+github "auth0/JWTDecode.swift" ~> 3.0
+```
+
+Then, run `carthage bootstrap --use-xcframeworks`.
+
+> 💡 For further reference on Carthage, check their [official documentation](https://github.com/Carthage/Carthage#getting-started).
 
 ## Usage
 
-Import the framework
+1. Import the framework:
 
 ```swift
 import JWTDecode
 ```
 
-Decode the token
+2. Decode the token:
 
 ```swift
 let jwt = try decode(jwt: token)    
@@ -86,58 +96,27 @@ let jwt = try decode(jwt: token)
 
 ### JWT Parts
 
-#### Header dictionary
-
-```swift
-jwt.header
-```
-
-#### Claims in token body
-
-```swift
-jwt.body
-```
-
-#### Token signature
-
-```swift
-jwt.signature
-```
+| Part               | Property        |
+|:-------------------|:----------------|
+| Header dictionary  | `jwt.header`    |
+| Claims in JWT body | `jwt.body`      |
+| JWT signature      | `jwt.signature` |
 
 ### Registered Claims
 
-* "aud" (Audience)
-```swift
-jwt.audience
-```
-* "sub" (Subject)
-```swift
-jwt.subject
-```
-* "jti" (JWT ID)
-```swift
-jwt.identifier
-```
-* "iss" (Issuer)
-```swift
-jwt.issuer
-```
-* "nbf" (Not Before)
-```swift
-jwt.notBefore
-```
-* "iat" (Issued At)
-```swift
-jwt.issuedAt
-```
-* "exp" (Expiration Time)
-```swift
-jwt.expiresAt
-```
+| Claim                     | Property         |
+|:--------------------------|:-----------------|
+| **aud** (Audience)        | `jwt.audience`   |
+| **sub** (Subject)         | `jwt.subject`    |
+| **jti** (JWT ID)          | `jwt.identifier` |
+| **iss** (Issuer)          | `jwt.issuer`     |
+| **nbf** (Not Before)      | `jwt.notBefore`  |
+| **iat** (Issued At)       | `jwt.issuedAt`   |
+| **exp** (Expiration Time) | `jwt.expiresAt`  |
 
 ### Custom Claims
 
-If we also have our custom claims we can retrive them calling `claim(name: String) -> Claim` then you can try converting the value like:
+If you have a custom claim you can retrieve it by calling `claim(name:)`. Then you can attempt to convert the value to a specific type.
 
 ```swift
 let claim = jwt.claim(name: "email")
@@ -153,11 +132,11 @@ var string: String?
 var boolean: Bool?
 var integer: Int?
 var double: Double?
-var date: NSDate?
+var date: Date?
 var array: [String]?
 ```
 
-You can easily add a convenience accessor for a custom claim by adding an extension:
+You can easily add a convenience accessor for a custom claim in an extension.
 
 ```swift
 extension JWT {
@@ -169,38 +148,37 @@ extension JWT {
 
 ### Error Handling
 
-If the token is invalid an `NSError` will be thrown from the `decode(token)` function:
+If the token is malformed the `decode(jwt:)` function will throw a `DecodeError`.
 
 ```swift
-catch let error as NSError {
+catch let error as DecodeError {
     error.localizedDescription
 }
 ```
+
+## Issue Reporting
+
+For general support or usage questions, use the [Auth0 Community](https://community.auth0.com/c/sdks/5) forums or raise a [support ticket](https://support.auth0.com/). Only [raise an issue](https://github.com/auth0/JWTDecode.swift/issues) if you have found a bug or want to request a feature.
+
+**Do not report security vulnerabilities on the public GitHub issue tracker.** The [Responsible Disclosure Program](https://auth0.com/responsible-disclosure-policy) details the procedure for disclosing security issues.
 
 ## What is Auth0?
 
 Auth0 helps you to:
 
-* Add authentication with [multiple sources](https://auth0.com/docs/identityproviders), either social identity providers such as **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce** (amongst others), or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS, or any SAML Identity Provider**.
-* Add authentication through more traditional **[username/password databases](https://auth0.com/docs/connections/database/custom-db)**.
-* Add support for **[linking different user accounts](https://auth0.com/docs/users/user-account-linking)** with the same user.
-* Support for generating signed [JSON Web Tokens](https://auth0.com/docs/tokens/json-web-tokens) to call your APIs and **flow the user identity** securely.
-* Analytics of how, when, and where users are logging in.
-* Pull data from other sources and add it to the user profile through [JavaScript rules](https://auth0.com/docs/rules).
+- Add authentication with [multiple sources](https://auth0.com/docs/authenticate/identity-providers), either social identity providers such as **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce** (amongst others), or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS, or any SAML Identity Provider**.
+- Add authentication through more traditional **[username/password databases](https://auth0.com/docs/authenticate/database-connections/custom-db)**.
+- Add support for **[linking different user accounts](https://auth0.com/docs/manage-users/user-accounts/user-account-linking)** with the same user.
+- Support for generating signed [JSON Web Tokens](https://auth0.com/docs/secure/tokens/json-web-tokens) to call your APIs and **flow the user identity** securely.
+- Analytics of how, when, and where users are logging in.
+- Pull data from other sources and add it to the user profile through [JavaScript Actions](https://auth0.com/docs/customize/actions).
 
-## Create a Free Auth0 Account
-
-1. Go to [Auth0](https://auth0.com) and click **Sign Up**.
-2. Use Google, GitHub, or Microsoft Account to login.
-
-## Issue Reporting
-
-If you have found a bug or to request a feature, please [raise an issue](https://github.com/auth0/JWTDecode.swift/issues). Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/responsible-disclosure-policy) details the procedure for disclosing security issues.
-
-## Author
-
-[Auth0](https://auth0.com)
+**Why Auth0?** Because you should save time, be happy, and focus on what really matters: building your product.
 
 ## License
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
+
+---
+
+[Go up ⤴](#table-of-contents)
