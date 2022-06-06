@@ -1,14 +1,16 @@
 import Foundation
 
 /**
- Decodes a JWT token into an object that holds the decoded body (along with token header and signature parts).
- If the token cannot be decoded a `DecodeError` will be thrown.
+ Decodes a JWT into an object that holds the decoded body, along with the header and signature.
+ If the JWT cannot be decoded a ``DecodeError`` will be thrown.
 
- - parameter jwt: jwt string value to decode
+ ```
+ let jwt = try decode(jwt: idToken)    
+ ```
 
- - throws: an error if the JWT cannot be decoded
-
- - returns: a decoded token as an instance of JWT
+ - Parameter jwt: JWT string value to decode.
+ - Throws: a ``DecodeError`` error if the JWT cannot be decoded.
+ - Returns: a ``JWT`` instance.
  */
 public func decode(jwt: String) throws -> JWT {
     return try DecodedJWT(jwt: jwt)
@@ -50,29 +52,31 @@ struct DecodedJWT: JWT {
 }
 
 /**
- *  JWT Claim
+ *  A JWT claim.
+ *
+ * - See: ``JWT``
  */
 public struct Claim {
 
-    /// raw value of the claim
+    /// Raw claim value.
     let value: Any?
 
-    /// original claim value
+    /// Original claim value.
     public var rawValue: Any? {
         return self.value
     }
 
-    /// value of the claim as `String`
+    /// Value of the claim as `String`.
     public var string: String? {
         return self.value as? String
     }
 
-     /// value of the claim as `Bool`
+     /// Value of the claim as `Bool`.
     public var boolean: Bool? {
         return self.value as? Bool
     }
 
-    /// value of the claim as `Double`
+    /// Value of the claim as `Double`.
     public var double: Double? {
         var double: Double?
         if let string = self.string {
@@ -83,7 +87,7 @@ public struct Claim {
         return double
     }
 
-    /// value of the claim as `Int`
+    /// Value of the claim as `Int`.
     public var integer: Int? {
         var integer: Int?
         if let string = self.string {
@@ -96,13 +100,13 @@ public struct Claim {
         return integer
     }
 
-    /// value of the claim as `NSDate`
+    /// Value of the claim as `Date`.
     public var date: Date? {
         guard let timestamp: TimeInterval = self.double else { return nil }
         return Date(timeIntervalSince1970: timestamp)
     }
 
-    /// value of the claim as `[String]`
+    /// Value of the claim as `[String]`.
     public var array: [String]? {
         if let array = self.value as? [String] {
             return array
@@ -112,6 +116,7 @@ public struct Claim {
         }
         return nil
     }
+
 }
 
 private func base64UrlDecode(_ value: String) -> Data? {

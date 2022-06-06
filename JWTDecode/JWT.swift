@@ -1,48 +1,61 @@
 import Foundation
 
 /**
-*  Protocol that defines what a decoded JWT token should be.
+*  A decoded JWT.
+*
+* - See: [jwt.io](https://jwt.io/)
 */
 public protocol JWT {
-    /// token header part contents
+
+    /// Header part contents.
     var header: [String: Any] { get }
-    /// token body part values or token claims
+
+    /// Body part contents (claims).
     var body: [String: Any] { get }
-    /// token signature part
+
+    /// Signature part.
     var signature: String? { get }
-    /// jwt string value
+
+    /// JWT string value.
     var string: String { get }
 
-    /// value of `exp` claim if available
+    /// Value of the `exp` claim, if available.
     var expiresAt: Date? { get }
-    /// value of `iss` claim if available
+
+    /// Value of the `iss` claim, if available.
     var issuer: String? { get }
-    /// value of `sub` claim if available
+
+    /// Value of the `sub` claim, if available.
     var subject: String? { get }
-    /// value of `aud` claim if available
+
+    /// Value of the `aud` claim, if available.
     var audience: [String]? { get }
-    /// value of `iat` claim if available
+
+    /// Value of the `iat` claim, if available.
     var issuedAt: Date? { get }
-    /// value of `nbf` claim if available
+
+    /// Value of the `nbf` claim, if available.
     var notBefore: Date? { get }
-    /// value of `jti` claim if available
+
+    /// Value of the `jti` claim, if available.
     var identifier: String? { get }
 
-    /// Checks if the token is currently expired using the `exp` claim. If there is no claim present it will deem the token not expired
+    /// Checks if the JWT is currently expired using the `exp` claim. If the claim is not present the JWT will be deemed unexpired.
     var expired: Bool { get }
+
 }
 
 public extension JWT {
 
     /**
-     Return a claim by it's name
+     Returns a claim by its name.
 
-     - parameter name: name of the claim in the JWT
-
-     - returns: a claim of the JWT
+     - Parameter name: name of the claim in the JWT.
+     - Returns: a ``Claim`` instance.
      */
     func claim(name: String) -> Claim {
         let value = self.body[name]
         return Claim(value: value)
     }
+
 }
