@@ -51,7 +51,7 @@ do {
 
     _ = jwt.claim(name: "custom").rawValue as? [Int]
 //: ### Error Handling
-//: If the token is invalid an `NSError` will be thrown
-} catch let error as NSError {
+//: If the token is invalid an `DecodeError` will be thrown
+} catch let error as DecodeError {
     error.localizedDescription
 }

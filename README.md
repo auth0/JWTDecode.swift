@@ -154,7 +154,7 @@ extension JWT {
 If the token is malformed the `decode(jwt:)` function will throw a `DecodeError`.
 
 ```swift
-catch let error {
+catch let error as DecodeError {
     error.localizedDescription
 }
 ```
