@@ -21,8 +21,8 @@ class JWTDecodeSpec: QuickSpec {
             }
 
             it("should obtain payload") {
-                let token = jwt(withBody: ["sub": "myid", "name": "Shawarma Monk"])
-                let payload = token.body as! [String: String]
+                let jwt = jwt(withBody: ["sub": "myid", "name": "Shawarma Monk"])
+                let payload = jwt.body as! [String: String]
                 expect(payload).to(equal(["sub": "myid", "name": "Shawarma Monk"]))
             }
 
@@ -37,23 +37,37 @@ class JWTDecodeSpec: QuickSpec {
             }
 
             it("should decode valid jwt") {
-                let jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjb20uc29td2hlcmUuZmFyLmJleW9uZDphcGkiLCJpc3MiOiJhdXRoMCIsInVzZXJfcm9sZSI6ImFkbWluIn0.sS84motSLj9HNTgrCPcAjgZIQ99jXNN7_W9fEIIfxz0"
-                expect(try! decode(jwt: jwt)).toNot(beNil())
+                let jwtString = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjb20uc29td2hlcmUuZmFyLmJleW9uZDphcGkiLCJpc3MiOiJhdXRoMCIsInVzZXJfcm9sZSI6ImFkbWluIn0.sS84motSLj9HNTgrCPcAjgZIQ99jXNN7_W9fEIIfxz0"
+                expect(try! decode(jwt: jwtString)).toNot(beNil())
+            }
+
+            it("should decode valid jwt with empty json body") {
+                let jwtString = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.Et9HFtf9R3GEMA0IICOfFMVXY7kkTX1wr4qCyhIf58U"
+                expect(try! decode(jwt: jwtString)).toNot(beNil())
+            }
+
+            it("should raise exception with invalid base64 encoding") {
+                let invalidChar = "%"
+                let jwtString = "\(invalidChar).BODY.SIGNATURE"
+                expect { try decode(jwt: jwtString) }
+                    .to(throwError { (error: Error) in
+                        expect(error).to(beDecodeErrorWithCode(.invalidBase64Url(invalidChar)))
+                    })
             }
 
             it("should raise exception with invalid json in jwt") {
-                let token = "HEADER.BODY.SIGNATURE"
-                expect { try decode(jwt: token) }
+                let jwtString = "HEADER.BODY.SIGNATURE"
+                expect { try decode(jwt: jwtString) }
                     .to(throwError { (error: Error) in
                         expect(error).to(beDecodeErrorWithCode(.invalidJSON("HEADER")))
                     })
             }
 
             it("should raise exception with missing parts") {
-                let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ"
-                expect { try decode(jwt: token) }
+                let jwtString = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ"
+                expect { try decode(jwt: jwtString) }
                     .to(throwError { (error: Error) in
-                        expect(error).to(beDecodeErrorWithCode(.invalidPartCount(token, 2)))
+                        expect(error).to(beDecodeErrorWithCode(.invalidPartCount(jwtString, 2)))
                     })
             }
 
