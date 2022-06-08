@@ -19,5 +19,6 @@ let package = Package(
         .testTarget(
             name: "JWTDecode.swiftTests",
             dependencies: ["JWTDecode", "Quick", "Nimble"],
-            path: "JWTDecodeTests")
+            path: "JWTDecodeTests",
+            exclude: ["Info.plist"])
     ])
