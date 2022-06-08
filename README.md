@@ -1,14 +1,13 @@
 # JWTDecode.swift (First Availability)
 
-[![CircleCI](https://img.shields.io/circleci/build/github/auth0/JWTDecode.swift?style=flat-square)](https://circleci.com/gh/auth0/JWTDecode.swift)
-[![Coverage Status](https://img.shields.io/codecov/c/github/auth0/JWTDecode.swift/master.svg?style=flat-square)](https://codecov.io/github/auth0/JWTDecode.swift)
-[![Version](https://img.shields.io/cocoapods/v/JWTDecode.svg?style=flat-square)](https://cocoadocs.org/docsets/JWTDecode)
-[![License](https://img.shields.io/cocoapods/l/JWTDecode.svg?style=flat-square)](https://cocoadocs.org/docsets/JWTDecode)
-[![Platform](https://img.shields.io/cocoapods/p/JWTDecode.svg?style=flat-square)](https://cocoadocs.org/docsets/JWTDecode)
+![CircleCI](https://img.shields.io/circleci/build/github/auth0/JWTDecode.swift?style=flat)
+![Version](https://img.shields.io/cocoapods/v/JWTDecode.svg?style=flat)
+![Coverage Status](https://img.shields.io/codecov/c/github/auth0/JWTDecode.swift/master.svg?style=flat)
+![License](https://img.shields.io/github/license/Auth0/JWTDecode.swift.svg?style=flat)
 
-Helps you decode a [JWT](https://jwt.io/) and access its payload.
+Easily decode a [JWT](https://jwt.io/) and access the claims it contains.
 
-> ⚠️ This library doesn't validate the JWT. Any well formed JWT can be decoded from Base64Url.
+> ⚠️ This library doesn't validate the JWT. Any well formed JWT can be decoded from Base64URL.
 
 > ⚠️ This library is currently in **First Availability**. We do not recommend using this library in production yet. As we move towards General Availability, please be aware that releases may contain breaking changes.
 
@@ -36,7 +35,7 @@ Helps you decode a [JWT](https://jwt.io/) and access its payload.
 ## Requirements
 
 - iOS 12+ / macOS 10.15+ / tvOS 12.0+ / watchOS 6.2+
-- Xcode 13.x
+- Xcode 13.x / 14.x
 - Swift 5.5+
 
 > ⚠️ Check the [Support Policy](#support-policy) to learn when dropping Xcode, Swift, and platform versions will not be considered a **breaking change**.
@@ -123,6 +122,7 @@ If you have a custom claim you can retrieve it by calling `claim(name:)`. Then y
 
 ```swift
 let claim = jwt.claim(name: "email")
+
 if let email = claim.string {
     print("Email in jwt was \(email)")
 }
