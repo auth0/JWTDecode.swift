@@ -158,8 +158,13 @@ class JWTDecodeSpec: QuickSpec {
                     token = jwt(withBody: ["sub": UUID().uuidString, "custom_string_claim": "Shawarma Friday!", "custom_integer_claim": 10, "custom_double_claim": 3.4, "custom_double_string_claim": "1.3", "custom_true_boolean_claim": true, "custom_false_boolean_claim": false])
                 }
 
-                it("should return string claim") {
+                it("should return claim by name") {
                     let claim = token.claim(name: "custom_string_claim")
+                    expect(claim.rawValue).toNot(beNil())
+                }
+
+                it("should return string claim") {
+                    let claim = token["custom_string_claim"]
                     expect(claim.string) == "Shawarma Friday!"
                     expect(claim.array) == ["Shawarma Friday!"]
                     expect(claim.integer).to(beNil())
@@ -169,7 +174,7 @@ class JWTDecodeSpec: QuickSpec {
                 }
 
                 it("should return integer claim") {
-                    let claim = token.claim(name: "custom_integer_claim")
+                    let claim = token["custom_integer_claim"]
                     expect(claim.string).to(beNil())
                     expect(claim.array).to(beNil())
                     expect(claim.integer) == 10
@@ -179,7 +184,7 @@ class JWTDecodeSpec: QuickSpec {
                 }
 
                 it("should return double claim") {
-                    let claim = token.claim(name: "custom_double_claim")
+                    let claim = token["custom_double_claim"]
                     expect(claim.string).to(beNil())
                     expect(claim.array).to(beNil())
                     expect(claim.integer) == 3
@@ -189,7 +194,7 @@ class JWTDecodeSpec: QuickSpec {
                 }
 
                 it("should return double as string claim") {
-                    let claim = token.claim(name: "custom_double_string_claim")
+                    let claim = token["custom_double_string_claim"]
                     expect(claim.string) == "1.3"
                     expect(claim.array) == ["1.3"]
                     expect(claim.integer).to(beNil())
@@ -199,7 +204,7 @@ class JWTDecodeSpec: QuickSpec {
                 }
 
                 it("should return true boolean claim") {
-                    let claim = token.claim(name: "custom_true_boolean_claim")
+                    let claim = token["custom_true_boolean_claim"]
                     expect(claim.string).to(beNil())
                     expect(claim.array).to(beNil())
                     expect(claim.integer).to(beNil())
@@ -209,7 +214,7 @@ class JWTDecodeSpec: QuickSpec {
                 }
 
                 it("should return false boolean claim") {
-                    let claim = token.claim(name: "custom_false_boolean_claim")
+                    let claim = token["custom_false_boolean_claim"]
                     expect(claim.string).to(beNil())
                     expect(claim.array).to(beNil())
                     expect(claim.integer).to(beNil())
@@ -219,7 +224,7 @@ class JWTDecodeSpec: QuickSpec {
                 }
 
                 it("should return no value when claim is not present") {
-                    let unknownClaim = token.claim(name: "missing_claim")
+                    let unknownClaim = token["missing_claim"]
                     expect(unknownClaim.array).to(beNil())
                     expect(unknownClaim.string).to(beNil())
                     expect(unknownClaim.integer).to(beNil())
@@ -237,11 +242,11 @@ class JWTDecodeSpec: QuickSpec {
                     }
 
                     it("should return email") {
-                        expect(token.claim(name: "email").string) == "user@host.com"
+                        expect(token["email"].string) == "user@host.com"
                     }
 
                     it("should return array") {
-                        expect(token.claim(name: "custom").rawValue as? [Int]).toNot(beNil())
+                        expect(token["custom"].rawValue as? [Int]).toNot(beNil())
                     }
 
                 }

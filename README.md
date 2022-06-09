@@ -118,13 +118,11 @@ let jwt = try decode(jwt: token)
 
 ### Custom Claims
 
-If you have a custom claim you can retrieve it by calling `claim(name:)`. Then you can attempt to convert the value to a specific type.
+You can retrieve a custom claim through a subscript and then attempt to convert the value to a specific type.
 
 ```swift
-let claim = jwt.claim(name: "email")
-
-if let email = claim.string {
-    print("Email in jwt was \(email)")
+if let email = jwt["email"].string {
+    print("Email in JWT was \(email)")
 }
 ```
 
@@ -144,7 +142,7 @@ You can easily add a convenience accessor for a custom claim in an extension.
 ```swift
 extension JWT {
     var myClaim: String? {
-        return claim(name: "my_claim").string
+        return self["my_claim"].string
     }
 }
 ```
