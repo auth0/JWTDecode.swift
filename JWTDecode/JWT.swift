@@ -7,10 +7,10 @@ import Foundation
 */
 public protocol JWT {
 
-    /// Header part contents.
+    /// Contents of the header part.
     var header: [String: Any] { get }
 
-    /// Body part contents (claims).
+    /// Contents of the body part (claims).
     var body: [String: Any] { get }
 
     /// Signature part.
@@ -56,6 +56,16 @@ public extension JWT {
     func claim(name: String) -> Claim {
         let value = self.body[name]
         return Claim(value: value)
+    }
+
+    /**
+     Returns a claim by its name.
+
+     - Parameter claim: name of the claim in the JWT.
+     - Returns: a ``Claim`` instance.
+     */
+    subscript(claim: String) -> Claim {
+        return self.claim(name: claim)
     }
 
 }
