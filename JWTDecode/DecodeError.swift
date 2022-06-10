@@ -3,9 +3,9 @@ import Foundation
 /**
  A decoding error due to a malformed JWT.
 
- - invalidBase64Url:  when either the header or body parts cannot be Base64URL-decoded.
- - invalidJSONValue:   when either the decoded header or body is not a valid JSON object.
- - invalidPartCount:     when the JWT doesn't have the required amount of parts (header, body, and signature).
+ - invalidBase64Url: when either the header or body parts cannot be Base64URL-decoded.
+ - invalidJSONValue: when either the decoded header or body is not a valid JSON object.
+ - invalidPartCount: when the JWT doesn't have the required amount of parts (header, body, and signature).
  */
 public enum DecodeError: LocalizedError, CustomDebugStringConvertible {
     case invalidBase64Url(String)
