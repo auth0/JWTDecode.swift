@@ -42,25 +42,24 @@ func expiredDate() -> Date {
     return (Calendar.current as NSCalendar).date(byAdding: .second, value: seconds, to: Date(), options: NSCalendar.Options())!
 }
 
-class JWTHelper: NSObject {
-
-    class func newJWT(withBody body: [String: AnyObject]) -> JWT {
+struct JWTHelper {
+    static func newJWT(withBody body: [String: AnyObject]) -> JWT {
         return jwt(withBody: body)
     }
 
-    class func newJWTThatExpiresAt(date: Date) -> JWT {
+    static func newJWTThatExpiresAt(date: Date) -> JWT {
         return jwtThatExpiresAt(date: date)
     }
 
-    class func newExpiredJWT() -> JWT {
+    static func newExpiredJWT() -> JWT {
         return expiredJWT()
     }
 
-    class func newNonExpiredJWT() -> JWT {
+    static func newNonExpiredJWT() -> JWT {
         return nonExpiredJWT()
     }
     
-    class func newJWT(withIssuer issuer: String, audience: String, expiry: Date, nonce: String? = nil) -> JWT {
+    static func newJWT(withIssuer issuer: String, audience: String, expiry: Date, nonce: String? = nil) -> JWT {
         var body: [String: AnyObject] = ["iss" : issuer as AnyObject,
                                          "aud" : audience as AnyObject,
                                          "exp" : expiry.timeIntervalSince1970 as AnyObject]
