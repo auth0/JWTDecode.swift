@@ -267,5 +267,5 @@ public func beDecodeErrorWithCode(_ code: DecodeError) -> Predicate<Error> {
 extension DecodeError: Equatable {}
 
 public func ==(lhs: DecodeError, rhs: DecodeError) -> Bool {
-    return lhs.localizedDescription == rhs.localizedDescription
+    return lhs.localizedDescription == rhs.localizedDescription && lhs.errorDescription == rhs.errorDescription
 }

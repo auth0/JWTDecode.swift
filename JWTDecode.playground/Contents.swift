@@ -59,7 +59,7 @@ do {
     _ = jwt["custom"].rawValue as? [Int]
 
     // Error Handling
-    // If the token is invalid an `DecodeError` will be thrown.
+    // If the JWT is malformed the `decode(jwt:)` function will throw a `DecodeError`.
 } catch let error as DecodeError {
-    error.localizedDescription
+    error
 }
