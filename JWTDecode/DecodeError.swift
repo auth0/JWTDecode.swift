@@ -1,36 +1,29 @@
 import Foundation
 
-/**
- A decoding error due to a malformed JWT.
-
- - invalidBase64Url: when either the header or body parts cannot be Base64URL-decoded.
- - invalidJSONValue: when either the decoded header or body is not a valid JSON object.
- - invalidPartCount: when the JWT doesn't have the required amount of parts (header, body, and signature).
- */
+/// A decoding error due to a malformed JWT.
 public enum DecodeError: LocalizedError, CustomDebugStringConvertible {
+    /// When either the header or body parts cannot be Base64URL-decoded.
     case invalidBase64Url(String)
+
+    /// When either the decoded header or body is not a valid JSON object.
     case invalidJSON(String)
+
+    /// When the JWT doesn't have the required amount of parts (header, body, and signature).
     case invalidPartCount(String, Int)
 
-    /**
-     Description of the error.
-
-     - Important: You should avoid displaying the error description to the user, it's meant for **debugging** only.
-     */
+    /// Description of the error.
+    ///
+    /// - Important: You should avoid displaying the error description to the user, it's meant for **debugging** only.
     public var localizedDescription: String { return self.debugDescription }
 
-    /**
-     Description of the error.
-
-     - Important: You should avoid displaying the error description to the user, it's meant for **debugging** only.
-     */
+    /// Description of the error.
+    ///
+    /// - Important: You should avoid displaying the error description to the user, it's meant for **debugging** only.
     public var errorDescription: String? { return self.debugDescription }
 
-    /**
-     Description of the error.
-
-     - Important: You should avoid displaying the error description to the user, it's meant for **debugging** only.
-     */
+    /// Description of the error.
+    ///
+    /// - Important: You should avoid displaying the error description to the user, it's meant for **debugging** only.
     public var debugDescription: String {
         switch self {
         case .invalidJSON(let value):
