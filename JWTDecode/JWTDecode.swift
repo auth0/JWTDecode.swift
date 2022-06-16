@@ -3,11 +3,7 @@ import Foundation
 /// Decodes a JWT into an object that holds the decoded body, along with the header and signature.
 ///
 /// ```swift
-/// do {
-///     let jwt = try decode(jwt: idToken)
-/// } catch let error as DecodeError {
-///     print(error)
-/// }
+/// let jwt = try decode(jwt: idToken)
 /// ```
 ///
 /// - Parameter jwt: JWT string value to decode.
