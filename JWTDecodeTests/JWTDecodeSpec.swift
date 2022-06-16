@@ -51,7 +51,7 @@ class JWTDecodeSpec: QuickSpec {
                 let jwtString = "\(invalidChar).BODY.SIGNATURE"
                 expect { try decode(jwt: jwtString) }
                     .to(throwError { (error: Error) in
-                        expect(error).to(beDecodeErrorWithCode(.invalidBase64Url(invalidChar)))
+                        expect(error).to(beJWTDecodeError(.invalidBase64URL(invalidChar)))
                     })
             }
 
@@ -59,7 +59,7 @@ class JWTDecodeSpec: QuickSpec {
                 let jwtString = "HEADER.BODY.SIGNATURE"
                 expect { try decode(jwt: jwtString) }
                     .to(throwError { (error: Error) in
-                        expect(error).to(beDecodeErrorWithCode(.invalidJSON("HEADER")))
+                        expect(error).to(beJWTDecodeError(.invalidJSON("HEADER")))
                     })
             }
 
@@ -67,7 +67,7 @@ class JWTDecodeSpec: QuickSpec {
                 let jwtString = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWIifQ"
                 expect { try decode(jwt: jwtString) }
                     .to(throwError { (error: Error) in
-                        expect(error).to(beDecodeErrorWithCode(.invalidPartCount(jwtString, 2)))
+                        expect(error).to(beJWTDecodeError(.invalidPartCount(jwtString, 2)))
                     })
             }
 
@@ -255,17 +255,17 @@ class JWTDecodeSpec: QuickSpec {
     }
 }
 
-public func beDecodeErrorWithCode(_ code: DecodeError) -> Predicate<Error> {
-     return Predicate<Error>.define("be decode error with code <\(code)>") { expression, failureMessage -> PredicateResult in
-        guard let actual = try expression.evaluate() as? DecodeError else {
+public func beJWTDecodeError(_ code: JWTDecodeError) -> Predicate<Error> {
+     return Predicate<Error>.define("be jwt decode error <\(code)>") { expression, failureMessage -> PredicateResult in
+        guard let actual = try expression.evaluate() as? JWTDecodeError else {
             return PredicateResult(status: .doesNotMatch, message: failureMessage)
         }
         return PredicateResult(bool: actual == code, message: failureMessage)
     }
 }
 
-extension DecodeError: Equatable {}
+extension JWTDecodeError: Equatable {}
 
-public func ==(lhs: DecodeError, rhs: DecodeError) -> Bool {
+public func ==(lhs: JWTDecodeError, rhs: JWTDecodeError) -> Bool {
     return lhs.localizedDescription == rhs.localizedDescription && lhs.errorDescription == rhs.errorDescription
 }

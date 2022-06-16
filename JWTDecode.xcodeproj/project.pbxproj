@@ -32,12 +32,12 @@
 		5F00693E1B3C7B930048928E /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		5FE49DCD1BA0D5F700DE57D3 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 		5FE49DCE1BA0D5F700DE57D3 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
-		5FE49DD01BA0D66F00DE57D3 /* DecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* DecodeError.swift */; };
-		5FE49DD11BA0D66F00DE57D3 /* DecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* DecodeError.swift */; };
+		5FE49DD01BA0D66F00DE57D3 /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
+		5FE49DD11BA0D66F00DE57D3 /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
 		918A8E651D63D2F7001F787B /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		918A8E661D63D2FB001F787B /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
-		918A8E671D63D2FE001F787B /* DecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* DecodeError.swift */; };
-		E390BAD32288E6AF00780D6C /* DecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* DecodeError.swift */; };
+		918A8E671D63D2FE001F787B /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
+		E390BAD32288E6AF00780D6C /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
 		E390BAD82288E6AF00780D6C /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		E390BAD92288E6AF00780D6C /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 /* End PBXBuildFile section */
@@ -130,7 +130,7 @@
 		5F2614D41C05FE720068DE71 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = SOURCE_ROOT; };
 		5F2614D51C05FE720068DE71 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
-		5FE49DCF1BA0D66F00DE57D3 /* DecodeError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodeError.swift; sourceTree = "<group>"; };
+		5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTDecodeError.swift; sourceTree = "<group>"; };
 		918A8E5B1D63D2E1001F787B /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		918A8E6C1D63D4E5001F787B /* JWTDecode-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		918A8E7A1D63D86E001F787B /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
@@ -239,8 +239,8 @@
 			isa = PBXGroup;
 			children = (
 				5F0069021B3B511F0048928E /* JWTDecode.swift */,
+				5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */,
 				5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */,
-				5FE49DCF1BA0D66F00DE57D3 /* DecodeError.swift */,
 				5F0068E51B3B46240048928E /* Supporting Files */,
 			);
 			path = JWTDecode;
@@ -673,7 +673,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FE49DD01BA0D66F00DE57D3 /* DecodeError.swift in Sources */,
+				5FE49DD01BA0D66F00DE57D3 /* JWTDecodeError.swift in Sources */,
 				5C1B5D86238711610076E46B /* JWTDecode.swift in Sources */,
 				5FE49DCD1BA0D5F700DE57D3 /* JWT.swift in Sources */,
 			);
@@ -692,7 +692,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FE49DD11BA0D66F00DE57D3 /* DecodeError.swift in Sources */,
+				5FE49DD11BA0D66F00DE57D3 /* JWTDecodeError.swift in Sources */,
 				5F00693E1B3C7B930048928E /* JWTDecode.swift in Sources */,
 				5FE49DCE1BA0D5F700DE57D3 /* JWT.swift in Sources */,
 			);
@@ -711,7 +711,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				918A8E671D63D2FE001F787B /* DecodeError.swift in Sources */,
+				918A8E671D63D2FE001F787B /* JWTDecodeError.swift in Sources */,
 				918A8E651D63D2F7001F787B /* JWTDecode.swift in Sources */,
 				918A8E661D63D2FB001F787B /* JWT.swift in Sources */,
 			);
@@ -730,7 +730,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E390BAD32288E6AF00780D6C /* DecodeError.swift in Sources */,
+				E390BAD32288E6AF00780D6C /* JWTDecodeError.swift in Sources */,
 				E390BAD82288E6AF00780D6C /* JWTDecode.swift in Sources */,
 				E390BAD92288E6AF00780D6C /* JWT.swift in Sources */,
 			);

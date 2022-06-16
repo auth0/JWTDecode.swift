@@ -9,6 +9,8 @@ As expected with a major release, JWTDecode.swift v3 contains breaking changes. 
   + [Objective-C](#objective-c)
 - [**Supported Platform Versions**](#supported-platform-versions)
 - [**Types Removed**](#types-removed)
+- [**Types Changed**](#types-changed)
+- [**Properties Changed**](#properties-changed)
 
 ## Supported Languages
 
@@ -36,3 +38,11 @@ The built-in ID token validator was removed:
 - `ValidatorJWT` protocol
 - `ValidationError` enum
 - `IDTokenValidation` struct
+
+## Types Changed
+
+The `DecodeError` enum was renamed to `JWTDecodeError`.
+
+## Properties Changed
+
+The `JWTDecodeError.invalidBase64Url` enum case was renamed to `JWTDecodeError.invalidBase64URL`.
