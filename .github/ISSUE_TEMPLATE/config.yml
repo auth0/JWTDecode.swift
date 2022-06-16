@@ -5,7 +5,7 @@ contact_links:
     about: Ask general support or usage questions in the Auth0 Community forums
   - name: 🚀 Usage
     url: https://github.com/auth0/JWTDecode.swift#usage
-    about: Check the Usage section of the README to get up to speed with JWTDecode.swift.
+    about: Check the Usage section of the README to get up to speed with JWTDecode.swift
   - name: 📖 API Documentation
     url: https://auth0.github.io/JWTDecode.swift/
     about: Check the public API documentation for in-depth overview of all the available features
