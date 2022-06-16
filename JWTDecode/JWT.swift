@@ -1,10 +1,7 @@
 import Foundation
 
-/**
-*  A decoded JWT.
-*
-* - See: [jwt.io](https://jwt.io/)
-*/
+/// A decoded JWT.
+/// See [jwt.io](https://jwt.io/) for more information on JWTs.
 public protocol JWT {
 
     /// Contents of the header part.
@@ -47,23 +44,31 @@ public protocol JWT {
 
 public extension JWT {
 
-    /**
-     Returns a claim by its name.
-
-     - Parameter name: name of the claim in the JWT.
-     - Returns: a ``Claim`` instance.
-     */
+    /// Returns a claim by its name.
+    ///
+    /// ```swift
+    /// if let email = jwt.claim(name: "email").string {
+    ///     print("Email is \(email)")
+    /// }
+    /// ```
+    ///
+    /// - Parameter name: Name of the claim in the JWT.
+    /// - Returns: A ``Claim`` instance.
     func claim(name: String) -> Claim {
         let value = self.body[name]
         return Claim(value: value)
     }
 
-    /**
-     Returns a claim by its name.
-
-     - Parameter claim: name of the claim in the JWT.
-     - Returns: a ``Claim`` instance.
-     */
+    /// Returns a claim by its name.
+    ///
+    /// ```swift
+    /// if let email = jwt["email"].string {
+    ///     print("Email is \(email)")
+    /// }
+    /// ```
+    ///
+    /// - Parameter claim: Name of the claim in the JWT.
+    /// - Returns: A ``Claim`` instance.
     subscript(claim: String) -> Claim {
         return self.claim(name: claim)
     }
