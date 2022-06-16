@@ -7,7 +7,7 @@ import Foundation
 /// ```
 ///
 /// - Parameter jwt: JWT string value to decode.
-/// - Throws: A ``DecodeError`` error if the JWT cannot be decoded.
+/// - Throws: A ``JWTDecodeError`` error if the JWT cannot be decoded.
 /// - Returns: A ``JWT`` value.
 /// - Important: This method doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.
 public func decode(jwt: String) throws -> JWT {
@@ -24,7 +24,7 @@ struct DecodedJWT: JWT {
     init(jwt: String) throws {
         let parts = jwt.components(separatedBy: ".")
         guard parts.count == 3 else {
-            throw DecodeError.invalidPartCount(jwt, parts.count)
+            throw JWTDecodeError.invalidPartCount(jwt, parts.count)
         }
 
         self.header = try decodeJWTPart(parts[0])
@@ -129,11 +129,11 @@ private func base64UrlDecode(_ value: String) -> Data? {
 
 private func decodeJWTPart(_ value: String) throws -> [String: Any] {
     guard let bodyData = base64UrlDecode(value) else {
-        throw DecodeError.invalidBase64Url(value)
+        throw JWTDecodeError.invalidBase64URL(value)
     }
 
     guard let json = try? JSONSerialization.jsonObject(with: bodyData, options: []), let payload = json as? [String: Any] else {
-        throw DecodeError.invalidJSON(value)
+        throw JWTDecodeError.invalidJSON(value)
     }
 
     return payload

@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = 'JWTDecode'
   s.version          = '2.6.3'
-  s.summary          = 'A JSON Web Token decoder for iOS, macOS, tvOS, and watchOS'
+  s.summary          = 'A JWT decoder for iOS, macOS, tvOS, and watchOS'
   s.description      = <<-DESC
                         Easily decode a JWT and access the claims it contains. 
-                        > This library doesn't validate the JWT. Any well formed JWT can be decoded from Base64URL.
+                        > This library doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.
                         DESC
   s.homepage         = 'https://github.com/auth0/JWTDecode.swift'
   s.license          = 'MIT'

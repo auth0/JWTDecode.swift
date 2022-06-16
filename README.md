@@ -7,7 +7,7 @@
 
 Easily decode a [JWT](https://jwt.io/) and access the claims it contains.
 
-> ⚠️ This library doesn't validate the JWT. Any well formed JWT can be decoded from Base64URL.
+> ⚠️ This library doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.
 
 > ⚠️ This library is currently in **First Availability**. We do not recommend using this library in production yet. As we move towards General Availability, please be aware that releases may contain breaking changes.
 
@@ -122,7 +122,7 @@ You can retrieve a custom claim through a subscript and then attempt to convert 
 
 ```swift
 if let email = jwt["email"].string {
-    print("Email in JWT was \(email)")
+    print("Email is \(email)")
 }
 ```
 
@@ -149,11 +149,11 @@ extension JWT {
 
 ### Error Handling
 
-If the JWT is malformed the `decode(jwt:)` function will throw a `DecodeError`.
+If the JWT is malformed the `decode(jwt:)` function will throw a `JWTDecodeError`.
 
 ```swift
-catch let error as DecodeError {
-    error.localizedDescription
+catch let error as JWTDecodeError {
+    print(error)
 }
 ```
 

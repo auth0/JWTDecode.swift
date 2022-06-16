@@ -1,9 +1,9 @@
 import Foundation
 
 /// A decoding error due to a malformed JWT.
-public enum DecodeError: LocalizedError, CustomDebugStringConvertible {
+public enum JWTDecodeError: LocalizedError, CustomDebugStringConvertible {
     /// When either the header or body parts cannot be Base64URL-decoded.
-    case invalidBase64Url(String)
+    case invalidBase64URL(String)
 
     /// When either the decoded header or body is not a valid JSON object.
     case invalidJSON(String)
@@ -30,7 +30,7 @@ public enum DecodeError: LocalizedError, CustomDebugStringConvertible {
             return "Failed to parse JSON from Base64URL value \(value)."
         case .invalidPartCount(let jwt, let parts):
             return "The JWT \(jwt) has \(parts) parts when it should have 3 parts."
-        case .invalidBase64Url(let value):
+        case .invalidBase64URL(let value):
             return "Failed to decode Base64URL value \(value)."
         }
     }
