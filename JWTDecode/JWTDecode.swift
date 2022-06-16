@@ -1,17 +1,15 @@
 import Foundation
 
-/**
- Decodes a JWT into an object that holds the decoded body, along with the header and signature.
- If the JWT cannot be decoded a ``DecodeError`` will be thrown.
-
- ```
- let jwt = try decode(jwt: idToken)    
- ```
-
- - Parameter jwt: JWT string value to decode.
- - Throws: a ``DecodeError`` error if the JWT cannot be decoded.
- - Returns: a ``JWT`` instance.
- */
+/// Decodes a JWT into an object that holds the decoded body, along with the header and signature.
+///
+/// ```swift
+/// let jwt = try decode(jwt: idToken)
+/// ```
+///
+/// - Parameter jwt: JWT string value to decode.
+/// - Throws: A ``DecodeError`` error if the JWT cannot be decoded.
+/// - Returns: A ``JWT`` value.
+/// - Important: This method doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.
 public func decode(jwt: String) throws -> JWT {
     return try DecodedJWT(jwt: jwt)
 }
@@ -51,11 +49,7 @@ struct DecodedJWT: JWT {
     }
 }
 
-/**
- *  A JWT claim.
- *
- * - See: ``JWT``
- */
+/// A JWT claim.
 public struct Claim {
 
     /// Raw claim value.
