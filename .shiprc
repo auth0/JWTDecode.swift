@@ -1,9 +1,11 @@
 {
-    "files": {
-        "JWTDecode/Info.plist": [],
-        "JWTDecode.podspec": [],
-        "README.md": ["~> {MAJOR}.{MINOR}"]
-    },
-    "postbump": "bundle update",
-    "prefixVersion": false
+  "files": {
+    "JWTDecode/Info.plist": [],
+    "JWTDecode.podspec": [],
+    "README.md": [
+      "~> {MAJOR}.{MINOR}"
+    ]
+  },
+  "postbump": "bundle update && bundle exec fastlane ios build_docs",
+  "prefixVersion": false
 }
