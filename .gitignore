@@ -95,3 +95,6 @@ fastlane/README.md
 
 # Playground Timeline
 timeline.xctimeline
+
+# Documentation generation
+docs.archive/
