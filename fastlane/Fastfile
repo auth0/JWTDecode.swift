@@ -52,9 +52,9 @@ platform :ios do
     # Work from project root (defaults to /fastlane)
     Dir.chdir("..") do
       # Generate the .doccarchive
-      sh "xcodebuild docbuild -scheme JWTDecode-iOS -configuration Release -derivedDataPath docs.archive"
+      sh "xcodebuild docbuild -scheme JWTDecode-iOS -configuration Release -destination 'generic/platform=iOS' -derivedDataPath docs.archive"
       # Generate the static site
-      sh "$(xcrun --find docc) process-archive transform-for-static-hosting docs.archive/Build/Products/Release-maccatalyst/JWTDecode.doccarchive --output-path docs "
+      sh "$(xcrun --find docc) process-archive transform-for-static-hosting docs.archive/Build/Products/Release-iphoneos/JWTDecode.doccarchive --output-path docs "
     end
   end
 end
