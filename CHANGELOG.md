@@ -1,5 +1,22 @@
 # Change Log
 
+## [3.0.0-fa.0](https://github.com/auth0/JWTDecode.swift/tree/3.0.0-fa.0) (2022-06-24)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.6.3...3.0.0-fa.0)
+
+**⚠️ BREAKING CHANGES**
+- Rename `DecodeError` and error case [\#162](https://github.com/auth0/JWTDecode.swift/pull/162) ([Widcket](https://github.com/Widcket))
+- Drop support for Objective-C [SDK-3405] [\#149](https://github.com/auth0/JWTDecode.swift/pull/149) ([Widcket](https://github.com/Widcket))
+- Remove ID token validator [SDK-3395] [\#145](https://github.com/auth0/JWTDecode.swift/pull/145) ([Widcket](https://github.com/Widcket))
+- Drop support for old platform versions [SDK-3386] [\#143](https://github.com/auth0/JWTDecode.swift/pull/143) ([Widcket](https://github.com/Widcket))
+- Drop support for old Swift versions [SDK-3394] [\#142](https://github.com/auth0/JWTDecode.swift/pull/142) ([Widcket](https://github.com/Widcket))
+
+**Added**
+- Add subscript getter for claims [SDK-3421] [\#156](https://github.com/auth0/JWTDecode.swift/pull/156) ([Widcket](https://github.com/Widcket))
+
+**Changed**
+- Apply recommended Xcode 14 settings [\#159](https://github.com/auth0/JWTDecode.swift/pull/159) ([Widcket](https://github.com/Widcket))
+- Improve display of `DecodeError` [SDK-3427] [\#158](https://github.com/auth0/JWTDecode.swift/pull/158) ([Widcket](https://github.com/Widcket))
+
 ## [2.6.3](https://github.com/auth0/JWTDecode.swift/tree/2.6.3) (2021-09-30)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.6.2...2.6.3)
 
