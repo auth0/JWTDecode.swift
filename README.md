@@ -9,7 +9,7 @@ Easily decode a [JWT](https://jwt.io/) and access the claims it contains.
 
 > ⚠️ This library doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.
 
-> ⚠️ This library is currently in **First Availability**. We do not recommend using this library in production yet. As we move towards General Availability, please be aware that releases may contain breaking changes.
+> ⚠️ This library is currently in [**First Availability**](https://auth0.com/docs/troubleshoot/product-lifecycle/product-release-stages). We do not recommend using this library in production yet. As we move towards General Availability, please be aware that releases may contain breaking changes.
 
 **Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).**
 
