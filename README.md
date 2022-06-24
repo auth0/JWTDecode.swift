@@ -23,10 +23,10 @@ Easily decode a [JWT](https://jwt.io/) and access the claims it contains.
   + [Cocoapods](#cocoapods)
   + [Carthage](#carthage)
 - [**Usage**](#usage)
-  + [JWT Parts](#jwt-parts)
-  + [Registered Claims](#registered-claims)
-  + [Custom Claims](#custom-claims)
-  + [Error Handling](#error-handling)
+  + [JWT parts](#jwt-parts)
+  + [Registered claims](#registered-claims)
+  + [Custom claims](#custom-claims)
+  + [Error handling](#error-handling)
 - [**Support Policy**](#support-policy)
 - [**Issue Reporting**](#issue-reporting)
 - [**What is Auth0?**](#what-is-auth0)
@@ -84,6 +84,8 @@ Then, run `carthage bootstrap --use-xcframeworks`.
 
 ## Usage
 
+**See all the available features in the [API documentation ↗](https://auth0.github.io/JWTDecode.swift/documentation/jwtdecode/)**
+
 1. Import the framework:
 
 ```swift
@@ -96,7 +98,7 @@ import JWTDecode
 let jwt = try decode(jwt: token)    
 ```
 
-### JWT Parts
+### JWT parts
 
 | Part               | Property        |
 |:-------------------|:----------------|
@@ -104,7 +106,7 @@ let jwt = try decode(jwt: token)
 | Claims in JWT body | `jwt.body`      |
 | JWT signature      | `jwt.signature` |
 
-### Registered Claims
+### Registered claims
 
 | Claim                     | Property         |
 |:--------------------------|:-----------------|
@@ -116,7 +118,7 @@ let jwt = try decode(jwt: token)
 | **iat** (Issued At)       | `jwt.issuedAt`   |
 | **exp** (Expiration Time) | `jwt.expiresAt`  |
 
-### Custom Claims
+### Custom claims
 
 You can retrieve a custom claim through a subscript and then attempt to convert the value to a specific type.
 
@@ -147,7 +149,7 @@ extension JWT {
 }
 ```
 
-### Error Handling
+### Error handling
 
 If the JWT is malformed the `decode(jwt:)` function will throw a `JWTDecodeError`.
 
