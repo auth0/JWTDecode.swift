@@ -11,6 +11,9 @@ This library will help you check [JWT](https://jwt.io/) payload
 
 > This library doesn't validate the token, any well formed JWT can be decoded from Base64Url.
 
+> 📣 **The [First Availability](https://auth0.com/docs/troubleshoot/product-lifecycle/product-release-stages) release of JWTDecode.swift 3.0.0 is out**
+<br>The GA release is planned for the third week of July. See [#171](https://github.com/auth0/JWTDecode.swift/issues/171) for more information.
+
 ## Table of Contents
 
 - [Requirements](#requirements)
