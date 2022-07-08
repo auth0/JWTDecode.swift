@@ -25,7 +25,8 @@ platform :ios do
       device: device,
       clean: true,
       skip_build: true,
-      output_types: 'junit'
+      output_types: 'junit',
+      code_coverage: true
       )
   end
 
@@ -40,7 +41,7 @@ platform :ios do
     lint
     test
   end
-  
+
   desc "Tags the release and pushes the Podspec to CocoaPods"
   lane :release do
     perform_release target: 'JWTDecode-iOS'
