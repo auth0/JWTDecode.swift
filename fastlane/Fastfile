@@ -27,7 +27,19 @@ platform :ios do
       skip_build: true,
       output_types: 'junit',
       code_coverage: true
-      )
+    )
+    slather(
+      scheme: scheme,
+      proj: "JWTDecode.xcodeproj",
+      output_directory: './fastlane/test_output',
+      circleci: true,
+      cobertura_xml: true,
+      ignore: [
+        '../../../Library/*',
+        '**/DerivedData/*',
+        'Carthage/*'
+      ]
+    )
   end
 
   desc "Cocoapods library lint"

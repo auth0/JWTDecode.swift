@@ -115,7 +115,8 @@ jobs:
                 condition:
                   equal: ["13.0.0", << parameters.xcode >>]
                 steps:
-                  - codecov/upload
+                  - codecov/upload:
+                      file: fastlane/test_output/cobertura.xml
       - when:
           condition:
             equal: [macos, << parameters.platform >>]
