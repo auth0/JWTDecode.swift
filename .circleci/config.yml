@@ -35,19 +35,19 @@ commands:
       - run:
           name: Install gems
           command: bundle check || bundle install --without=development
-      - save_cache:
-          key: << parameters.scheme >>-v1-gems-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+      # - save_cache:
+      #     key: << parameters.scheme >>-v1-gems-{{ checksum "Gemfile.lock" }}
+      #     paths:
+      #       - vendor/bundle
       - run:
           name: Install Swiftlint
           command: brew install swiftlint
       - run:
           name: Save Xcode version
           command: xcodebuild -version | tee .xcode-version
-      - restore_cache:
-          keys:
-            - << parameters.scheme >>-v3-carthage-{{ checksum "Cartfile.resolved" }}-{{ checksum ".xcode-version" }}
+      # - restore_cache:
+      #     keys:
+      #       - << parameters.scheme >>-v3-carthage-{{ checksum "Cartfile.resolved" }}-{{ checksum ".xcode-version" }}
       - run:
           name: Install dependencies
           command: carthage bootstrap --use-xcframeworks --no-use-binaries --cache-builds
@@ -59,10 +59,18 @@ commands:
     parameters:
       scheme:
         type: string
+      xcode:
+        type: string
     steps:
       - run:
           name: Run iOS tests
           command: bundle exec fastlane ios ci
+      - when:
+          condition:
+            equal: ["13.0.0", << parameters.xcode >>]
+          steps:
+            - codecov/upload:
+                file: fastlane/test_output/cobertura.xml
       - run:
           name: Run pod lib lint
           command: bundle exec fastlane ios pod_lint
@@ -111,12 +119,7 @@ jobs:
           steps:
             - test-ios:
                 scheme: << parameters.scheme >>
-            - when:
-                condition:
-                  equal: ["13.0.0", << parameters.xcode >>]
-                steps:
-                  - codecov/upload:
-                      file: fastlane/test_output/cobertura.xml
+                xcode: << parameters.xcode >>
       - when:
           condition:
             equal: [macos, << parameters.platform >>]
