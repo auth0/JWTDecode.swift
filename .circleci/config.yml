@@ -63,7 +63,6 @@ commands:
       - run:
           name: Run iOS tests
           command: bundle exec fastlane ios ci
-      - codecov/upload
       - run:
           name: Run pod lib lint
           command: bundle exec fastlane ios pod_lint
@@ -71,6 +70,7 @@ commands:
           path: output/scan
       - store_artifacts:
           path: output
+      - codecov/upload
   test-macos:
     parameters:
       scheme:
