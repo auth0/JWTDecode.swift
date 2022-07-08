@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  codecov: codecov/codecov@3
 
 executors:
   macos-executor:
@@ -61,9 +63,7 @@ commands:
       - run:
           name: Run iOS tests
           command: bundle exec fastlane ios ci
-      - run:
-          name: Upload coverage report
-          command: bash <(curl -s https://codecov.io/bash) -J '<< parameters.scheme >>'
+      - codecov/upload
       - run:
           name: Run pod lib lint
           command: bundle exec fastlane ios pod_lint
