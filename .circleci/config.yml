@@ -70,7 +70,6 @@ commands:
           path: output/scan
       - store_artifacts:
           path: output
-      - codecov/upload
   test-macos:
     parameters:
       scheme:
@@ -112,6 +111,11 @@ jobs:
           steps:
             - test-ios:
                 scheme: << parameters.scheme >>
+            - when:
+                condition:
+                  equal: ["13.0.0", << parameters.xcode >>]
+                steps:
+                  - codecov/upload
       - when:
           condition:
             equal: [macos, << parameters.platform >>]
