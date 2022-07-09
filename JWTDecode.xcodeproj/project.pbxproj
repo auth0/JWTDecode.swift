@@ -55,7 +55,7 @@
 			containerPortal = 5F0068D91B3B46240048928E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5F0069081B3B532E0048928E;
-			remoteInfo = "JWTDecode-OSX";
+			remoteInfo = "JWTDecode-macOS";
 		};
 		918A8E721D63D4E5001F787B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -114,7 +114,7 @@
 		5F0068F31B3B46240048928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F0069021B3B511F0048928E /* JWTDecode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTDecode.swift; sourceTree = "<group>"; };
 		5F0069091B3B532E0048928E /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F0069131B3B532E0048928E /* JWTDecode-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F0069131B3B532E0048928E /* JWTDecode-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2496A31D64A91300A1C6E2 /* Cartfile.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		5F2496A41D64A91300A1C6E2 /* JWTDecode.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = JWTDecode.podspec; sourceTree = "<group>"; };
 		5F2496A51D64A91300A1C6E2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		5F2496A81D64A91300A1C6E2 /* Gemfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
 		5F2496AA1D64A91300A1C6E2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5F2496AB1D64A91300A1C6E2 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
-		5F2496AC1D64A91300A1C6E2 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		5F2496AC1D64A91300A1C6E2 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		5F2496AD1D64B88900A1C6E2 /* codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = codecov.yml; sourceTree = "<group>"; };
 		5F2614CD1C05FDDE0068DE71 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 		5F2614CE1C05FDDE0068DE71 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
@@ -227,7 +227,7 @@
 				5F0068E21B3B46240048928E /* JWTDecode.framework */,
 				5F0068ED1B3B46240048928E /* JWTDecode-iOSTests.xctest */,
 				5F0069091B3B532E0048928E /* JWTDecode.framework */,
-				5F0069131B3B532E0048928E /* JWTDecode-OSXTests.xctest */,
+				5F0069131B3B532E0048928E /* JWTDecode-macOSTests.xctest */,
 				918A8E5B1D63D2E1001F787B /* JWTDecode.framework */,
 				918A8E6C1D63D4E5001F787B /* JWTDecode-tvOSTests.xctest */,
 				E390BAE22288E6AF00780D6C /* JWTDecode.framework */,
@@ -285,7 +285,7 @@
 				5F2496A81D64A91300A1C6E2 /* Gemfile.lock */,
 				5F2496AA1D64A91300A1C6E2 /* README.md */,
 				5F2496AB1D64A91300A1C6E2 /* CHANGELOG.md */,
-				5F2496AC1D64A91300A1C6E2 /* LICENSE.txt */,
+				5F2496AC1D64A91300A1C6E2 /* LICENSE */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -399,9 +399,9 @@
 			productReference = 5F0068ED1B3B46240048928E /* JWTDecode-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5F0069081B3B532E0048928E /* JWTDecode-OSX */ = {
+		5F0069081B3B532E0048928E /* JWTDecode-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F00691C1B3B532E0048928E /* Build configuration list for PBXNativeTarget "JWTDecode-OSX" */;
+			buildConfigurationList = 5F00691C1B3B532E0048928E /* Build configuration list for PBXNativeTarget "JWTDecode-macOS" */;
 			buildPhases = (
 				5F0069041B3B532E0048928E /* Sources */,
 				5F0069051B3B532E0048928E /* Frameworks */,
@@ -413,14 +413,14 @@
 			);
 			dependencies = (
 			);
-			name = "JWTDecode-OSX";
-			productName = "JWTDecode-OSX";
+			name = "JWTDecode-macOS";
+			productName = "JWTDecode-macOS";
 			productReference = 5F0069091B3B532E0048928E /* JWTDecode.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5F0069121B3B532E0048928E /* JWTDecode-OSXTests */ = {
+		5F0069121B3B532E0048928E /* JWTDecode-macOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F00691F1B3B532E0048928E /* Build configuration list for PBXNativeTarget "JWTDecode-OSXTests" */;
+			buildConfigurationList = 5F00691F1B3B532E0048928E /* Build configuration list for PBXNativeTarget "JWTDecode-macOSTests" */;
 			buildPhases = (
 				5F00690F1B3B532E0048928E /* Sources */,
 				5F0069101B3B532E0048928E /* Frameworks */,
@@ -432,9 +432,9 @@
 			dependencies = (
 				5F0069161B3B532E0048928E /* PBXTargetDependency */,
 			);
-			name = "JWTDecode-OSXTests";
-			productName = "JWTDecode-OSXTests";
-			productReference = 5F0069131B3B532E0048928E /* JWTDecode-OSXTests.xctest */;
+			name = "JWTDecode-macOSTests";
+			productName = "JWTDecode-macOSTests";
+			productReference = 5F0069131B3B532E0048928E /* JWTDecode-macOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		918A8E5A1D63D2E1001F787B /* JWTDecode-tvOS */ = {
@@ -547,8 +547,8 @@
 			targets = (
 				5F0068E11B3B46240048928E /* JWTDecode-iOS */,
 				5F0068EC1B3B46240048928E /* JWTDecode-iOSTests */,
-				5F0069081B3B532E0048928E /* JWTDecode-OSX */,
-				5F0069121B3B532E0048928E /* JWTDecode-OSXTests */,
+				5F0069081B3B532E0048928E /* JWTDecode-macOS */,
+				5F0069121B3B532E0048928E /* JWTDecode-macOSTests */,
 				918A8E5A1D63D2E1001F787B /* JWTDecode-tvOS */,
 				918A8E6B1D63D4E5001F787B /* JWTDecode-tvOSTests */,
 				E390BAD12288E6AF00780D6C /* JWTDecode-watchOS */,
@@ -746,7 +746,7 @@
 		};
 		5F0069161B3B532E0048928E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5F0069081B3B532E0048928E /* JWTDecode-OSX */;
+			target = 5F0069081B3B532E0048928E /* JWTDecode-macOS */;
 			targetProxy = 5F0069151B3B532E0048928E /* PBXContainerItemProxy */;
 		};
 		918A8E731D63D4E5001F787B /* PBXTargetDependency */ = {
@@ -1295,7 +1295,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5F00691C1B3B532E0048928E /* Build configuration list for PBXNativeTarget "JWTDecode-OSX" */ = {
+		5F00691C1B3B532E0048928E /* Build configuration list for PBXNativeTarget "JWTDecode-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F00691D1B3B532E0048928E /* Debug */,
@@ -1304,7 +1304,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5F00691F1B3B532E0048928E /* Build configuration list for PBXNativeTarget "JWTDecode-OSXTests" */ = {
+		5F00691F1B3B532E0048928E /* Build configuration list for PBXNativeTarget "JWTDecode-macOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F0069201B3B532E0048928E /* Debug */,
