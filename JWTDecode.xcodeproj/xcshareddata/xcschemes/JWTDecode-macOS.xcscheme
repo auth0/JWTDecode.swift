@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5F0069081B3B532E0048928E"
                BuildableName = "JWTDecode.framework"
-               BlueprintName = "JWTDecode-OSX"
+               BlueprintName = "JWTDecode-macOS"
                ReferencedContainer = "container:JWTDecode.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5F0069121B3B532E0048928E"
-               BuildableName = "JWTDecode-OSXTests.xctest"
-               BlueprintName = "JWTDecode-OSXTests"
+               BuildableName = "JWTDecode-macOSTests.xctest"
+               BlueprintName = "JWTDecode-macOSTests"
                ReferencedContainer = "container:JWTDecode.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,7 +46,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F0069081B3B532E0048928E"
             BuildableName = "JWTDecode.framework"
-            BlueprintName = "JWTDecode-OSX"
+            BlueprintName = "JWTDecode-macOS"
             ReferencedContainer = "container:JWTDecode.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5F0069121B3B532E0048928E"
-               BuildableName = "JWTDecode-OSXTests.xctest"
-               BlueprintName = "JWTDecode-OSXTests"
+               BuildableName = "JWTDecode-macOSTests.xctest"
+               BlueprintName = "JWTDecode-macOSTests"
                ReferencedContainer = "container:JWTDecode.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -78,7 +78,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F0069081B3B532E0048928E"
             BuildableName = "JWTDecode.framework"
-            BlueprintName = "JWTDecode-OSX"
+            BlueprintName = "JWTDecode-macOS"
             ReferencedContainer = "container:JWTDecode.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -94,7 +94,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F0069081B3B532E0048928E"
             BuildableName = "JWTDecode.framework"
-            BlueprintName = "JWTDecode-OSX"
+            BlueprintName = "JWTDecode-macOS"
             ReferencedContainer = "container:JWTDecode.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
