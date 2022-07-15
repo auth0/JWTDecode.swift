@@ -1,4 +1,4 @@
-# JWTDecode.swift (First Availability)
+# JWTDecode.swift
 
 ![CircleCI](https://img.shields.io/circleci/build/github/auth0/JWTDecode.swift?style=flat)
 ![Version](https://img.shields.io/cocoapods/v/JWTDecode.svg?style=flat)
@@ -8,8 +8,6 @@
 Easily decode a [JWT](https://jwt.io/) and access the claims it contains.
 
 > ⚠️ This library doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.
-
-> ⚠️ This library is currently in [**First Availability**](https://auth0.com/docs/troubleshoot/product-lifecycle/product-release-stages). We do not recommend using this library in production yet. As we move towards General Availability, please be aware that releases may contain breaking changes.
 
 **Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).**
 
@@ -86,13 +84,13 @@ Then, run `carthage bootstrap --use-xcframeworks`.
 
 **See all the available features in the [API documentation ↗](https://auth0.github.io/JWTDecode.swift/documentation/jwtdecode/)**
 
-1. Import the framework:
+1. Import the framework
 
 ```swift
 import JWTDecode
 ```
 
-2. Decode the token:
+2. Decode the token
 
 ```swift
 let jwt = try decode(jwt: token)    
@@ -108,15 +106,15 @@ let jwt = try decode(jwt: token)
 
 ### Registered claims
 
-| Claim                     | Property         |
-|:--------------------------|:-----------------|
-| **aud** (Audience)        | `jwt.audience`   |
-| **sub** (Subject)         | `jwt.subject`    |
-| **jti** (JWT ID)          | `jwt.identifier` |
-| **iss** (Issuer)          | `jwt.issuer`     |
-| **nbf** (Not Before)      | `jwt.notBefore`  |
-| **iat** (Issued At)       | `jwt.issuedAt`   |
-| **exp** (Expiration Time) | `jwt.expiresAt`  |
+| Claim                   | Property         |
+|:------------------------|:-----------------|
+| **aud** Audience        | `jwt.audience`   |
+| **sub** Subject         | `jwt.subject`    |
+| **jti** JWT ID          | `jwt.identifier` |
+| **iss** Issuer          | `jwt.issuer`     |
+| **nbf** Not Before      | `jwt.notBefore`  |
+| **iat** Issued At       | `jwt.issuedAt`   |
+| **exp** Expiration Time | `jwt.expiresAt`  |
 
 ### Custom claims
 
