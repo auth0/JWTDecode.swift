@@ -13,6 +13,9 @@ Easily decode a [JWT](https://jwt.io/) and access the claims it contains.
 
 ---
 
+> 📣 **The [First Availability](https://auth0.com/docs/troubleshoot/product-lifecycle/product-release-stages) release of JWTDecode.swift 3.0.0 is out**
+<br>The GA release is planned for the third week of July. See [#171](https://github.com/auth0/JWTDecode.swift/issues/171) for more information.
+
 ## Table of Contents
 
 - [**Requirements**](#requirements)
