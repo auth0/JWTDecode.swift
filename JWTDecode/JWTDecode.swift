@@ -1,37 +1,15 @@
-// JWTDecode.swift
-//
-// Copyright (c) 2015 Auth0 (http://auth0.com)
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-
 import Foundation
 
-/**
- Decodes a JWT token into an object that holds the decoded body (along with token header and signature parts).
- If the token cannot be decoded a `NSError` will be thrown.
-
- - parameter jwt: jwt string value to decode
-
- - throws: an error if the JWT cannot be decoded
-
- - returns: a decoded token as an instance of JWT
- */
+/// Decodes a JWT into an object that holds the decoded body, along with the header and signature.
+///
+/// ```swift
+/// let jwt = try decode(jwt: idToken)
+/// ```
+///
+/// - Parameter jwt: JWT string value to decode.
+/// - Throws: A ``JWTDecodeError`` error if the JWT cannot be decoded.
+/// - Returns: A ``JWT`` value.
+/// - Important: This method doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.
 public func decode(jwt: String) throws -> JWT {
     return try DecodedJWT(jwt: jwt)
 }
@@ -46,7 +24,7 @@ struct DecodedJWT: JWT {
     init(jwt: String) throws {
         let parts = jwt.components(separatedBy: ".")
         guard parts.count == 3 else {
-            throw DecodeError.invalidPartCount(jwt, parts.count)
+            throw JWTDecodeError.invalidPartCount(jwt, parts.count)
         }
 
         self.header = try decodeJWTPart(parts[0])
@@ -71,30 +49,28 @@ struct DecodedJWT: JWT {
     }
 }
 
-/**
- *  JWT Claim
- */
+/// A JWT claim.
 public struct Claim {
 
-    /// raw value of the claim
+    /// Raw claim value.
     let value: Any?
 
-    /// original claim value
+    /// Original claim value.
     public var rawValue: Any? {
         return self.value
     }
 
-    /// value of the claim as `String`
+    /// Value of the claim as `String`.
     public var string: String? {
         return self.value as? String
     }
 
-     /// value of the claim as `Bool`
+     /// Value of the claim as `Bool`.
     public var boolean: Bool? {
         return self.value as? Bool
     }
 
-    /// value of the claim as `Double`
+    /// Value of the claim as `Double`.
     public var double: Double? {
         var double: Double?
         if let string = self.string {
@@ -105,7 +81,7 @@ public struct Claim {
         return double
     }
 
-    /// value of the claim as `Int`
+    /// Value of the claim as `Int`.
     public var integer: Int? {
         var integer: Int?
         if let string = self.string {
@@ -118,13 +94,13 @@ public struct Claim {
         return integer
     }
 
-    /// value of the claim as `NSDate`
+    /// Value of the claim as `Date`.
     public var date: Date? {
         guard let timestamp: TimeInterval = self.double else { return nil }
         return Date(timeIntervalSince1970: timestamp)
     }
 
-    /// value of the claim as `[String]`
+    /// Value of the claim as `[String]`.
     public var array: [String]? {
         if let array = self.value as? [String] {
             return array
@@ -134,6 +110,7 @@ public struct Claim {
         }
         return nil
     }
+
 }
 
 private func base64UrlDecode(_ value: String) -> Data? {
@@ -152,11 +129,11 @@ private func base64UrlDecode(_ value: String) -> Data? {
 
 private func decodeJWTPart(_ value: String) throws -> [String: Any] {
     guard let bodyData = base64UrlDecode(value) else {
-        throw DecodeError.invalidBase64Url(value)
+        throw JWTDecodeError.invalidBase64URL(value)
     }
 
     guard let json = try? JSONSerialization.jsonObject(with: bodyData, options: []), let payload = json as? [String: Any] else {
-        throw DecodeError.invalidJSON(value)
+        throw JWTDecodeError.invalidJSON(value)
     }
 
     return payload

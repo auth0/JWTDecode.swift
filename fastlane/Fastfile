@@ -1,12 +1,11 @@
 default_platform :ios
 
 platform :ios do
-
   before_all do
     setup_circle_ci
   end
 
-  desc "Run code linter"
+  desc 'Run code linter'
   lane :lint do
   	swiftlint(
   		mode: :lint,
@@ -16,7 +15,7 @@ platform :ios do
   	)
   end
 
-  desc "Runs all the tests"
+  desc 'Runs all the tests'
   lane :test do |options|
     scheme = options[:scheme]
     device = options[:device]
@@ -29,21 +28,51 @@ platform :ios do
       )
   end
 
-  desc "Cocoapods library lint"
+  desc 'Cocoapods library lint'
   lane :pod_lint do
     pod_lib_lint(verbose: false, allow_warnings: true)
   end
 
-  desc "Runs all the tests in a CI environment"
+  desc 'Runs all the tests in a CI environment'
   lane :ci do
     # TODO: Run rest of platforms
     lint
     test
   end
-  
-  desc "Tags the release and pushes the Podspec to CocoaPods"
+
+  desc 'Tags the release and pushes the Podspec to CocoaPods'
   lane :release do
     perform_release target: 'JWTDecode-iOS'
     publish_release repository: 'JWTDecode.swift'
+  end
+
+  desc 'Generate API documentation'
+  lane :build_docs do
+    target = 'JWTDecode'
+    docs_dir = 'docs'
+    docs_archive = 'docs.archive'
+    redirect_file = <<~HEREDOC
+      <html>
+        <head>
+          <meta http-equiv="refresh" content="0; url=documentation/#{target.downcase}/" />
+        </head>
+        <body>
+          <p>
+            <a href="documentation/#{target.downcase}/">Redirect</a>
+          </p>
+        </body>
+      </html>
+    HEREDOC
+    # Work from project root (defaults to /fastlane)
+    Dir.chdir('..') do
+      # Clear existing docs
+      FileUtils.rm_r(docs_dir)
+      # Generate the .doccarchive
+      sh "xcodebuild docbuild -scheme #{target}-iOS -configuration Release -destination 'generic/platform=iOS' -derivedDataPath #{docs_archive}"
+      # Generate the static site
+      sh "$(xcrun --find docc) process-archive transform-for-static-hosting #{docs_archive}/Build/Products/Release-iphoneos/#{target}.doccarchive --hosting-base-path #{target}.swift --output-path #{docs_dir}"
+      # Write redirect file
+      File.write("#{docs_dir}/index.html", redirect_file)
+    end
   end
 end
