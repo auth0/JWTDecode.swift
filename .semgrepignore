@@ -1,8 +1,6 @@
 docs/
-assets/
-Auth0Tests/
+JWTDecodeTests/
 fastlane/
 CHANGELOG.md
-V2_MIGRATION_GUIDE.md
-FAQ.md
+V3_MIGRATION_GUIDE.md
 README.md
