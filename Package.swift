@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "JWTDecode",
-    platforms: [.iOS(.v12), .macOS(.v10_15), .tvOS(.v12), .watchOS("6.2")],
+    platforms: [.iOS(.v12), .macOS(.v10_10), .tvOS(.v12), .watchOS("6.2")],
     products: [.library(name: "JWTDecode", targets: ["JWTDecode"])],
     dependencies: [
         .package(name: "Quick", url: "https://github.com/Quick/Quick.git", .upToNextMajor(from: "5.0.0")),
