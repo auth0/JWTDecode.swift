@@ -5,7 +5,7 @@
 [![Coverage Status](https://img.shields.io/codecov/c/github/auth0/JWTDecode.swift/master.svg?style=flat)](https://codecov.io/github/auth0/JWTDecode.swift)
 ![License](https://img.shields.io/github/license/auth0/JWTDecode.swift.svg?style=flat)
 
-📚 [**Documentation**](#documentation) • 🚀 [**Getting Started**](#getting-started) • 🤝 [**Support Policy**](#support-policy) • 💬 [**Feedback**](#feedback)
+📚 [**Documentation**](#documentation) • 🚀 [**Getting Started**](#getting-started) • 📃 [**Support Policy**](#support-policy) • 💬 [**Feedback**](#feedback)
 
 Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
 
