@@ -1,5 +1,6 @@
 name: 🐞 Report a bug
 description: Have you found a bug or issue? Create a bug report for this library
+labels: ["bug"]
 
 body:
   - type: markdown
@@ -55,7 +56,9 @@ body:
       multiple: true
       options:
         - iOS
+        - iPadOS
         - macOS
+        - macCatalyst
         - tvOS
         - watchOS
     validations:
