@@ -10,6 +10,12 @@ import Foundation
 /// - Throws: A ``JWTDecodeError`` error if the JWT cannot be decoded.
 /// - Returns: A ``JWT`` value.
 /// - Important: This method doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.
+///
+/// ## See Also
+///
+/// - [JWT.io](https://jwt.io)
+/// - [Validate JSON Web Tokens](https://auth0.com/docs/secure/tokens/json-web-tokens/validate-json-web-tokens)
+/// - [Validate ID Tokens](https://auth0.com/docs/secure/tokens/id-tokens/validate-id-tokens)
 public func decode(jwt: String) throws -> JWT {
     return try DecodedJWT(jwt: jwt)
 }

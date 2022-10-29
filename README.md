@@ -13,7 +13,7 @@ Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
 
 ## Documentation
 
-- [**API Documentation**](https://auth0.github.io/JWTDecode.swift/documentation/jwtdecode/) - documentation auto-generated from the code comments that explains all the available features.
+- [**API Documentation**](https://auth0.github.io/JWTDecode.swift/documentation/jwtdecode) - documentation auto-generated from the code comments that explains all the available features.
   + [JWT](https://auth0.github.io/JWTDecode.swift/documentation/jwtdecode/jwt)
   + [Claim](https://auth0.github.io/JWTDecode.swift/documentation/jwtdecode/claim)
   + [JWTDecodeError](https://auth0.github.io/JWTDecode.swift/documentation/jwtdecode/jwtdecodeerror)
@@ -67,7 +67,7 @@ Then, run `carthage bootstrap --use-xcframeworks`.
 
 ### Usage
 
-**See all the available features in the [API documentation ↗](https://auth0.github.io/JWTDecode.swift/documentation/jwtdecode/)**
+**See all the available features in the [API documentation ↗](https://auth0.github.io/JWTDecode.swift/documentation/jwtdecode)**
 
 1. Import the framework
 
