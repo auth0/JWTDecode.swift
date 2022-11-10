@@ -9,8 +9,7 @@
 
 Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
 
-> **Warning**
-> This library doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.
+**This library doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.**
 
 ## Documentation
 
