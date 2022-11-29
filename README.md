@@ -7,9 +7,9 @@
 
 📚 [**Documentation**](#documentation) • 🚀 [**Getting Started**](#getting-started) • 📃 [**Support Policy**](#support-policy) • 💬 [**Feedback**](#feedback)
 
-Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
+**This library doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.**
 
-> ⚠️ This library doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.
+Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
 
 ## Documentation
 
@@ -19,13 +19,14 @@ Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
   + [JWTDecodeError](https://auth0.github.io/JWTDecode.swift/documentation/jwtdecode/jwtdecodeerror)
 - [**Auth0 Documentation**](https://auth0.com/docs) - explore our docs site and learn more about Auth0.
 
-> ⚠️ Check the [Support Policy](#support-policy) to learn when dropping Xcode, Swift, and platform versions will not be considered a **breaking change**.
+> **Note**
+> Check the [Support Policy](#support-policy) to learn when dropping Xcode, Swift, and platform versions will not be considered a **breaking change**.
 
 ## Getting Started
 
 ### Requirements
 
-- iOS 12+ / macOS 10.15+ / tvOS 12.0+ / watchOS 6.2+
+- iOS 12.0+ / macOS 10.15+ / tvOS 12.0+ / watchOS 6.2+
 - Xcode 13.x / 14.x
 - Swift 5.5+
 
