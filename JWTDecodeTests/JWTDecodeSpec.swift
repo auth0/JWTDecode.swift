@@ -147,7 +147,18 @@ class JWTDecodeSpec: QuickSpec {
 
             describe("custom claim") {
                 beforeEach {
-                    sut = jwt(withBody: ["sub": UUID().uuidString, "custom_string_claim": "Shawarma Friday!", "custom_integer_claim": 10, "custom_double_claim": 3.4, "custom_double_string_claim": "1.3", "custom_true_boolean_claim": true, "custom_false_boolean_claim": false])
+                    sut = jwt(withBody: ["sub": UUID().uuidString,
+                                         "custom_string_claim": "Shawarma Friday!",
+                                         "custom_integer_claim": 10,
+                                         "custom_integer_claim_0": 0,
+                                         "custom_integer_claim_1": 1,
+                                         "custom_integer_claim_string": "13",
+                                         "custom_double_claim": 3.1,
+                                         "custom_double_claim_0.0": 0.0,
+                                         "custom_double_claim_1.0": 1.0,
+                                         "custom_double_claim_string": "1.3",
+                                         "custom_boolean_claim_true": true,
+                                         "custom_boolean_claim_false": false])
                 }
 
                 it("should return claim by name") {
@@ -175,18 +186,68 @@ class JWTDecodeSpec: QuickSpec {
                     expect(claim.boolean).to(beNil())
                 }
 
+                it("should return '0' integer claim") {
+                    let claim = sut["custom_integer_claim_0"]
+                    expect(claim.string).to(beNil())
+                    expect(claim.array).to(beNil())
+                    expect(claim.integer) == 0
+                    expect(claim.double) == 0.0
+                    expect(claim.date) == Date(timeIntervalSince1970: 0)
+                    expect(claim.boolean).to(beNil())
+                }
+
+                it("should return '1' integer claim") {
+                    let claim = sut["custom_integer_claim_1"]
+                    expect(claim.string).to(beNil())
+                    expect(claim.array).to(beNil())
+                    expect(claim.integer) == 1
+                    expect(claim.double) == 1.0
+                    expect(claim.date) == Date(timeIntervalSince1970: 1)
+                    expect(claim.boolean).to(beNil())
+                }
+
+                it("should return integer as string claim") {
+                    let claim = sut["custom_integer_claim_string"]
+                    expect(claim.string) == "13"
+                    expect(claim.array) == ["13"]
+                    expect(claim.integer) == 13
+                    expect(claim.double) == 13.0
+                    expect(claim.date) == Date(timeIntervalSince1970: 13)
+                    expect(claim.boolean).to(beNil())
+                }
+
                 it("should return double claim") {
                     let claim = sut["custom_double_claim"]
                     expect(claim.string).to(beNil())
                     expect(claim.array).to(beNil())
                     expect(claim.integer) == 3
-                    expect(claim.double) == 3.4
-                    expect(claim.date) == Date(timeIntervalSince1970: 3.4)
+                    expect(claim.double) == 3.1
+                    expect(claim.date) == Date(timeIntervalSince1970: 3.1)
+                    expect(claim.boolean).to(beNil())
+                }
+
+                it("should return '0.0' double claim") {
+                    let claim = sut["custom_double_claim_0.0"]
+                    expect(claim.string).to(beNil())
+                    expect(claim.array).to(beNil())
+                    expect(claim.integer) == 0
+                    expect(claim.double) == 0.0
+                    expect(claim.date) == Date(timeIntervalSince1970: 0)
+                    expect(claim.boolean).to(beNil())
+                }
+
+                it("should return '1.0' double claim") {
+                    let claim = sut["custom_double_claim_1.0"]
+                    expect(claim.string).to(beNil())
+                    expect(claim.array).to(beNil())
+                    expect(claim.integer) == 1
+                    expect(claim.double) == 1.0
+                    expect(claim.date) == Date(timeIntervalSince1970: 1)
                     expect(claim.boolean).to(beNil())
                 }
 
                 it("should return double as string claim") {
-                    let claim = sut["custom_double_string_claim"]
+                    let claim = sut["custom_double_claim_string"]
                     expect(claim.string) == "1.3"
                     expect(claim.array) == ["1.3"]
                     expect(claim.integer).to(beNil())
@@ -196,7 +257,7 @@ class JWTDecodeSpec: QuickSpec {
                 }
 
                 it("should return true boolean claim") {
-                    let claim = sut["custom_true_boolean_claim"]
+                    let claim = sut["custom_boolean_claim_true"]
                     expect(claim.string).to(beNil())
                     expect(claim.array).to(beNil())
                     expect(claim.integer).to(beNil())
@@ -206,7 +267,7 @@ class JWTDecodeSpec: QuickSpec {
                 }
 
                 it("should return false boolean claim") {
-                    let claim = sut["custom_false_boolean_claim"]
+                    let claim = sut["custom_boolean_claim_false"]
                     expect(claim.string).to(beNil())
                     expect(claim.array).to(beNil())
                     expect(claim.integer).to(beNil())
