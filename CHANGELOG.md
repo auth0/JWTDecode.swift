@@ -1,5 +1,11 @@
 # Change Log
 
+## [3.0.1](https://github.com/auth0/JWTDecode.swift/tree/3.0.1) (2023-01-24)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/3.0.0...3.0.1)
+
+**Fixed**
+- Fix conversion of boolean claim values [\#193](https://github.com/auth0/JWTDecode.swift/pull/193) ([Widcket](https://github.com/Widcket))
+
 ## [3.0.0](https://github.com/auth0/JWTDecode.swift/tree/3.0.0) (2022-07-20)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/2.6.3...3.0.0)
 
