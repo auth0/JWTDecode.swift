@@ -73,7 +73,17 @@ public struct Claim {
 
      /// Value of the claim as `Bool`.
     public var boolean: Bool? {
-        return self.value as? Bool
+        // This is necessary because Core Foundation's JSON deserialization turns JSON booleans into CFBoolean values,
+        // which get wrapped in NSNumber –a Foundation type. But integers and floats also get wrapped in NSNumber, and
+        // thus Swift will happily bridge a NSNumber containing a '1' or '1.0' to a 'true' Bool, and a '0' or '0.0' to
+        // a 'false' Bool.
+        // So, to find out if the deserialized claim value is really a CFBoolean or not, we need to bypass its NSNumber
+        // wrapper and check its Core Foundation type directly. We do so by comparing its Core Foundation type ID to
+        // that of CFBoolean.
+        if let value = self.value as CFTypeRef?, CFGetTypeID(value) == CFBooleanGetTypeID() {
+            return self.value as? Bool
+        }
+        return nil
     }
 
     /// Value of the claim as `Double`.
@@ -138,7 +148,8 @@ private func decodeJWTPart(_ value: String) throws -> [String: Any] {
         throw JWTDecodeError.invalidBase64URL(value)
     }
 
-    guard let json = try? JSONSerialization.jsonObject(with: bodyData, options: []), let payload = json as? [String: Any] else {
+    guard let json = try? JSONSerialization.jsonObject(with: bodyData, options: []),
+          let payload = json as? [String: Any] else {
         throw JWTDecodeError.invalidJSON(value)
     }
 
