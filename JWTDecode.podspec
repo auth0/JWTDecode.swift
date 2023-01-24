@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'JWTDecode'
-  s.version          = '3.0.0'
+  s.version          = '3.0.1'
   s.summary          = 'A JWT decoder for iOS, macOS, tvOS, and watchOS'
   s.description      = <<-DESC
                         Easily decode a JWT and access the claims it contains. 
