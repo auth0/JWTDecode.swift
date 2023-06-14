@@ -1,5 +1,11 @@
 # Change Log
 
+## [3.1.0](https://github.com/auth0/JWTDecode.swift/tree/3.1.0) (2023-06-14)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/3.0.1...3.1.0)
+
+**Removed**
+- Drop support for iOS 12, tvOS 12, macOS 10.15, watch0S < 7, and Xcode 13 [\#199](https://github.com/auth0/JWTDecode.swift/pull/199) ([Widcket](https://github.com/Widcket))
+
 ## [3.0.1](https://github.com/auth0/JWTDecode.swift/tree/3.0.1) (2023-01-24)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/3.0.0...3.0.1)
 
