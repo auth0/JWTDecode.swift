@@ -51,7 +51,7 @@ Then, select the dependency rule and press **Add Package**.
 Add the following line to your `Podfile`:
 
 ```ruby
-pod 'JWTDecode', '~> 3.0'
+pod 'JWTDecode', '~> 3.1'
 ```
 
 Then, run `pod install`.
@@ -61,7 +61,7 @@ Then, run `pod install`.
 Add the following line to your `Cartfile`:
 
 ```text
-github "auth0/JWTDecode.swift" ~> 3.0
+github "auth0/JWTDecode.swift" ~> 3.1
 ```
 
 Then, run `carthage bootstrap --use-xcframeworks`.
