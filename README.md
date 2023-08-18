@@ -1,7 +1,7 @@
 ![JWTDecode.swift](https://cdn.auth0.com/website/sdks/banners/jwtdecode-swift-banner.png)
 
 ![Version](https://img.shields.io/cocoapods/v/JWTDecode.svg?style=flat)
-[![CircleCI](https://img.shields.io/circleci/build/github/auth0/JWTDecode.swift?style=flat)](https://circleci.com/gh/auth0/JWTDecode.swift/tree/master)
+![Build Status](https://img.shields.io/github/actions/workflow/status/auth0/JWTDecode.swift/main.yml?style=flat)
 [![Coverage Status](https://img.shields.io/codecov/c/github/auth0/JWTDecode.swift/master.svg?style=flat)](https://codecov.io/github/auth0/JWTDecode.swift)
 ![License](https://img.shields.io/github/license/auth0/JWTDecode.swift.svg?style=flat)
 
