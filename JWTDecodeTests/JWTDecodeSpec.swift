@@ -322,7 +322,7 @@ class JWTDecodeSpec: QuickSpec {
     }
 }
 
-public func beJWTDecodeError(_ code: JWTDecodeError) -> Predicate<Error> {
+public func beJWTDecodeError(_ code: JWTDecodeError) -> Nimble.Predicate<Error> {
      return Predicate<Error>.define("be jwt decode error <\(code)>") { expression, failureMessage -> PredicateResult in
         guard let actual = try expression.evaluate() as? JWTDecodeError else {
             return PredicateResult(status: .doesNotMatch, message: failureMessage)
