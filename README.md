@@ -19,16 +19,16 @@ Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
   + [JWTDecodeError](https://auth0.github.io/JWTDecode.swift/documentation/jwtdecode/jwtdecodeerror)
 - [**Auth0 Documentation**](https://auth0.com/docs) - explore our docs site and learn more about Auth0.
 
-> **Note**
+> [!IMPORTANT]
 > Check the [Support Policy](#support-policy) to learn when dropping Xcode, Swift, and platform versions will not be considered a **breaking change**.
 
 ## Getting Started
 
 ### Requirements
 
-- iOS 12.0+ / macOS 10.15+ / tvOS 12.0+ / watchOS 6.2+
-- Xcode 13.x / 14.x
-- Swift 5.5+
+- iOS 13.0+ / macOS 11.0+ / tvOS 13.0+ / watchOS 7.0+
+- Xcode 14.x / 15.x
+- Swift 5.7+
 
 ### Installation
 
@@ -156,14 +156,6 @@ The only supported versions of Xcode are those that can be currently used to sub
 The minimum supported Swift minor version is the one released with the oldest-supported Xcode version. Once a Swift minor becomes unsupported, dropping it from JWTDecode.swift **will not be considered a breaking change**, and will be done in a **minor** release.
 
 ### Platforms
-
-Only the last 4 major platform versions are supported, starting from:
-
-- iOS **12**
-- macOS **10.15**
-- macCatalyst **13**
-- tvOS **12**
-- watchOS **6.2**
 
 Once a platform version becomes unsupported, dropping it from JWTDecode.swift **will not be considered a breaking change**, and will be done in a **minor** release. For example, iOS 13 will cease to be supported when iOS 17 gets released, and JWTDecode.swift will be able to drop it in a minor release.
 
