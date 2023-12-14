@@ -19,7 +19,7 @@ Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
   + [JWTDecodeError](https://auth0.github.io/JWTDecode.swift/documentation/jwtdecode/jwtdecodeerror)
 - [**Auth0 Documentation**](https://auth0.com/docs) - explore our docs site and learn more about Auth0.
 
-> **Note**
+> [!IMPORTANT]
 > Check the [Support Policy](#support-policy) to learn when dropping Xcode, Swift, and platform versions will not be considered a **breaking change**.
 
 ## Getting Started
