@@ -37,6 +37,9 @@
 		918A8E651D63D2F7001F787B /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		918A8E661D63D2FB001F787B /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 		918A8E671D63D2FE001F787B /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
+		C1896EF92C1C69F400CA1000 /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
+		C1896EFA2C1C69F400CA1000 /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
+		C1896EFB2C1C69F400CA1000 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 		E390BAD32288E6AF00780D6C /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
 		E390BAD82288E6AF00780D6C /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		E390BAD92288E6AF00780D6C /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
@@ -135,6 +138,7 @@
 		918A8E6C1D63D4E5001F787B /* JWTDecode-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		918A8E7A1D63D86E001F787B /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		918A8E7B1D63D86E001F787B /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = SOURCE_ROOT; };
+		C1896EF12C1C690E00CA1000 /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E390BAE22288E6AF00780D6C /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -190,6 +194,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1896EEE2C1C690E00CA1000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E390BADA2288E6AF00780D6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,6 +242,7 @@
 				918A8E5B1D63D2E1001F787B /* JWTDecode.framework */,
 				918A8E6C1D63D4E5001F787B /* JWTDecode-tvOSTests.xctest */,
 				E390BAE22288E6AF00780D6C /* JWTDecode.framework */,
+				C1896EF12C1C690E00CA1000 /* JWTDecode.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -345,6 +357,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		918A8E581D63D2E1001F787B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1896EEC2C1C690E00CA1000 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -475,6 +494,25 @@
 			productReference = 918A8E6C1D63D4E5001F787B /* JWTDecode-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C1896EF02C1C690E00CA1000 /* JWTDecode-visionOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1896EF72C1C690E00CA1000 /* Build configuration list for PBXNativeTarget "JWTDecode-visionOS" */;
+			buildPhases = (
+				C1896EEC2C1C690E00CA1000 /* Headers */,
+				C1896EED2C1C690E00CA1000 /* Sources */,
+				C1896EEE2C1C690E00CA1000 /* Frameworks */,
+				C1896EEF2C1C690E00CA1000 /* Resources */,
+				C1896EF82C1C699500CA1000 /* SwiftLint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JWTDecode-visionOS";
+			productName = "JWTDecode-visionOS";
+			productReference = C1896EF12C1C690E00CA1000 /* JWTDecode.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		E390BAD12288E6AF00780D6C /* JWTDecode-watchOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E390BADF2288E6AF00780D6C /* Build configuration list for PBXNativeTarget "JWTDecode-watchOS" */;
@@ -530,6 +568,9 @@
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 					};
+					C1896EF02C1C690E00CA1000 = {
+						CreatedOnToolsVersion = 15.4;
+					};
 				};
 			};
 			buildConfigurationList = 5F0068DC1B3B46240048928E /* Build configuration list for PBXProject "JWTDecode" */;
@@ -552,6 +593,7 @@
 				918A8E5A1D63D2E1001F787B /* JWTDecode-tvOS */,
 				918A8E6B1D63D4E5001F787B /* JWTDecode-tvOSTests */,
 				E390BAD12288E6AF00780D6C /* JWTDecode-watchOS */,
+				C1896EF02C1C690E00CA1000 /* JWTDecode-visionOS */,
 			);
 		};
 /* End PBXProject section */
@@ -593,6 +635,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		918A8E6A1D63D4E5001F787B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1896EEF2C1C690E00CA1000 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -646,6 +695,25 @@
 			inputPaths = (
 			);
 			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -z ${CI} ]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint > /dev/null; then\n        swiftlint\n    else\n        echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    fi\nfi\n";
+		};
+		C1896EF82C1C699500CA1000 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,6 +791,16 @@
 			files = (
 				5C1B5D8D238711B10076E46B /* JWTDecodeSpec.swift in Sources */,
 				5C1B5D8E238711B30076E46B /* JWTHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1896EED2C1C690E00CA1000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1896EF92C1C69F400CA1000 /* JWTDecode.swift in Sources */,
+				C1896EFA2C1C69F400CA1000 /* JWTDecodeError.swift in Sources */,
+				C1896EFB2C1C69F400CA1000 /* JWT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1201,6 +1279,107 @@
 			};
 			name = Release;
 		};
+		C1896EF52C1C690E00CA1000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CLANG_ANALYZER_NONNULL = YES_NONAGGRESSIVE;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = JWTDecode/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				MARKETING_VERSION = "";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
+				PRODUCT_NAME = JWTDecode;
+				SDKROOT = xros;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Debug;
+		};
+		C1896EF62C1C690E00CA1000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CLANG_ANALYZER_NONNULL = YES_NONAGGRESSIVE;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = JWTDecode/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				MARKETING_VERSION = "";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.JWTDecode;
+				PRODUCT_NAME = JWTDecode;
+				SDKROOT = xros;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Release;
+		};
 		E390BAE02288E6AF00780D6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1327,6 +1506,15 @@
 			buildConfigurations = (
 				918A8E751D63D4E5001F787B /* Debug */,
 				918A8E761D63D4E5001F787B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1896EF72C1C690E00CA1000 /* Build configuration list for PBXNativeTarget "JWTDecode-visionOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1896EF52C1C690E00CA1000 /* Debug */,
+				C1896EF62C1C690E00CA1000 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
