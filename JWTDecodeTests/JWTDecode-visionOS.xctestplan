@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "DE726C37-73DB-44C8-B8EF-CE17A5231347",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:JWTDecode.xcodeproj",
+        "identifier" : "C1896EFF2C1C71AC00CA1000",
+        "name" : "JWTDecode-visionOSTests"
+      }
+    }
+  ],
+  "version" : 1
+}

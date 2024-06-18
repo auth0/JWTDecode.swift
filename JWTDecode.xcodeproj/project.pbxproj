@@ -40,6 +40,16 @@
 		C1896EF92C1C69F400CA1000 /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		C1896EFA2C1C69F400CA1000 /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
 		C1896EFB2C1C69F400CA1000 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
+		C1896F042C1C71AC00CA1000 /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1896EF12C1C690E00CA1000 /* JWTDecode.framework */; };
+		C1896F0C2C1C730F00CA1000 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9C9F926FC1E8F005A75FA /* Nimble.xcframework */; };
+		C1896F0D2C1C730F00CA1000 /* Nimble.xcframework in Copy Files */ = {isa = PBXBuildFile; fileRef = 5CE9C9F926FC1E8F005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C1896F0F2C1C731000CA1000 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9C9FA26FC1E8F005A75FA /* Quick.xcframework */; };
+		C1896F102C1C731100CA1000 /* Quick.xcframework in Copy Files */ = {isa = PBXBuildFile; fileRef = 5CE9C9FA26FC1E8F005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C1896F112C1C738900CA1000 /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA5A02237EBBCA00264C01 /* JWTDecodeSpec.swift */; };
+		C1896F122C1C738900CA1000 /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA5A04237EBBCB00264C01 /* JWTHelper.swift */; };
+		C1D1FB862C2177DA008E9E3F /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FB852C2177DA008E9E3F /* CwlPreconditionTesting */; };
+		C1D1FB882C217FBF008E9E3F /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FB872C217FBF008E9E3F /* CwlPreconditionTesting */; };
+		C1D1FB8A2C218877008E9E3F /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FB892C218877008E9E3F /* CwlPreconditionTesting */; };
 		E390BAD32288E6AF00780D6C /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
 		E390BAD82288E6AF00780D6C /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		E390BAD92288E6AF00780D6C /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
@@ -66,6 +76,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 918A8E5A1D63D2E1001F787B;
 			remoteInfo = "JWTDecode-tvOS";
+		};
+		C1896F052C1C71AC00CA1000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F0068D91B3B46240048928E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1896EF02C1C690E00CA1000;
+			remoteInfo = "JWTDecode-visionOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -101,6 +118,18 @@
 				5CE9CA0926FC200D005A75FA /* Nimble.xcframework in CopyFiles */,
 				5CE9CA0A26FC200D005A75FA /* Quick.xcframework in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1896F0E2C1C730F00CA1000 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C1896F0D2C1C730F00CA1000 /* Nimble.xcframework in Copy Files */,
+				C1896F102C1C731100CA1000 /* Quick.xcframework in Copy Files */,
+			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -139,6 +168,8 @@
 		918A8E7A1D63D86E001F787B /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		918A8E7B1D63D86E001F787B /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 		C1896EF12C1C690E00CA1000 /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1896F002C1C71AC00CA1000 /* JWTDecode-visionOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-visionOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1896F212C1C7E7300CA1000 /* JWTDecode-visionOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "JWTDecode-visionOS.xctestplan"; sourceTree = "<group>"; };
 		E390BAE22288E6AF00780D6C /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1D1FB882C217FBF008E9E3F /* CwlPreconditionTesting in Frameworks */,
 				5CE9C9FB26FC1E8F005A75FA /* Nimble.xcframework in Frameworks */,
 				5CE9C9FC26FC1E8F005A75FA /* Quick.xcframework in Frameworks */,
 				5CE9CA0C26FC22F8005A75FA /* JWTDecode.framework in Frameworks */,
@@ -171,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1D1FB8A2C218877008E9E3F /* CwlPreconditionTesting in Frameworks */,
 				5CE9CA0326FC1FF5005A75FA /* Nimble.xcframework in Frameworks */,
 				5CE9CA0426FC1FF5005A75FA /* Quick.xcframework in Frameworks */,
 				5CE9CA0D26FC23B1005A75FA /* JWTDecode.framework in Frameworks */,
@@ -198,6 +231,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1896EFD2C1C71AC00CA1000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1D1FB862C2177DA008E9E3F /* CwlPreconditionTesting in Frameworks */,
+				C1896F0F2C1C731000CA1000 /* Quick.xcframework in Frameworks */,
+				C1896F0C2C1C730F00CA1000 /* Nimble.xcframework in Frameworks */,
+				C1896F042C1C71AC00CA1000 /* JWTDecode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +287,7 @@
 				918A8E6C1D63D4E5001F787B /* JWTDecode-tvOSTests.xctest */,
 				E390BAE22288E6AF00780D6C /* JWTDecode.framework */,
 				C1896EF12C1C690E00CA1000 /* JWTDecode.framework */,
+				C1896F002C1C71AC00CA1000 /* JWTDecode-visionOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -269,6 +314,7 @@
 		5F0068F11B3B46240048928E /* JWTDecodeTests */ = {
 			isa = PBXGroup;
 			children = (
+				C1896F212C1C7E7300CA1000 /* JWTDecode-visionOS.xctestplan */,
 				57EA5A02237EBBCA00264C01 /* JWTDecodeSpec.swift */,
 				57EA5A04237EBBCB00264C01 /* JWTHelper.swift */,
 				5F0068F21B3B46240048928E /* Supporting Files */,
@@ -414,6 +460,9 @@
 				5F0068F01B3B46240048928E /* PBXTargetDependency */,
 			);
 			name = "JWTDecode-iOSTests";
+			packageProductDependencies = (
+				C1D1FB872C217FBF008E9E3F /* CwlPreconditionTesting */,
+			);
 			productName = JWTDecodeTests;
 			productReference = 5F0068ED1B3B46240048928E /* JWTDecode-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -452,6 +501,9 @@
 				5F0069161B3B532E0048928E /* PBXTargetDependency */,
 			);
 			name = "JWTDecode-macOSTests";
+			packageProductDependencies = (
+				C1D1FB892C218877008E9E3F /* CwlPreconditionTesting */,
+			);
 			productName = "JWTDecode-macOSTests";
 			productReference = 5F0069131B3B532E0048928E /* JWTDecode-macOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -513,6 +565,28 @@
 			productReference = C1896EF12C1C690E00CA1000 /* JWTDecode.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		C1896EFF2C1C71AC00CA1000 /* JWTDecode-visionOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1896F072C1C71AC00CA1000 /* Build configuration list for PBXNativeTarget "JWTDecode-visionOSTests" */;
+			buildPhases = (
+				C1896EFC2C1C71AC00CA1000 /* Sources */,
+				C1896EFD2C1C71AC00CA1000 /* Frameworks */,
+				C1896EFE2C1C71AC00CA1000 /* Resources */,
+				C1896F0E2C1C730F00CA1000 /* Copy Files */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1896F062C1C71AC00CA1000 /* PBXTargetDependency */,
+			);
+			name = "JWTDecode-visionOSTests";
+			packageProductDependencies = (
+				C1D1FB852C2177DA008E9E3F /* CwlPreconditionTesting */,
+			);
+			productName = "JWTDecode-visionOSTests";
+			productReference = C1896F002C1C71AC00CA1000 /* JWTDecode-visionOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E390BAD12288E6AF00780D6C /* JWTDecode-watchOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E390BADF2288E6AF00780D6C /* Build configuration list for PBXNativeTarget "JWTDecode-watchOS" */;
@@ -538,7 +612,7 @@
 		5F0068D91B3B46240048928E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = Auth0;
 				TargetAttributes = {
@@ -571,6 +645,9 @@
 					C1896EF02C1C690E00CA1000 = {
 						CreatedOnToolsVersion = 15.4;
 					};
+					C1896EFF2C1C71AC00CA1000 = {
+						CreatedOnToolsVersion = 15.4;
+					};
 				};
 			};
 			buildConfigurationList = 5F0068DC1B3B46240048928E /* Build configuration list for PBXProject "JWTDecode" */;
@@ -582,6 +659,9 @@
 				Base,
 			);
 			mainGroup = 5F0068D81B3B46240048928E;
+			packageReferences = (
+				C1D1FB842C2177DA008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */,
+			);
 			productRefGroup = 5F0068E31B3B46240048928E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -594,6 +674,7 @@
 				918A8E6B1D63D4E5001F787B /* JWTDecode-tvOSTests */,
 				E390BAD12288E6AF00780D6C /* JWTDecode-watchOS */,
 				C1896EF02C1C690E00CA1000 /* JWTDecode-visionOS */,
+				C1896EFF2C1C71AC00CA1000 /* JWTDecode-visionOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -642,6 +723,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C1896EEF2C1C690E00CA1000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1896EFE2C1C71AC00CA1000 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -804,6 +892,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1896EFC2C1C71AC00CA1000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1896F112C1C738900CA1000 /* JWTDecodeSpec.swift in Sources */,
+				C1896F122C1C738900CA1000 /* JWTHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E390BAD22288E6AF00780D6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -831,6 +928,11 @@
 			isa = PBXTargetDependency;
 			target = 918A8E5A1D63D2E1001F787B /* JWTDecode-tvOS */;
 			targetProxy = 918A8E721D63D4E5001F787B /* PBXContainerItemProxy */;
+		};
+		C1896F062C1C71AC00CA1000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1896EF02C1C690E00CA1000 /* JWTDecode-visionOS */;
+			targetProxy = C1896F052C1C71AC00CA1000 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1025,8 +1127,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1047,8 +1149,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1380,6 +1482,80 @@
 			};
 			name = Release;
 		};
+		C1896F082C1C71AC00CA1000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES_NONAGGRESSIVE;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LD_RUNPATH_SEARCH_PATHS_SHALLOW_BUNDLE_$(SHALLOW_BUNDLE))",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				MARKETING_VERSION = "";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.JWTDecode-visionOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Debug;
+		};
+		C1896F092C1C71AC00CA1000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES_NONAGGRESSIVE;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = JWTDecodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LD_RUNPATH_SEARCH_PATHS_SHALLOW_BUNDLE_$(SHALLOW_BUNDLE))",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				MARKETING_VERSION = "";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.JWTDecode-visionOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Release;
+		};
 		E390BAE02288E6AF00780D6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1519,6 +1695,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C1896F072C1C71AC00CA1000 /* Build configuration list for PBXNativeTarget "JWTDecode-visionOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1896F082C1C71AC00CA1000 /* Debug */,
+				C1896F092C1C71AC00CA1000 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E390BADF2288E6AF00780D6C /* Build configuration list for PBXNativeTarget "JWTDecode-watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1529,6 +1714,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C1D1FB842C2177DA008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattgallagher/CwlPreconditionTesting.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C1D1FB852C2177DA008E9E3F /* CwlPreconditionTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1D1FB842C2177DA008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
+			productName = CwlPreconditionTesting;
+		};
+		C1D1FB872C217FBF008E9E3F /* CwlPreconditionTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1D1FB842C2177DA008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
+			productName = CwlPreconditionTesting;
+		};
+		C1D1FB892C218877008E9E3F /* CwlPreconditionTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1D1FB842C2177DA008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
+			productName = CwlPreconditionTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5F0068D91B3B46240048928E /* Project object */;
 }
