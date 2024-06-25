@@ -76,7 +76,7 @@ Then, run `carthage bootstrap --use-xcframeworks`.
 import JWTDecode
 ```
 
-2. Decode the token
+2. Decode the token using the code snippet shared below:
 
 ```swift
 let jwt = try decode(jwt: token)    
