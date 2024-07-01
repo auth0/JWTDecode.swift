@@ -1,4 +1,4 @@
-![JWTDecode.swift](https://cdn.auth0.com/website/sdks/banners/jwtdecode-swift-banner.png)
+TEST![JWTDecode.swift](https://cdn.auth0.com/website/sdks/banners/jwtdecode-swift-banner.png)
 
 ![Version](https://img.shields.io/cocoapods/v/JWTDecode.svg?style=flat)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/auth0/JWTDecode.swift/main.yml?style=flat)
