@@ -5,8 +5,5 @@
 
 ## Environment setup
 
-We use [Carthage](https://github.com/Carthage/Carthage) to manage JWTDecode.swift's dependencies. 
-
 1. Clone this repository and enter its root directory.
-2. Run `carthage bootstrap --use-xcframeworks` to fetch and build the dependencies.
-3. Open `JWTDecode.xcodeproj` in Xcode.
+2. Open `JWTDecode.xcodeproj` in Xcode.
