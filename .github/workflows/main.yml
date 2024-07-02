@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
     test:
-        name: Test on ${{ matrix.platform.os }} using Xcode ${{ matrix.xcode }}s
+        name: Test on ${{ matrix.platform.os }} using Xcode ${{ matrix.xcode }}
         runs-on: macos-13
 
         env:
