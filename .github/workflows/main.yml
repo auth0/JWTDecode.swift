@@ -15,7 +15,6 @@ concurrency:
 jobs:
     test:
         name: Test on ${{ matrix.platform.os }} using Xcode ${{ matrix.xcode }}
-        environment: ${{ github.event.pull_request.head.repo.fork && 'external' || 'internal' }}
         runs-on: macos-13
 
         env:
