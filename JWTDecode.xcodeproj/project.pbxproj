@@ -37,6 +37,7 @@
 		918A8E651D63D2F7001F787B /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		918A8E661D63D2FB001F787B /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 		918A8E671D63D2FE001F787B /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
+		C12BFE422C348AF500D1CC00 /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C12BFE412C348AF500D1CC00 /* CwlPreconditionTesting */; };
 		C1896EF92C1C69F400CA1000 /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		C1896EFA2C1C69F400CA1000 /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
 		C1896EFB2C1C69F400CA1000 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
@@ -221,6 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C12BFE422C348AF500D1CC00 /* CwlPreconditionTesting in Frameworks */,
 				5CE9CA0726FC2009005A75FA /* Nimble.xcframework in Frameworks */,
 				5CE9CA0826FC2009005A75FA /* Quick.xcframework in Frameworks */,
 				5CE9CA0E26FC23B8005A75FA /* JWTDecode.framework in Frameworks */,
@@ -542,6 +544,9 @@
 				918A8E731D63D4E5001F787B /* PBXTargetDependency */,
 			);
 			name = "JWTDecode-tvOSTests";
+			packageProductDependencies = (
+				C12BFE412C348AF500D1CC00 /* CwlPreconditionTesting */,
+			);
 			productName = "JWTDecode-tvOSTests";
 			productReference = 918A8E6C1D63D4E5001F787B /* JWTDecode-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1727,6 +1732,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C12BFE412C348AF500D1CC00 /* CwlPreconditionTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1D1FB842C2177DA008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
+			productName = CwlPreconditionTesting;
+		};
 		C1D1FB852C2177DA008E9E3F /* CwlPreconditionTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C1D1FB842C2177DA008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
