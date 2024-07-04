@@ -26,9 +26,9 @@ Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
 
 ### Requirements
 
-- iOS 13.0+ / macOS 11.0+ / tvOS 13.0+ / watchOS 7.0+
-- Xcode 14.x / 15.x
-- Swift 5.7+
+- iOS 14.0+ / macOS 11.0+ / tvOS 14.0+ / watchOS 7.0+
+- Xcode 15.x
+- Swift 5.9+
 
 ### Installation
 
@@ -157,7 +157,9 @@ The minimum supported Swift minor version is the one released with the oldest-su
 
 ### Platforms
 
-Once a platform version becomes unsupported, dropping it from JWTDecode.swift **will not be considered a breaking change**, and will be done in a **minor** release. For example, iOS 13 will cease to be supported when iOS 17 gets released, and JWTDecode.swift will be able to drop it in a minor release.
+We support only the last four major versions of any platform, including the current major version.
+
+Once a platform version becomes unsupported, dropping it from JWTDecode.swift **will not be considered a breaking change**, and will be done in a **minor** release. For example, iOS 14 will cease to be supported when iOS 18 gets released, and JWTDecode.swift will be able to drop it in a minor release.
 
 In the case of macOS, the yearly named releases are considered a major platform version for the purposes of this Policy, regardless of the actual version numbers.
 
