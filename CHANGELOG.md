@@ -1,5 +1,14 @@
 # Change Log
 
+## [3.2.0-beta.0](https://github.com/auth0/JWTDecode.swift/tree/3.2.0-beta.0) (2024-07-04)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/3.1.0...3.2.0-beta.0)
+
+**Added**
+- feat: added support for visionOS platform [\#231](https://github.com/auth0/JWTDecode.swift/pull/231) ([desusai7](https://github.com/desusai7))
+
+**Changed**
+- Update Platforms Support Policy in README [\#214](https://github.com/auth0/JWTDecode.swift/pull/214) ([Widcket](https://github.com/Widcket))
+
 ## [3.1.0](https://github.com/auth0/JWTDecode.swift/tree/3.1.0) (2023-06-14)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/3.0.1...3.1.0)
 
