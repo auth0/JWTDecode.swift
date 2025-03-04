@@ -5,3 +5,17 @@ updates:
     directory: /
     schedule:
       interval: daily
+
+  - package-ecosystem: github-actions
+    directory: /.github/actions/setup
+    schedule:
+      interval: daily
+    labels:
+      - dependencies
+
+  - package-ecosystem: github-actions
+    directory: /.github/actions/test
+    schedule:
+      interval: daily
+    labels:
+      - dependencies
