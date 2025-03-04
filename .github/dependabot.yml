@@ -1,6 +1,16 @@
 version: 2
 
 updates:
+  - package-ecosystem: bundler
+    directory: /
+    schedule:
+      interval: daily
+    ignore:
+      - dependency-name: '*'
+        update-types: [version-update:semver-major]
+    labels:
+      - dependencies
+
   - package-ecosystem: github-actions
     directory: /
     schedule:
