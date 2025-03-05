@@ -12,6 +12,9 @@ concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
     cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
+env:
+    ruby: '3.3.1'
+
 jobs:
     test:
         name: Test on ${{ matrix.platform.os }} using Xcode ${{ matrix.xcode }}
@@ -31,11 +34,12 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+              uses: actions/checkout@v4
 
             - name: Set up environment
               uses: ./.github/actions/setup
               with:
+                ruby: ${{ env.ruby }}
                 xcode: ${{ matrix.xcode }}
 
             - name: Run tests
@@ -66,11 +70,12 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+              uses: actions/checkout@v4
 
             - name: Set up environment
               uses: ./.github/actions/setup
               with:
+                ruby: ${{ env.ruby }}
                 xcode: ${{ matrix.xcode }}
 
             - name: Run tests
@@ -87,11 +92,12 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+              uses: actions/checkout@v4
 
             - name: Set up environment
               uses: ./.github/actions/setup
               with:
+                ruby: ${{ env.ruby }}
                 xcode: ${{ matrix.xcode }}
 
             - name: Run pod lib lint
@@ -103,7 +109,7 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+              uses: actions/checkout@v4
 
             - name: Run SwiftLint
               run: swiftlint lint --reporter github-actions-logging
