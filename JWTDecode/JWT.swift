@@ -46,6 +46,13 @@ public protocol JWT {
     /// deemed unexpired.
     var expired: Bool { get }
 
+    /// Checks if the JWT will expire in the given time period (in seconds) using the `exp` claim.  If the claim is not
+    /// present the JWT will be deemed to not expire.
+    ///
+    /// - Parameter seconds: Time period in seconds.
+    /// - Returns: Whether the JWT will expire in the given time period or not.
+    func expires(in seconds: Int) -> Bool
+
 }
 
 public extension JWT {
