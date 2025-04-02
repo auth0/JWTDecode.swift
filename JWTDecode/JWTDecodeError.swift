@@ -1,7 +1,7 @@
 import Foundation
 
 /// A decoding error due to a malformed JWT.
-public enum JWTDecodeError: LocalizedError, CustomDebugStringConvertible {
+public enum JWTDecodeError: LocalizedError, CustomDebugStringConvertible, Sendable {
     /// When either the header or body parts cannot be Base64URL-decoded.
     case invalidBase64URL(String)
 
