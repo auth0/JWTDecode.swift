@@ -19,6 +19,16 @@ class JWTDecodeSpec: XCTestCase {
         XCTAssertTrue(sut.expired)
     }
 
+    func testJWTWillExpire() {
+        let sut = jwtThatExpiresAt(date: Date().addingTimeInterval(500))
+        XCTAssertTrue(sut.expires(in: 600))
+    }
+
+    func testJWTWillNotExpire() {
+        let sut = jwtThatExpiresAt(date: Date().addingTimeInterval(500))
+        XCTAssertFalse(sut.expires(in: 400))
+    }
+
     func testObtainPayload() {
         let jwt = jwt(withBody: ["sub": "myid", "name": "Shawarma Monk"])
         let payload = jwt.body as! [String: String]
