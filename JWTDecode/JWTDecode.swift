@@ -48,11 +48,22 @@ struct DecodedJWT: JWT {
     var identifier: String? { return claim(name: "jti").string }
 
     var expired: Bool {
+        return self.expires(before: Date())
+    }
+
+    func expires(in seconds: Int) -> Bool {
+        let expireDate = Date(timeIntervalSinceNow: TimeInterval(seconds))
+        return self.expires(before: expireDate)
+    }
+
+    func expires(before expireDate: Date) -> Bool {
         guard let date = self.expiresAt else {
             return false
         }
-        return date.compare(Date()) != ComparisonResult.orderedDescending
+
+        return date.compare(expireDate) != ComparisonResult.orderedDescending
     }
+
 }
 
 /// A JWT claim.
