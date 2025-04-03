@@ -1,5 +1,14 @@
 # Change Log
 
+## [3.3.0](https://github.com/auth0/JWTDecode.swift/tree/3.3.0) (2025-04-02)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/3.2.0...3.3.0)
+
+**Added**
+- Add support for expiration leeway [\#264](https://github.com/auth0/JWTDecode.swift/pull/264) ([Widcket](https://github.com/Widcket))
+
+**Changed**
+- Make `JWTDecodeError` conform to `Sendable` [\#263](https://github.com/auth0/JWTDecode.swift/pull/263) ([Widcket](https://github.com/Widcket))
+
 ## [3.2.0](https://github.com/auth0/JWTDecode.swift/tree/3.2.0) (2024-09-16)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/3.1.0...3.2.0)
 
