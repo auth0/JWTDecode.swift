@@ -410,7 +410,7 @@ class JWTDecodeSpec: XCTestCase {
     }
 }
 
-extension JWTDecodeError: Equatable {}
+extension JWTDecodeError: @retroactive Equatable {}
 
 public func ==(lhs: JWTDecodeError, rhs: JWTDecodeError) -> Bool {
     return lhs.localizedDescription == rhs.localizedDescription && lhs.errorDescription == rhs.errorDescription
