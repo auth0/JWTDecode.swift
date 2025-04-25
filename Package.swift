@@ -1,4 +1,4 @@
-// swift-tools-version:5.9
+// swift-tools-version:6.0
 
 import PackageDescription
 
@@ -24,5 +24,6 @@ let package = Package(
                 .product(name: "Nimble", package: "Nimble"),
             ],
             path: "JWTDecodeTests",
-            exclude: ["Info.plist"])
+            exclude: ["Info.plist"],
+            swiftSettings: [.swiftLanguageMode(.v5)])
     ])
