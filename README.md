@@ -27,8 +27,8 @@ Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
 ### Requirements
 
 - iOS 14.0+ / macOS 11.0+ / tvOS 14.0+ / watchOS 7.0+
-- Xcode 15.x
-- Swift 5.9+
+- Xcode 16.x
+- Swift 6.0+
 
 ### Installation
 
