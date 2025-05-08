@@ -25,20 +25,18 @@
 		918A8E651D63D2F7001F787B /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		918A8E661D63D2FB001F787B /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 		918A8E671D63D2FE001F787B /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
-		C12BFE422C348AF500D1CC00 /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C12BFE412C348AF500D1CC00 /* CwlPreconditionTesting */; };
 		C1896EF92C1C69F400CA1000 /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		C1896EFA2C1C69F400CA1000 /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
 		C1896EFB2C1C69F400CA1000 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
 		C1896F042C1C71AC00CA1000 /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1896EF12C1C690E00CA1000 /* JWTDecode.framework */; };
-		C1896F0C2C1C730F00CA1000 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9C9F926FC1E8F005A75FA /* Nimble.xcframework */; };
-		C1896F0D2C1C730F00CA1000 /* Nimble.xcframework in Copy Files */ = {isa = PBXBuildFile; fileRef = 5CE9C9F926FC1E8F005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C1896F0F2C1C731000CA1000 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9C9FA26FC1E8F005A75FA /* Quick.xcframework */; };
-		C1896F102C1C731100CA1000 /* Quick.xcframework in Copy Files */ = {isa = PBXBuildFile; fileRef = 5CE9C9FA26FC1E8F005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C1896F0C2C1C730F00CA1000 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		C1896F0F2C1C731000CA1000 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		C1896F112C1C738900CA1000 /* JWTDecodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA5A02237EBBCA00264C01 /* JWTDecodeSpec.swift */; };
 		C1896F122C1C738900CA1000 /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA5A04237EBBCB00264C01 /* JWTHelper.swift */; };
 		C1D1FB862C2177DA008E9E3F /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FB852C2177DA008E9E3F /* CwlPreconditionTesting */; };
-		C1D1FB882C217FBF008E9E3F /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FB872C217FBF008E9E3F /* CwlPreconditionTesting */; };
-		C1D1FB8A2C218877008E9E3F /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FB892C218877008E9E3F /* CwlPreconditionTesting */; };
+		D41DECE12DC89DE100F5B1A4 /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FB872C217FBF008E9E3F /* CwlPreconditionTesting */; };
+		D41DECE22DC89DE100F5B1A4 /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FB892C218877008E9E3F /* CwlPreconditionTesting */; };
+		D41DECE32DC89DE100F5B1A4 /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C12BFE412C348AF500D1CC00 /* CwlPreconditionTesting */; };
 		E390BAD32288E6AF00780D6C /* JWTDecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCF1BA0D66F00DE57D3 /* JWTDecodeError.swift */; };
 		E390BAD82288E6AF00780D6C /* JWTDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0069021B3B511F0048928E /* JWTDecode.swift */; };
 		E390BAD92288E6AF00780D6C /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE49DCC1BA0D5F700DE57D3 /* JWT.swift */; };
@@ -116,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D41DECE12DC89DE100F5B1A4 /* CwlPreconditionTesting in Frameworks */,
 				5CE9CA0C26FC22F8005A75FA /* JWTDecode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D41DECE22DC89DE100F5B1A4 /* CwlPreconditionTesting in Frameworks */,
 				5CE9CA0D26FC23B1005A75FA /* JWTDecode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D41DECE32DC89DE100F5B1A4 /* CwlPreconditionTesting in Frameworks */,
 				5CE9CA0E26FC23B8005A75FA /* JWTDecode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,8 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1D1FB862C2177DA008E9E3F /* CwlPreconditionTesting in Frameworks */,
-				C1896F0F2C1C731000CA1000 /* Quick.xcframework in Frameworks */,
-				C1896F0C2C1C730F00CA1000 /* Nimble.xcframework in Frameworks */,
+				C1896F0F2C1C731000CA1000 /* (null) in Frameworks */,
+				C1896F0C2C1C730F00CA1000 /* (null) in Frameworks */,
 				C1896F042C1C71AC00CA1000 /* JWTDecode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,7 +446,6 @@
 				C1896EFC2C1C71AC00CA1000 /* Sources */,
 				C1896EFD2C1C71AC00CA1000 /* Frameworks */,
 				C1896EFE2C1C71AC00CA1000 /* Resources */,
-				C1896F0E2C1C730F00CA1000 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -864,7 +864,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -918,7 +918,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -951,7 +951,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -981,7 +981,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -1007,7 +1007,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -1030,7 +1030,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -1064,7 +1064,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -1095,7 +1095,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -1122,7 +1122,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -1144,7 +1144,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -1172,7 +1172,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
@@ -1201,7 +1201,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
@@ -1224,7 +1224,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
@@ -1248,7 +1248,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
 				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
@@ -1300,7 +1300,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
@@ -1349,7 +1349,7 @@
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
@@ -1387,7 +1387,7 @@
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
@@ -1423,7 +1423,7 @@
 				SDKROOT = xros;
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
@@ -1455,7 +1455,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
@@ -1487,7 +1487,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};

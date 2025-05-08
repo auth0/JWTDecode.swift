@@ -24,6 +24,5 @@ let package = Package(
                 .product(name: "Nimble", package: "Nimble"),
             ],
             path: "JWTDecodeTests",
-            exclude: ["Info.plist"],
-            swiftSettings: [.swiftLanguageMode(.v5)])
+            exclude: ["Info.plist"])
     ])
