@@ -17,6 +17,6 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '14.0'
   s.watchos.deployment_target = '7.0'
   s.visionos.deployment_target = '1.0'
-
+  s.swift_versions = ['6.0', '6.1']
   s.source_files = 'JWTDecode/*.swift'
 end
