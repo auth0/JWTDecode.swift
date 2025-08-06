@@ -15,7 +15,7 @@ runs:
 
   steps:
     - name: Set up Ruby
-      uses: ruby/setup-ruby@65937904bcddfb93f8130882d9afa8597c45f3b5 # pin@v1.249.0
+      uses: ruby/setup-ruby@2a7b30092b0caf9c046252510f9273b4875f3db9 # pin@v1.254.0
       with:
         ruby-version: ${{ inputs.ruby }}
         bundler-cache: true
