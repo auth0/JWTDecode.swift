@@ -3,6 +3,7 @@
 ![Version](https://img.shields.io/cocoapods/v/JWTDecode.svg?style=flat)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/auth0/JWTDecode.swift/main.yml?style=flat)
 [![Coverage Status](https://img.shields.io/codecov/c/github/auth0/JWTDecode.swift/master.svg?style=flat)](https://codecov.io/github/auth0/JWTDecode.swift)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/auth0/JWTDecode.swift)
 ![License](https://img.shields.io/github/license/auth0/JWTDecode.swift.svg?style=flat)
 
 📚 [**Documentation**](#documentation) • 🚀 [**Getting Started**](#getting-started) • 📃 [**Support Policy**](#support-policy) • 💬 [**Feedback**](#feedback)
