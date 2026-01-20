@@ -22,8 +22,8 @@ public func decode(jwt: String) throws -> JWT {
 
 struct DecodedJWT: JWT {
 
-    let header: [String: Any]
-    let body: [String: Any]
+    let header: [String: any Sendable]
+    let body: [String: any Sendable]
     let signature: String?
     let string: String
 
@@ -67,13 +67,13 @@ struct DecodedJWT: JWT {
 }
 
 /// A JWT claim.
-public struct Claim {
+public struct Claim: Sendable {
 
     /// Raw claim value.
-    let value: Any?
+    let value: (any Sendable)?
 
     /// Original claim value.
-    public var rawValue: Any? {
+    public var rawValue: (any Sendable)? {
         return self.value
     }
 
@@ -154,13 +154,13 @@ private func base64UrlDecode(_ value: String) -> Data? {
     return Data(base64Encoded: base64, options: .ignoreUnknownCharacters)
 }
 
-private func decodeJWTPart(_ value: String) throws -> [String: Any] {
+private func decodeJWTPart(_ value: String) throws -> [String: any Sendable] {
     guard let bodyData = base64UrlDecode(value) else {
         throw JWTDecodeError.invalidBase64URL(value)
     }
 
     guard let json = try? JSONSerialization.jsonObject(with: bodyData, options: []),
-          let payload = json as? [String: Any] else {
+          let payload = json as? [String: any Sendable] else {
         throw JWTDecodeError.invalidJSON(value)
     }
 
