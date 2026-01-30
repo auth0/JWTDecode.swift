@@ -71,6 +71,9 @@ Then, run `carthage bootstrap --use-xcframeworks`.
 
 **See all the available features in the [API documentation ↗](https://auth0.github.io/JWTDecode.swift/documentation/jwtdecode)**
 
+> [!NOTE]
+> JWTDecode.swift is fully compatible with Swift 6's concurrency features. All public types conform to `Sendable` for safe usage across concurrency boundaries.
+
 1. Import the framework
 
 ```swift

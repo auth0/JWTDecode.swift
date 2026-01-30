@@ -7,13 +7,13 @@ import Foundation
 /// - [JWT.io](https://jwt.io)
 /// - [Validate JSON Web Tokens](https://auth0.com/docs/secure/tokens/json-web-tokens/validate-json-web-tokens)
 /// - [Validate ID Tokens](https://auth0.com/docs/secure/tokens/id-tokens/validate-id-tokens)
-public protocol JWT {
+public protocol JWT: Sendable {
 
     /// Contents of the header part.
-    var header: [String: Any] { get }
+    var header: [String: any Sendable] { get }
 
     /// Contents of the body part (claims).
-    var body: [String: Any] { get }
+    var body: [String: any Sendable] { get }
 
     /// Signature part.
     var signature: String? { get }
