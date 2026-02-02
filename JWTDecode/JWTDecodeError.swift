@@ -10,6 +10,9 @@ public enum JWTDecodeError: LocalizedError, CustomDebugStringConvertible, Sendab
 
     /// When the JWT doesn't have the required amount of parts (header, body, and signature).
     case invalidPartCount(String, Int)
+    
+    /// When a claim value cannot be decoded to the requested type.
+    case claimDecodingFailed(String)
 
     /// Description of the error.
     ///
@@ -32,6 +35,8 @@ public enum JWTDecodeError: LocalizedError, CustomDebugStringConvertible, Sendab
             return "The JWT \(jwt) has \(parts) parts when it should have 3 parts."
         case .invalidBase64URL(let value):
             return "Failed to decode Base64URL value \(value)."
+        case .claimDecodingFailed(let message):
+            return "Failed to decode claim: \(message)"
         }
     }
 }
