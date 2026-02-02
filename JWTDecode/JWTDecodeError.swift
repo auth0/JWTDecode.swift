@@ -10,7 +10,7 @@ public enum JWTDecodeError: LocalizedError, CustomDebugStringConvertible, Sendab
 
     /// When the JWT doesn't have the required amount of parts (header, body, and signature).
     case invalidPartCount(String, Int)
-    
+
     /// When a claim value cannot be decoded to the requested type.
     case claimDecodingFailed(String)
 
