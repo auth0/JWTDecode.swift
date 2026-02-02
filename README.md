@@ -125,6 +125,29 @@ var integer: Int?
 var double: Double?
 var date: Date?
 var array: [String]?
+var data: Data?
+```
+
+You can also decode complex claims directly to `Decodable` types:
+
+```swift
+struct Address: Decodable {
+    let street: String
+    let city: String
+}
+
+// Decode a custom claim
+let address = try jwt["address"].decode(Address.self)
+
+// With custom decoder configuration
+struct User: Decodable {
+    let firstName: String
+    let lastName: String
+}
+
+let decoder = JSONDecoder()
+decoder.keyDecodingStrategy = .convertFromSnakeCase
+let user = try jwt["user_info"].decode(User.self, using: decoder)
 ```
 
 You can easily add a convenience accessor for a custom claim in an extension.

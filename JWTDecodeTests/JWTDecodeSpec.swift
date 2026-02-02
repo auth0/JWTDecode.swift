@@ -408,6 +408,204 @@ class JWTDecodeSpec: XCTestCase {
         let sut = try! decode(jwt: jwtString)
         XCTAssertNotNil(sut["custom"].rawValue as? [String: Any])
     }
+
+    // MARK: - Data Property Tests
+
+    func testClaimDataFromString() {
+        let sut = jwt(withBody: ["custom_string_claim": "Shawarma Friday!"])
+        let claim = sut["custom_string_claim"]
+        // Primitives should return nil - use .string instead
+        XCTAssertNil(claim.data)
+    }
+
+    func testClaimDataFromInteger() {
+        let sut = jwt(withBody: ["custom_integer_claim": 42])
+        let claim = sut["custom_integer_claim"]
+        // Primitives should return nil - use .integer instead
+        XCTAssertNil(claim.data)
+    }
+
+    func testClaimDataFromArray() {
+        let sut = jwt(withBody: ["custom_array_claim": ["one", "two", "three"]])
+        let claim = sut["custom_array_claim"]
+        XCTAssertNotNil(claim.data)
+        if let data = claim.data {
+            let decoded = try? JSONSerialization.jsonObject(with: data) as? [String]
+            XCTAssertEqual(decoded, ["one", "two", "three"])
+        }
+    }
+
+    func testClaimDataFromDictionary() {
+        let sut = jwt(withBody: ["custom_dict_claim": ["foo": "bar", "baz": 123]])
+        let claim = sut["custom_dict_claim"]
+        XCTAssertNotNil(claim.data)
+        if let data = claim.data {
+            let decoded = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+            XCTAssertNotNil(decoded)
+        }
+    }
+
+    func testClaimDataFromNilValue() {
+        let sut = jwt(withBody: ["existing": "value"])
+        let claim = sut["missing_claim"]
+        XCTAssertNil(claim.data)
+    }
+
+    // MARK: - Decode Method Tests
+
+    func testDecodeClaimToDecodableType() throws {
+        struct Address: Decodable, Equatable {
+            let street: String
+            let city: String
+        }
+        
+        let addressData = ["street": "MG Road, Koramangala", "city": "Bangalore"]
+        let sut = jwt(withBody: ["address": addressData])
+        
+        let address = try sut["address"].decode(Address.self)
+        XCTAssertEqual(address.street, "MG Road, Koramangala")
+        XCTAssertEqual(address.city, "Bangalore")
+    }
+
+    func testDecodeClaimArray() throws {
+        struct Role: Decodable, Equatable {
+            let name: String
+            let level: Int
+        }
+        
+        let rolesData: [[String: Any]] = [
+            ["name": "admin", "level": 10],
+            ["name": "user", "level": 1]
+        ]
+        let sut = jwt(withBody: ["roles": rolesData])
+        
+        let roles = try sut["roles"].decode([Role].self)
+        XCTAssertEqual(roles.count, 2)
+        XCTAssertEqual(roles[0].name, "admin")
+        XCTAssertEqual(roles[1].level, 1)
+    }
+
+    func testDecodeClaimWithCustomDecoder() throws {
+        struct User: Decodable, Equatable {
+            let firstName: String
+            let lastName: String
+        }
+        
+        let userData = ["first_name": "Rahul", "last_name": "Gupta"]
+        let sut = jwt(withBody: ["user_info": userData])
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        let user = try sut["user_info"].decode(User.self, using: decoder)
+        XCTAssertEqual(user.firstName, "Rahul")
+        XCTAssertEqual(user.lastName, "Gupta")
+    }
+
+    func testDecodeClaimThrowsErrorForNilValue() {
+        struct SomeType: Decodable {}
+        
+        let sut = jwt(withBody: ["existing": "value"])
+        
+        XCTAssertThrowsError(try sut["missing_claim"].decode(SomeType.self)) { error in
+            XCTAssertEqual(error as? JWTDecodeError, .claimDecodingFailed("Claim not found or has nil value"))
+        }
+    }
+
+    func testDecodeClaimThrowsErrorForInvalidType() {
+        struct Address: Decodable {
+            let street: String
+            let city: String
+        }
+        
+        let sut = jwt(withBody: ["invalid": ["wrong": "structure"]])
+        
+        XCTAssertThrowsError(try sut["invalid"].decode(Address.self))
+    }
+    
+    func testDecodeClaimThrowsErrorForPrimitiveString() {
+        struct SomeType: Decodable {
+            let value: String
+        }
+        
+        let sut = jwt(withBody: ["primitive": "just a string"])
+        
+        XCTAssertThrowsError(try sut["primitive"].decode(SomeType.self)) { error in
+            XCTAssertEqual(error as? JWTDecodeError, .claimDecodingFailed("Claim value must be an object or array. Use .string, .integer, .boolean, etc. for primitive values"))
+        }
+    }
+    
+    func testDecodeClaimThrowsErrorForPrimitiveInteger() {
+        struct SomeType: Decodable {
+            let value: Int
+        }
+        
+        let sut = jwt(withBody: ["primitive": 42])
+        
+        XCTAssertThrowsError(try sut["primitive"].decode(SomeType.self)) { error in
+            XCTAssertEqual(error as? JWTDecodeError, .claimDecodingFailed("Claim value must be an object or array. Use .string, .integer, .boolean, etc. for primitive values"))
+        }
+    }
+    
+    func testDecodeClaimThrowsErrorForPrimitiveBoolean() {
+        struct SomeType: Decodable {
+            let value: Bool
+        }
+        
+        let sut = jwt(withBody: ["primitive": true])
+        
+        XCTAssertThrowsError(try sut["primitive"].decode(SomeType.self)) { error in
+            XCTAssertEqual(error as? JWTDecodeError, .claimDecodingFailed("Claim value must be an object or array. Use .string, .integer, .boolean, etc. for primitive values"))
+        }
+    }
+    
+    func testDecodeClaimThrowsErrorForTypeMismatch() {
+        struct User: Decodable {
+            let name: String
+            let age: Int
+        }
+        
+        // Provide wrong types for the fields
+        let sut = jwt(withBody: ["user": ["name": 123, "age": "not a number"]])
+        
+        XCTAssertThrowsError(try sut["user"].decode(User.self))
+    }
+    
+    func testDecodeClaimThrowsErrorForMissingRequiredFields() {
+        struct User: Decodable {
+            let name: String
+            let age: Int
+            let email: String
+        }
+        
+        // Missing 'email' field
+        let sut = jwt(withBody: ["user": ["name": "Sanchit Gupta", "age": 25]])
+        
+        XCTAssertThrowsError(try sut["user"].decode(User.self))
+    }
+
+    func testDecodeNestedComplexClaim() throws {
+        struct Profile: Decodable, Equatable {
+            let user: UserInfo
+        }
+        
+        struct UserInfo: Decodable, Equatable {
+            let name: String
+            let location: String
+        }
+        
+        let profileData: [String: Any] = [
+            "user": [
+                "name": "Rahul Gupta",
+                "location": "Indiranagar, Bangalore"
+            ]
+        ]
+        let sut = jwt(withBody: ["profile": profileData])
+        
+        let profile = try sut["profile"].decode(Profile.self)
+        XCTAssertEqual(profile.user.name, "Rahul Gupta")
+        XCTAssertEqual(profile.user.location, "Indiranagar, Bangalore")
+    }
 }
 
 extension JWTDecodeError: @retroactive Equatable {}
