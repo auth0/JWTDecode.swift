@@ -138,6 +138,56 @@ public struct Claim: Sendable {
         return nil
     }
 
+    /// Value of the claim as `Data`.
+    /// Useful for decoding complex claims with `JSONDecoder`.
+    /// Returns `nil` for primitive values (use `.string`, `.integer`, etc. instead).
+    ///
+    /// ```swift
+    /// if let data = jwt["custom_claim"].data {
+    ///     let myObject = try? JSONDecoder().decode(MyType.self, from: data)
+    /// }
+    /// ```
+    public var data: Data? {
+        guard let value = self.value else { return nil }
+        // Only serialize arrays and dictionaries
+        // Primitives should use typed accessors (.string, .integer, etc.)
+        guard value is [Any] || value is [String: Any] else {
+            return nil
+        }
+        return try? JSONSerialization.data(withJSONObject: value, options: [])
+    }
+
+    /// Decodes the claim value to a `Decodable` type using the provided `JSONDecoder`.
+    ///
+    /// ```swift
+    /// struct Address: Decodable {
+    ///     let street: String
+    ///     let city: String
+    /// }
+    ///
+    /// if let address = try? jwt["address"].decode(Address.self) {
+    ///     print(address.street)
+    /// }
+    /// ```
+    ///
+    /// - Parameters:
+    ///   - type: The `Decodable` type to decode to.
+    ///   - decoder: The `JSONDecoder` to use. Defaults to a new instance.
+    /// - Returns: The decoded value.
+    /// - Throws: `JWTDecodeError.claimDecodingFailed` if the claim cannot be decoded.
+    public func decode<T: Decodable>(_ type: T.Type, using decoder: JSONDecoder = JSONDecoder()) throws -> T {
+        guard let value = self.value else {
+            throw JWTDecodeError.claimDecodingFailed("Claim not found or has nil value")
+        }
+        guard value is [Any] || value is [String: Any] else {
+            throw JWTDecodeError.claimDecodingFailed("Claim value must be an object or array. Use .string, .integer, .boolean, etc. for primitive values")
+        }
+        guard let data = try? JSONSerialization.data(withJSONObject: value, options: []) else {
+            throw JWTDecodeError.claimDecodingFailed("Failed to serialize claim value to JSON data")
+        }
+        return try decoder.decode(type, from: data)
+    }
+
 }
 
 private func base64UrlDecode(_ value: String) -> Data? {
