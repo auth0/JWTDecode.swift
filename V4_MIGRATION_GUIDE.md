@@ -1,5 +1,7 @@
 # v4 Migration Guide
 
+> **Note:** This is a pre-release migration guide for v4, which is currently in testing phase. The API and this guide may change before the final release.
+
 As expected with a major release, JWTDecode.swift v4 contains breaking changes. Please review this guide thoroughly to understand the changes required to migrate your application to v4.
 
 ## Table of Contents
