@@ -1,5 +1,14 @@
 # Change Log
 
+## [4.0.0-beta.0](https://github.com/auth0/JWTDecode.swift/tree/4.0.0-beta.0) (2026-02-03)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/3.3.0...4.0.0-beta.0)
+
+**Added**
+- docs: Add v4 migration guide [\#334](https://github.com/auth0/JWTDecode.swift/pull/334) ([sanchitmehta94](https://github.com/sanchitmehta94))
+- feat: add data property and decode method to Claim [\#333](https://github.com/auth0/JWTDecode.swift/pull/333) ([sanchitmehta94](https://github.com/sanchitmehta94))
+- feat: add full Sendable conformance to JWT types [\#329](https://github.com/auth0/JWTDecode.swift/pull/329) ([sanchitmehta94](https://github.com/sanchitmehta94))
+- docs: Add Ask DeepWiki badge to README [\#308](https://github.com/auth0/JWTDecode.swift/pull/308) ([arpit-jn](https://github.com/arpit-jn))
+
 ## [3.3.0](https://github.com/auth0/JWTDecode.swift/tree/3.3.0) (2025-04-02)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/3.2.0...3.3.0)
 
