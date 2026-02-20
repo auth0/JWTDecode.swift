@@ -10,7 +10,7 @@
 
 **This library doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.**
 
-Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
+Migrating from v3? Check the [Migration Guide](V4_MIGRATION_GUIDE.md).
 
 ## Documentation
 
@@ -27,7 +27,7 @@ Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
 
 ### Requirements
 
-- iOS 14.0+ / macOS 11.0+ / tvOS 14.0+ / watchOS 7.0+
+- iOS 14.0+ / macOS 11.0+ / tvOS 14.0+ / watchOS 7.0+ / visionOS 1.0+
 - Xcode 16.x
 - Swift 6.0+
 
@@ -52,7 +52,7 @@ Then, select the dependency rule and press **Add Package**.
 Add the following line to your `Podfile`:
 
 ```ruby
-pod 'JWTDecode', '~> 4.0'
+pod 'JWTDecode', '~> 3.3'
 ```
 
 Then, run `pod install`.
@@ -62,7 +62,7 @@ Then, run `pod install`.
 Add the following line to your `Cartfile`:
 
 ```text
-github "auth0/JWTDecode.swift" ~> 4.0
+github "auth0/JWTDecode.swift" ~> 3.3
 ```
 
 Then, run `carthage bootstrap --use-xcframeworks`.
@@ -125,29 +125,6 @@ var integer: Int?
 var double: Double?
 var date: Date?
 var array: [String]?
-var data: Data?
-```
-
-You can also decode complex claims directly to `Decodable` types:
-
-```swift
-struct Address: Decodable {
-    let street: String
-    let city: String
-}
-
-// Decode a custom claim
-let address = try jwt["address"].decode(Address.self)
-
-// With custom decoder configuration
-struct User: Decodable {
-    let firstName: String
-    let lastName: String
-}
-
-let decoder = JSONDecoder()
-decoder.keyDecodingStrategy = .convertFromSnakeCase
-let user = try jwt["user_info"].decode(User.self, using: decoder)
 ```
 
 You can easily add a convenience accessor for a custom claim in an extension.
