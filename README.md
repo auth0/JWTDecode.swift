@@ -10,7 +10,7 @@
 
 **This library doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.**
 
-Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
+Migrating from v3? Check the [Migration Guide](V4_MIGRATION_GUIDE.md).
 
 ## Documentation
 
@@ -27,7 +27,7 @@ Migrating from v2? Check the [Migration Guide](V3_MIGRATION_GUIDE.md).
 
 ### Requirements
 
-- iOS 14.0+ / macOS 11.0+ / tvOS 14.0+ / watchOS 7.0+
+- iOS 14.0+ / macOS 11.0+ / tvOS 14.0+ / watchOS 7.0+ / visionOS 1.0+
 - Xcode 16.x
 - Swift 6.0+
 
