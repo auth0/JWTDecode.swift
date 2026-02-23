@@ -1,5 +1,11 @@
 # Change Log
 
+## [4.0.0](https://github.com/auth0/JWTDecode.swift/tree/4.0.0) (2026-02-23)
+[Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/4.0.0-beta.0...4.0.0)
+
+**Changed**
+- docs: Update README for v4 and added explicit visionOS support [\#341](https://github.com/auth0/JWTDecode.swift/pull/341) ([sanchitmehtagit](https://github.com/sanchitmehtagit))
+
 ## [4.0.0-beta.0](https://github.com/auth0/JWTDecode.swift/tree/4.0.0-beta.0) (2026-02-03)
 [Full Changelog](https://github.com/auth0/JWTDecode.swift/compare/3.3.0...4.0.0-beta.0)
 
