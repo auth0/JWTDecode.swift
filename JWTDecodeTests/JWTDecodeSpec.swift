@@ -66,6 +66,13 @@ class JWTDecodeSpec: XCTestCase {
         }
     }
 
+    func testInvalidBase64WithIgnoredCharactersIsRejected() {
+        let jwtString = "eyJhbGciOiJIUzI1NiJ%.e30.SIGNATURE"
+        XCTAssertThrowsError(try decode(jwt: jwtString)) { error in
+            XCTAssertEqual(error as? JWTDecodeError, .invalidBase64URL("eyJhbGciOiJIUzI1NiJ%"))
+        }
+    }
+
     func testRaiseExceptionWithInvalidJSONInJWT() {
         let jwtString = "HEADER.BODY.SIGNATURE"
         XCTAssertThrowsError(try decode(jwt: jwtString)) { error in
@@ -78,6 +85,15 @@ class JWTDecodeSpec: XCTestCase {
         XCTAssertThrowsError(try decode(jwt: jwtString)) { error in
             XCTAssertEqual(error as? JWTDecodeError, .invalidPartCount(jwtString, 2))
         }
+    }
+
+    func testErrorDescriptionsDoNotExposeJWTContents() {
+        let jwtString = "header.payload.signature"
+        let encodedPart = "eyJzdWIiOiJzZWNyZXQifQ"
+
+        XCTAssertFalse(JWTDecodeError.invalidPartCount(jwtString, 3).localizedDescription.contains(jwtString))
+        XCTAssertFalse(JWTDecodeError.invalidJSON(encodedPart).localizedDescription.contains(encodedPart))
+        XCTAssertFalse(JWTDecodeError.invalidBase64URL(encodedPart).localizedDescription.contains(encodedPart))
     }
 
     func testReturnHeader() {
