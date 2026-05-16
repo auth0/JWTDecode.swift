@@ -29,12 +29,12 @@ public enum JWTDecodeError: LocalizedError, CustomDebugStringConvertible, Sendab
     /// - Important: You should avoid displaying the error description to the user, it's meant for **debugging** only.
     public var debugDescription: String {
         switch self {
-        case .invalidJSON(let value):
-            return "Failed to parse JSON from Base64URL value \(value)."
-        case .invalidPartCount(let jwt, let parts):
-            return "The JWT \(jwt) has \(parts) parts when it should have 3 parts."
-        case .invalidBase64URL(let value):
-            return "Failed to decode Base64URL value \(value)."
+        case .invalidJSON:
+            return "Failed to parse JSON from a Base64URL JWT part."
+        case .invalidPartCount(_, let parts):
+            return "The JWT has \(parts) parts when it should have 3 parts."
+        case .invalidBase64URL:
+            return "Failed to decode a Base64URL JWT part."
         case .claimDecodingFailed(let message):
             return "Failed to decode claim: \(message)"
         }
