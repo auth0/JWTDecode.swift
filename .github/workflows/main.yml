@@ -25,12 +25,12 @@ jobs:
 
         strategy:
           matrix:
-            platform: 
+            platform:
               - { os: iOS, scheme: JWTDecode-iOS }
               - { os: macOS, scheme: JWTDecode-macOS }
               - { os: tvOS, scheme: JWTDecode-tvOS }
-            xcode: 
-              - '16.1'
+            xcode:
+              - '16.2'
 
         steps:
             - name: Checkout
@@ -65,8 +65,8 @@ jobs:
 
         strategy:
           matrix:
-            xcode: 
-              - '16.1'
+            xcode:
+              - '16.2'
 
         steps:
             - name: Checkout
@@ -87,8 +87,8 @@ jobs:
 
         strategy:
           matrix:
-            xcode: 
-              - '16.1'
+            xcode:
+              - '16.2'
 
         steps:
             - name: Checkout
