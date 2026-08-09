@@ -201,7 +201,7 @@ private func base64UrlDecode(_ value: String) -> Data? {
         let padding = "".padding(toLength: Int(paddingLength), withPad: "=", startingAt: 0)
         base64 += padding
     }
-    return Data(base64Encoded: base64, options: .ignoreUnknownCharacters)
+    return Data(base64Encoded: base64)
 }
 
 private func decodeJWTPart(_ value: String) throws -> [String: any Sendable] {
