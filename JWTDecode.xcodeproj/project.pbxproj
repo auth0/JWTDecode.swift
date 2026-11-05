@@ -86,7 +86,6 @@
 		5F0069021B3B511F0048928E /* JWTDecode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JWTDecode.swift; sourceTree = "<group>"; };
 		5F0069091B3B532E0048928E /* JWTDecode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JWTDecode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0069131B3B532E0048928E /* JWTDecode-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JWTDecode-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F2496A41D64A91300A1C6E2 /* JWTDecode.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = JWTDecode.podspec; sourceTree = "<group>"; };
 		5F2496A51D64A91300A1C6E2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5F2496A71D64A91300A1C6E2 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		5F2496A81D64A91300A1C6E2 /* Gemfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
@@ -247,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				5F2496AD1D64B88900A1C6E2 /* codecov.yml */,
-				5F2496A41D64A91300A1C6E2 /* JWTDecode.podspec */,
 				5F2496A51D64A91300A1C6E2 /* .gitignore */,
 				5F2496A71D64A91300A1C6E2 /* Gemfile */,
 				5F2496A81D64A91300A1C6E2 /* Gemfile.lock */,

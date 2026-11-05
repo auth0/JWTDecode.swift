@@ -1,6 +1,6 @@
 ![JWTDecode.swift](https://cdn.auth0.com/website/sdks/banners/jwtdecode-swift-banner.png)
 
-![Version](https://img.shields.io/cocoapods/v/JWTDecode.svg?style=flat)
+![Version](https://img.shields.io/github/v/release/auth0/JWTDecode.swift?style=flat)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/auth0/JWTDecode.swift/main.yml?style=flat)
 [![Coverage Status](https://img.shields.io/codecov/c/github/auth0/JWTDecode.swift/master.svg?style=flat)](https://codecov.io/github/auth0/JWTDecode.swift)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/auth0/JWTDecode.swift)
@@ -9,6 +9,9 @@
 📚 [**Documentation**](#documentation) • 🚀 [**Getting Started**](#getting-started) • 📃 [**Support Policy**](#support-policy) • 💬 [**Feedback**](#feedback)
 
 **This library doesn't validate the JWT. Any well-formed JWT can be decoded from Base64URL.**
+
+> [!IMPORTANT]
+> **CocoaPods support has effectively stopped.** New releases of JWTDecode.swift are no longer published to CocoaPods and are available only through [Swift Package Manager](#swift-package-manager) and [Carthage](#carthage).
 
 Migrating from v3? Check the [Migration Guide](V4_MIGRATION_GUIDE.md).
 
@@ -46,16 +49,6 @@ https://github.com/auth0/JWTDecode.swift
 ```
 
 Then, select the dependency rule and press **Add Package**.
-
-#### Cocoapods
-
-Add the following line to your `Podfile`:
-
-```ruby
-pod 'JWTDecode', '~> 4.0'
-```
-
-Then, run `pod install`.
 
 #### Carthage
 
